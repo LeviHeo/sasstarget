@@ -1,0 +1,815 @@
+/*
+ * Checkout - Step 2, Shipping
+ */
+
+.pt_optcheckout {
+    h2 {
+        display: none;
+        margin: 0;
+        padding: 0 0 20px 0;;
+        font: normal 26px/30px $font_times;
+
+        @include respond-to(phones) {
+            padding: 0;
+            margin: 0;
+            font: normal 24px/24px $font_times;
+            &.order_review_title {
+                padding: 0 0 10px;
+                border-bottom: none;
+            }
+        }
+    }
+    .checkout {
+        .primary {
+            padding: 30px 0px 0px 0;
+
+            @include respond-to(phones) {
+                padding: 0px 0 30px 0;
+                width: 100%;
+                .next_step_button {
+                    margin: 15px 0 10px 0;
+                }
+            }
+        }
+        @include respond-to(phones) {
+            overflow: hidden;
+        }
+    }
+    .checkout_notification_area {
+        font: normal 12px/17px $font_helvetica;
+        color: #000;
+        .error_type {
+            position: relative;
+            padding: 10px 0 10px 25px;
+            margin: 0 0 0px 0;
+            color: #f00;
+            &:before {
+                @include sprite-image($global-error-icon);
+                @include sprite-position($global-error-icon);
+
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 19px;
+                height: 20px;
+                margin: -13px 0 0;
+            }
+        }
+    }
+    .selectboxit-container, select {
+
+        @include respond-to(phones) {
+            font-size: 12px;
+        }
+        .selectboxit {
+
+            @include respond-to(phones) {
+                padding: 7px;
+            }
+        }
+    }
+    .f_field_checkbox {
+        .f_label_value {
+            line-height: 14px;
+            font-weight: normal;
+            color: #000;
+        }
+    }
+    .error_message {
+        color: #CF2A2A;
+    }
+}
+
+.general_addinfo legend {
+    padding-top: 1px; // iPhone margin fix
+}
+
+.b-shipping_address_info {
+    padding: 0 0 20px 0;
+    margin: 0 0 25px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 0;
+
+    .f_field {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 5%;
+
+        @include respond-to(phones) {
+            float: none;
+            width: 100%;
+            padding-right: 0;
+            margin: 0 0 15px 0;
+        }
+
+        .f_label {
+            font: bold 12px/17px $font_helvetica;
+            white-space: nowrap;
+        }
+        &.f_field_hidden {
+            display: none;
+        }
+        &.required {
+            .f_label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                &:before {
+                    color: #CF2A2A;
+                }
+            }
+        }
+        &.formfield_add_to_address_book {
+            width: 100%;
+        }
+        &.f_field-block {
+            width: 100%;
+            padding: 0 65% 0 0;
+
+            @include respond-to(phones) {
+                padding: 0;
+            }
+        }
+
+        &.formfield_zip {
+            width: 100%;
+            
+            input {
+                width: 110px;
+                
+                @include respond-to(phones) {
+                    width: 100%;
+                }
+            }
+
+            @include respond-to(phones) {
+                width: 35%;
+                margin: 0 0 15px 0;
+                display: inline-block;
+            }
+        }
+        &.formfield_state {
+
+            @include respond-to(phones) {
+                width: 60%;
+                margin: 0 5% 15px 0;
+                display: inline-block;
+            }
+        }
+        &.formfield_phone {
+            position: relative;
+            margin-right: 0;
+            
+            @include respond-to(tablets) {
+                width: 100%;
+                padding: 0;
+                
+                .textinput {
+                    width: 45%;
+                }
+            }
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+
+            .formfield_description {
+                color: #999;
+                font: normal 11px/13px $font_helvetica;
+                display: block;
+                margin: 4px 0 0;
+            }
+        }
+    }
+
+    .select_address {
+        width: 45%;
+        padding-bottom: 15px;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+        .f_field {
+            width: 100%;
+            vertical-align: top;
+            margin-bottom: 0;
+            padding-right: 0;
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+        .simple_submit_action {
+            display: none;
+        }
+    }
+    
+    .legend_message {
+        font: bold 18px/18px $font_times;
+        display: block;
+        margin: 0 0 23px 0;
+
+        @include respond-to(phones) {
+            border-bottom: none;
+            padding: 0;
+        }
+    }
+    legend {
+        display: block;
+        width: 100%;
+    }
+    .required_indicator {
+        @include required;
+
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0 0 25px 10px;
+        color: #000;
+        font: 12px/15px $font_helvetica;
+        font-style: normal;
+        font-family: $font_helvetica;
+        text-transform: capitalize;
+        
+        &:before {
+            font-weight: bold;
+            font-family: $font_arial;
+        }
+    }
+
+    .form_field_tooltip {
+        &.with_helper_text {
+            display: none;
+        }
+    }
+    .selectboxit-container {
+        .selectboxit {
+            font-weight: normal;
+            text-transform: uppercase;
+            .selectboxit-text {
+                font-weight: normal;
+                color: #4f4f4f;
+            }
+        }
+        .selectboxit-options {
+            padding: 0 10px 0 0;
+        }
+    }
+}
+
+.b-subscriptions_area {
+    .f_field {
+        width: 45%;
+        vertical-align: top;
+
+        @include respond-to(phones) {
+            margin: 0 0px 20px 0;
+            width: 100%;
+        }
+        &:after {
+            display: none;
+        }
+        .f_label {
+            font: bold 12px/17px $font_helvetica;
+        }
+        &.required {
+            .f_label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                &:before {
+                    color: #CF2A2A;
+                }
+            }
+        }
+        &.f_field_email {
+            display: inline-block;
+            margin: 0 10px 20px 0;
+        }
+        &.f_field_checkbox {
+            margin: 0 0 10px 0;
+            width: 100%;
+        }
+        &.formfield_textinput {
+            position: relative;
+            width: 270px;
+            margin-right: 0;
+            @include respond-to(phones) {
+                width: 100%;
+            }
+            .textinput {
+                width: 200px;
+                @include respond-to(phones) {
+                    width: 100%;
+                }
+            }
+            .formfield_description {
+                color: #999;
+                font: normal 11px/13px $font_helvetica;
+                display: block;
+                margin: 4px 0 0;
+            }
+        }
+    }
+    .form_field_tooltip {
+        padding: 28px 0 0 0;
+        display: inline-block;
+        vertical-align: top;
+        .tooltip {
+            font: bold 12px/17px $font_arial;
+            text-decoration: underline;
+        }
+    }
+}
+
+.b-shipping_email_wrapper {
+    position: relative;
+    .form_field_tooltip {
+
+        @include respond-to(phones) {
+            position: absolute;
+            padding: 0;
+            right: 0;
+            top: 0;
+        }
+    }
+    .tooltip_content {
+        @include respond-to(phones) {
+            left: auto;
+            right: 0;
+            width: 280px !important;
+        }
+    }
+}
+
+.select_payment_method {
+    .about_paypal {
+        @include links(#000, underline);
+
+        font: bold 12px/17px $font_arial;
+    }
+}
+
+.b-shipping_methods, .shipping_methods {
+    legend {
+        font: bold 18px/18px $font_times;
+        display: block;
+        width: 100%;
+        padding: 25px 0 20px;
+        margin: 20px 0 15px 0;
+        border-top: 1px dotted #ccc;
+
+        @include respond-to(phones) {
+            border-bottom: none;
+            margin: 20px 0 0 0;
+            font-size: 16px;
+        }
+    }
+    .tooltip {
+        display: none;
+        
+        @include respond-to(phones) {
+            display: block;
+            
+            button {
+                padding: 0;
+            }
+        }
+    }
+    .shippingmethods_details {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        font: bold 12px/17px $font_arial;
+        text-decoration: underline;
+
+        @include respond-to(phones) {
+            font-weight: normal;
+        }
+    }
+    .f_field {
+        font: normal 12px/15px $font_helvetica;
+        vertical-align: top;
+
+        &:after {
+            display: none;
+        }
+        .f_label {
+            width: 100%;
+        }
+        .f_label_value {
+            font: bold 12px/18px $font_helvetica;
+            color: #000;
+            width: 100%;
+            padding: 0 230px 0 35px;
+            margin-bottom: 10px;
+            position: relative;
+            background-position: left center !important;
+            
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+            
+            @include respond-to(tablets) {
+                padding-right: 170px;
+            }
+            @include respond-to(phones) {
+                padding-right: 0;
+            }
+            
+            .shippingmethod_desctiption,
+            .shippingmehod_promodesctiption {
+                font-weight: normal;
+                
+                .ie8 & {
+                    font-family: $font_helvetica_n;
+                }
+            }
+
+            .shippingmethod_desctiption {
+                color: #787878;
+                line-height: 14px;
+            }
+
+            .shippingmehod_promodesctiption {
+                color: #cf2a2a;
+                font-size: 11px;
+                line-height: 18px;
+            }
+            .shipping_method_priceinfo {
+                position: absolute;
+                right: 60px;
+                top: 50%;
+                margin-top: -12px;
+                font: bold 18px/18px $font_helvetica;
+                
+                .ie8 & {
+                    font-weight: normal;
+                    font-family: $font_helvetica_b;
+                }
+                
+                @include respond-to(tablets) {
+                    right: 0;
+                }
+                @include respond-to(phones) {
+                    display: none;
+                }
+                
+                .discount {
+                    color: #777;
+                    font-weight: normal;
+                    text-decoration: line-through;
+                    
+                    .ie8 & {
+                        font-family: $font_helvetica_n;
+                    }
+                }
+                .with_discount {
+                    width: 90px;
+                    display: inline-block;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .delivery_map {
+        display:none;
+    }
+    .tooltip {
+        @include respond-to (phones) {
+            float: right;
+        }
+    }
+}
+
+.checkout_gifting {
+    @include respond-to(phones) {
+        margin: 0 0px 30px 0;
+    }
+    h3 {
+        display: none;
+    }
+    .checkout_gifting_title {
+        font: bold normal 18px/18px $font_times;
+        display: block;
+        width: 100%;
+        padding: 25px 0px 20px;
+        margin: 5px 0 10px;
+        border-top: 1px dotted #ccc;
+
+        &:after {
+            display: none;
+        }
+        @include respond-to(phones) {
+            border-bottom: none;
+            margin: 20px 0 0 0;
+            font-size: 16px;
+        }
+    }
+    .giftwrap_title_price {
+        float: right;
+        margin-right: 60px;
+        height: 31px;
+        line-height: 29px;
+        border: 1px dotted #787878;
+        font-size: 18px;
+        color: #787878;
+        font-weight: normal;
+        padding: 0 13px;
+        margin-top: -7px;
+         
+        @include respond-to(phablets) {
+            margin-right: 0;
+        }
+    }
+    .is_free .giftwrap_title_price {
+        color: #cf2a2a;
+        border-color: #cf2a2a;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 3px;
+        padding: 0 10px 0 13px;
+    }
+    .js_GiftWrapForm {
+        font: normal 12px/15px $font_helvetica;
+        .f_field {
+            vertical-align: top;
+            .f_label {
+                color: #000;
+            }
+        }
+        .js_giftMessage {
+            width: 45%;
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+                height: 90px;
+                padding: 5px;
+                margin: 0 0 5px 0;
+                display: block;
+                resize: vertical;
+            }
+            .char-count {
+                .char-remain-count {
+                    color: #cf2a2a;
+                }
+            }
+        }
+        .js_messageInBox, .js_isGift {
+            .f_field {
+                margin: 0 0 8px 0;
+            }
+        }
+        .js_addGiftMessage {
+            .f_field {
+                margin: 0 0 5px 0;
+            }
+        }
+        .js_fromEmail, .js_toEmail {
+            width: 200px;
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+            label {
+                font: normal 12px/17px $font_helvetica;
+            }
+            .f_field {
+                &.required {
+                    .f_label {
+                        @include required;
+
+                        position: relative;
+                        padding: 0 0 0 10px;
+
+                        @include respond-to(phones) {
+                            font-weight: bold;
+                        }
+                        &:before {
+                            color: #CF2A2A;
+                        }
+                    }
+                }
+            }
+        }
+        .button {
+            @include button-black(0 30px, 14px, 33px);
+            
+            display: none !important;
+        }
+        .js_messageInBox {
+            display: none !important;
+        }
+        .js_giftNotificationEmail, .js_fromEmail, .js_toEmail {
+            display: none !important;
+        }
+        .error_message {
+            color: #CF2A2A;
+        }
+        .char-count {
+            white-space: nowrap;
+        }
+    }
+    .cart_gift_wrapper {
+        .js_giftWrapConfirmBlock {
+            .button {
+                @include button-black(0 30px, 14px, 33px);
+
+                margin: 10px 0 0 0;
+            }
+        }
+    }
+    .formfield_gift_message {
+        width: 100%;
+        padding-top: 8px;
+        
+        @include respond-to(phones) {
+            width: 100%;
+        }
+        .f_label {
+            font: bold 12px/23px $font_helvetica;
+            
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+        }
+    }
+}
+
+/*TOOLTIP*/
+
+.tooltip, .cvn_tip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    .tooltip_content {
+        position: absolute;
+        padding: 20px;
+        height: auto;
+        bottom: 28px;
+        width: 330px;
+        border: 1px solid #000;
+        background: #fff;
+        display: none;
+        z-index: 2;
+        font: normal 14px/16px $font_helvetica;
+        white-space: normal;
+        a {
+            font-weight: normal;
+            text-decoration: none;
+        }
+        &.dialog_shipping_details {
+            margin: -17px 0 0 0;
+            background: #fafaf8;
+            border: 1px solid #e6e7e8;
+            text-transform: none;
+            width: 215px;
+            bottom: auto;
+            left: 80px;
+            top: 2px;
+
+            @include respond-to(phones) {
+                margin: 15px 0 0 -219px;
+            }
+            .ui-dialog-content {
+                padding: 20px 16px 20px;
+            }
+            .shipment_totals {
+                li {
+                    font: normal 12px/20px $font_helvetica;
+                    .label {
+                        text-align: left;
+                    }
+                    .value {
+                        width: 50px;
+                        text-align: right;
+                        float: right;
+                    }
+                    &.order_total {
+                        margin: 0 0 5px 0;
+                        font: bold 18px/19px $font_times;
+                        .value {
+                            width: auto;
+                        }
+                    }
+                    &.method_total {
+                        font-weight: bold;
+                    }
+                    &.order_shipping_discount, &.method_discount {
+                        color: #f00;
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .tooltip_content {
+            display: block;
+        }
+    }
+    a {
+        @include links(#000, underline);
+        font: normal 14px/16px $font_helvetica;
+    }
+}
+
+.cvn_tip {
+    .tooltip_content {
+        width: 605px;
+        left: -220px;
+        bottom: 60px !important;
+        .g-float_right {
+            padding: 0 0 0 20px;
+        }
+    }
+}
+
+.checkout-security-code {
+    width: 565px;
+    p {
+        font: bold 14px/16px $font_arial;
+        &.title {
+            margin: 0 0 15px 0;
+            font-size: 18px !important;
+        }
+    }
+}
+
+/*END TOOLTIP*/
+
+/*DIALOG*/
+.address_suggestions_popup {
+        left: 50%;
+        margin: 0 0 0 -30%;
+        .ui-dialog-content {
+        padding: 0 20px 20px 20px;
+    }
+    .address_validation {
+        @include clearfix;
+
+        h3 {
+            padding: 10px 0;
+            font: bold 16px/18px $font_times;
+        }
+        .applicable_suggestion {
+            float: left;
+            width: 50%;
+            padding: 0 0 30px 0;
+            font: normal 12px/16px $font_arial;
+
+            @include respond-to(tablets) {
+                padding: 0 10px 20px 0;
+            }
+
+            @include respond-to(phones) {
+                width: 100%;
+                padding: 0 0 20px 0;
+            }
+            .formfield {
+                margin: 0 0 5px;
+            }
+            .f_label {
+                font: normal 12px/12px $font_helvetica;
+                .f_label_value {
+                    color: #000;
+                }
+            }
+
+            // Force Invalid validation
+            .force_invalid {
+                .input_radio {
+                    display: none;
+                }
+                .f_label_value {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .formfield {
+        .button {
+            @include button-black(0 30px, 14px, 33px);
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.warning_type {
+    margin: 0 0 10px 0;
+    font: normal 11px/14px $font_arial;
+    color: #999;
+
+    @include respond-to(phones) {
+        margin-top: 15px;
+    }
+}

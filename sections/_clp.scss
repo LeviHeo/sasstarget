@@ -1,0 +1,1248 @@
+/*
+ * CLP
+ */
+
+/* CLP Layout */
+.clp .main,
+.plp .main,
+.pt_product_search_noresult .main,
+.pt_content_search_result .main {
+    .primary {
+        width:710px;
+        float:right;
+        position:relative;
+
+        @include respond-to(tablets) {
+            width: 65.5%;
+        }
+        @include respond-to(phones) {
+            width: auto;
+            float: none;
+        }
+    }
+    .secondary,
+    .refinements_container {
+        width:25%;
+        padding: 0 25px 0 0;
+        float:left;
+
+        @include respond-to(tablets) {
+            width: 34.5%;
+            padding: 0 21px 0 0;
+        }
+        @include respond-to(phones) {
+            width: auto;
+            float: none;
+            padding: 0;
+        }
+    }
+}
+.b-leftnav_banner{
+    padding: 25px 0 0;
+
+    @include respond-to(phones) {
+        display: none;
+    }
+
+    img{
+        max-width: 100%;
+        display: block;
+        margin: 0 0 10px;
+    }
+    &-header {
+        padding: 0 0 5px;
+
+        a {
+            @include links( #000, none );
+
+            line-height: 20px;
+            font-size: 16px;
+        }
+    }
+    &-desc{
+        margin: 0 0 10px;
+        color: #4f4f4f;
+        font: 12px $font_helvetica;
+    }
+    &-link{
+        &:hover{
+            a{
+                color: $color-dark_red;
+                text-decoration: underline;
+                &:after{
+                    @include triangle(right, 4px, 0 0 0 5px, $color-dark_red)
+                }
+            }
+
+        }
+        a{
+            color: #000;
+            font: bold 11px $font_helvetica;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+
+            &:after{
+                @include triangle(right, 4px, 0 0 0 5px, #000)
+            }
+        }
+    }
+}
+
+/* Auto Replenishment */
+.l-auto_replenishment-slot {
+    @include background-img( 'clp/ar_bg.jpg', 0 0, repeat);
+
+    padding:20px 20px 25px;
+    margin:0 0 20px 0;
+
+    @include respond-to(tablets){
+        @include background-img( 'clp/ar_bg_tablet.jpg', center top, repeat);
+
+        padding-bottom:12px;
+    }
+    @include respond-to(phones){
+        margin: 0 -20px 20px -20px;
+    }
+
+    .jcarousel-control.jcarousel-prev,
+    .jcarousel-control.jcarousel-next{
+        display:none;
+
+        &.disabled{
+            @include vendor-prefix( opacity, 0.5 );
+        }
+        &:before{
+            display: none;
+        }
+        @include respond-to(phones){
+            display: block;
+            width:25px;
+            height:34px;
+            cursor:pointer;
+            position:absolute;
+            left:0;
+            top:50%;
+            margin:-17px -35px 0;
+            @include background-img( 'clp/ar_arrows.png');
+        }
+    }
+    .jcarousel-control.jcarousel-next{
+        background-position:100% 0;
+        right:0;
+        left:auto;
+    }
+    .jcarousel-clip > ul{
+        position: relative;
+        width: auto;
+        font-size: inherit;
+    }
+
+
+    @include respond-to(phones){
+        .jcarousel-clip {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 150px !important;
+        }
+        .jcarousel-clip ul {
+            width: auto;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .jcarousel-clip li {
+            float: none;
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            white-space: normal;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+    }
+
+    .b-auto_replenishment{
+        &-page_name {
+            display: none;
+        }
+        &-logo{
+            width:132px;
+            margin:0 37px 24px 40px;
+            float:left;
+
+            @include respond-to(tablets){
+                width:92px;
+                margin:0 18px 19px 0;
+            }
+            @include respond-to(phones){
+                width:67px;
+                margin:10px 15px 22px 0;
+            }
+        }
+        &-titleblock{
+            margin:0 0 24px 209px;
+
+            @include respond-to(tablets){
+                margin:5px 0 19px 100px;
+            }
+            @include respond-to(phones){
+                margin:0 0 22px 82px;
+            }
+        }
+        &-title{
+            margin:15px 0 5px 0;
+            color:#233d91;
+            font: 38px $font_times;
+            font-weight:bold;
+
+            @include respond-to(tablets){
+                margin: 5px 0;
+                font-size:26px;
+                line-height:28px;
+            }
+            @include respond-to(phones){
+                margin: 5px 0;
+                font-size:17px;
+            }
+        }
+        &-subtitle{
+            color:#000;
+            font: bold 14px $font_helvetica;
+
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+
+            @include respond-to(tablets){
+                font-size:12px;
+            }
+            @include respond-to(phones){
+                font-size:12px;
+            }
+        }
+        &-steps{
+            @include clearfix;
+
+            padding:20px 0 25px;
+            margin:32px 0 12px;
+            overflow:hidden;
+
+            @include background-img( 'clp/ar_pattern.png', 0 0, repeat);
+            @include vendor-prefix( box-shadow, #666 2px 2px 8px -1px );
+
+            @include respond-to(phones){
+                margin:22px 35px 0;
+                position:relative;
+                overflow:visible;
+            }
+        }
+        &-bgimage{
+            display:block;
+            margin:5px 0 5px 35px;
+
+            @include respond-to(tablets){
+                margin:0 auto 5px;
+            }
+            @include respond-to(phones){
+                margin:0 auto 5px;
+            }
+        }
+        &-step{
+            width:17%;
+            height: 155px;
+            margin:0 1%;
+            float:left;
+            text-align:center;
+            position:relative;
+            overflow: visible;
+
+            @include respond-to(tablets){
+                body &{
+                    width:40%;
+                    height: auto;
+                    padding:8px 0 0;
+                    margin: 0 5%;
+                }
+            }
+            @include respond-to(phones){
+                body &{
+                    height: 150px;
+                }
+            }
+
+            &:after{
+                content:'';
+                display:block;
+                width:67px;
+                height:24px;
+                position:absolute;
+                right:81%;
+                top:29%;
+                z-index: 5;
+                @include background-img( 'clp/ar_arrow.png', right 0);
+
+                @include respond-to(tablets){
+                    width:36px;
+                    right:100%;
+                }
+                @include respond-to(phones){
+                    display: none;
+                }
+            }
+            &:first-child:after{
+                display:none;
+            }
+            &--0{
+                width:20%;
+            }
+            &--1{
+                width:20%;
+            }
+            &--2{
+                width:30%;
+
+                @include respond-to(tablets){
+                    width:40%;
+                    padding:8px 5% 0;
+                    clear:left;
+                    &:after{
+                        display: none;
+                    }
+                }
+            }
+            &--3{
+                width:22%;
+            }
+        }
+        &-step_pictitle{
+            margin:8px 0 0;
+        }
+        &-step_pic{
+            position:relative;
+            width:100%;
+            height:85px;
+            margin: 0 0 12px;
+
+            img{
+                position:absolute;
+                bottom:0;
+                left:50%;
+                width:75%;
+
+                @include respond-to(phones){
+                    margin:0 !important;
+                    position:relative;
+                    left:auto;
+                    bottom:auto;
+                    width:auto !important;
+                }
+            }
+            &--0 img {
+                width:65px;
+                margin: 0 0 0 -32px;
+
+                @include respond-to(tablets){
+                    width:86px;
+                    margin: 0 0 0 -43px;
+                }
+            }
+            &--1 img {
+                width:70px;
+                margin: 0 0 0 -35px;
+
+                @include respond-to(tablets){
+                    width:93px;
+                    margin: 0 0 0 -46px;
+                }
+            }
+            &--2 img {
+                width:116px;
+                margin: 0 0 0 -48px;
+
+                @include respond-to(tablets){
+                    width:139px;
+                    margin: 0 0 0 -69px;
+                }
+            }
+            &--3 img {
+                width:80px;
+                margin: 0 0 0 -40px;
+
+                @include respond-to(tablets){
+                    width:105px;
+                    margin: 0 0 0 -52px;
+                }
+            }
+
+            @include respond-to(tablets){
+                height:96px;
+            }
+            @include respond-to(phones){
+                height:96px;
+                padding-top:5px;
+            }
+        }
+        &-step_title{
+            width:100px;
+            margin:3px auto 0;
+            color:#000;
+            font: 11px $font_helvetica;
+
+            @include respond-to(phones){
+                width:auto;
+            }
+        }
+        &-footer{
+            color:#000;
+            text-align:center;
+
+            @include respond-to(tablets){
+                font-size:11px;
+                width:360px;
+                margin:0 auto;
+            }
+            @include respond-to(phones){
+                font-size:11px;
+                margin:20px 35px 0;
+            }
+        }
+        .jcarousel-clip {
+            overflow: inherit;
+        }
+    }
+}
+#auto-replenishment-service-page .refinements {
+    @include respond-to(phones) {
+        display: none !important;
+    }
+}
+
+// Rich relevance
+.custom-plp-slot-2 {
+    .b-product_recommendations {
+        margin: 0 0 40px;
+
+        @include respond-to(phones) {
+            margin: 20px 0;
+        }
+    }
+}
+
+// PLP category personalization
+.b-personalization-plp-slot {
+    position: relative;
+    width: 32.6%;
+    height: 364px;
+    line-height: 364px;
+    float: left;
+    margin: 0 5px 18px 0;
+    text-align: center;
+
+    @include respond-to( tablets ) {
+        width: 49%;
+        margin-right: 1%;
+    }
+
+    @include respond-to( phones ) {
+        width: 48.5%;
+        margin: 0 1.5% 20px 0;
+    }
+
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+    }
+}
+
+/* CLP Landing page */
+.l-clp_template-default {
+    padding: 0 0 60px;
+
+    @include respond-to( tablets ) {
+        padding: 0 0 50px;
+    }
+    @include respond-to( phones ) {
+        padding: 0 0 25px;
+    }
+    // left side
+    .refinements_container {
+        .visible-mobile {
+            .refinement_header,
+            .search_products_count,
+            .refinement_headlined_mobile {
+                display: none;
+            }
+        }
+    }
+    .b-refinement-withcategory {
+        @include respond-to(phones) {
+            margin: 0;
+            border: none;
+        }
+        .refinement_category_head,
+        .sort_by,
+        .clear-button {
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+    }
+    .refinements_content {
+        @include respond-to( phones ) {
+            display: block;
+            border: none;
+        }
+
+        &.expanded {
+            .refinement_header {
+                @include respond-to( phones ) {
+
+                    border-bottom: none;
+                    &:after {
+                        @include font_icons( $icon_minus );
+                    }
+                }
+            }
+            .b-category-left_navigation {
+                display: block;
+            }
+        }
+    }
+    .refinement_header {
+        @include respond-to( phones ) {
+            display: block;
+            position: relative;
+            margin: 0 -20px;
+            padding: 19px 60px 19px 20px;
+            font: 20px/22px $font_times;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            cursor: pointer;
+            &:after {
+                @include font_icons( $icon_plus );
+
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                margin: -10px 0 0;
+                color: $color-dark_red;
+            }
+        }
+    }
+}
+#top_level_clp_content_tile {
+    .products-wrapper {
+        .content-link {
+            display: none !important;
+        }
+    }
+}
+
+/* LEft menu */
+.b-category-left_navigation {
+    border-top: none;
+
+    @include respond-to( tablets ) {
+        border-top: none;
+    }
+
+    @include respond-to( phones ) {
+        display: none;
+        border-top: none;
+        margin: 0 -20px;
+        padding: 0 20px;
+        border-top: none;
+        border-bottom: 2px solid #000;
+    }
+    li {
+        &:first-child {
+            a {
+                @include respond-to( phones ) {
+                    border-top: none;
+                }
+            }
+        }
+        &:last-child {
+            a {
+                @include respond-to( phones ) {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    a {
+        @include links( #000, none );
+
+        position: relative;
+        display: block;
+        padding: 7px 10px 6px 0;
+        font-family: $font-helvetica;
+        font-size: 11px;
+        line-height: 13px;
+        border-bottom: 1px solid #ddd;
+
+        @include respond-to( phones ) {
+            padding: 12px 0;
+            line-height: 16px;
+            font-family: $font_times;
+            font-size: 13px;
+            border-top: 1px solid #EAEAEA;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        &:after {
+            @include font_icons( $icon_arrow-thin-right );
+
+            position: absolute;
+            right: 0;
+            top: 50%;
+            display: block;
+            margin: -3px 0 0;
+            font-size: 6px;
+
+            @include respond-to( phones ) {
+                display: none;
+            }
+        }
+        &:hover {
+            &:after {
+                @include vendor-prefix( opacity, 0.5 );
+            }
+        }
+    }
+}
+
+/* CLP slot-1 template-1, 2, 3, 4 */
+.g-content_placement-product_single_big {
+    position: relative;
+    overflow: hidden;
+
+    .product-wrapper {
+
+    }
+
+    .product-content {
+        padding: 25px 0;
+        font-size: 0;
+        background-repeat: no-repeat;
+
+        @include respond-to( tablets ) {
+            padding: 20px 0;
+            background-size: 100% auto;
+        }
+        @include respond-to( phones ) {
+            height: auto;
+            padding: 40px 10px;
+            background-size: 100% auto;
+        }
+
+        // image left & text right aligned
+        &.left-to-right {
+            .product-image {
+                width: 54%;
+
+                @include respond-to( tablets ) {
+                    padding: 0 10px;
+                }
+                @include respond-to( phones ) {
+                    width: 50%;
+                    padding: 0 5px 0 0;
+                }
+            }
+            .product-text {
+                width: 46%;
+
+                @include respond-to( tablets ) {
+                    padding: 0 5px;
+                }
+                @include respond-to( phones ) {
+                    width: 50%;
+                    padding: 0 0 0 5px;
+                }
+            }
+        }
+        // image right & text left aligned
+        &.right-to-left {
+            .product-text {
+                width: 46%;
+
+                @include respond-to( tablets ) {
+                    padding: 0 5px;
+                }
+                @include respond-to( phones ) {
+                    width: 50%;
+                    padding: 0 5px 0 0;
+                }
+            }
+            .product-image {
+                width: 54%;
+
+                @include respond-to( tablets ) {
+                    padding: 0 10px;
+                }
+                @include respond-to( phones ) {
+                    width: 50%;
+                    padding: 0 0 0 5px;
+                }
+            }
+        }
+    }
+    // image with image map
+    .img-map {
+        .product-map {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    // hidden text
+    .text-hidden {
+        text-align: center;
+
+        a,
+        img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .product-image {
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        font-size: 0;
+        vertical-align: middle;
+    }
+    .product-text {
+        display: inline-block;
+        padding: 0 1%;
+        text-align: center;
+        vertical-align: middle;
+
+        h3 {
+            font-size: 31px;
+            text-transform: uppercase;
+            line-height: 36px;
+            color: #FFF;
+            font-weight: normal;
+
+            @include respond-to( tablets ) {
+                font-size: 22px;
+                line-height: 22px;
+            }
+            @include respond-to( phones ) {
+                font-size: 16px;
+                line-height: 18px;
+            }
+        }
+        p {
+            margin: 15px 0 0;
+            font-size: 18px;
+            line-height: 22px;
+            color: #FFF;
+
+            @include respond-to( tablets ) {
+                margin: 10px 0 0;
+                font-size: 12px;
+                line-height: 14px;
+            }
+            @include respond-to( phones ) {
+                margin: 10px 0 0;
+                font-size: 10px;
+                line-height: 12px;
+            }
+        }
+        button,
+        a {
+            @include button();
+            @include button-size(0 22px);
+            @include button-color();
+            margin: 20px 0 0;
+
+            @include respond-to( phones-tablets ) {
+                @include button-size(0 12px, 10px, 25px);
+                margin: 10px 0 0;
+            }
+
+            @include respond-to( phones ) {
+                width: auto !important;
+            }
+        }
+    }
+    img {
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    // add border around content asset
+    &.g-add-border {
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            display: block;
+
+            @include respond-to( phones ) {
+                display: none;
+            }
+        }
+        &:before {
+            top: 0;
+            box-shadow: 0 0 100px 180px #e6e6e6;
+
+            @include respond-to( tablets ) {
+                box-shadow: 0 0 100px 100px #e6e6e6;
+            }
+
+        }
+        &:after {
+            bottom: 0;
+            box-shadow: 700px 0 100px 180px #e6e6e6;
+
+            @include respond-to( tablets ) {
+                box-shadow: 500px 50px 100px 180px #e6e6e6;
+            }
+        }
+
+        .product-wrapper {
+            position: relative;
+            z-index: 1;
+            margin: 2px;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #d6d6d6;
+
+            @include respond-to( tablets ) {
+                padding: 7px;
+            }
+            @include respond-to( phones ) {
+                margin: 0;
+                padding: 0;
+                border: 2px solid #d6d6d6;
+            }
+        }
+    }
+}
+// reuse templates from CLP to PLP top banners
+.slot_grid_header {
+
+    .content_asset {
+        margin: 0 0 20px;
+    }
+    .g-content_placement-product_single_big {
+        // add border around content asset
+        &.g-add-border {
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                box-shadow: 0 0 50px 60px #E6E6E6, 700px 0 50px 60px #E6E6E6;
+
+                @include respond-to( tablets ) {
+                    box-shadow: 0 0 50px 60px #E6E6E6, 440px 0 50px 60px #E6E6E6;
+                }
+                @include respond-to( phones ) {
+                    display: none;
+                }
+            }
+
+            .product-wrapper {
+                padding: 6px;
+            }
+        }
+
+        @include respond-to( phones ) {
+            display: none;
+        }
+
+        &.left-to-right {
+            .product-image {
+                width: 30%;
+
+                @include respond-to( phones ) {
+                    width: 45%;
+                }
+            }
+            .product-text {
+                width: 70%;
+
+                @include respond-to( phones ) {
+                    width: 55%;
+                }
+            }
+        }
+        &.right-to-left {
+            .product-text {
+                width: 30%;
+
+                @include respond-to( phones ) {
+                    width: 45%;
+                }
+            }
+            .product-image {
+                width: 70%;
+
+                @include respond-to( phones ) {
+                    width: 55%;
+                }
+            }
+        }
+        .product-text {
+            h3,
+            p {
+                color: #000;
+            }
+        }
+    }
+}
+
+/* CLP slot-2 */
+.g-content_placement-product_list {
+    @include clearfix;
+
+    margin: 20px -3.6% 0 0;
+    font-size: 0;
+    text-align: center;
+
+    @include respond-to( phones ) {
+        margin: 20px 0 0;
+        padding: 0;
+        text-align: left;
+    }
+
+    .content_asset {
+        float: left;
+        width: 30%;
+        position: relative;
+        margin: 0 3.3% 25px 0;
+        overflow: hidden;
+        font-size: 12px;
+        background-size: 100%;
+
+        @include respond-to( tablets ) {
+            width: 31%;
+            margin: 0 2% 20px 0;
+        }
+        @include respond-to( phones ) {
+            width: 100%;
+            height: 100%;
+            float: none;
+            margin: 0;
+            background: none;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            box-shadow: 0 0 80px 50px #e6e6e6, 220px 0 80px 50px #e6e6e6;
+
+            @include respond-to( tablets ) {
+                box-shadow: 0 0 60px 40px #e6e6e6, 140px 0 60px 40px #e6e6e6;
+            }
+            @include respond-to( phones ) {
+                display: none;
+            }
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            box-shadow: 0 0 80px 50px #e6e6e6, 220px 0 80px 50px #e6e6e6;
+
+            @include respond-to( tablets ) {
+                box-shadow: 0 0 60px 40px #e6e6e6, 140px 0 60px 40px #e6e6e6;
+            }
+            @include respond-to( phones ) {
+                display: none;
+            }
+        }
+
+        + .content_asset {
+            @include respond-to( phones ) {
+                margin: 10px 0 0;
+            }
+        }
+
+        .products-wrapper {
+            position: relative;
+            z-index: 1;
+            margin: 2px;
+            padding: 15px;
+            border: 1px solid #d6d6d6;
+            background: #fff;
+
+            @include respond-to( tablets ) {
+                padding: 7px;
+            }
+
+            @include respond-to( phones ) {
+                margin: 0;
+                padding: 5px;
+            }
+        }
+    }
+    .content-wrapper {
+
+        @include respond-to( tablets ) {
+            background-size: 100% 100%;
+        }
+        @include respond-to( phones ) {
+            @include clearfix;
+
+            background: none !important;
+        }
+    }
+    .content-image {
+        height: 145px;
+        line-height: 145px;
+
+        @include respond-to( desktop ) {
+            background: none !important;
+        }
+        @include respond-to( tablets ) {
+            height: 130px;
+            line-height: 130px;
+            background: none !important;
+        }
+
+        @include respond-to( phones ) {
+            width: 35%;
+            height: auto;
+            line-height: 1;
+            float: left;
+            margin: 0 15px 0 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .content-text {
+        min-height: 29px;
+        padding: 0 5px 5px;
+        font-family: $font_helvetica;
+        font-size: 11px;
+        line-height: 12px;
+
+        @include respond-to( phones ) {
+            min-height: inherit;
+            padding: 0;
+            overflow: hidden;
+            font-size: 13px;
+            line-height: 14px;
+            font-family: $font_times;
+        }
+    }
+    h2 {
+        padding: 5px;
+        font-family: $font_trade_gothic;
+        font-size: 16px;
+        font-weight: bold;
+
+        @include respond-to( tablets ) {
+            padding: 7px 5px 5px;
+            font-size: 14px;
+        }
+
+        @include respond-to( phones ) {
+            padding: 10px 0;
+            overflow: hidden;
+        }
+    }
+    a {
+        @include links( #000, none );
+
+        &.link-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            font-size: 0;
+        }
+    }
+    .content-link {
+        a {
+            display: block;
+            padding: 15px 0 0;
+            font: bold 11px $font_helvetica;
+            text-transform: uppercase;
+
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+
+            @include respond-to( tablets ) {
+                padding: 10px 0 0;
+                font-size: 10px;
+            }
+
+            @include respond-to( phones ) {
+                padding: 0;
+                font-size: 10px;
+                margin: 10px 0 0;
+            }
+
+            &:after {
+                @include triangle( right, 5px, 0 0 -1px 5px, #000 );
+            }
+        }
+    }
+}
+
+/* CLP slot-3 */
+.g-content_placement-product_single_little {
+    margin: 10px 0 0;
+
+    @include respond-to( phones ) {
+        margin: 20px 0 0;
+    }
+
+    h2 {
+        margin: 0 0 40px;
+        font-size: 26px;
+        font-weight: normal;
+        line-height: 28px;
+        text-align: center;
+
+        @include respond-to( phones ) {
+            margin: 0 0 15px;
+            font-size: 20px;
+            line-height: 20px;
+        }
+    }
+    .content-wrapper {
+        @include clearfix;
+
+        font-size: 0;
+        text-align: center;
+    }
+    .content-image {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 20px 0 0;
+
+        @include respond-to( tablets ) {
+            width: 110px;
+        }
+        @include respond-to( phones ) {
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+    .content-wrapper-inner {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        width: 330px;
+
+        @include respond-to( tablets ) {
+            width: 300px;
+        }
+        @include respond-to( phones ) {
+            width: 100%;
+        }
+    }
+    .content-text {
+        padding: 10px 20px 5px;
+        border-right: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+        background-size: 100%;
+
+        @include respond-to( tablets ) {
+            padding: 10px 50px 5px;
+            background-size: 100% 100%;
+        }
+        @include respond-to( phones ) {
+            padding: 10px 45px 5px;
+            overflow: hidden;
+            background-size: 100% 100%;
+        }
+
+        h3 {
+            margin: 0 0 5px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: underline;
+
+            @include respond-to( phones ) {
+                font-size: 8px;
+                line-height: 10px;
+            }
+        }
+        p {
+            font-size: 17px;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 19px;
+
+            @include respond-to( phones ) {
+                padding: 0 0 10px;
+                font-size: 14px;
+                line-height: 16px;
+            }
+
+            + p {
+                @include respond-to( phones ) {
+                    margin: 5px 0 0;
+                }
+            }
+        }
+        i {
+            display: block;
+            font-size: 11px;
+            font-weight: normal;
+        }
+        a {
+            @include links( #000, none );
+        }
+    }
+    .content-link {
+        margin: 10px 0 0;
+
+        a {
+            @include links( #000, none );
+
+            font: bold 11px $font_helvetica;
+            text-transform: uppercase;
+
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+
+            &:after {
+                @include triangle( right, 5px, 0 0 0 5px, #000 );
+            }
+        }
+    }
+}

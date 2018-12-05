@@ -1,0 +1,418 @@
+/*
+ * Typography
+ */
+
+/*
+ * Links with Arrow
+ */
+
+@mixin t-link-arrow_left() {
+	@include links(#000 !important, none !important, $color-dark_red !important, underline !important);
+
+	font: bold 11px $font_helvetica;
+	text-transform: uppercase;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b;
+	}
+
+	&:before {
+		@include triangle( left, 4px, 0 5px 0 0, #000);
+	}
+	&:hover:before {
+		border-right-color: $color-dark_red;
+	}
+	@include respond-to(phones) {
+		&:hover:before {
+			border-right-color: #000;
+		}
+		&:active:before  {
+			border-right-color: $color-dark_red;
+		}
+	}
+	@include respond-to(tablets) {
+		&:hover:before  {
+			border-right-color: #000;
+		}
+		&:active:before  {
+			border-right-color: $color-dark_red;
+		}
+	}
+}
+@mixin t-link-arrow_right() {
+	@include links(#000 !important, none !important, $color-dark_red !important, underline !important);
+
+	font: bold 11px $font_helvetica;
+	text-transform: uppercase;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b;
+	}
+
+	&:after {
+		@include triangle( right, 4px, 0 0 0 5px, #000);
+	}
+	&:hover:after {
+		border-left-color: $color-dark_red;
+	}
+	@include respond-to(phones) {
+		&:hover:after {
+			border-left-color: #000;
+		}
+		&:active:after  {
+			border-left-color: $color-dark_red;
+		}
+	}
+	@include respond-to(tablets) {
+		&:hover:after  {
+			border-left-color: #000;
+		}
+		&:active:after  {
+			border-left-color: $color-dark_red;
+		}
+	}
+}
+.t-link-arrow_left,
+.t-link-arrow-left {
+	@include t-link-arrow_left;
+}
+.t-link-arrow_right,
+.t-link-arrow-right {
+	@include t-link-arrow_right;
+}
+.t-link {
+	@include links(#000 !important, none !important, $color-dark_red !important, underline !important);
+
+	font: bold 11px $font_helvetica;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b;
+	}
+}
+
+/*
+ * Global static content text styles
+ */
+
+.t-page-title {
+	margin: 0px 0px 22px !important;
+	font: 26px/28px $font_times !important;
+	color: #000 !important;
+
+	@include respond-to( phones ) {
+		margin: 0 0 15px !important;
+		font-size: 20px !important;
+		line-height: 22px !important;
+	}
+}
+.t-heading-main {
+	margin: 0px 0px 28px !important;
+	font: bold 24px/29px $font_times !important;
+	color: #000 !important;
+
+	@include respond-to( phones ) {
+		margin: 0 0 15px !important;
+		font-size: 18px !important;
+		line-height: 20px !important;
+	}
+}
+.t-subheading {
+	margin: 20px 0px 7px !important;
+	font: bold 18px/22px $font_times !important;
+
+	@include respond-to( phones ) {
+		font-size: 16px !important;
+	}
+}
+.t-text-paragraph {
+	font: 14px/18px $font_arial !important;
+	padding: 0px 0px 10px !important;
+}
+
+/*
+ * Text Mixins
+ */
+
+/*
+ * Example usage:
+ *
+ * .t-text-16 {
+ *	 @include t-text(16px);
+ * }
+ *
+ * Initialization:
+ * <p class="t-text-16">Text</p>
+ *
+ * Output:
+ * .t-text-16 {
+ *   font-family: 'Times New Roman', serif;
+ *   font-style: normal;
+ *   font-weight: normal;
+ *   font-size: 16px;
+ *   line-height: 21px;
+ *   padding: 5px 0;
+ * }
+ */
+
+@mixin t-text($size:14px,$line-height:1.33em){
+	@include font_main(normal,normal,$size,$line-height);
+	padding: 5px 0;
+}
+
+.t-text-26 {
+	@include t-text(26px);
+}
+.t-text-24 {
+	@include t-text(24px);
+}
+.t-text-16 {
+	@include t-text(16px);
+}
+.t-text-14 {
+	@include t-text(14px);
+}
+.t-text-12 {
+	@include t-text(12px);
+}
+.t-text-11 {
+	@include t-text(11px);
+}
+.t-text-10 {
+	@include t-text(10px);
+}
+
+/*
+ * Example usage:
+ *
+ * Initialization:
+ * <p class="t-size-16-m14">Text</p>
+ *
+ * Output:
+ * .t-size-16-m14 {
+ *   font-size: 16px;
+ *   line-height: 1.25;
+ * }
+ * @media only screen and (max-width: 767px) {
+ * 	 .t-size-16-m14 {
+ * 	   font-size: 14px;
+ * 	 }
+ * }
+ */
+
+@mixin t-size($size:12, $size-mobile:$size){
+	font-size: #{$size}px !important;
+	line-height: 1.25 !important;
+
+	@include respond-to(phones) {
+		font-size: #{$size-mobile}px !important;
+	}
+}
+
+$font-values: 10 11 12 13 14 15 16 18 20 22 24 26 28 30; // Global list of font sizes
+
+@each $size in $font-values {
+	@each $size-mobile in $font-values {
+		.t-size-#{$size}-m#{$size-mobile} {
+			@include t-size(#{$size}, #{$size-mobile});
+		}
+	}
+}
+
+/*
+ * Font Family classes
+ */
+
+.t-font-times,
+.t-font_times {
+	font-family: $font_times !important;
+}
+.t-font-arial,
+.t-font_arial {
+	font-family: $font_arial !important;
+}
+.t-font-tradegothic,
+.t-font_trade_gothic {
+	font-family: $font_trade_gothic !important;
+}
+.t-font-rockwell {
+	font-family: $font_rockwell !important;
+}
+.t-font-rockwell-extrabold {
+	font-family: $font_rockwell_extrabold !important;
+}
+.t-font-helvetica,
+.t-font-helvetica-italic,
+.t-font-helvetica-bold,
+.t-font-helvetica-bold-italic {
+	font-weight: normal !important;
+	font-style: normal !important;
+}
+.t-font-helvetica,
+.t-font_helvetica {
+	font-family: $font_helvetica !important;
+}
+.t-font-helvetica-italic {
+	font-family: $font_helvetica !important;
+	font-style: italic !important;
+
+	.ie8 & {
+		font-family: $font_helvetica_i !important;
+		font-style: normal !important;
+	}
+}
+.t-font-helvetica-bold {
+	font-family: $font_helvetica !important;
+	font-weight: bold !important;
+
+	.ie8 & {
+		font-family: $font_helvetica_b !important;
+		font-weight: normal !important;
+	}
+}
+.t-font-helvetica-bold-italic {
+	font-family: $font_helvetica !important;
+	font-weight: bold !important;
+	font-style: italic !important;
+
+	.ie8 & {
+		font-family: $font_helvetica_bi !important;
+		font-weight: normal !important;
+		font-style: normal !important;
+	}
+}
+
+/*
+ * Typography helpers
+
+```
+<p class="t-uppercase">Uppercase Text</p>
+```
+*/
+
+.t-uppercase {
+	text-transform: uppercase !important;
+}
+.t-center,
+.t-center * {
+	text-align: center;
+}
+.t-right,
+.t-right * {
+	text-align: right;
+}
+.t-left,
+.t-left * {
+	text-align: left;
+}
+.t-underline {
+	text-decoration: underline !important;
+}
+.t-text-borderbottom {
+	border-bottom: 1px solid #CCC !important;
+	padding: 0px 0px 5px !important;
+}
+
+/*
+ * Colors
+ */
+
+.t-color-black {
+	color: $color-black !important;
+}
+.t-color-white {
+	color: $color-white !important;
+}
+.t-color-gray80 {
+	color: $color-grey !important;
+}
+.t-color-gray60 {
+	color: $color-grey60 !important;
+}
+.t-color-gray40 {
+	color: $color-dark_grey !important;
+}
+.t-color-gray20 {
+	color: $color-grey20 !important;
+}
+.t-color-red {
+	color: $validation-color !important;
+}
+.t-color-darkred {
+	color: $color-dark_red !important;
+}
+.t-color-pink {
+	color: $info-color !important;
+}
+
+
+.t-bgcolor-black {
+	background-color: $color-black !important;
+}
+.t-bgcolor-white {
+	background-color: $color-white !important;
+}
+.t-bgcolor-gray80 {
+	background-color: $color-grey !important;
+}
+.t-bgcolor-gray60 {
+	background-color: $color-grey60 !important;
+}
+.t-bgcolor-gray40 {
+	background-color: $color-dark_grey !important;
+}
+.t-bgcolor-gray20 {
+	background-color: $color-grey20 !important;
+}
+.t-bgcolor-red {
+	background-color: $validation-color !important;
+}
+.t-bgcolor-darkred {
+	background-color: $color-dark_red !important;
+}
+.t-bgcolor-pink {
+	background-color: $info-color !important;
+}
+
+/*
+###Table general styles
+
+```
+<table class="t-table">
+	<tbody>
+		<tr>
+			<th>Clothing</th>
+			<td>XXS</td>
+			<td>S</td>
+			...
+		</tr>
+	</tbody>
+</table>
+```
+*/
+
+.t-table {
+	color: #000;
+	font: 14px/18px $font_arial;
+	margin: 0 0 15px;
+
+	td,
+	th {
+		padding: 10px 5px;
+		border: 1px solid $color-grey;
+	}
+	th {
+		background: #ebebeb;
+	}
+}
+
+// Lists
+
+.t-list {
+	padding: 0 0 0 20px;
+	margin: 0 0 10px 0;
+	list-style: disc outside;
+	font: 14px/18px $font_arial;
+}

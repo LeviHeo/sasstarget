@@ -1,0 +1,275 @@
+/* Shop by collection and concern pages */
+.b-shop_by {
+	padding: 40px 10px 10px 19px; // Alignment with first menu item
+
+	@include respond-to( tablets ) {
+		padding: 35px 21px 0;
+	}
+
+	@include respond-to( phones ) {
+		padding: 20px 0;
+	}
+
+	h1 {
+		margin: 0;
+		padding: 0 10px 50px;
+		font-size: 24px;
+		font-weight: bold;
+		text-transform: uppercase;
+
+		@include respond-to( phones ) {
+			padding: 0 0 20px;
+			font-size: 20px;
+		}
+	}
+	.content_asset {
+		@include clearfix;
+	}
+	// Collection
+	.collections_category {
+		width: 25%;
+		float: left;
+
+		padding: 0 10px;
+
+		@include respond-to( tablets ) {
+			display: inline-block;
+			vertical-align: top;
+			width: 49%;
+			float: none;
+			margin: 0 0 50px;
+		}
+
+		@include respond-to( phones ) {
+			width: 100%;
+
+			margin: 0 0 20px;
+		}
+	}
+	
+	// Concern
+
+	.concerns { // wrapper block
+		margin-bottom: 44px;
+
+		@include respond-to(phones) {
+			margin-bottom: 20px;
+		}
+	}
+
+	.concerns_category {
+		width: 25%;
+		float: left;
+		padding: 0 10px;
+
+		@include respond-to( tablets ) {
+			width: 33.3%;
+			padding: 0 10px;
+		}
+
+		@include respond-to( phones ) {
+			width: 100%;
+			padding: 0;
+
+			+ .concerns_category {
+				margin: 20px 0 0;
+			}
+		}
+	}
+	.concerns_promo {
+		width: 50%;
+		float: left;
+		padding: 10px 30px 0;
+
+		@include respond-to( tablets ) {
+			width: 33.3%;
+		}
+
+		@include respond-to( phones ) {
+			width: 100%;
+			padding: 30px 0 15px;
+		}
+
+		.concerns_text {
+			position: relative;
+			width: 340px;
+			padding: 16px 15px 24px;
+			font-family: $font_arial;
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: bold;
+			background: #f4f4f4;
+
+			@include respond-to(tablets) {
+				width: auto;
+				margin-right: -21px;
+			}
+
+			@include respond-to( phones ) {
+				width: auto;
+			}
+
+			&:after {
+				@include triangle( bottom, 15px, 0, #f4f4f4 );
+
+				border-top-width: 25px;
+				position: absolute;
+				bottom: -25px;
+				left: 40px;
+
+				@include respond-to( phablets ) {
+					left: 27px;
+					bottom: -30px;
+					border-top-width: 30px;
+					border-left-width: 11px;
+					border-right-width: 11px;
+				}
+			}
+		}
+		.concerns_image {
+			@include clearfix;
+
+			display: table;
+			padding: 11px 0 0 62px;
+			font-family: $font_arial;
+			font-size: 12px;
+			line-height: 18px;
+
+			@include respond-to( tablets ) {
+				margin-right: -21px;
+			}
+
+			@include respond-to( phablets ) {
+				padding: 8px 23px 0 54px;
+			}
+
+			img {
+				float: left;
+				margin: 0 5px 0 0;
+
+				.ie8 & {
+					width: 58px;
+					height: 54px;
+				}
+			}
+
+			div {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+	.h-visible_desktop {
+		@include clearfix;
+
+		clear: both;
+	}
+	h2 {
+		margin: 0 0 24px;
+		font-size: 22px;
+		text-transform: uppercase;
+
+		@include respond-to( tablets ) {
+			font-size: 20px;
+		}
+
+		@include respond-to( phones ) {
+			margin: 0;
+			padding: 10px 0 15px;
+			font-size: 17px;
+		}
+	}
+	li {
+		padding: 0 0 5px;
+
+		@include respond-to( phones ) {
+			padding: 0 0 6px;
+		}
+
+		a {
+			font: bold 11px $font_helvetica;
+			text-transform: uppercase;
+
+			.ie8 & {
+				font-weight: normal;
+				font-family: $font_helvetica_b;
+			}
+
+			&:after {
+                @include sprite-image($arrow-link-right);
+                @include sprite-position($arrow-link-right);
+
+				content: '';
+				display: inline-block;
+				width: 4px;
+				height: 7px;
+				margin: 0 0 0 9px;
+			}
+
+			@include respond-to( phones ) {
+				font-size: 13px;
+				font-weight: normal;
+			}
+		}
+	}
+	.collections_tile {
+		margin: 37px 0 0;
+
+		@include respond-to( tablets ) {
+			text-align: center;
+			margin: 25px 0 0;
+		}
+
+		@include respond-to( phones ) {
+			margin: 20px 0 0;
+		}
+
+		div {
+			@include respond-to( phones ) {
+				width: 49%;
+				display: inline-block;
+				vertical-align: middle;
+				padding: 0 15px 0 0;
+
+				+ div {
+					padding: 0;
+				}
+			}
+		}
+
+		h3 {
+			max-width: 180px;
+			margin: 0 0 10px 0;
+			font-size: 18px;
+			line-height: 21px;
+			font-weight: normal;
+			text-align: center;
+
+			@include respond-to( tablets ) {
+				display: inline-block;
+				font-size: 12px;
+				margin-top: -2px;
+			}
+			@include respond-to( phones ) {
+				margin: 0;
+				text-align: left;
+				font-size: 20px;
+				line-height: 23px;
+			}
+		}
+		img {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+
+			@include respond-to( tablets ) {
+				display: inline-block;
+				width: 135px; // closer to designs
+			}
+		}
+	}
+	a {
+		@include links( #000, none, #000, underline );
+	}
+}
+

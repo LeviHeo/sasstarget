@@ -1,0 +1,372 @@
+// PDP Recommendations 
+.b-product_recommendations {
+	@include clearfix;
+
+	clear: both;
+	margin: 40px 0;	
+
+	@include respond-to(phones) {
+		margin: 20px 0;
+	}
+
+	.b-product_recommendations {
+		margin: 0;
+	}
+
+	h2 {
+		position: relative;
+		margin: 0 0 20px;
+		font: 20px $font_trade_gothic;
+		text-align: center;
+		text-transform: uppercase;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			margin: -1px 0 0;
+			background: #000;
+		}
+
+		span {
+			position: relative;
+			display: inline-block;
+			padding: 0 25px;
+			margin: 0 25px;
+			background: #fff;
+
+			@include respond-to(phones) {
+				padding: 0 15px;
+				margin: 0 15px;
+			}
+		}
+	}
+
+    .product_list { // appears when no product to scroll
+        text-align: center;
+    }
+
+    .productcarousel_list,
+	.product_list {
+		@include clearfix;
+	}
+
+	.product_tile {
+		@include clearfix;
+
+		position: relative;
+	}
+
+	.productcarousel_list_item,
+	.product_tile_wrapper {
+		display: inline-block;
+		width: 25%;
+		padding: 0 3%;
+		text-align: center;
+
+		@include respond-to( phones ) {
+			float: none;
+			display: block;
+			width: 100%;
+			margin: 0 0 25px;
+			padding: 0;
+			text-align: left;
+		}
+
+		+ .productcarousel_list_item,
+		.product_tile_wrapper {
+			@include respond-to( phones ) {
+				margin: 10px 0 0;
+			}
+		}
+
+		.product_image_wrapper {
+			display: block;
+			margin: 0 0 10px;
+			height: 175px;
+			line-height: 175px;
+
+			@include respond-to( tablets ) {
+				height: 125px;
+				line-height: 125px;
+			}
+
+			@include respond-to( phones ) {
+				float: left;
+				width: 30%;
+				margin: 0 6% 0 0;
+				height: auto;
+				line-height: 1;
+			}
+			img {
+				max-height: 100%;
+				vertical-align: middle;
+			}
+		}
+
+		.product_name {
+			@include links( #000, none, #000, underline );
+
+			font: 11px/15px $font_helvetica;
+			height: 45px;
+			overflow: hidden;
+			display: inline-block;
+			width: 100%;
+
+			@include respond-to( phones ) {
+				font: 12px/14px $font_helvetica;
+				min-height: 0;
+				width: 64%;
+				height: auto;
+				text-align: left;
+				margin-top: 20px;
+			}
+		}
+
+		.inline_rating_link {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin: 0 0 0 -34px;
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+
+		.b-price {
+			float: none;
+			width: 100%;
+			padding: 0 0 15px;
+			text-align: center;
+			font: 11px $font_helvetica;
+
+			@include respond-to( phones ) {
+				text-align: left;
+			}
+		}
+
+		.product_subtitle,
+		.product_promo,
+		.product_actions,
+		.b-product_price-title {
+			display: none;
+		}
+
+		.quickviewbutton,
+		.ui-rating-title,
+		.inline_rating_label_link,
+		.addtocartbutton {
+			display: none;
+		}
+	}
+
+	// recommendations in carousel
+	.jcarousel-clip-horizontal {
+		@include respond-to(phones) {
+			width: 90%;
+			display: block;
+			margin: 0 5%;
+		}
+
+		.productcarousel_list_item,
+		.product_tile_wrapper {
+			@include respond-to(phones) {
+				display: inline-block;
+				width: 50%;
+				margin: 0;
+				padding: 0 4%;
+				text-align: center;
+			}
+			
+			.product_image_wrapper {
+				@include respond-to( phones ) {
+					width: 100%;
+					height: 140px;
+					margin: 0;
+					line-height: 140px;
+				}
+			}
+			.product_name {
+				@include respond-to(phones) {
+					@include links(#000, none);
+					
+					width: 100%;
+					height: 44px;
+					overflow: hidden;
+					text-align: center;
+					font: 14px/1 $font_trade_gothic;
+				}
+			}
+			.b-price {
+				@include respond-to(phones) {
+					margin: 5px 0 0;
+					text-align: center;
+					font: 14px/1 $font_trade_gothic;
+				}
+
+				.b-product_price-title {
+					@include respond-to(phones) {
+						display: none;
+					}
+				}
+			}
+			.inline_rating_link {
+				@include respond-to(phones) {
+					display: block;
+				}
+			}
+		}
+	}
+	.carousel_navigation_list {
+		display: none;
+	}
+	.jcarousel-control {
+		position: absolute;
+		top: 56%;
+		z-index: 1;
+		font-size: 19px;
+		cursor: pointer;
+
+		&.jcarousel-prev {
+			left: 0;
+
+			&:before {
+				@include font_icons( $icon_arrow-thick-left );
+			}
+		}
+		&.jcarousel-next {
+			right: 0;
+
+			&:before {
+				@include font_icons( $icon_arrow-thick-right );
+			}
+		}
+	}
+
+	// PDP rich relevants list
+	&.richpromo-list {
+		display: table;
+		width: 100%;
+		margin: 20px 0;
+		padding: 0 0 20px;
+		border-bottom: 1px dotted #5c5c5c;
+
+		@include respond-to(phones) {
+			display: block;
+			margin: 0 0 20px;
+			padding: 20px 0;
+		}
+		
+		// Fix because of duplicated html structure
+		.richpromo-list {
+			margin: 0;
+			padding: 0;
+			border-bottom: none;
+
+			@include respond-to(phones) {
+				display: block;
+				margin: 0;
+			}
+		}
+		// END 
+
+		h2 {
+			display: table-cell;
+			vertical-align: middle;
+			width: 20%;
+			margin: 0;
+			padding: 0 2% 0 0;
+			font: 14px/1 $font_times;
+			color: #5c5c5c;
+
+			@include respond-to(phones) {
+				display: block;
+				width: 100%;
+				margin: 0 0 20px;
+				padding: 0;
+				font: 20px $font_trade_gothic;
+				color: #000;
+			}
+
+			&:before {
+				background: none;
+				
+				@include respond-to(phones) {
+					content: '';
+					bottom: inherit;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					margin: -1px 0 0;
+					background: #000;
+				}
+			}
+			span {
+				padding: 0;
+				background: none;
+
+				@include respond-to(phones) {
+					padding: 0 25px;
+					background: #fff;
+				}
+			}
+		}
+		// Carousel 
+		.jcarousel-clip {
+			&.jcarousel-clip-horizontal {
+				width: 80%;
+				display: table-cell;
+				border-left: 1px dotted #5c5c5c;
+
+				@include respond-to(phones) {
+					display: block;
+					width: 90%;
+					border-left: none;
+				}
+			}
+		}
+		// END Carousel
+		.product_tile_wrapper {
+			.product_image_wrapper {
+				height: 160px;
+				line-height: 160px;
+
+				@include respond-to( phones ) {
+					width: 100%;
+					height: 140px;
+					margin: 0;
+					line-height: 140px;
+				}
+			}
+			.product_name {
+				@include respond-to(phones) {
+					@include links(#000, none);
+					
+					width: 100%;
+					height: 44px;
+					overflow: hidden;
+					text-align: center;
+					font: 14px/1 $font_trade_gothic;
+				}
+			}
+			.b-price {
+				@include respond-to(phones) {
+					margin: 5px 0 0;
+					text-align: center;
+					font: 14px/1 $font_trade_gothic;
+				}
+
+				.b-product_price-title {
+					@include respond-to(phones) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+// END PDP Recommendations

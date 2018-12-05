@@ -1,0 +1,613 @@
+/*
+ * Customer Service
+ */
+
+.pt_customer_service {
+    .breadcrumb {
+        margin: 0 0 30px 0;
+
+        @include respond-to(phones) {
+            margin: 0 0 15px;
+        }
+    }
+    .primary {
+        position: relative;
+        padding: 0 0 30px 0;
+        width: auto;
+        float: none;
+        overflow: hidden;
+
+        @include respond-to(phones) {
+            padding: 0 0 10px 0;
+        }
+
+        h1 {
+            margin: 0 0 28px;
+            padding: 0 0 5px;
+            font: bold 24px/29px $font_times;
+            text-transform: none;
+            border-bottom: 1px solid #ccc;
+
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+    }
+    .secondary {
+        float: left;
+        width: 25%;
+    }
+    @include respond-to(phones) {
+        .main {
+            padding: 0 0 20px;
+            .primary, .secondary {
+                width: 100%;
+            }
+        }
+        .breadcrumb {
+            margin: 0 0 18px 0;
+            display: block !important;
+        }
+        &.editorial {
+            .main {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.customer_service_navigation {
+    width: 242px;
+    float: left;
+
+    @include respond-to(phones) {
+        width: 100%;
+    }
+}
+
+.b-menu_static_wrapper {
+    padding: 0 30px 0 0;
+
+    @include respond-to(tablets) {
+        padding: 0 20px 0 0;
+    }
+
+    @include respond-to(phones) {
+        padding: 0 0 15px 0;
+        margin: 0 0 15px 0;
+        border-bottom: 3px solid #000;
+    }
+
+    h1 {
+        margin: 0 0 22px;
+        color: #000;
+        font: normal 26px/28px $font_times;
+
+        @include respond-to( phones ) {
+            margin: 0 0 18px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+.js-menu_static_dropdown {
+
+    @include respond-to(phones) {
+        position: relative;
+        z-index: 2;
+
+        select {
+            z-index: 0;
+            font: normal 20px/20px $font_helvetica;
+            text-transform: uppercase;
+            color: #4f4f4f;
+
+            .b-terms,
+            .b-site_map,
+            .b-customer_service {
+                // this doesn`t work
+                display: none;
+            }
+        }
+    }
+}
+
+.b-staticpage_header,
+.b-contact_us_description {
+    color: #000;
+    font: normal 14px/16px $font_helvetica;
+    h1 {
+        margin: 0 0 15px;
+        padding: 0 0 10px;
+        font: bold 24px/25px $font_times;
+        text-transform: none;
+        border-bottom: 1px solid #ccc;
+    }
+    @include respond-to(phones) {
+        font: normal 11px/12px $font_helvetica;
+    }
+}
+
+.b-contact_us_description {
+    color: #000;
+    font: normal 12px/16px $font_helvetica;
+}
+
+.general-inquiries,
+.kiehls-rewards,
+.making-an-order,
+.customservice-privacy-policy,
+.product-information,
+.safety-and-privacy,
+.customservice-services,
+.shipping-and-returns,
+.terms-of-use {
+    .b-cs_top {
+        margin: 0;
+        padding: 0 0 20px;
+        color: #000;
+        font-family: $font_arial;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: none;
+        border-bottom: 1px solid #ccc;
+        .b-cs_description {
+            margin: 0 0 15px;
+            font-style: italic;
+            a {
+                @include links(#000, underline);
+                font-weight: normal;
+            }
+        }
+        .b-cs_list {
+            margin: 0 0 0 18px;
+            padding: 0 0 0 20px;
+            list-style: decimal outside;
+            font: normal 14px/24px $font_arial;
+
+            li {
+                padding: 0;
+                margin: 0;
+                a {
+                    @include links(#000, underline);
+
+                    padding: 0 0 0 3px;
+                    line-height: 20px;
+                    font: normal 14px/24px $font_arial;
+                }
+            }
+            @include respond-to(phones) {
+                margin: 0 0 0 14px;
+                letter-spacing: 0.2px;
+                font: normal 10px/15px $font_arial;
+                li {
+                    a {
+                        font: normal 10px/15px $font_arial;
+                    }
+                }
+            }
+        }
+        h3 {
+            padding: 0px 0 10px 0;
+            font: bold 18px/22px $font_times;
+        }
+        @include respond-to(phones) {
+            font-size: 10px;
+            line-height: 12px;
+            h4 {
+                font-size: 10px;
+                line-height: 12px;
+            }
+            p {
+                font: normal 10px/12px $font_helvetica;
+            }
+        }
+    }
+    .b-cs_main_content {
+        padding-bottom: 25px;
+        font-family: $font_arial;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        h3 {
+            padding: 40px 0 7px 0;
+            font: bold 18px/22px $font_times;
+            @include respond-to(phones) {
+                padding-top: 52px;
+            }
+        }
+        h4 {
+            padding: 0 0 2px 0;
+            font-family: $font_helvetica;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+        }
+        p {
+            font: normal 14px/18px $font_arial;
+            padding: 0 0 10px 0;
+        }
+        a {
+            @include links(#000, underline);
+
+            &.b-mobile_tel {
+                text-decoration: none;
+            }
+        }
+        ul {
+            padding: 0 0 0 20px;
+            margin: 0 0 10px 0;
+            list-style: disc outside;
+        }
+        table {
+            margin: 0 0 15px 0;
+            tr {
+                td {
+                    padding: 10px 5px;
+                    text-align: center;
+                    border: 1px solid #ccc;
+                }
+            }
+        }
+        @include respond-to(phones) {
+            font-size: 10px;
+            line-height: 12px;
+            h3 {
+                font-family: $font_times;
+                font-weight: bold;
+            }
+            h4 {
+                font-size: 10px;
+                line-height: 12px;
+            }
+            p {
+                font: normal 10px/12px $font_helvetica;
+            }
+            table {
+                margin: 0 0 10px 0;
+                tr {
+                    td {
+                        padding: 7px 0px;
+                        border: none;
+                        color: #7c7c7c;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pt_account {
+    .ui-dialog {
+        .ui-dialog-title {
+            display: none;
+        }
+        .customer-service-security-policy {
+            h1 {
+                margin: 0 0 15px;
+                padding: 0 0 10px;
+                font: bold 24px/25px $font_times;
+                text-transform: none;
+                border-bottom: 1px solid #ccc;
+            }
+            .b-cs_top {
+                margin: 0;
+                padding: 0 0 20px;
+                color: #000;
+                font: normal 14px/18px $font_arial;
+                text-transform: none;
+                border-bottom: 1px solid #ccc;
+                .b-cs_description {
+                    margin: 0 0 15px;
+                    font-style: italic;
+                    a {
+                        @include links(#000, underline);
+                        font-weight: normal;
+                    }
+                }
+                .b-cs_list {
+                    margin: 0 0 0 18px;
+                    list-style: decimal inside;
+                    li {
+                        padding: 0;
+                        margin: 0;
+                        a {
+                            @include links(#000, underline);
+
+                            padding: 0 0 0 3px;
+                            line-height: 20px;
+                            font-weight: normal;
+                        }
+                    }
+                }
+                h3 {
+                    padding: 0px 0 10px 0;
+                    font: bold 18px/22px $font_times;
+                }
+            }
+            .b-cs_main_content {
+                font: normal 14px/18px $font_arial;
+                h3 {
+                    padding: 20px 0 10px 0;
+                    font: bold 18px/22px $font_times;
+                }
+                h4 {
+                    padding: 0 0 2px 0;
+                    font: bold $font_helvetica 16px/24px;
+
+                    .ie8 & {
+                        font-weight: normal;
+                        font-family: $font_helvetica_b;
+                    }
+                }
+                p {
+                    font: normal 14px/18px $font_arial;
+                    padding: 0 0 10px 0;
+                }
+                a {
+                    @include links(#000, underline);
+
+                    &.b-mobile_tel {
+                        text-decoration: none;
+                    }
+                }
+                ul {
+                    padding: 0 0 0 20px;
+                    margin: 0 0 10px 0;
+                    list-style: disc outside;
+                }
+                table {
+                    margin: 0 0 10px 0;
+                    tr {
+                        td {
+                            padding: 10px 5px;
+                            text-align: center;
+                            border: 1px solid #ccc;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pt_customer_service {
+    .b-cs_section {
+        width: 242px;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 20px 45px 0;
+        h1 {
+            margin: 0 0 19px;
+            min-height: 64px;
+            border-bottom: 1px dotted #ccc !important;
+            a {
+                @include links(#000, none);
+
+                font: bold 22px/24px $font_times;
+                text-transform: uppercase;
+            }
+        }
+        ul {
+            li {
+                padding: 4px 0;
+                a {
+                    @include links(#000, none);
+
+                    position: relative;
+                    font: bold 11px/5px $font_helvetica;
+                    text-transform: uppercase;
+
+                    .ie8 & {
+                        font-weight: normal;
+                        font-family: $font_helvetica_b;
+                    }
+
+                    &:after {
+                        @include sprite-image($arrow-link-right);
+                        @include sprite-position($arrow-link-right);
+
+                        display: inline-block;
+                        margin: 0 0 0 6px;
+                        content: '';
+                        width: 4px;
+                        height: 7px;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        @include respond-to(tablets) {
+            width: 49.5%;
+            padding: 0 10px 20px 0;
+            &:nth-of-type(2n+1) {
+                width: 50.5%;
+            }
+        }
+        @include respond-to(phones) {
+            width: 100%;
+            border-bottom: 1px solid #000;
+            padding: 0 20px 10px 0;
+            margin: 0 0 7px 0;
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            h1 {
+                min-height: 0;
+                padding: 0 0 8px 0;
+                margin: 0 0 0;
+                display: block;
+                border-bottom: none !important;
+                a {
+                    font: bold 16px/18px $font_times;
+                }
+            }
+            ul {
+                li {
+                    padding: 2px 0;
+                    a {
+                        font: normal 10px/8px $font_arial;
+                        &:after {
+                            bottom: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cs-landing {
+    margin-right: -20px;
+    font-size: 0;
+
+    @include respond-to(tablets) {
+        margin-right: -10px;
+    }
+}
+.b-cs_help {
+    @include background-img('bg_cs-header.jpg');
+    padding: 25px;
+    margin: 0 20px 55px 0;
+
+    @include respond-to(tablets) {
+        margin-right: 10px;
+    }
+    .b-cs_help_section {
+        width: 209px;
+        display: inline-block;
+        margin: 0;
+        border: 5px solid #f9e900;
+        background: #fff;
+        text-align: center;
+        height: 129px;
+        vertical-align: top;
+        h2 {
+            padding: 5px 10px;
+            background: #000;
+            color: #fae42a;
+            font: bold 17px/20px $font_trade_gothic;
+            text-transform: uppercase;
+        }
+        p {
+            font: normal 14px/18px $font_arial;
+            padding: 8px 10px 5px;
+        }
+        a {
+            @include links(#de4196, underline);
+
+            font: normal 14px/18px $font_arial;
+            &.b-mobile_tel {
+                text-decoration: none;
+            }
+        }
+        &.b-emial_us {
+            margin: 0 15px 12px;
+        }
+        &.b-auto_repl {
+            margin: 0 15px;
+        }
+    }
+    @include respond-to(tablets) {
+        padding: 2% 0;
+        background-size: cover;
+        .b-cs_help_section {
+            width: 46.8%;
+            margin: 0 2%;
+            &.b-emial_us,
+            &.b-asked,
+            &.b-visit {
+                margin: 0;
+            }
+            &.b-chat {
+                margin: 2%;
+            }
+            &.b-asked {
+                margin: 2% 0;
+            }
+            &.b-auto_repl {
+                margin: 0 2%;
+            }
+        }
+    }
+    @include respond-to(phones) {
+        padding: 2% 0;
+        background-size: cover;
+        margin-bottom: 10px;
+        .b-cs_help_section {
+            width: 46.5%;
+            height: 80px;
+            margin: 0 2%;
+            border: 2px solid #f9e900;
+            &.b-emial_us,
+            &.b-asked,
+            &.b-visit {
+                margin: 0;
+            }
+            &.b-chat {
+                margin: 2%;
+            }
+            &.b-asked {
+                margin: 2% 0;
+            }
+            &.b-auto_repl {
+                margin: 0 2%;
+            }
+            h2 {
+                padding: 5px 0px;
+                font-size: 12px;
+                line-height: 10px;
+            }
+            p {
+                font-size: 9px;
+                line-height: 10px;
+                padding: 8px 1px 1px 1px;
+                letter-spacing: 0.3px;
+            }
+            a {
+                font-size: 9px;
+                line-height: 10px;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+}
+
+.cs-services {
+    .b-cs_main_content {
+        ul {
+            margin: 0 0 10px 15px;
+            list-style: decimal outside;
+        }
+        a {
+            text-decoration: none !important;
+            &.t-underline {
+                text-decoration: underline !important;
+            }
+        }
+    }
+}
+
+.pt_customer_service .content{
+    img {
+        max-width:100%;
+    }
+}
+.content_asset{
+    iframe {
+        max-width:100%;
+    }
+}

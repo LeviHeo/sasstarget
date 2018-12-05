@@ -1,0 +1,145 @@
+/*
+ * My Account Address Book
+ */
+
+.b-address_book {
+    padding-bottom: 20px;
+
+    h1 {
+        font: normal 30px/40px $font_times;
+        margin: 0 0 7px;
+
+        @include respond-to(phones) {
+            margin-bottom: 15px;
+            font: 18px/18px $font_times;
+            text-transform: uppercase;
+        }
+    }
+    &-description {
+        font: 16px/20px $font_arial;
+        margin-bottom: 6px;
+
+        @include respond-to(phones) {
+            margin-bottom: 15px;
+        }
+    }
+    .address_list_empty {
+        font: 16px/20px $font_arial;
+        margin-bottom: 30px;
+    }
+    .address_item {
+        position: relative;
+        padding: 48px 0 33px 40px;
+        font: 14px/20px $font_arial;
+
+        @include respond-to(phones) {
+            padding: 60px 0 25px 30px;
+            border-top: 1px dotted #ccc;
+            font-size: 12px;
+            line-height: 15px;
+
+            &:first-child {
+                border: none;
+            }
+        }
+        .address_make_default {
+            position: absolute;
+            top: 10px;
+            left: 0;
+
+            @include respond-to(phones) {
+                top: 24px;
+            }
+
+            a {
+                @extend %radio_bg;
+
+                display: inline-block;
+                padding-left: 40px;
+                font: 16px/1 $font_times;
+                color: #666;
+                text-decoration: none;
+
+                &:hover {
+                    @extend %radio_bg-focus;
+
+                    .ie8 & {
+                        background-position: left -600px;
+                    }
+                }
+
+                @include respond-to(phones) {
+                    padding-left: 30px;
+                    font-size: 12px;
+                    line-height: 17px;
+                }
+            }
+        }
+        .default_label {
+            @extend %radio_bg-checked;
+
+            position: absolute;
+            top: 10px;
+            left: 0;
+            padding-left: 40px;
+            font: bold 16px/1 $font_times;
+            color: #000;
+
+            &:hover {
+                @extend %radio_bg-checked-focus;
+
+                .ie8 & {
+                    background-position: left -300px;
+                }
+            }
+
+            @include respond-to(phones) {
+                padding-left: 30px;
+                top: 24px;
+                font-size: 12px;
+                line-height: 17px;
+            }
+        }
+    }
+    .address_actions {
+        padding-top: 10px;
+
+        @include respond-to(phones) {
+            text-align: right;
+            padding-top: 5px;
+        }
+
+        .address_edit,
+        .address_delete {
+            display: inline-block;
+
+            a {
+                @include links (#000, underline, $color-dark_red);
+
+                font: 12px/15px $font_arial;
+            }
+        }
+        li.address_edit {
+            &:after {
+                content: '';
+                display: inline-block;
+                height: 15px;
+                width: 1px;
+                margin: 0 7px;
+                background: #000;
+                vertical-align: bottom;
+
+                @include respond-to(phones) {
+                    margin: 0 3px;
+                }
+            }
+        }
+    }
+    .address_create {
+        @include button-black(0 20px);
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+}

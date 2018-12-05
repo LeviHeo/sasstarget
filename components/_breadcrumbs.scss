@@ -1,0 +1,86 @@
+/*---- BREADCRUMBS ----*/
+/* ------------------------------------- */
+.breadcrumb {
+	height: auto;
+	padding: 8px 0;
+	border-bottom: dotted #767676 1px;
+	color: #767676;
+	font: 11px/22px $font_helvetica;
+
+	@include respond-to(phones) {
+		display: none !important;
+
+		&.breadcrumb-editorial {
+			display: block !important;
+
+			li:before {
+				content: " > ";
+			}
+		}
+	}
+
+	.clp &,
+	.plp &,
+	.pt_product_search_noresult &,
+	.pt_content_search_result & {
+		margin: 0 0 15px;
+		word-break: break-all;
+	}
+
+	@include respond-to(phones){
+		display: none !important;
+	}
+
+	ul, li{
+		display: inline;
+	}
+	li{
+		color: $color-dark_red;
+		visibility: hidden; // Will be visible after script filtering applied
+
+		&:before {
+			content:" / ";
+			padding: 0 3px;
+			color: #767676;
+		}
+		&:first-child {
+			text-transform: uppercase;
+
+			&:before{
+				display: none;
+			}
+		}
+		.unclickable_breadcrumb{
+			color: $color-dark_red;
+		}
+	}
+	a{
+		color: #767676;
+		text-decoration: none;
+
+		&:hover{
+			text-decoration:underline;
+		}
+	}
+	.breadcrumb_search_result{
+		color: #767676;
+
+		a{
+			color: $color-dark_red;
+			text-transform: uppercase;
+		}
+	}
+	.breadcrumb_refinement a {
+		padding: 0 2px 2px 5px;
+		border: 1px solid #999;
+		white-space: nowrap;
+
+		&:hover{
+			background-color:#eee;
+			text-decoration:none;
+		}
+		&:after{
+			content:'\2297';
+		}
+	}
+}

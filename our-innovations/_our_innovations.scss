@@ -1,0 +1,373 @@
+/*
+ * Our Innovations
+ */
+
+// LANDING PAGE
+.pt_innovations_landing {
+	.breadcrumb {
+		margin: 0 0 30px;
+
+		@include respond-to( phones ) {
+			margin: 0 0 15px;
+		}
+	}
+}
+.pt_editorial {
+    @include respond-to( phones ) {
+        background: #fff !important;
+    }
+}
+
+// Left side
+.l-innovation-sidebar {
+	width: 22%;
+	float: left;
+
+	@include respond-to( tablets ) {
+		width: 28%;
+	}
+
+	@include respond-to( phones ) {
+		display: none;
+	}
+}
+
+// Right side
+.l-innovation-content {
+	width: 75%;
+	float: right;
+
+	@include respond-to( tablets ) {
+		width: 65%;
+	}
+
+	@include respond-to( phones ) {
+		width: 100%;
+		float: none;
+	}
+}
+
+// Innovations right content
+.b-innovations_landing {
+	&-header {
+		margin: 0 0 22px;
+		font-size: 32px;
+		line-height: 28px;
+
+		@include respond-to( tablets ) {
+			margin: 0 0 18px;
+		}
+
+		@include respond-to( phones ) {
+			margin: 0 0 10px;
+			font-size: 21px;
+		}
+	}
+	&-description {
+		margin: 0 0 16px;
+		font-family: $font_helvetica;
+		font-size: 14px;
+		line-height: 20px;
+
+		@include respond-to( phones ) {
+			margin: 0 0 30px;
+		}
+	}
+	&-readmore {
+		@include links( #000, none );
+
+		display: inline-block;
+		margin: 5px 0 0;
+		font-weight: bold;
+
+		&:after {
+			@include triangle( bottom, 4px, 0 0 0 5px, #000 );
+
+			vertical-align: middle;
+		}
+	}
+	// Assets list
+	&-list {
+
+		&_item {
+			@include clearfix;
+
+			border-top: 1px solid #000;
+
+			// specific alignment for some asset images
+			&.inn-aromatic {
+				img {
+					margin: 0 -9px 0 0;
+
+					@include respond-to( tablets ) {
+						max-width: none;
+						width: 106%;
+						margin: 0 0 0 -4px;
+					}
+				}
+			}
+			&.inn-ultra-facial {
+				img {
+					margin: 0 -13px 0 0;
+
+					@include respond-to( tablets ) {
+						max-width: none;
+						width: 106%;
+						margin: 0 0 0 -2px;
+					}
+				}
+			}
+			&.inn-ultra-facial-oil {
+				img {
+					margin: 0 -17px 0 0;
+
+					@include respond-to( tablets ) {
+						max-width: none;
+						width: 106%;
+						margin: 0;
+					}
+				}
+			}
+		}
+		.asset-description-wrapper {
+			width: 60%;
+			float: left;
+			padding: 25px 20px 25px 0;
+
+			@include respond-to( tablets ) {
+				width: 71%;
+				padding: 6px 20px 16px 0;
+			}
+
+			@include respond-to( phones ) {
+				float: none;
+				width: 100%;
+				padding: 0;
+			}
+
+			&-mdc {
+				@include respond-to( phones ) {
+					@include clearfix;
+
+					display: none;
+					padding: 0 20px 1px;
+				}
+			}
+		}
+		.asset-header {
+			margin: 0 0 10px;
+			line-height: 26px;
+			font-size: 24px;
+			font-weight: normal;
+
+			@include respond-to( phones ) {
+				position: relative;
+				display: table;
+				width: 100%;
+				height: 60px;
+				margin: 0;
+				padding: 0 50px 0 20px;
+				line-height: 20px;
+				font-size: 18px;
+				cursor: pointer;
+			}
+
+			span {
+				@include respond-to( phones ) {
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+			a {
+				@include links( #000, none, $color-dark_red, none );
+			}
+		}
+		.asset-description {
+			font: 12px/16px normal $font_helvetica;
+		}
+		.asset-link {
+			margin: 27px 0 0;
+
+			@include respond-to( phones ) {
+				float: left;
+				width: 50%;
+				margin: 0;
+			}
+
+			a {
+				@include links( #000, none, $color-dark_red, none );
+
+				font: bold 11px/14px $font_helvetica;
+				text-transform: uppercase;
+
+				.ie8 & {
+					font-weight: normal;
+					font-family: $font_helvetica_b;
+				}
+
+				&:after {
+					@include triangle( right, 4px, 0 0 0 5px, #000 );
+				}
+				&:hover {
+					&:after {
+						@include triangle( right, 4px, 0 0 0 5px, $color-dark_red );
+
+						@include respond-to( tablets ) {
+							@include triangle( right, 4px, 0 0 0 5px, #000 );
+						}
+						@include respond-to( phones ) {
+							@include triangle( right, 4px, 0 0 0 5px, #000 );
+						}
+					}
+				}
+
+				@include respond-to( phones ) {
+					display: block;
+					width: 100%;
+					padding: 35px 0;
+				}
+			}
+		}
+		.asset-img {
+			width: 40%;
+			float: right;
+			text-align: right;
+
+			@include respond-to( tablets ) {
+				width: 29%;
+			}
+
+			@include respond-to( phones ) {
+				width: 50%;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+// END LANDING PAGE
+
+// OUR INNOVATION INNER PAGE
+.pt_innovations_inner {
+	.breadcrumb-editorial {
+		@include respond-to( phones ) {
+			margin: 0 0 20px;
+		}
+	}
+	.l-content {
+		padding: 20px 0 0;
+	}
+	.js-video_player {
+		&:before {
+			display: none;
+		}
+	}
+	.js-navigation-dots {
+		top: 300px !important;
+	}
+	.asset-description-wrapper {
+		position: relative;
+
+		img {
+			height: auto;
+		}
+	}
+}
+// Reviews tooltips
+.pt_innovations_inner .ui-tooltip {
+	position: absolute;
+	z-index: 99999;
+}
+// Innovations carousel
+.b-additional-carousel {
+	font-family: $font_helvetica;
+
+	.carousel {
+		position: relative;
+		width: 100%;
+		padding: 0 25px;
+	}
+	.jcarousel-clip {
+		ul {
+			li {
+				font-size: 12px;
+			}
+		}
+	}
+	.jcarousel-control {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		display: block;
+		width: 25px;
+		height: 24px;
+		margin: -12px 0 0;
+		cursor: pointer;
+		background: #000;
+		&:after {
+			@include font_icons( $icon_arrow-thick-left );
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -6px 0 0 -6px;
+			color: #fff;
+		}
+
+		&.jcarousel-next {
+			left: auto;
+			right: 0;
+			&:after {
+				@include font_icons( $icon_arrow-thick-right );
+			}
+		}
+	}
+	.carousel_navigation_list {
+		position: absolute;
+		bottom: 5px;
+		z-index: 1;
+
+		ul {
+			font-size: 0;
+		}
+		li {
+			display: inline-block;
+			font-size: 0;
+
+			+ li {
+				margin: 0 0 0 10px;
+			}
+		}
+		a {
+			@include vendor-prefix( border-radius, 12px );
+
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			cursor: pointer;
+			background: #999;
+		}
+		.selected {
+			a {
+				background: #000;
+			}
+		}
+	}
+}
+
+.ie8 {
+	.b-additional-carousel {
+		.carousel_navigation_list {
+			a {
+				@include background-img( 'ie-carousel-points.png', 0 -13px );
+			}
+			.selected {
+				a {
+					@include background-img( 'ie-carousel-points.png', 0 -26px );
+				}
+			}
+		}
+	}
+}

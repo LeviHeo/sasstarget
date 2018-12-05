@@ -1,0 +1,64 @@
+/*
+ * FAQ
+ */
+
+.b-faq_tabs {
+	font: normal 14px/16px $font_helvetica;
+	text-align: left;
+	a {
+		@include links(#000, underline);
+	
+		margin: 0;
+		padding: 0;
+		width: auto;
+		background: transparent;
+		border: none;
+		font: normal 14px/16px $font_helvetica;
+		text-align: left;
+	}
+	h4 {
+		font: bold 14px/24px $font_helvetica;
+		cursor: pointer;
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+
+		&.ui-state-active {
+			color: #d8492c;
+		}
+	}
+	.b-faq-content {
+		display: none;
+		padding: 20px 0;
+		margin: 15px 0;
+		border-top: 1px dotted #ccc;
+		border-bottom: 1px dotted #ccc;
+		font: normal 14px/16px $font_helvetica;
+		a {
+			font-weight: normal;
+		}
+	}
+	@include respond-to(phones) {
+		font-size: 10px;
+		line-height: 11px;
+		h4 {
+			font: bold 10px/20px $font_helvetica;
+		}
+		a {
+			font-size: 10px;
+			line-height: 11px;
+			font-weight: normal;
+		}
+		.b-faq-content {
+			font-size: 10px;
+			line-height: 11px;
+		}
+	}
+}
+
+.RdSlug,
+.custQues {
+	cursor: pointer;
+}

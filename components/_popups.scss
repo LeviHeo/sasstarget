@@ -1,0 +1,1858 @@
+/*
+ * Popups & Modal Windows
+ */
+
+// loading spinner
+.loader {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+
+    &_bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.7;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter:alpha(opacity=70);
+    }
+    &_indicator {
+        @include background-img( 'loading-small.gif', 0, repeat );
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        width: 64px;
+        height: 64px;
+        margin: -32px 0 0 -32px;
+
+        @include respond-to( phones ) {
+            width: 32px;
+            height: 32px;
+            margin: -16px 0 0 -16px;
+            background-size: 32px;
+        }
+    }
+}
+body {
+    > .loader {
+        position: fixed;
+    }
+}
+
+// jQuery UI
+.ui-widget-overlay {
+    @include vendor-prefix( opacity, 0.4 );
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.ui-dialog {
+    position: absolute !important;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid #000;
+    overflow: auto;
+    max-width: 100%;
+    
+    &.ui-full_page_modal {
+        position: relative !important; // Full page modal: Disable fix for no empty space in FF
+        border: none;
+        z-index: 1;
+    }
+    @include respond-to( phones ) {
+        width: 100% !important;
+    }
+
+    &.autoreplenish-edit-order {
+        width: 800px !important;
+        left: 50% !important;
+        margin-left: -400px !important;
+
+        @include respond-to(phones-tablets) {
+            width: 100%;
+            left: 0 !important;
+            margin-left: 0 !important;
+        }
+    }
+
+    &.dialog_store_locator {
+        .store_list {
+            width: 255px;
+
+            @include respond-to(tablets) {
+                width: 32%;
+            }
+        }
+    }
+
+    &.auto-replenishment-help-dialog, &.updateardialog {
+       .ui-dialog-content {
+           padding: 0px 20px 20px 20px;
+       }
+    }
+
+    &.dialog_registration_confirmation {
+        .ui-dialog-content {
+
+            @include respond-to(tablets) {
+                padding: 20px 15px;
+            }
+            .newsletter_confirmation_actions {
+                .close_dialog_button {
+
+                    @include respond-to(tablets) {
+                        margin: 0 0 0 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    // dialog titlebar
+    .ui-dialog-titlebar {
+        min-height: 35px;
+        padding: 0 35px;
+        text-transform: uppercase;
+
+        .ui-dialog-title {
+            display: none;
+        }
+        .ui-dialog-titlebar-close {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            z-index: 2;
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            &:before {
+                @include font-icons( $icon_close );
+
+                content: '\e60d';
+                color: #d7482a;
+                font-size: 24px;
+
+                .ie8 .ui-widget-overlay + & {
+                    content: '\e60d '; // IE8 force element repaint
+                }
+            }
+            &:hover {
+                &:before {
+                    color: #fd2c00;
+                }
+            }
+
+            @include respond-to( phones ) {
+                &:before {
+                    right: 12px;
+                    font-size: 18px;
+                }
+            }
+
+            .ui-button-text {
+                display: none;
+            }
+        }
+    }
+
+    // dialog container
+    .ui-dialog-content {
+        @include clearfix;
+
+        width: 100% !important;
+        padding: 20px;
+
+        &.js-payment-confirm {
+            padding: 5px 20px 20px 20px;
+            font: normal 24px/28px $font_helvetica;
+            text-align: center;
+
+            @include respond-to(phones) {
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    //shipping address
+    &.dialog_address_suggestion {
+        width: 690px !important;
+        top: 0;
+
+        @include respond-to ( phones ) {
+            position: fixed !important;
+            width: 100% !important;
+            height: 100%;
+            left: 0;
+            right: 0;
+            margin: 0;
+        }
+    }
+
+    &.dialog_security_code {
+        width: 600px !important;
+        margin: 0 0 0 -75px;
+
+        @include respond-to ( phones ) {
+            width: 100% !important;
+        }
+    }
+
+    &.dialog_giftcertificate_edit {
+         width: 800px !important;
+
+        @include respond-to ( phones ) {
+            width: 100% !important;
+        }
+    }
+
+    // add sample
+    &.samples_adding_dialog, .dialog_bonus_show {
+    width: 348px !important;
+
+    @include respond-to ( phones ) {
+        width: 100% !important;
+        left: 0px !important;
+        position: fixed !important;
+        top: 0 !important;
+        height: 100% !important;
+    }
+  }
+
+    // dialog confirmation
+    &.util_dialog_confirm {
+        width: 420px !important;
+
+        @include respond-to ( phones ) {
+            width: 100% !important;
+        }
+    }
+
+    // dialog register
+    &.ui_register_dialog, &.dialog_checkout_login {
+        width: 690px !important;
+
+        &.ui_social_register_dialog {
+            max-width: 385px;
+            padding: 35px;
+        }
+
+        @include respond-to( phones ) {
+            width: 100% !important;
+            max-width: 350px;
+        }
+
+        &.l-rewards_disabled {
+            width: 700px !important;
+            border: none;
+
+            @include respond-to ( phones ) {
+                width: 100% !important;
+            }
+        }
+
+        &_no_rewards {
+            width: 420px !important;
+
+            @include respond-to ( phones ) {
+                width: 100% !important;
+            }
+
+            .l-login_popup-center {
+                padding: 30px;
+
+                .section_header {
+                    display: none;
+                }
+                .b-login_popup {
+                    .block_login {
+                        .formfield_link {
+                            position: absolute;
+                            bottom: 25px;
+                            float: none;
+                            width: auto;
+                            margin: 0;
+                            text-align: left;
+                        }
+                        .formfield_button {
+                            padding: 10px 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ui-dialog-titlebar {
+            min-height: 0;
+            height: 0;
+            font-size: 0;
+        }
+        .ui-dialog-content {
+            padding: 0;
+        }
+    }
+
+    &.dialog_registration_confirmation {
+        width: 600px !important;
+        @include background-img ('bg_paper.jpg', 0 0, repeat);
+        background-color: #ede8e2;
+
+        @include respond-to( phones ) {
+            width: 100% !important;
+        }
+    }
+
+    // Gigya link account
+    &.dialog-gigya-linkaccount {
+        .ui-dialog-content {
+            padding: 0 75px 35px;
+
+            @include respond-to(phones) {
+                padding: 0 30px 35px;
+            }
+        }
+
+        iframe {
+            width: 100%;
+        }
+    }
+
+    // dialog email sign up success
+    &.ui_email_signup,
+    &.dialog_registration_confirmation {
+        @include background-img( 'popup-email-signup-pattern.jpg', 0 0, repeat );
+
+        width: 515px !important;
+
+        @include respond-to( phones ) {
+            width: 100% !important;
+        }
+
+        // dialog titlebar
+        .ui-dialog-titlebar {
+            .ui-dialog-title {
+                display: none;
+            }
+            .ui-dialog-titlebar-close {
+                width: 20px;
+                height: 20px;
+
+                &:before {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .newsletter_subscribe_confirm,
+        .newsletter_confirmation_registered { // Deadly deep nesting. Refactor me
+            padding: 0 0 10px;
+            text-align: center;
+
+            .button {
+                @include button-black(0 10px);
+                margin: 0 4px 5px;
+                
+                @include respond-to(phones) {
+                    padding: 0 20px;
+                    margin: 18px 4px 0; // align buttons when they fit into one line (iPhone landscape)
+                }
+            }
+            .newsletter_welcome {
+                h1 {
+                    margin: 2px 0 34px;
+                    line-height: 1;
+                    font-size: 36px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                }
+                p {
+                    width: 100%;
+                    margin: 0 auto;
+                    line-height: 27px;
+                    font-size: 27px;
+
+                    @include respond-to( phones ) {
+                        width: 100%;
+                    }
+
+                    &.kiehls_family {
+                        margin: 2px auto 29px;
+                        text-transform: uppercase;
+                    }
+                    &.continue_shopping {
+                        a {
+                            @include button-black();
+                        }
+                    }
+                }
+                img {
+                    margin: -22px 0 10px;
+                }
+            }
+            .newsletter_registration {
+                position: relative;
+                margin: 28px 0 0;
+                padding: 28px 0 0;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    width: 136px;
+                    height: 2px;
+                    margin: 0 0 0 -69px;
+                    background: #a5a4a0;
+                }
+
+                h2 {
+                    margin: 0 0 15px;
+                    font-size: 20px;
+                    font-weight: normal;
+
+                    + p {
+                        width: 78%;
+                        margin: 0 auto 15px;
+                        font-family: $font_arial;
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+                p {
+                    margin: 0 0 22px;
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+            }
+            b {
+                color: #b32a36;
+                text-transform: uppercase;
+            }
+        } // END Newsletter subscribe
+    }
+
+    // dialog pdp send to friend
+    &.ui-pdp-sendtofriend {
+        width: 762px !important;
+
+        @include respond-to( tablets ) {
+            width: 662px !important;
+        }
+
+        @include respond-to( phones ) {
+            width: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+
+        .ui-dialog-titlebar {
+            min-height: 0;
+            height: 0;
+            font-size: 0;
+        }
+    }
+
+    // dialog pdp add product
+    &.js-added-to-cart-dialog {
+
+        @include respond-to( phones ) {
+            width: 100% !important;
+        }
+
+        .ui-dialog-titlebar {
+            min-height: 30px;
+
+            .ui-dialog-titlebar-close {
+                right: 8px;
+                top: 8px;
+                width: 25px;
+                height: 25px;
+
+                &:before {
+                    font-size: 20px;
+                }
+            }
+        }
+        .ui-dialog-content {
+            padding: 0 22px 20px;
+        }
+
+        .product_name {
+            margin-top: 4px;
+        }
+        .addedtocart-quantity {
+            min-height: 17px;
+        }
+
+        // Rich relevance block
+        .js-richrelevance_enabled & {
+            .b-richrelevance-wrapper {
+                height: 220px;
+                margin-top: 20px;
+            }
+            .recommendations_block {
+                margin-top: 0;
+            }
+        }
+        .js-minicart-overlay-products {
+            .b-product_img-link {
+                min-height: 137px;
+            }
+        }
+        .dw_recommendations_block,
+        .recommendations_block {
+            margin: 20px 0 0;
+            padding: 20px 0 0;
+            border-top: 1px solid #000;
+
+            .recommendation_title {
+                margin: 0 0 15px;
+                font-size: 14px;
+            }
+            .jcarousel-clip {
+                ul {
+                    li {
+                        width: 33.3%;
+                        padding: 0 2%;
+                    }
+                }
+            }
+            .carousel_navigation_list {
+                display: none;
+            }
+            .product_tile {
+                text-align: center;
+
+                .b-product_img-link {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                    float: none;
+
+                    img {
+                        vertical-align: middle;
+                    }
+                }
+                .product_name {
+                    @include links(#000, none, #000, underline);
+
+                    display: block;
+                    height: 28px;
+                    margin: 5px 0 10px;
+                    overflow: hidden;
+                    font: 12px/14px $font_arial;
+                }
+                .b-price {
+                    font: bold 12px Arial;
+                }
+                .product_subtitle,
+                .product_promo,
+                .ui-rating-title,
+                .inline_rating_link,
+                .inline_rating_label_link,
+                .product_actions,
+                .b-product_price-title {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // password_reset_dialog
+    &.ui_resetpassword_dialog {
+        width: 524px !important;
+        .ui-dialog-titlebar {
+            min-height: 30px;
+        }
+        #password_reset_dialog {
+            padding: 0 20px 20px 20px;
+
+            .password_reset_page {
+                width: 100%;
+                padding: 0;
+            }
+        }
+        @include respond-to( phones ) {
+            width: 100% !important;
+        }
+    }
+
+    // pdp video popup
+    &.ui_video_player_modal {
+        .ui-dialog-content {
+            max-height: none !important;
+        }
+        iframe {
+            width: 100%;
+            height: 390px;
+
+            @include respond-to( tablets ) {
+                height: 300px;
+            }
+            @include respond-to( phones ) {
+                height: 200px;
+            }
+        }
+    }
+
+    // pdp find in store map
+    &.dialog-findinstore-overlay-map {
+        .js-findinstore-map-overlay,
+        .js-findinstore-map {
+            width: 100% !important;
+        }
+    }
+
+    // several popups on the page
+    + .ui-widget-overlay {
+        z-index: 999;
+    }
+}
+// END jQuery UI
+
+// create-account-confirmation
+.create-account-confirmation {
+    text-align: center;
+    h1, h2 {
+        margin: 0;
+        padding: 0;
+        line-height: 20px;
+        font-size: 22px;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-family: $font_times;
+    }
+    h1 {
+        line-height: 46px;
+        font-size: 40px;
+    }
+    .register_confirmation_description {
+        margin: 20px 0 30px 0;
+        padding: 0;
+        display: block;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: normal;
+        font-family: $font_times;
+    }
+    .close_dialog_button {
+        @include button-black();
+
+        margin: 0 0 40px 0;
+
+    }
+}
+// END create-account-confirmation
+
+// Login popup
+.b-login_popup {
+    @include clearfix;
+
+    position: relative;
+
+    // left side
+    .block_login {
+        h1 {
+            position: relative;
+            line-height: 46px;
+            margin: 0;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 1px;
+                background: #ccc;
+            }
+
+            span {
+                position: relative;
+                padding: 0 10px;
+                background: #fff;
+            }
+        }
+        form {
+            margin: 20px 0 0;
+
+            .formfield_select {
+                width: 70px;
+                float: left;
+            }
+
+            .phone_number {
+                width: 185px;
+                width: calc(100% - 80px);
+                float: right;
+            }
+
+            .f_field {
+                margin-bottom: 10px;
+                clear: both;
+            }
+
+            select, input{
+                height: 40px;
+                padding: 0 10px;
+            }
+        }
+
+        .button {
+            height: 40px;
+            font-size: 16px;
+        }
+
+        .f_legend {
+            display: none;
+        }
+
+        .f_field_password {
+            margin: 5px 0 20px;
+        }
+
+        .f_field_checkbox {
+            float: left;
+            width: 50%;
+            padding: 0;
+
+                label {
+                display: inline-block;
+            }
+        }
+        .formfield_link {
+            float: right;
+            width: 50%;
+            margin: -1px 0 0;
+            text-align: right;
+        }
+        .formfield_button {
+            clear: both;
+            padding: 10px 0 0;
+            margin-bottom: 5px;
+
+            .button {
+                width: 100%;
+            }
+
+            + .error_message {
+                position: relative;
+                bottom: inherit;
+                left: inherit;
+                min-height: 20px;
+                margin: 5px 0 0;
+                padding: 3px 0 0 22px;
+                white-space: normal;
+
+                &:before {
+                    @include sprite-image($global-error-icon);
+                    @include sprite-position($global-error-icon);
+
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 19px;
+                    height: 20px;
+                    margin: -10px 0 0;
+                }
+            }
+        }
+        #h1GigyaLogin {
+            margin: 0;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: -1;
+                width: 50px;
+                height: 50px;
+                margin: -10px 0 0 -20px;
+                background: #fff;
+            }
+        }
+        .gigyaLoginParent {
+            @include respond-to( phones ) {
+                margin: 0 -20px;
+
+                table table table table td {
+                    padding: 0 13px !important;
+                }
+            }
+        }
+    }
+    .block_create {
+        margin: 25px 0 0;
+        padding: 25px 0 0;
+        border-top: 1px solid #ccc;
+
+        @include respond-to( phones ) {
+            position: relative;
+            bottom: inherit;
+            left: inherit;
+            width: auto;
+            padding: 20px 0 0;
+            &:before {
+                display: none;
+            }
+        }
+
+        p {
+            line-height: 18px;
+            margin: 0 0 10px;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .button {
+            @include button-black();
+            padding: 0;
+            width: 100%;
+        }
+        .account_create_login_benefits {
+            display: none;
+        }
+    }
+
+    // right side
+    .login_overlay_rewards {
+        padding: 35px;
+        text-align: center;
+
+        @include respond-to( phones ) {
+            max-width: 340px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            line-height: 18px;
+            margin: 20px 0 15px;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        p {
+            line-height: 16px;
+            margin: 0;
+            font-family: $font_helvetica;
+            font-size: 12px;
+            text-align: center;
+            color: #757575;
+
+            @include respond-to( phones ) {
+                margin: 0;
+            }
+        }
+
+        h6 {
+            margin: 15px 0 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            margin: 0 auto;
+            padding: 0 0 0 15px;
+            width: 180px;
+            text-align: left;
+        }
+
+        h3 {
+            position: relative;
+            margin: 35px 0 0;
+            padding: 18px 0;
+            line-height: 1;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            &:before {
+                @include background-img( 'login-popup/header-login-popup-rewards-dots.png', 0, repeat-x );
+
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+            }
+            &:after {
+                @include background-img( 'login-popup/header-login-popup-rewards-dots.png', 0, repeat-x );
+
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+            }
+        }
+        ul {
+            margin: 0 auto;
+            padding-left: 15px;
+            list-style-type: disc;
+            list-style-position: outside;
+            font-family: $font_helvetica;
+        }
+        li + li {
+            margin: 7px 0 0;
+        }
+        .ui_register_dialog_join_now {
+            text-align: center;
+        }
+        .button {
+            @include button-black();
+
+            margin: 35px 0 0;
+
+            @include respond-to( phones ) {
+                width: 100%;
+            }
+        }
+    }
+    #gigyaLoginContainerLogin {
+        width: 100%!important;
+        table {
+            width: 100%!important;
+        }
+    }
+}
+.l-login_popup-center {
+    padding: 50px 85px 150px;
+
+    @include respond-to( phones ) {
+        padding: 50px 20px 0;
+    }
+
+    .block_create {
+        width: 81%;
+        margin: 0 -45px;
+
+        @include respond-to( phones ) {
+            width: 100%;
+            margin: 0;
+            padding: 20px 0 30px;
+            border-bottom: none;
+        }
+    }
+    .s-registration & {
+        padding-bottom: 30px;
+
+        @include respond-to( phones ) {
+            padding-bottom: 0;
+        }
+    }
+}
+.l-login_popup-left {
+    width: 50%;
+    float: left;
+    padding: 50px 42px 35px;
+    border-right: 1px solid #ccc;
+    margin-right: -1px;
+    min-height: 550px;
+
+    p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .info-section {
+        span {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            font-size: 16px;
+            margin-bottom: 25px;
+            display: block;
+        }
+    }
+    
+    .b-registration_submit {
+        border: none;
+        padding: 15px 0 0 0;
+
+        button {
+            width: 117px;
+            padding: 0;
+            font-size: 14px;
+            float: left;
+            height: 40px;
+
+            &.login-link-account-yes {
+                float: right;
+            }
+        }
+    }
+    
+    @include respond-to( phones ) {
+        width: 100%;
+        float: none;
+        padding: 30px 45px 45px;
+        border-right: none;
+        margin-right: 0;
+        min-height: 100px;
+    }
+}
+.l-login_popup-right {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    @include transform (translateY(-50%));
+    top: 50%;
+
+    @include respond-to( phones ) {
+        display: none;
+    }
+}
+// END Login popup
+
+// PDP Send to friend popup
+.b-pdp_send_to_friend {
+    @include clearfix;
+
+    padding: 56px 50px 30px 30px;
+
+    @include respond-to(tablets) {
+        padding: 45px 30px 30px 10px;
+    }
+
+    @include respond-to(phones) {
+        padding: 0 0 20px;
+    }
+
+    a {
+        @include links( #000, underline, #000, none );
+    }
+
+    // product image & description
+
+    .send_to_friend_product {
+        @include clearfix;
+
+        line-height: 16px;
+        font-family: $font_helvetica;
+
+        .b-product_image_wrapper {
+            width: 22.7%;
+            float: left;
+            text-align: center;
+
+            @include respond-to(phones) {
+                display: block;
+                float: none;
+                width: 100%;
+                padding: 0 50px 7px;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .product_description {
+            padding: 0 0 0 7.8%;
+            color: #000;
+            overflow: hidden;
+
+            @include respond-to(phones) {
+                padding: 0;
+
+                ul, div, p { // hide all exсept h2
+                    display: none;
+                }
+            }
+
+            ul {
+                padding: 0 0 0 4px;
+                margin: 0 0 5px -4px;
+                list-style: disc inside;
+            }
+
+            p, .attribute {
+                margin: 0 0 5px 0;
+            }
+
+            .product_description_short {
+                .label {
+                    display: block;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        h2 {
+            margin: 0 0 21px;
+            font: normal 26px/26px $font_times;
+
+            @include respond-to(phones) {
+                margin: 0;
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+    }
+
+    // right side
+
+    form {
+        margin: 30px 0 0;
+    }
+
+    &-checkbox_wrapper {
+        @include clearfix;
+
+        position: relative;
+        padding: 0 0 20px 20px;
+
+        &.first {
+            padding-bottom: 5px;
+        }
+
+        .form_caption {
+            position: relative;
+            p {
+               margin: 0 0 5px 0;
+           }
+           span, a {
+               font-size: 11px;
+               color: #000;
+           }
+        }
+        .f_field {
+            &.f_field_checkbox {
+                position: absolute;
+                top: 2px;
+                left: -1px;
+                padding: 0;
+                margin: 0;
+                .f_label {
+                    .f_label_value {
+                        text-indent: -10000px;
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .f_field {
+        margin: 0 0 10px;
+        padding: 0;
+
+        @include respond-to(phones) {
+            margin-bottom: 21px;
+        }
+
+        .f_label {
+            float: left;
+            width: 28%;
+            margin: 0 2.5% 0 0;
+            padding: 7px 0 0;
+            text-align: right;
+
+            @include respond-to(phones) {
+                width: 100%;
+                float: none;
+                margin: 0 0 10px;
+                text-align: left;
+                padding: 0;
+                font-size: 12px;
+            }
+        }
+
+        &.f_field_checkbox {
+            position: static;
+            margin: 0;
+            width: 100%;
+            top: 3px;
+            left: -5px;
+            padding-top: 5px;
+
+            @include respond-to(phones) {
+                width: auto;
+            }
+
+            .f_label {
+                position: absolute;
+                top: 3px;
+                left: -5px;
+                width: 30%;
+                margin: 0;
+                padding: 0;
+
+                @include respond-to(phones) {
+                    width: 14px;
+                }
+            }
+            .f_label_value:before {
+                display: none;
+            }
+            .f_error_message {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+
+                @include respond-to(phones) {
+                    left: 22px;
+                    bottom: -10px;
+                    width: 90%;
+                }
+            }
+        }
+
+        &.required {
+            .f_label {
+                .f_label_value {
+                    @include required;
+
+                    position: relative;
+                    padding: 0 0 0 7px;
+
+                    &:before {
+                        color: #d8492c;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .f_field_textarea {
+        margin-bottom: 19px;
+    }
+
+    // column on label
+
+    .f_field {
+        .f_label_value {
+            &:after {
+                content: ":"
+            }
+        }
+    }
+
+    .f_field_checkbox {
+        .f_label_value {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .textinput {
+        width: 56%;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+
+    .textarea {
+        width: 56%;
+
+        @include respond-to(phones) {
+            width: 100%;
+            height: 180px;
+        }
+    }
+
+    .checkbox,
+    .f_checkbox {
+        top: 7px;
+        left: 25%;
+
+        @include respond-to(phones) {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .error_form,
+    .error_message,
+    .error {
+        clear: both;
+        padding: 0 0 0 30.5%;
+
+        @include respond-to(phones) {
+            padding: 0;
+        }
+    }
+    .formfield_button {
+        .error {
+            padding-left: 0;
+        }
+    }
+
+    // Char count message
+
+    .char-count {
+        clear: both;
+        padding: 5px 0 0 30.5%;
+        font-style: italic;
+
+        @include respond-to(phones) {
+            padding: 8px 0 0;
+        }
+
+        .char-remain-count,
+        .char-allowed-count {
+            color: #d8492c;
+        }
+    }
+
+    // Form caption
+
+    .form_caption {
+        position: relative;
+        width: 49.5%;
+        margin: 0 0 0 30.5%;
+        line-height: 18px;
+
+        @include respond-to(phones) {
+            width: 93%;
+            margin: 0 0 0 22px;
+        }
+        p {
+            margin: 0 0 5px 0;
+        }
+        span, a {
+            font-size: 11px;
+        }
+    }
+
+    .f_field_checkbox {
+        .form_caption {
+            line-height: 20px;
+        }
+    }
+
+    // Buttons
+
+    .formfield_button {
+        padding: 38px 0 0 30.5%;
+
+        @include respond-to(phones) {
+            padding: 31px 0 0 0;
+        }
+
+        .button {
+            width: 220px;
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Send to a friend success dialog
+.send_to_friend_success {
+    padding: 45px 20px;
+    text-align: center;
+
+    h2 {
+        font: normal 26px/26px $font_times;
+        margin: 0 0 30px;
+
+        @include respond-to(phones) {
+            font-size: 20px;
+        }
+    }
+
+    .button {
+        @include button-black();
+
+        width: 230px;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+}
+// END PDP Send to friend popup
+
+// PDP product add to bag
+.js-added-to-cart-dialog {
+    overflow: visible;
+
+    .ui-dialog-content {
+        overflow: visible;
+        min-height: inherit !important; // Dialog doesn`t return height properly
+        max-height: inherit !important;
+    }
+
+    .product_tile {
+
+        .b-product_img-link {
+            float: left;
+            width: 37%;
+            margin: 5px 6% 0 0;
+            text-align: center; // centering img
+        }
+
+        h2.product_name {
+            @include links(#000, none);
+
+            float: right;
+            width: 57%;
+            margin: 3px 0 10px;
+            font-size: 23px;
+            line-height: 26px;
+            font-weight: normal;
+        }
+    }
+
+    .variant_swatch,
+    .js-minicart-overlay-message,
+    .product-addedtocart-price,
+    .addedtocart-quantity,
+    .og-offer {
+        float: right;
+        width: 57%;
+        padding: 2px 0 0;
+        font-family: $font_helvetica;
+        font-size: 13px;
+    }
+
+    .og-offer {
+        margin-top: 11px;
+        .og-edit-label {
+            line-height: 17px !important;
+        }
+    }
+
+    .product-addedtocart-price {
+        .b-price {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+    }
+
+    .js-minicart-overlay-message {
+        margin-top: 11px;
+    }
+
+    .buttons {
+        @include clearfix;
+
+        clear: both;
+        padding: 29px 0 0;
+    }
+
+    .close_dialog_button {
+        @include button();
+        @include button-regular();
+        @include button-color-white();
+        @include button-ico-back();
+
+        float: left;
+
+        @include respond-to(phones) {
+            @include button-size(0 10px 0 20px, 12px, 32px);
+        }
+    }
+
+    .mini_cart_link_cart {
+        @include button();
+        @include button-regular();
+        @include button-color-black();
+        @include button-ico-forward();
+
+        float: right;
+
+        @include respond-to(phones) {
+            @include button-size(0 20px 0 10px, 12px, 32px);
+        }
+    }
+    .quickviewbutton {
+        display: none;
+    }
+}
+// END PDP product add to bag
+
+// Invite chat
+.lpInviteChatTbl {
+    @include respond-to( phones ) {
+        width: 200px;
+    }
+}
+
+// @group CRM popup
+//------------------------------------------------------------------------------
+
+.crm-modal {
+    @include background-img('bg_paper.jpg', 0 0, repeat);
+    background-color: #f5f2eb;
+    border-color: #f5f2eb;
+
+    @include respond-to(phones) {
+        left: 20px !important; // overwrite inline styles that plugin adds
+        right: 20px !important;
+        width: auto !important;
+    }
+
+    .dialog_content {
+        padding: 20px 43px 42px 0;
+
+        @include respond-to(phones) {
+            padding: 13px;
+        }
+    }
+}
+
+.crm {
+    @include clearfix;
+    font: 16px/20px $font_times;
+    position: relative;
+
+    @include respond-to(phones) {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    &-img {
+        float: left;
+        width: 257px;
+        overflow: hidden;
+
+        @include respond-to(phones) {
+            position: absolute;
+            top: -13px;
+            left: 0;
+            width: 90px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &-content {
+        overflow: hidden;
+    }
+
+    &-title {
+        margin-bottom: 23px;
+        padding-bottom: 14px;
+        font: normal 19px/1 $font_times;
+        border-bottom: 1px solid #000;
+        text-transform: uppercase;
+
+        @include respond-to(phones) {
+            min-height: 109px;
+            margin-bottom: 28px;
+            padding: 0 0 17px 88px;
+            font-size: 18px;
+            line-height: .9;
+            text-align: center;
+        }
+
+        &_section {
+            display: block;
+
+            &--emph {
+                margin-top: 11px;
+                font-size: 40px;
+
+                @include respond-to(phones) {
+                    margin-top: 7px;
+                    font-size: 25px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    &-details {}
+
+    &-form {
+        position: relative;
+        margin-top: 24px;
+
+        .f_label {
+            display: none;
+            font-size: 11px;
+
+            @include respond-to(phones) {
+                display: block;
+            }
+        }
+
+        .formfield_checkbox {
+            .f_label {
+                display: block;
+
+                a {
+                    color: #000;
+                }
+            }
+
+            .error,
+            .f_error_message {
+                bottom: -7px;
+            }
+        }
+
+        .f_field_description {
+            display: none;
+        }
+
+        .f_field {
+            width: 46%;
+            display: inline-block;
+            margin-bottom: 24px;
+            label.error {
+                position: absolute;
+            }
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+
+        .subscribe_fname,
+        .f_field_select {
+            margin-right: 6%;
+            .ie & {
+                float: left;
+            }
+            @include respond-to(phones) {
+                margin-right: 0;
+            }
+        }
+
+        .formfield_email {
+            width: 99%;
+            padding-right: 0;
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+        .error_message {
+            position: absolute;
+        }
+        .f_select {
+            background-color: transparent;
+        }
+
+        input[type="email"], input[type="text"], input[type="tel"], input[type="checkbox"] {
+            background-color: transparent;
+
+            &.error {
+                display: block;
+                margin-top: 0;
+                border-color: #F00;
+            }
+
+            @include respond-to(phones) {
+                @include placeholder {color:transparent!important}
+            }
+        }
+
+        .f_field_email {
+
+            @include respond-to(phones) {
+                padding-right: 0;
+            }
+        }
+
+        .button {
+            @include button();
+            @include button-size(0 11px, 15px, 30px);
+            @include button-color-black();
+            float: right;
+
+            @include respond-to(phones) {
+                @include button-size(0 11px, 20px, 50px);
+                width: 100%;
+                display: block;
+                position: relative;
+            }
+        }
+
+        // subscribe ajax loader
+
+        .loader_bg {
+            display: none;
+        }
+
+        .loader_indicator {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            top: 5px;
+            left: auto;
+            right: 141px;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            
+            @include respond-to(phones) {
+                top: 28px;
+                right: 5px;
+            }
+        }
+    }
+
+    .list-decimals {
+        counter-reset: item;
+        margin: 14px 0 14px 20px;
+
+        @include respond-to(phones) {
+            margin-left: 14px;
+        }
+
+        li {
+            display: block;
+            margin-bottom: 10px;
+            padding-left: 14px;
+            position: relative;
+
+            &:before {
+                content: counter(item) ". ";
+                counter-increment: item;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+.ui_email_signup {
+    .newsletter_subscribe_confirm {
+        .newsletter_registration,
+        .continue_shopping {
+            display: none;
+        }
+    }
+}
+
+
+
+// @end
+
+// @group Gigya popups global styles
+//------------------------------------------------------------------------------
+
+.dialog_content .gigya-container {
+    .submit_button {
+        white-space: nowrap;
+    }
+}
+
+// @end
+
+
+
+//@#AK TODO: need to refactor styles below
+// Fancybox
+.fancybox-wrap {position: absolute;top: 0;left: 0;z-index: 8020;}
+.modals_thanks{width: 600px!important;}
+.fancybox-skin {position: relative;background: #f9f9f9;color: #444;text-shadow: none;padding: 30px!important;box-shadow: 0 0 6px 2px #000000;
+  #page_context_data{clear: both;}
+}
+.fancybox-opened {z-index: 8030;}
+.fancybox-outer, .fancybox-inner, .popup_write_review {position: relative;}
+.fancybox-outer, .popup_write_review{
+  .ui-section-left, .ui-section-right{
+    float: left;width: 36%;margin-top: 20px;
+    label{display: none!important;}
+  }
+  .ui-section-right{
+    width: 58%;margin: 42px 0 0 30px;
+    input[type="text"],
+    textarea{padding: 8px;border-width: 2px;background: #f3f3f3;}
+  }
+  .ui-text-recommend{
+     label{display: block!important; line-height: 16px;min-width: 100%;}
+     input{float: left;}
+     .f_field_radio_group{
+            margin-top: 10px;
+        label{font-weight: normal !important; margin-left: 15px; text-transform: capitalize !important;}
+        li{height: 20px;}
+        }
+   }
+}
+.fancybox-inner {overflow: hidden;min-width: 550px;}
+.fancybox-type-iframe .fancybox-inner {-webkit-overflow-scrolling: touch;}
+.fancybox-error {color: #444;font: 14px/20px;margin: 0;padding: 15px;white-space: nowrap;}
+.fancybox-image, .fancybox-iframe {display: block;width: 100%;height: 100%;}
+.fancybox-image {max-width: 100%;max-height: 100%;}
+.fancybox-close {
+    width: 26px;background: #999;position: absolute;top:0;right:-36px;height: 35px;padding:0 5px;cursor: pointer;z-index: 8040;text-align: center;
+    font-family: $font_arial;
+    font-size: 20px;
+  &:after{content: 'X';display: inline;color: #fff;line-height: 32px;}
+}
+.fancybox-overlay {position: absolute;top: 0;left: 0;overflow: hidden;display: none;z-index: 8010;background:#333;opacity: 0.4;}
+.fancybox-overlay-fixed {position: fixed;bottom: 0;right: 0;}
+.fancybox-lock .fancybox-overlay {overflow: auto; overflow-y: scroll;}
+
+.siebelProspect_dialog {
+    min-height: 440px;
+    text-align: center;
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    .socialpoints-prospect-message {
+        .socialpoints-prospect-back {
+            display: block;
+        }
+    }
+}
+
+.socialpoints-prospect-message { 
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 480px;
+
+    .socialpoints-prospect-back {
+        display: none;
+    }
+
+    a {
+        color: #000;
+    }
+}

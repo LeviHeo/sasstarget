@@ -1,0 +1,388 @@
+/*
+ * Tab Blocks
+ */
+
+.b-tabs,
+.ui-tabs {
+	> ul {
+		font-size: 0;
+
+		> li {
+			width: 50%;
+			max-width: 50%;
+			display: inline-block;
+			white-space: nowrap;
+			border-right: 1px solid #ccc;
+			border-top: 5px solid #ccc;
+			background: #fff;
+
+			@include respond-to( phones ) {
+				width: 100%;
+				max-width: none;
+				border: 1px solid #ccc;
+			}
+
+			&:first-child {
+				border-left: 1px solid #ccc;
+
+				@include respond-to( phones ) {
+					border: 1px solid #ccc;
+				}
+			}
+			&.ui-state-active {
+				padding-bottom: 1px;
+				margin-bottom: -1px;
+				border-top-color: #000;
+
+				@include respond-to( phones ) {
+					margin: 0;
+					padding: 0;
+					border-top-color: #ccc;
+				}
+
+				a {
+					@include respond-to( phones ) {
+						cursor: pointer;
+					}
+
+					&:after {
+						@include respond-to( phones ) {
+							@include font_icons( $icon_minus );
+						}
+					}
+				}
+			}
+			a {
+				@include font_main(normal, normal, 14px, 16px);
+
+				position: relative;
+				display: block;
+				padding: 10px;
+				text-transform: uppercase;
+				text-decoration: none;
+				text-align: center;
+				color: #000;
+
+				@include respond-to( phones ) {
+					text-align: left;
+					padding: 20px 35px 20px 15px;
+					font-size: 15px;
+
+					&:after {
+						@include font_icons( $icon_plus );
+
+						position: absolute;
+						top: 50%;
+						right: 15px;
+						margin: -10px 0 0 0;
+						color: $color-dark_red;
+						font-size: 18px;
+					}
+				}
+			}
+		}
+	}
+
+	.ui-tabs-active,
+	.ui-state-disabled,
+	.ui-state-processing {
+		a {
+			cursor:default;
+		}
+
+	}
+	.tab_content {
+		@include clearfix;
+
+		min-height: 100px;
+		padding: 15px 30px;
+		font-family: $font_helvetica;
+		font-size: 12px;
+		line-height: 18px;
+		border: 1px solid #ccc;
+		background: #fff;
+		color: #000;
+
+		@include respond-to( phones ) {
+			padding: 20px;
+			border-top: none;			
+		}
+		.pdp_main & {
+		    @include respond-to( phones ) {
+		        display: none;
+		    }
+		}
+
+		&#tab_ingredients,
+		.print_page {
+			display: none;
+		}
+
+		table {
+			td {
+				vertical-align: middle;
+			}
+		}
+	}
+	// Tab tips
+	.tips {
+		ul {
+			+ h3 {
+				margin: 10px 0 0;
+			}
+		}
+		li {
+			position: relative;
+			margin: 0 0 0 -10px;
+			padding: 0 0 0 10px;
+
+			&:before {
+				content: '-';
+				position: absolute;
+				left: 0;
+			}
+		}
+		table {
+			margin: 15px 0 0;
+			
+			td:first-child {
+                min-width: 73px;
+            }
+		}
+		a {
+			@include links( #000, none );
+
+			display: inline-block;
+			font-size: 10px;
+			font-weight: bold;
+			text-transform: uppercase;
+
+			&.js-video_player {
+				display: inline-block;
+				position: relative;
+				vertical-align: top;
+				width: 24%;
+				margin: 20px 9% 5px 0;
+				&:before {
+                    @include sprite-image($play-video-small);
+                    @include sprite-position($play-video-small);
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    width: 31px;
+                    height: 31px;
+                    margin: -27px 0 0 -15px;
+                    content: "";
+                    z-index: 1;
+				}
+
+				@include respond-to( phones ) {
+					width: 40%;
+				}
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			.icon {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 15px 0 0;
+			}
+			span {
+				display: inline-block;
+				vertical-align: top;
+				padding: 14px 0 0;
+			}
+		}
+		img {
+			vertical-align: baseline;
+		}
+	}
+	// Bazarvoice
+	.BVRRWidget {
+		width: 100%;
+	}
+
+	// Tabs MDC
+	.tab-title {
+		list-style: none;
+		width: 100%;
+		max-width: none;
+
+
+		@include respond-to( phones ) {
+			margin: -1px 0 0;
+		}
+
+		a {
+			@include font_main(normal, normal, 14px, 16px);
+
+			position: relative;
+			display: block;
+			padding: 10px;
+			text-transform: uppercase;
+			text-decoration: none;
+			text-align: center;
+			color: #000;
+			border: 1px solid #ccc;
+
+			@include respond-to( phones ) {
+				text-align: left;
+				padding: 20px 35px 20px 15px;
+				font-size: 15px;
+
+				&:after {
+					@include font_icons( $icon_plus );
+
+					position: absolute;
+					top: 50%;
+					right: 15px;
+					margin: -10px 0 0 0;
+					color: $color-dark_red;
+					font-size: 18px;
+				}
+			}
+
+			&.selected {
+				@include respond-to( phones ) {
+					cursor: pointer;
+				}
+
+				&:after {
+					@include respond-to( phones ) {
+						@include font_icons( $icon_minus );
+					}
+				}
+			}
+		}
+
+		&.ui-state-active {
+			@include respond-to( phones ) {
+				margin: 0;
+				padding: 0;
+				border-top-color: #ccc;
+			}
+
+			a {
+				@include respond-to( phones ) {
+					cursor: pointer;
+				}
+
+				&:after {
+					@include respond-to( phones ) {
+						@include font_icons( $icon_minus );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tab Ingredients
+.ingredients,
+.js-ingredients-popup {
+	#ing-ingredienArea {
+		@include clearfix;
+
+		padding: 0 0 10px;
+	}
+	#ing-Image {
+		float: left;
+		margin: 0 15px 0 0;
+		max-width: 88px;
+
+		@include respond-to(phones) {
+			max-width: 30%;
+		}
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	#ing-copy {
+		overflow: hidden;
+	}
+	span {
+		display: block;
+		overflow: hidden;
+	}
+	.ingredient a {
+		@include links(#000, underline, $color-dark_red, underline );
+	}
+	.js-ingredients-popup-show {
+		@include links(#666666, underline, $color-dark_red, underline );
+
+		font-weight: bold;
+		margin: 0 0 0 73px;
+		letter-spacing: -0.1px;
+	}
+}
+
+.ingredient-hidden {
+	display: none;
+}
+
+.ingredients-dialog {
+	max-width: 630px;
+	padding: 0 15px;
+
+	.ingredient-hidden {
+		display: block;
+	}
+
+	.ingredient {
+		font-family: $font_helvetica;
+		line-height: 18px;
+	}
+	#ing-ingredienArea {
+		@include clearfix;
+
+		padding: 0 0 35px;
+		font-size: 14px;
+	}
+	#ing-Image {
+		max-width: 160px;
+		@include respond-to(phones) {
+			max-width: 30%;
+			margin: 0 10px 0 0;
+		}
+	}
+	#ing-copy {
+		padding-bottom: 4px;
+	}
+}
+
+.ui-tabs-hide { display: none !important;}
+
+
+/* KIEHLS-18289 - Anchor fixes */
+#BVRRWidgetID {
+    position: relative;
+    top: -57px;
+    padding-top: 57px;
+    margin-bottom: -57px;
+}
+#tab_questionsandanswers {
+    position: relative;
+    top: -42px;
+    padding-top: 57px;
+    border-top: none;
+    margin-bottom: -42px;
+}
+#tab_reviews {
+    border-top: none;
+}
+.b-tabs > ul > li {
+    border-bottom: 1px solid #ccc;
+    
+    &.ui-state-active {
+        border-bottom: none;
+    }
+}
+.product_tabs .tabs_menu,
+.product_tabs .tab-title {
+    position: relative;
+    z-index: 1;
+}

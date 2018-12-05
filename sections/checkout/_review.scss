@@ -1,0 +1,352 @@
+/*
+ * Checkout - Step 3, Review
+ */
+
+.b-review {
+	h4 {
+		font: normal 18px/18px $font_times;
+		text-transform: uppercase;
+		padding: 12px 0;
+		display: block;
+		width: 100%;
+		border-bottom: 1px dotted #ccc;
+		border-top: 1px dotted #ccc;
+
+		@include respond-to(phones) {
+			border-bottom: none;
+		}
+	}
+	.button {
+		@include button-black(0 15px);
+
+		position: absolute;
+		top: -34px;
+		right: 0;
+		&.next_step_button {
+            @include button-color(#cf2a2a, #cf2a2a, #fff, #fff);
+            @include button-size(0 13px);
+
+			top: 0;
+			margin: 0;
+			width: 100%;
+			
+			@include respond-to(phones) {
+			    position: relative;
+			}
+		}
+		&.prev_step_button {
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+	}
+	.b-review_method {
+		.button {
+			@include button-black(0 14px, 11px, 22px);
+
+			position: absolute;
+			top: -34px;
+		}
+	}
+	.formfield {
+		&:after {
+			display: none;
+		}
+	}
+	.shipping_address_edit,
+	.billing_address_edit,
+	.giftoptions_review_edit,
+	.paymentmethods_review_edit {
+	    margin: 0;
+	    .button {
+	        position: relative;
+	        margin: 5px 0 0 0;
+            padding: 0;
+	        top: auto;
+            font: normal 12px/24px $font_helvetica;
+            text-transform: none;
+            background: transparent;
+            border: none;
+            color: #000;
+            text-decoration: underline;
+
+            @include respond-to(phones) {
+                text-align: left;
+            }
+            &:before {
+                display: none;
+            }
+            &:hover, &:focus {
+                color: #000;
+                text-decoration: underline;
+            }
+	    }
+	}
+	.dymanic-cart-content {
+		.cart_table {
+			margin: 10px 0 20px 0;
+			border-top: 1px solid #e6e7e8;
+
+			@include respond-to(phones) {
+				display: block;
+			}
+			thead {
+
+				@include respond-to(phones) {
+					display: block;
+					border-bottom: 1px solid #e6e7e8;
+					th {
+						&.product {
+							visibility: visible;
+						}
+					}
+				}
+				tr {
+					border-bottom: 1px solid #e6e7e8;
+
+					@include respond-to(phones) {
+						border: none;
+					}
+				}
+				th {
+					border-bottom: none;
+					font: normal 18px/18px $font_times;
+
+					@include respond-to(phones) {
+						border: none;
+						visibility: hidden;
+					}
+					&.product {
+						padding: 10px 0 10px 0px;
+					}
+					&.price {
+						padding: 10px 12px 10px 0;
+					}
+				}
+			}
+
+			@include respond-to(tablets) {
+				tbody {
+					tr {
+						td {
+							&.item_image {
+								width: 87px;
+								display: block;
+							}
+							&.item_quantity {
+								width: 120px;
+								.cart_qty_label {
+									display: inline-block;
+								}
+								.product_availability_list {
+									display: block;
+									.all_in_stock {
+										font-weight: bold;
+									}
+								}
+								.shippingmessage {
+									display: block;
+								}
+								.favorites_action {
+									display: none;
+								}
+							}
+							&.item_price {
+								width: auto;
+							}
+							&.item_details {
+								.name {
+									font-weight: bold;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.cart_table {
+		.add_to_favorite {
+			display: none !important;
+		}
+		thead tr th.details {
+
+			@include respond-to(tablets) {
+				width: auto;
+			}
+		}
+	}
+	.replenishment-details {
+	    button {
+	        display: none;
+	    }
+	}
+	.b-cart_order_totals_mobile {
+	    padding-bottom: 20px;
+	    
+	    .section_header {
+	        font: normal 18px/18px $font_times;
+            text-transform: uppercase;
+            padding: 0 0 12px;
+            display: block;
+            width: 100%;
+	    }
+	    table {
+	        width: 100%;
+	    }
+	    th {
+	        display: none;
+	    }
+        td {
+            padding: 5px 0;
+            font-family: $font_arial;
+            
+            &:first-child {
+                width: 125px;
+            }
+            &:last-child {
+                text-align: right;
+            }
+        }
+        .order_subtotal {
+            td {
+                font-weight: bold;
+            }
+        }
+        .order_shipping_discount {
+            color: #cf2a2a;
+        }
+        .order_total td {
+            font-size: 18px;
+            font-weight: bold;
+            
+            &:first-child {
+                font-size: 14px;
+            }
+        }
+	}
+}
+
+.b-review_method {
+	@include clearfix;
+
+	height: auto;
+	overflow: hidden;
+}
+
+.shipping_address_review, .billing_address_review,
+.gift_options_review, .payment_methods_review {
+	width: 49.7%;
+	margin: 0 0 30px 0;
+	display: inline-block;
+	vertical-align: top;
+
+	@include respond-to(tablets) {
+		width: 100%;
+		float: none;
+	}
+	@include respond-to(phones) {
+		width: 100%;
+		float: none;
+	}
+}
+
+.shipping_address_summary, .billing_address_summary,
+.method_credit_card, .gift_box {
+	font: normal 12px/24px $font_helvetica;
+	color: #000;
+}
+
+.gift_box {
+	font-weight: bold;
+	.value {
+		text-transform: uppercase;
+		padding-left: 10px;
+	}
+}
+
+.cart-gift-message {
+    .label {
+        display: block;
+        float: left;
+        margin-right: 4px;
+
+        @include respond-to(phones) {
+            float: none;
+        }
+    }
+
+    .value {
+        display: block;
+        padding-right: 20px;
+        overflow: hidden;
+    }
+}
+
+.method_credit_card {
+	.amount {
+		font-weight: bold;
+	}
+}
+
+.shipping_address_header formfield,
+.shipping_address_header .formfield,
+.billing_address_header .formfield,
+.payment_methods_header .formfield,
+.gift_options_header .formfield {
+	position: relative;
+	width: 315px;
+
+	@include respond-to(tablets) {
+		width: 100%;
+	}
+	@include respond-to(phones) {
+		display: none;
+	}
+}
+
+.pt_optcheckout { 
+    .primary.b-review {
+        margin: 0px 260px 0px 0px;
+        
+        @include respond-to(tablets) {
+            margin: 0px 250px 0px 0px;
+        }
+        @include respond-to(phones) {
+            margin: 0;
+        }
+    }
+    .secondary.m-review {
+        width: 230px;
+        
+        .b-cart_order_summary .b-cart_order.b-cart_summary {
+            padding-bottom: 20px;
+        }
+    }
+    .order_review_title {
+        display: block;
+        margin: -7px 0 4px;
+        
+        @include respond-to(phones) {
+            margin-top: 10px;
+        }
+    }
+    
+    &.sticky_summary .secondary.m-review {
+        .b-cart_summary {
+            padding: 0 20px !important; 
+            
+            .submit_order {
+                display: none;
+            }
+        }
+        .order_totals_table tr.order_subtotal {
+            border-top: none;
+        }
+    }
+}
+
+
+
+

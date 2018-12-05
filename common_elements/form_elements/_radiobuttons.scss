@@ -1,0 +1,220 @@
+/*
+ * Radio buttons
+ */
+
+%radio_bg {
+    background: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20id%3D%22svg4837%22%0A%20%20%20viewBox%3D%220%200%20163.13963%20161.11932%22%0A%20%20%20height%3D%2213%22%0A%20%20%20width%3D%2213%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4839%22%20%2F%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata4842%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%0A%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%0A%20%20%20%20%3C%2Frdf%3ARDF%3E%0A%20%20%3C%2Fmetadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate%28-406.16886%2C-574.00803%29%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22m%20569.30849%2C654.56769%20a%2081.569817%2C80.559662%200%200%201%20-81.51358%2C80.55964%2081.569817%2C80.559662%200%200%201%20-81.62597%2C-80.44857%2081.569817%2C80.559662%200%200%201%2081.40103%2C-80.67056%2081.569817%2C80.559662%200%200%201%2081.73821%2C80.33734%20l%20-81.5695%2C0.22215%20z%22%0A%20%20%20%20%20%20%20id%3D%22path5503%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23808080%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20ry%3D%2273.295052%22%0A%20%20%20%20%20%20%20rx%3D%2274.122917%22%0A%20%20%20%20%20%20%20cy%3D%22654.50867%22%0A%20%20%20%20%20%20%20cx%3D%22487.92392%22%0A%20%20%20%20%20%20%20id%3D%22path5441%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A') 0 0 no-repeat;
+}
+
+%radio_bg-checked {
+    background: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20id%3D%22svg4837%22%0A%20%20%20viewBox%3D%220%200%20163.13963%20161.11932%22%0A%20%20%20height%3D%2213%22%0A%20%20%20width%3D%2213%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4839%22%20%2F%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata4842%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%0A%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%0A%20%20%20%20%3C%2Frdf%3ARDF%3E%0A%20%20%3C%2Fmetadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate%28-406.16886%2C-574.00803%29%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22m%20569.30849%2C654.56769%20a%2081.569817%2C80.559662%200%200%201%20-81.51358%2C80.55964%2081.569817%2C80.559662%200%200%201%20-81.62597%2C-80.44857%2081.569817%2C80.559662%200%200%201%2081.40103%2C-80.67056%2081.569817%2C80.559662%200%200%201%2081.73821%2C80.33734%20l%20-81.5695%2C0.22215%20z%22%0A%20%20%20%20%20%20%20id%3D%22path5503%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23808080%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20ry%3D%2273.295052%22%0A%20%20%20%20%20%20%20rx%3D%2274.122917%22%0A%20%20%20%20%20%20%20cy%3D%22654.50867%22%0A%20%20%20%20%20%20%20cx%3D%22487.92392%22%0A%20%20%20%20%20%20%20id%3D%22path5441%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20cx%3D%22487.32465%22%0A%20%20%20%20%20%20%20cy%3D%22655.27679%22%0A%20%20%20%20%20%20%20rx%3D%2230.960215%22%0A%20%20%20%20%20%20%20ry%3D%2231.317356%22%0A%20%20%20%20%20%20%20id%3D%22path5443%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23000000%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A') 0 0 no-repeat;
+}
+
+%radio_bg-focus {
+    background: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20id%3D%22svg4837%22%0A%20%20%20viewBox%3D%220%200%20163.13963%20161.11932%22%0A%20%20%20height%3D%2213%22%0A%20%20%20width%3D%2213%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4839%22%20%2F%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata4842%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%0A%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%0A%20%20%20%20%3C%2Frdf%3ARDF%3E%0A%20%20%3C%2Fmetadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate%28-406.16886%2C-574.00803%29%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22m%20569.30849%2C654.56769%20a%2081.569817%2C80.559662%200%200%201%20-81.51358%2C80.55964%2081.569817%2C80.559662%200%200%201%20-81.62597%2C-80.44857%2081.569817%2C80.559662%200%200%201%2081.40103%2C-80.67056%2081.569817%2C80.559662%200%200%201%2081.73821%2C80.33734%20l%20-81.5695%2C0.22215%20z%22%0A%20%20%20%20%20%20%20id%3D%22path5503%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23000000%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20ry%3D%2273.295052%22%0A%20%20%20%20%20%20%20rx%3D%2274.122917%22%0A%20%20%20%20%20%20%20cy%3D%22654.50867%22%0A%20%20%20%20%20%20%20cx%3D%22487.92392%22%0A%20%20%20%20%20%20%20id%3D%22path5441%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A') 0 0 no-repeat;
+}
+
+%radio_bg-checked-focus {
+    background: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20id%3D%22svg4837%22%0A%20%20%20viewBox%3D%220%200%20163.13963%20161.11932%22%0A%20%20%20height%3D%2213%22%0A%20%20%20width%3D%2213%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4839%22%20%2F%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata4842%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%0A%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%0A%20%20%20%20%3C%2Frdf%3ARDF%3E%0A%20%20%3C%2Fmetadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate(-406.16886%2C-574.00803)%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22m%20569.30849%2C654.56769%20a%2081.569817%2C80.559662%200%200%201%20-81.51358%2C80.55964%2081.569817%2C80.559662%200%200%201%20-81.62597%2C-80.44857%2081.569817%2C80.559662%200%200%201%2081.40103%2C-80.67056%2081.569817%2C80.559662%200%200%201%2081.73821%2C80.33734%20l%20-81.5695%2C0.22215%20z%22%0A%20%20%20%20%20%20%20id%3D%22path5503%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23000000%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20ry%3D%2273.295052%22%0A%20%20%20%20%20%20%20rx%3D%2274.122917%22%0A%20%20%20%20%20%20%20cy%3D%22654.50867%22%0A%20%20%20%20%20%20%20cx%3D%22487.92392%22%0A%20%20%20%20%20%20%20id%3D%22path5441%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%20%20%3Cellipse%0A%20%20%20%20%20%20%20cx%3D%22487.32465%22%0A%20%20%20%20%20%20%20cy%3D%22655.27679%22%0A%20%20%20%20%20%20%20rx%3D%2230.960215%22%0A%20%20%20%20%20%20%20ry%3D%2231.317356%22%0A%20%20%20%20%20%20%20id%3D%22path5443%22%0A%20%20%20%20%20%20%20style%3D%22fill%3A%23000000%3Bfill-opacity%3A1%22%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A') 0 0 no-repeat;
+}
+
+.f_field_radio {
+    position: relative;
+	input[type='radio'] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		clip: rect(0,0,0,0);
+		width: 14px;
+		height: 14px;
+	}
+
+	.f_label {
+		color: #4f4f4f;
+		font-size: 11px;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+
+		@include respond-to(phones) {
+			font-size: 15px;
+		}
+	}
+
+	.f_label_value {
+        @extend %radio_bg;
+		display: inline-block;
+		vertical-align: top;
+		min-width: 14px;
+		min-height: 14px;
+		padding: 0 0 0 22px;
+		font-weight: normal;
+		color: #4f4f4f;
+		cursor: pointer;
+		line-height: 14px;
+
+        .ie8 & {
+            @include background-img('ie-global-radio.png');
+        }
+	}
+
+	// checked
+	&.f_checked {
+		.f_label_value {
+            @extend %radio_bg-checked;
+
+            .ie8 & {
+                background-position: left -300px;
+            }
+		}
+	}
+
+    // focused
+    &.f_focused {
+		.f_label_value {
+            @extend %radio_bg-focus;
+
+            .ie8 & {
+                background-position: left -600px;
+            }
+		}
+
+		&.f_checked {
+			.f_label_value {
+                @extend %radio_bg-checked-focus;
+
+                .ie8 & {
+                    background-position: left -300px;
+                }
+			}
+		}
+    }
+
+    // hover
+    &:hover {
+        .f_label_value {
+            @extend %radio_bg-focus;
+
+            .ie8 & {
+                background-position: left -600px;
+            }
+        }
+    }
+
+    &.f_checked:hover {
+        .f_label_value {
+            @extend %radio_bg-checked-focus;
+
+            .ie8 & {
+                background-position: left -300px;
+            }
+        }
+    }
+}
+
+// Lined view
+
+%d-ib {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.f_field_radio-list {
+	@extend %d-ib;
+
+	> .f_label {
+		@extend %d-ib;
+	}
+}
+
+.f_field_radio_group {
+	@extend %d-ib;
+
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	.f_field_radio {
+		@extend %d-ib;
+	}
+}
+
+@include respond-to(phones) {
+	.f_field_radio-list {
+		overflow: hidden; // return height
+		display: block;
+
+		> .f_label {
+			float: left;
+			margin-bottom: 0;
+		}
+	}
+
+	.f_field_radio_group {
+		display: block;
+		padding-left: 29%;
+
+		.f_field_radio {
+			display: block;
+			margin-bottom: 20px; // used on Pro form
+		}
+	}
+}
+
+// Professionals form specific
+.signup_container {
+
+	// list lined with label
+
+	.f_field_radio-list {
+		> .f_label {
+			width: 82px; // normalize font rendering issues
+			display: inline-block; // overwrite .signup_container .f_label specifity
+			margin-right: 15px;
+		}
+
+		// specific for professionalprogramm
+		&.professionalprogram {
+			> .f_label {
+				width: 226px;
+
+				@include respond-to(phones) {
+					width: 100%;
+					float: none; // crutch for mobile
+					margin-bottom: 19px;
+				}
+			}
+		}
+	}
+
+	.f_field_radio_group {
+		.f_field_radio {
+			width: 121px;
+			margin: 0 20px 0 0;
+		}
+	}
+}
+
+@include respond-to(phones) {
+	.signup_container {
+
+		.f_field_radio-list {
+			> .f_label {
+				width: auto;
+				margin-right: 0;
+			}
+		}
+
+		.f_field_radio_group {
+			padding-left: 40%;
+			padding-top: 1px;
+
+			.f_field_radio {
+				width: auto;
+				margin: 0 0 26px;
+			}
+		}
+	}
+}
+// End Professionals form specific

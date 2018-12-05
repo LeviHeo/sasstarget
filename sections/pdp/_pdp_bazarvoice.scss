@@ -1,0 +1,459 @@
+/*
+ * Bazarvoice custom styles
+ */
+
+#tab_reviews {
+    @include respond-to(phones) {
+        display: none;
+    }
+    .BVBrowserWebkit {
+        width: 100%;
+        select {
+            font: normal 12px/14px $font_arial;
+        }
+        .BVRRDisplayContentHeaderContent {
+            .BVRRDisplayContentTitle {
+                font-weight: normal !important;
+                text-transform: uppercase;
+                margin: 0 50px 0 0;
+                float: left;
+            }
+            .BVRRSortAndSearch {
+                display: inline-block;
+                margin: -5px 0 0 0;
+                @include respond-to(phones) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+.product_content .addthis_toolbox {
+    display: none;
+}
+.gigyaShareBarPlacement .gig-bar-container table {
+    display: inline-block;
+    tr {
+        td {
+            vertical-align: top !important;
+            table tr .gig-button-td, table tr .gig-button-td table tr td {
+                vertical-align: middle !important;
+            }
+        }
+    }
+}
+.b-product_image_bottom {
+    .BVBrowserWebkit {
+        position: relative;
+    }
+    .BVRRRatingSummaryLink .BVRRCount,
+    .BVRRRatingSummaryLink .BVRRCount .BVRRNumber,
+    .BVRRDisplayContentSubtitle .BVRRDisplayContentLinkWrite a {
+        color: inherit;
+    }
+    #BVCustomerRatings {
+        .BVRRRatingSummaryLinkWriteFirst {
+            position: relative;
+            display: inline-block;
+            text-decoration: underline;
+
+            @include respond-to( phones ) {
+                display: none;
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                @include respond-to( tablets ) {
+                    text-decoration: underline;
+                }
+                @include respond-to( phones ) {
+                    text-decoration: underline;
+                }
+
+                .BVRRRatingSummaryLinkWriteFirstPrefix {
+                    color: $color-dark_red;
+
+                    @include respond-to( tablets ) {
+                        color: #666;
+                    }
+                    @include respond-to( phones ) {
+                        color: #666;
+                    }
+                }
+                a {
+                    @include links( $color-dark_red, none );
+
+                    @include respond-to( tablets ) {
+                        @include links( #666, none );
+                    }
+                    @include respond-to( phones ) {
+                        @include links( #666, none );
+                    }
+                }
+            }
+            &:active {
+                text-decoration: none;
+
+                @include respond-to( tablets ) {
+                    text-decoration: none;
+                }
+                @include respond-to( phones ) {
+                    text-decoration: none;
+                }
+
+                .BVRRRatingSummaryLinkWriteFirstPrefix {
+                    color: $color-dark_red;
+
+                    @include respond-to( tablets ) {
+                        color: $color-dark_red;
+                    }
+                    @include respond-to( phones ) {
+                        color: $color-dark_red;
+                    }
+                }
+                a {
+                    @include links( $color-dark_red, none );
+                }
+            }
+
+            .BVRRRatingSummaryLinkWriteFirstPrefix {
+                color: #666;
+            }
+            a {
+                @include links( #666, none );
+
+                margin: 0 0 0 -65px;
+                padding: 0 0 0 65px;
+                font-size: 10px;
+            }
+        }
+    }
+    .BVRRRatingSummaryLinks {
+        margin: 0 0 -45px -25px !important;
+        padding: 0;
+        font-size: 11px;
+        text-decoration: inherit;
+
+        @include respond-to( phones ) {
+            position: absolute !important;
+            top: 5px !important;
+            left: 66% !important;
+            margin: 0 !important;
+            font-size: 0;
+            line-height: 1;
+        }
+
+        .BVRRRatingSummaryLinkWrite {
+            margin-left: -158px;
+
+            @include respond-to( phones ) {
+                margin: 0;
+            }
+        }
+        a {
+            @include links( #666, underline, $color-dark_red, none );
+
+            &:hover {
+                .BVRRNumber {
+                    color: $color-dark_red;
+
+                    @include respond-to( tablets ) {
+                        color: #666;
+                    }
+                    @include respond-to( phones ) {
+                        color: #666;
+                    }
+                }
+            }
+            &:active {
+                .BVRRNumber {
+                    color: $color-dark_red;
+                }
+            }
+
+            @include respond-to( phones ) {
+                @include links( #232d68, underline !important, $color-dark_red, none );
+            }
+
+            .BVRRNumber {
+                color: #666;
+
+                @include respond-to( phones ) {
+                    font-size: 11px;
+                    color: #232d68 !important;
+
+                    &:before {
+                        content: '(';
+                        color: #232d68 !important;
+                    }
+                    &:after {
+                        content: ')';
+                        color: #232d68 !important;
+                    }
+                }
+            }
+        }
+
+    }
+    .BVRRRatingSummary {
+        .BVRROverallRatingContainer {
+            .BVRRRating {
+                margin: 0 0 27px !important;
+
+                @include respond-to( phones ) {
+                    margin: 0 0 5px !important;
+                }
+            }
+            .BVRRRatingOverall {
+                text-align: center;
+            }
+            .BVRRLabel,
+            .BVRRRatingNormalImage {
+                float: none;
+                width: auto !important;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .BVRRLabel {
+                @include respond-to(phones) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+#BVCustomerRatings .BVRROverallRatingContainer .BVRRRatingContainerStar .BVRRRatingNormalLabel {
+    text-transform: uppercase;
+}
+.BVRRWidget {
+    .BVRRSection {
+        .BVRRQuickTakeSummary {
+            padding: 0;
+            .BVRRRatingSummaryLinks {
+                text-decoration: none;
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    #BVRRDisplayContentHeaderID {
+        padding: 0 0 26px 0;
+    }
+    .BVRRDisplayContent {
+        .BVRRDisplayContentBody {
+            .BVRRReviewDisplayStyle3 {
+                .BVRRReviewDisplayStyle3Summary {
+                    float: left;
+                    padding: 0 10px 0 0;
+                    width: 40%;
+                    word-wrap: break-word;
+                    .BVRRContextDataContainer {
+                        font-style: italic;
+
+                    }
+                }
+                .BVRRReviewDisplayStyle3Main {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 12px;
+                    width: 60%;
+                    float: right;
+                    @include respond-to(phones) {
+                        .BVDI_BAReview {
+                            .BVDI_BAList {
+                                margin: 0;
+                                text-align: right;
+                                .BVDI_BAItem {
+                                    margin: 0;
+                                }
+                                .BVDILink {
+                                    width: auto;
+                                    text-align: left;
+                                    .BVDILinkSpan {
+                                        padding: 5px 0 0 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#BVReviewsContainer {
+    #BVRRDisplayContentID {
+        .BVRRDisplayContentHeader {
+            padding: 0 0 5px 0;
+            border-bottom: 1px solid #ccc;
+            .BVRRTitle {
+                font-size: 12px;
+                line-height: 20px;
+                font-weight: bold;
+                display: block;
+            }
+            .BVRRSortAndSearch {
+                .BVRRDisplayContentSortPrefix {
+                    padding: 0;
+                }
+            }
+        }
+        .BVRRDisplayContentBody {
+            .BVRRContentReview {
+                padding: 30px 0 0 0;
+                .BVRRReviewDisplayStyle3Summary {
+                    .BVRRRating {
+                        .BVRRLabel {
+                            text-transform: uppercase;
+                            line-height: 20px;
+                        }
+                    }
+                    .BVRRSecondaryRatingsContainer {
+                        .BVRRLabel {
+                            text-transform: none;
+                            line-height: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.BVRRRatingSummaryLinkRead {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.b-product_image_bottom{
+    #BVCustomerRatings .BVRRRatingSummaryLinks .BVRRRatingSummaryLink a:link .BVRRCount .BVRRNumber {
+        @include respond-to( phones ) {
+            color: #232d68 !important;
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.pt_product_details {
+    .BVRRPhotoPopup {
+        padding: 15px;
+        z-index: 999;
+        background: #fff;
+        border: 1px solid #000;
+        &:before {
+            @include font-icons( $icon_close );
+
+            text-align: right;
+            display: block;
+            content: '\e60d';
+            color: #d7482a;
+            font-size: 24px;
+        }
+        &:hover {
+            &:before {
+                color: #fd2c00;
+            }
+        }
+        .BVRRPhotoPopupCaption {
+            width: auto !important;
+        }
+        @include respond-to(phones) {
+            max-width: 320px;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@include respond-to(phones) {
+    #BVReviewsContainer {
+        #BVRRQuickTakeContentID {
+            .BVRRRatingSummaryStyle2 {
+                .BVRRRatingContainerStar {
+                    float: left;
+                    width: 100%;
+                    clear: both;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+            .BVRRRatingsHistogramButton {
+                float: left;
+                padding: 5px;
+                position: relative;
+            }
+        }
+        #BVRRDisplayContentID {
+            .BVRRDisplayContentBody {
+                .BVRRContentReview {
+                    padding: 20px 0 0 0;
+                    .BVDI_FV {
+                        .BVDILink {
+                            .BVDILinkSpan {
+                                font-style: normal;
+                            }
+                        }
+                        .BVDI_FVVotes {
+                            .BVDIPrefix {
+                                display: block;
+                            }
+                            .BVDI_FVVote {
+                                .BVDIPrefix {
+                                    display: inline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .BVRRVideo {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            embed {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+// Styles from temporary
+.popup_write_review + .ui-widget-overlay{z-index:9999;}
+.BVQAContentData.BVQAQuestionData{overflow: visible;}
+.BVQAToolbarDisplayToggle img{display: inline-block;}
+.BVQAForm{
+  .BVQAFieldSectionPhotoUpload,
+  .BVQAFieldHeader,
+  #BVQAQuestionVisibleVideoURLInputID,
+  #BVQAQuestionVisibleVideoURLCaptionInputID,
+  #BVQAQuestionProductReferencesFieldID,
+  .BVQAFieldHelper,
+  .BVQAGuidelines{display: block;}
+  .BVSU_PLProductName{height: auto;}
+  select.BVQAError,
+  input.BVQAError{border: 1px solid #ff0000 !important;}
+}
+.BVQAQuestionOverallSummary{word-break: break-all;}
+.BVQAQuestions{
+  .BVQAFeedbackList,
+  .BVQAContentText,
+  .BVQAPhotoSection,
+  .BVQAQuestionPhotoLine,
+  .BVQAVideoSection,
+  .BVQAAnswerText.BVQAContentText{float: none;width: auto;}
+  .BVDI_PLProduct{width: 118px;}
+  .BVQAQuestionPhotoLine img{display: inline;}
+}
+.BVQAQuestionAndAnswers{
+  .BVQAQuestionMain .BVQAAnswerProductReferencesDiv,
+  .BVQAQuestionMain .BVQAQuestionProductReferencesDiv{float: none;width: auto;margin: 10px 0 0;}
+}
+.BVQAPhotoSectionThumbnail img{display: inline;}
+
+

@@ -1,0 +1,1043 @@
+// Routine finder
+
+$color-accent: #8d3094;
+
+// @group Routine finder layout
+//------------------------------------------------------------------------------
+
+.routinefinder {
+
+    .primary {
+        width: 100%;
+        float: none;
+        padding: 10px 0 51px;
+    }
+}
+
+// @end
+
+// @group Header
+//------------------------------------------------------------------------------
+
+.routinefinder .rf_title {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    border: 7px #f0ede7;
+    border-style: none solid solid;
+    font-family: $font_times;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 206px -93px;
+    padding: 5px 34px 10px;
+
+    @include respond-to(tablets) {
+        margin: 0 17% -70px;
+        padding: 4px 28px 7px;
+    }
+
+    @include respond-to(phones) {
+        margin: 0 5px -54px;
+        padding: 6px 20px 4px;
+    }
+
+    &-inner {
+        display: block;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 0;
+            right: 0;
+            z-index: 0;
+            border-top: 2px solid #000;
+
+            @include respond-to(tablets) {
+                top: 8px;
+            }
+
+            @include respond-to(phones) {
+                border-width: 1px;
+                top: 6px;
+            }
+        }
+    }
+
+    &-subtitle {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 5px;
+        font-size: 25px;
+        background: #fff;
+        color: $color-accent;
+        white-space: nowrap;
+
+        @include respond-to(tablets) {
+            font-size: 18px;
+        }
+
+        @include respond-to(phones) {
+            font-size: 13px;
+        }
+    }
+
+    &-title {
+        display: block;
+        margin: -4px 0 0;
+        font-size: 50px;
+        white-space: nowrap;
+
+        @include respond-to(tablets) {
+            margin-top: -2px;
+            font-size: 36px;
+        }
+
+        @include respond-to(phones) {
+            margin-top: -2px;
+            font-size: 26px;
+        }
+    }
+}
+
+// @end
+
+// @group Questionary
+//------------------------------------------------------------------------------
+
+.routinefinder {
+
+    .rf_questions {
+        position: relative;
+        height: 390px;
+        padding: 116px 0 40px;
+        margin: 0 0 20px;
+        font: normal 30px/38px $font_times;
+        background: #f8f5ee;
+
+        @include respond-to(tablets) {
+            height: 282px;
+            padding: 82px 0 40px;
+            font-size: 24px;
+        }
+
+        @include respond-to(phones) {
+            height: auto;
+            padding: 73px 35px 25px;
+            overflow: hidden; // fix iOS additional space in right side
+        }
+
+        // background
+
+        &:before,
+        &:after {
+            @include background-img('routine-finder/bg-questionary.jpg', 0 0, #f8f5ee);
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 1;
+
+            @include respond-to(tablets) {
+                -webkit-background-size: auto 100%;
+                background-size: auto 100%;
+            }
+
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+            background-position: 100% 0;
+        }
+    }
+
+    .questions_list {
+        width: 580px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+
+        @include respond-to(tablets) {
+            width: 455px;
+        }
+
+        @include respond-to(phones) {
+            width: auto;
+        }
+    }
+
+    // inputs layout
+
+    .question_item {
+        margin-bottom: 22px;
+        display: inline-block;
+        vertical-align: top;
+
+        @include respond-to(tablets) {
+            margin-bottom: 10px;
+        }
+
+        @include respond-to(phones) {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        select {
+            display: inline-block;
+            vertical-align: middle;
+            background-color: transparent;
+            height: 30px;
+            font-size: 15px;
+            line-height: 23px;
+            padding-top: 0;
+            padding-bottom: 3px;
+            border-color: #000;
+            margin: 0 9px 0 3px;
+
+            @include respond-to(tablets) {
+                height: auto;
+                font-size: 14px;
+                line-height: 21px;
+            }
+
+            @include respond-to(phones) {
+                height: auto;
+                font-size: 15px;
+            }
+
+            &:focus {
+                border-color: $color-accent;
+            }
+        }
+    }
+
+    // Routinefinder inputs
+
+    .routine-finder-iam,
+    .routine-finder-myskin {
+        @include respond-to(phones) {
+            > div {
+                display: table;
+                width: 100%;
+
+                select,
+                .question_title {
+                    display: table-cell;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    .routine-finder-myconcern,
+    .routine-finder-sunprotection {
+        display: block;
+    }
+
+    .routine-finder-iam {
+
+        .question_title {
+            width: 60px;
+        }
+
+        select {
+            width: 136px;
+
+            @include respond-to(tablets) {
+                width: 166px;
+            }
+        }
+    }
+
+    .routine-finder-myskin {
+
+        .question_title {
+            width: 108px;
+
+            @include respond-to(tablets) {
+                width: 94px;
+            }
+        }
+
+        select {
+            width: 227px;
+
+            @include respond-to(tablets) {
+                width: 90px;
+            }
+        }
+    }
+
+    .routine-finder-myconcern {
+
+        .question_title {
+            width: 230px;
+
+            @include respond-to(tablets) {
+                width: 193px;
+            }
+        }
+
+        select {
+            width: 329px;
+
+            @include respond-to(tablets) {
+                width: 242px;
+            }
+        }
+    }
+
+    .routine-finder-sunprotection {
+
+        .question_title {
+            width: 335px;
+
+            @include respond-to(tablets) {
+                width: 278px;
+            }
+        }
+
+        select {
+            width: 224px;
+
+            @include respond-to(tablets) {
+                width: 157px;
+            }
+        }
+    }
+
+    .routine-finder-iam,
+    .routine-finder-myskin,
+    .routine-finder-myconcern,
+    .routine-finder-sunprotection {
+        @include respond-to(phones) {
+            select {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.routinefinder {
+
+    // Title
+
+    .rf_container {
+        //overflow: hidden; // fix iOS additional space in right side
+    }
+
+    .question_title {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 1;
+
+        .ua-android & {
+            font-size: 23px; // "Droid Serif" font metrics fix. This is default and only font on some Android devices.
+        }
+
+        @include respond-to(tablets) {
+            font-size: 24px;
+
+            .ua-android & {
+                font-size: 20px;
+            }
+        }
+
+        @include respond-to(phones) {
+            display: block;
+            margin: 0 0 3px;
+            font-size: 18px;
+
+            .ua-android & {
+                font-size: 18px;
+            }
+        }
+    }
+
+    // Button
+
+    .questions_actions {
+        text-align: center;
+
+        @include respond-to(tablets) {
+            margin-top: -4px;
+        }
+
+        @include respond-to(phones) {
+            margin-top: -4px;
+        }
+
+        .button {
+            @include button();
+            @include button-size(0 13px, 17px, 38px);
+            @include button-color(#8d3094, #8d3094, #fff, #cdabff);
+            box-shadow: 3px 4px 0 #000;
+            font-style: oblique;
+            letter-spacing: 1px;
+
+            @include respond-to(tablets) {
+                @include button-size(0 13px, 13px, 30px);
+            }
+
+            @include respond-to(phones) {
+                @include button-size(0 13px, 13px, 27px);
+            }
+        }
+    }
+}
+
+// @end
+
+// @group Products
+//------------------------------------------------------------------------------
+
+.routinefinder {
+
+    .related_products {
+        overflow: hidden;
+    }
+
+    .b-related-products {
+        display: block;
+        width: 110%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include respond-to(tablets) {
+            width: auto;
+            padding: 0 50px;
+            text-align: center;
+        }
+
+        @include respond-to(phones) {
+            padding-bottom: 34px;
+        }
+    }
+
+    .product_tile_wrapper {
+        width: 186px;
+        margin: 0 68px 32px 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+
+        @include respond-to(tablets) {
+            margin: 0 46px 32px;
+        }
+
+        @include respond-to(phones) {
+            width: 40%;
+            margin: 0 9% 20px 0;
+        }
+    }
+
+    .related_products {
+
+        .b-product_img-link {
+            display: block;
+
+            @include respond-to(phones) {
+                padding: 0 15px;
+            }
+        }
+
+        .b-product_img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product_name {
+            @include links(#000, none, #000, underline);
+            position: relative;
+            display: block;
+            padding: 0 25px;
+            font: normal 16px/19px $font_trade_gothic;
+
+            @include respond-to(phones) {
+                padding: 0;
+                font-size: 15px;
+                line-height: 18px;
+            }
+
+            &:after {
+                @include triangle(right, 3px, 7px 0 0 10px, #000);
+                position: absolute; // prevent this element wrap to a next line
+            }
+        }
+
+        .ui-rating-title {
+            display: none;
+        }
+    }
+}
+
+.routine_item,
+.related_products {
+    // QV
+    position: relative;
+
+    .product_tile {
+        &:hover {
+            .quickviewbutton {
+                display: block;
+            }
+        }
+    }
+
+    .quickviewbutton {
+        @include button();
+        @include button-size(0 13px, 14px, 32px);
+        @include button-color(#8d3094, #8d3094, #fff, #cdabff);
+        display: none;
+        position: absolute;
+        top: 123px;
+        left: 50%;
+        z-index: 3;
+        margin-left: -60px;
+        box-shadow: 3px 4px 0 #000;
+
+        @include respond-to(tablets) {
+            left: 93px;
+        }
+    }
+}
+
+.routine_item {
+    .quickviewbutton {
+        top: 146px;
+
+        @include respond-to(tablets) {
+            display: none;
+            top: 96px;
+            left: 90px;
+        }
+    }
+    &.hover {
+        .quickviewbutton {
+
+            @include respond-to(tablets) {
+                display: block;
+            }
+        }
+    }
+}
+
+// @end
+
+// @group Results title
+//------------------------------------------------------------------------------
+
+.routinefinder .quiz_recommended_title {
+    display: none;
+}
+
+// @end
+
+// @group Product grid
+//------------------------------------------------------------------------------
+
+.routinefinder .js_quiz_recommendedProducts {
+    .product_tile_wrapper {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 101%;
+        text-align: center;
+
+        @include respond-to(tablets) {
+            width: auto;
+        }
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+}
+
+.routine_item {
+    display: inline-block;
+    vertical-align: top;
+    width: 179px;
+    padding: 10px 16px 25px; // space for pos:a elements in the bottom
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    position: relative;
+    text-align: center;
+
+    @include respond-to(tablets) {
+        width: 100%;
+        margin: 0 0 30px;
+        padding: 2px;
+        border-width: 2px;
+        text-align: left;
+    }
+
+    @include respond-to(phones) {
+        width: 100%;
+        padding: 2px;
+        margin-bottom: 21px;
+        border-width: 2px;
+    }
+
+    .b-product_img-link {
+        display: block;
+
+        @include respond-to(tablets) {
+            width: 145px;
+            position: absolute;
+            top: 32px;
+            left: 21px;
+            z-index: 0;
+        }
+
+        @include respond-to(phones) {
+            padding: 0 20%;
+        }
+    }
+
+    .b-product_img {
+        width: 100%;
+        height: auto;
+    }
+
+    .product_name {
+        @include links(#000, none, #000, underline);
+        display: block;
+        height: 73px;
+        margin: 29px 0 10px;
+        overflow: hidden;
+        font: bold 16px/19px $font_times;
+
+        @include respond-to(tablets) {
+            height: auto;
+            margin: 5px 0 3px;
+        }
+
+        @include respond-to(phones) {
+            margin: 20px 0 10px;
+            height: auto;
+        }
+    }
+
+    .product_subtitle {
+        display: block;
+        height: 200px;
+        overflow: hidden;
+        font: 12px/15px $font_helvetica;
+
+        @include respond-to(tablets) {
+            height: auto;
+        }
+
+        @include respond-to(phones) {
+            margin: 20px 0;
+            height: auto;
+        }
+    }
+
+    .ui-rating-title {
+        font: 11px/1 $font_arial;
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        right: 0;
+
+        @include respond-to(phones-tablets) {
+            bottom: 69px;
+        }
+
+        @include respond-to(tablets) {
+            left: auto;
+            padding-left: 3px; // normalize lines start
+        }
+    }
+
+    .inline_rating_link {
+        position: absolute;
+        bottom: -58px;
+        left: 0;
+        right: 0;
+        display: block;
+        margin-bottom: 15px;
+
+        @include respond-to(phones-tablets) {
+            bottom: 37px;
+        }
+
+        @include respond-to(tablets) {
+            left: auto;
+            padding-left: 3px; // normalize lines start
+        }
+    }
+
+    .inline_rating_label_link {
+        display: none;
+    }
+    .product_promo {
+    	display: none;
+    }
+
+    .product_image_wrapper {
+        min-height: 165px;
+    }
+}
+
+.routine_item-inner {
+    @include clearfix;
+    position: relative;
+
+    @include respond-to(phones-tablets) {
+        border: 1px solid #ccc;
+        padding: 10px 10px 60px;
+    }
+}
+
+.routine_item-desctiption {
+    font: 12px/15px $font_helvetica;
+    height: 137px;
+    overflow: hidden;
+
+    @include respond-to(tablets) {
+        height: auto;
+    }
+
+    @include respond-to(phones) {
+        height: auto;
+        line-height: 17px;
+    }
+}
+
+.routine_item-step {
+    font: oblique bold 20px/25px $font_times;
+    text-transform: uppercase;
+    margin: 14px 0 24px;
+
+    @include respond-to(tablets) {
+        margin: 11px 0 14px;
+    }
+
+    @include respond-to(phones) {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 17px;
+    }
+}
+
+.routine_item-category {
+    display: inline-block;
+    vertical-align: top;
+    font: 16px/21px $font_times;
+    margin: 0 0 10px;
+
+    @include respond-to(phones) {
+        font-size: 13px;
+        line-height: 17px;
+    }
+}
+
+.routine_item-category-inner {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #000;
+    padding: 0 5px;
+}
+
+.routine_item-usetime {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font: 12px/20px $font_helvetica;
+    color: #8d3094;
+
+    @include respond-to(phones-tablets) {
+        bottom: 20px;
+        padding-right: 3px; // normalize lines start
+    }
+
+    @include respond-to(tablets) {
+        left: auto;
+    }
+
+    @include respond-to(phones) {
+        font-size: 13px;
+        line-height: 17px;
+    }
+}
+.routine_item .product_name,
+.routine_item .product_subtitle,
+.routine_item .ui-rating-title,
+.routine_item .inline_rating_link,
+.routine_item-desctiption,
+.routine_item-step,
+.routine_item-category,
+.routine_item-usetime {
+    @include respond-to(tablets) {
+        float: right;
+        width: 69.5%;
+    }
+}
+
+
+// @end
+
+// @group QV modal
+//------------------------------------------------------------------------------
+
+.pt_quiz {
+
+    #QuickViewDialog {
+        max-height: none !important;
+    }
+
+    .quickview {
+        .product_variant_list_wrapper {
+            .b-product-add_to_cart.large {
+                padding: 0 0 13px;
+                margin: 0 0 31px;
+                border-bottom: 1px dotted #CCC;
+            }
+        }
+    }
+
+    @include respond-to(phones) {
+        .quickview {
+            .l-product_details-left,
+            .ui-rating-title {
+                display: none;
+            }
+        }
+
+        .product_detail .product_actions {
+            position: static;
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+}
+
+// @end
+
+// @group Search result action
+//------------------------------------------------------------------------------
+
+.rf_result_action {
+    font: bold 20px/28px $font_times;
+    margin: 23px 0 21px;
+    text-align: center;
+
+    @include respond-to(tablets) {
+        margin-top: 31px;
+    }
+
+    @include respond-to(phones) {
+        margin-top: 0;
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
+
+.rf_result_action,
+.rf_mail_routine .formfield_button {
+    .button {
+        @include button();
+        @include button-size(0 13px, 15px, 32px);
+        @include button-color(#8d3094, #8d3094, #fff, #cdabff);
+        box-shadow: 3px 4px 0 #000;
+        margin: 0 15px;
+
+        @include respond-to(tablets) {
+            @include button-size(0 13px, 13px, 32px);
+        }
+
+        @include respond-to(phones) {
+            @include button-size(0 13px, 13px, 27px);
+            margin: 12px 10px 0;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.rf_result_action-text {
+    @include respond-to(phones) {
+        display: block;
+    }
+}
+
+// @end
+
+// @group rf_mail_routine
+//------------------------------------------------------------------------------
+
+.rf_mail_routine {
+    position: relative;
+
+    form {
+        position: relative;
+        margin: 29px 0;
+        padding: 20px 28% 20px 26%;
+        border: 1px #000;
+        border-style: solid none;
+
+        @include respond-to(phones) {
+            padding: 17px 1px 24px;
+            margin: 28px -19px 17px;
+        }
+
+        .f_field_email {
+            .f_label, .error_message {
+                padding: 0 5px;
+            }
+        }
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid #e2e2e2;
+
+        @include placeholder {
+            text-transform: uppercase;
+            font-family: $font_helvetica;
+        }
+
+        .f_state_error & {
+            border-color: #f00;
+        }
+    }
+
+    .f_field.f_field_checkbox { // fix error message position that placed inside checkbox container
+        position: static;
+
+        input,
+        .f_label {
+            position: absolute;
+            top: 2px;
+            left: -1px;
+        }
+
+        .f_label {
+            width: 100%;
+        }
+    }
+
+    .formfield_button {
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        margin-top: -54px;
+
+        @include respond-to(tablets) {
+            right: 0;
+        }
+
+        @include respond-to(phones) {
+            position: static;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.rf_mail_routine-from_title {
+    width: 21%;
+    padding: 5px 40px 0 0;
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    left: 10px;
+    border-right: 1px solid #e2e2e2;
+    font-size: 19px;
+    line-height: 24px;
+
+    @include respond-to(phones) {
+        position: static;
+        width: 133px;
+        margin: 0 auto;
+        padding: 0;
+        border: none;
+        font: 18px/24px $font_times;
+    }
+}
+
+.rf_mail_routine-success {
+    margin: 29px 0;
+    padding: 40px 20px;
+    border: 1px #000;
+    border-style: solid none;
+    font: normal 29px/1 $font_times;
+    text-align: center;
+    color: #8a3391;
+
+    @include respond-to(phones) {
+        padding: 21px 0 16px;
+        margin: 28px -20px 17px;
+        font-size: 16px;
+    }
+}
+
+// @end
+
+// @group Routine finder add to cart
+//------------------------------------------------------------------------------
+
+.pt_quiz {
+
+    .b-product-add_to_cart {
+        @include respond-to(phones) {
+
+            .shipping {
+                position: static;
+                display: block;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .quickview {
+        @include respond-to(phones) {
+            .inline_rating_link {
+                display: none;
+            }
+        }
+    }
+}
+
+// @end
+
+// @group Bottom banner
+//------------------------------------------------------------------------------
+
+.routine-finder-bottom-banner,
+.routine-finder-bottom-banner-alt {
+    text-align: center;
+
+    @include respond-to(phones-tablets) {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+// @end

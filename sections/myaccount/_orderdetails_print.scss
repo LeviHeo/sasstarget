@@ -1,0 +1,38 @@
+/*
+ * Order Details - Print
+ */
+
+@media print {
+	.s-account .l-myaccount,
+	.l-header, .l-footer,
+	.b-footer_copyrights_wrapper,
+    .pt_account .g-page_login {
+		display: none;
+	}
+
+	.s-account,
+    .pt_account {
+		.ui-dialog {
+			top: 0 !important;
+			left: 0 !important;
+            right: 0 !important;
+			border: none;
+			.ui-dialog-titlebar {
+				display: none;
+			}
+			.b-order_details>button {
+				display: none;
+			}
+			.ui-dialog-content {
+				padding: 60px 20px 20px 20px;
+			}
+		}
+	}
+
+    .s-order_history {
+        .l-header header,
+        .l-myaccount.account {
+            display: none;
+        }
+    }
+}

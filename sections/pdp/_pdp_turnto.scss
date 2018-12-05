@@ -1,0 +1,1558 @@
+/*
+ * PDP Turn To
+ */
+
+$bg_turnto: #f7f7f7;
+
+#TurnToContent {
+    .TTpoweredby, #TThiMsg, .TTheader, .TT3qAnchorLeft, .TT3aAnchorLeft {
+        display: none;
+    }
+    .TTanswerMiqaHelpArrow {
+
+        @include respond-to(phones) {
+            line-height: 26px;
+        }
+    }
+    .TTmiqaForm {
+        @include clearfix;
+
+    }
+    #TT4commentsExpanded {
+
+        @include respond-to(phones) {
+            margin-left: 0;
+        }
+    }
+    #TT4commentsLeft {
+        width: 50%;
+        float: left;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+        .TT3commentCntr {
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+    #TT4commentsRight {
+        width: 50%;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+        .TT3commentCntr {
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+    .TT4 {
+        padding: 20px;
+        margin: 20px 0;
+        background: $bg_turnto;
+        .TT2askBackGround {
+            padding: 0;
+        }
+        #TT2questionText {
+            width: 100%;
+            border: 1px solid #ccc;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+        .TT2clearBoth, .TT2charLimitCount, .TT2clearBoth {
+            height: auto !important;
+        }
+        #TT4questionTextWrap {
+            border: none;
+        }
+        #TT4questionTextHelpBox {
+            display: none;
+        }
+    }
+    .TT8 {
+        position: relative;
+        border-left: 3px solid #ccc;
+        background: $bg_turnto;
+        padding: 20px 20px 50px 20px;
+    }
+    .TT4bestAnswerBlock {
+        .TT3IRContainer {
+            margin: 0px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            .TT2cancelBtn {
+                padding-top: 2px !important;
+                font: normal 12px/18px $font_helvetica;
+            }
+            .TT4answerInstructions {
+                color: #888;
+                font: normal 11px/17px $font_helvetica;
+            }
+            .TT3inlineAnswer, .TT4ansBtns {
+                width: 100%;
+            }
+        }
+    }
+    .TT3IRContainer {
+        > .TT3IRContainer {
+            .TT3rplyCntr {
+                border-top: none;
+            }
+        }
+    }
+    .TT3rplyCntr {
+        color: #000;
+    }
+    .TT4SysMsgBody {
+        background: #f7f7f7;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        margin-top: 0 !important;
+        padding: 8px 10px 8px 8px;
+        color: #000;
+        a {
+            @include links(#000, underline);
+
+            font-weight: normal;
+            &.TT3tabClose {
+                margin: -4px -5px 0 0;
+            }
+        }
+    }
+    .TT3linkLine {
+        margin: 10px 0 0 !important;
+        padding: 0;
+        font: italic normal 12px/18px $font_helvetica !important;
+        color: #888 !important;
+        .TT4middot {
+
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+        .TT4addAnswer {
+            @include links( #888, none );
+
+            font: normal bold 12px/18px $font_helvetica;
+            text-decoration: none !important;
+            color: #888 !important;
+            display: inline-block;
+            &:before {
+                @include background-img( 'turn_to/ico-pen.png', 0 0 no-repeat );
+
+                content: '';
+                display: inline-block;
+                margin: 3px 5px -3px 0;
+                width: 16px;
+                height: 16px;
+
+                @include respond-to(phones) {
+                    width: 12px;
+                    height: 12px;
+                    margin: 1px 5px -1px 0;
+                    background-size: 100% auto;
+                }
+            }
+        }
+        span {
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none !important;
+            &.TT3timeStamp {
+                font-weight: normal;
+                font-style: italic;
+            }
+            &.TT3showText {
+
+                @include respond-to(phones) {
+                    width: 100%;
+                    display: block;
+                    .TT4middot {
+                        display: none;
+                    }
+                }
+                a {
+                    @include links( #000, none );
+
+                    font: normal bold 14px/26px $font_helvetica;
+                    color: #000 !important;
+
+                    @include respond-to(phones) {
+                        font-size: 15px;
+                        line-height: 15px;
+                    }
+                    &:before {
+                        @include background-img( 'turn_to/ico-read.png', 0 0 no-repeat );
+
+                        content: '';
+                        display: inline-block;
+                        margin: 0px 5px 0px 0;
+                        width: 15px;
+                        height: 10px;
+                    }
+                }
+            }
+            &.TT3hideText {
+                a {
+                    @include links( #000, none );
+
+                    font: normal bold 14px/26px $font_helvetica;
+
+                    @include respond-to(phones) {
+                        color: #000;
+                        font-size: 15px;
+                        line-height: 15px;
+                    }
+                    &:before {
+                        @include background-img( 'turn_to/ico-hide.png', 0 0 no-repeat );
+
+                        content: '';
+                        display: inline-block;
+                        margin: 0px 5px 0px 0;
+                        width: 15px;
+                        height: 10px;
+                    }
+                }
+            }
+            &.TT3helpful {
+                &:before {
+                    @include background-img( 'turn_to/ico-hand.png', 0 0 no-repeat );
+
+                    content: '';
+                    display: inline-block;
+                    margin: 3px 5px -1px 0;
+                    width: 16px;
+                    height: 16px;
+
+                    @include respond-to(phones) {
+                        width: 12px;
+                        height: 12px;
+                        margin: 1px 5px -1px 0;
+                        background-size: 100% auto;
+                    }
+                }
+            }
+            a {
+                @include links( #888, none );
+
+                font: normal bold 12px/18px $font_helvetica;
+                text-decoration: none !important;
+                color: #888 !important;
+            }
+        }
+        a {
+            @include links( #888, none );
+
+            font: normal bold 12px/18px $font_helvetica;
+            text-decoration: none !important;
+        }
+        .TT4voteHelp {
+            display: none !important;
+        }
+        .TT3staffBadge {
+            padding: 3px 7px 2px 7px;
+            margin: 0 4px;
+            background: #888;
+            color: #fff;
+            font: normal 9px/14px $font_arial;
+            text-transform: uppercase;
+        }
+    }
+    .TT4ansAndReplies {
+        .TT3IRContainer {
+            .TT3IRContainer {
+                border: none;
+                padding: 0;
+                .TT3replyInputBlock {
+                    padding: 15px;
+                    border: 1px solid #ccc;
+                }
+            }
+        }
+    }
+    .TT3questWrp {
+        padding: 20px;
+        margin: 0 0 20px 0;
+        background: $bg_turnto;
+        border-left: 3px solid #ccc;
+        .TT3commentCntr {
+            margin: 0 0 20px 0;
+            vertical-align: top;
+            border: 1px solid #ccc;
+            display: inline-block;
+            background: #fff;
+            padding: 15px 20px;
+            width: 95%;
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+
+            &:nth-child(2n+1) {
+                margin-right: 20px;
+
+                @include respond-to(tablets) {
+                    margin-right: 0;
+                }
+                @include respond-to(phones) {
+                    margin-right: 0;
+                }
+            }
+            .TT3aAnchorLeft {
+                display: none;
+            }
+        }
+        .TT3questCntr {
+            margin: 0;
+            .TT3cAnchorLeft {
+                display: none;
+            }
+            .TT3qText {
+                margin: 0 0 5px 0;
+                display: block;
+                color: #000;
+                cursor: default;
+                font: normal 22px/26px $font_helvetica;
+
+                @include respond-to(phones) {
+                    font-size: 19px;
+                    line-height: 23px;
+                }
+            }
+            .TT3linkLine {
+                padding: 0 0 10px 0;
+                margin: 0;
+                color: #888;
+                font: normal 12px/16px $font_helvetica;
+                a {
+                    @include links( #888, none );
+
+                }
+                .TT3askedBy {
+                    margin: 0 5px 0 0;
+                    display: inline-block;
+                    a {
+                        @include links( #888, none );
+
+                    }
+                }
+                .TT3timeStamp {
+                    color: #888;
+                    font-weight: normal;
+                    font-style: italic;
+                }
+                .TT3helpful {
+                    color: #888;
+                    font-weight: bold;
+
+                    @include respond-to(phones) {
+                        display: block;
+                    }
+                    &:before {
+                        @include background-img( 'turn_to/ico-hand.png', 0 0 no-repeat );
+
+                        content: '';
+                        display: inline-block;
+                        margin: 3px 5px -3px 0;
+                        width: 16px;
+                        height: 16px;
+
+                        @include respond-to(phones) {
+                            width: 12px;
+                            height: 12px;
+                            margin: 1px 5px -1px 0;
+                            background-size: 100% auto;
+                        }
+                    }
+                }
+            }
+            .TT4controlLine {
+                margin: 10px 0;
+                .TT3askedBy {
+                    font: italic normal 12px/14px $font_helvetica;
+                    color: #888;
+                }
+                .TT3storeBadge {
+                    padding: 3px 7px 2px 7px;
+                    margin: 0 4px;
+                    background: #888;
+                    color: #fff;
+                    font: normal 9px/14px $font_arial;
+                    text-transform: uppercase;
+                }
+                .TT3expand {
+                    .TT3showText, .TT3hideText {
+                        color: #000;
+                        font: bold 14px/28px $font_helvetica;
+
+                        @include respond-to(phones) {
+                            width: 100%;
+                            display: block;
+                            .TT4middot {
+                                display: none;
+                            }
+                        }
+                        a {
+                            @include links( #000, none );
+
+                            @include respond-to(phones) {
+                                font-size: 15px;
+                                line-height: 15px;
+                            }
+                        }
+                    }
+                    .TT3showText {
+
+                        @include respond-to(phones) {
+                            width: 100%;
+                            display: block;
+                            .TT4middot {
+                                display: none;
+                            }
+                        }
+                        a {
+
+                            @include respond-to(phones) {
+                                font-size: 15px;
+                                line-height: 15px;
+                            }
+                            &:before {
+                                @include background-img( 'turn_to/ico-read.png', 0 0 no-repeat );
+
+                                content: '';
+                                display: inline-block;
+                                margin: 0px 5px 0px 0;
+                                width: 15px;
+                                height: 10px;
+                            }
+                        }
+                    }
+                    .TT3hideText {
+                        a {
+
+                            @include respond-to(phones) {
+                                color: #000;
+                                font-size: 15px;
+                                line-height: 15px;
+                            }
+                            &:before {
+                                @include background-img( 'turn_to/ico-hide.png', 0 0 no-repeat );
+
+                                content: '';
+                                display: inline-block;
+                                margin: 0px 5px 0px 0;
+                                width: 15px;
+                                height: 10px;
+                            }
+                        }
+                    }
+                    .TT3askedBy {
+                        color: #888;
+                        font: italic normal 12px/18px $font_helvetica;
+                        a {
+                            @include links( #888, none );
+
+                        }
+                        .TT3storeBadge {
+                            padding: 0 6px 2px 6px;
+                            text-transform: uppercase;
+                            font-style: normal;
+                            background: #888;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .TT4askedByBlock {
+                color: #888;
+                font: italic normal 12px/16px $font_helvetica;
+                .TT3askedBy {
+                    color: #606060;
+                    font-weight: bold;
+                    font-style: normal;
+                    a {
+                        text-decoration: none;
+                        color: #606060;
+                    }
+                }
+            }
+        }
+        .TT3itemBox {
+            border: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            overflow: visible;
+            .TT3miqaSection {
+                margin: 20px 0;
+                .TT3miqaQuestionItem {
+                    color: #888;
+                    font: normal 14px/20px $font_helvetica;
+                    img {
+                        margin: 0 0 5px 0;
+                    }
+                }
+            }
+        }
+        .TT3ansArea {
+            padding: 20px;
+            margin: 15px -20px 20px -20px;
+            border: none;
+            background: #fff;
+            border-bottom: 1px solid #f7f7f7;
+            border-right: 1px solid #f7f7f7;
+            .TT3rplyCntr {
+                color: #000;
+                font: normal 14px/24px $font_helvetica;
+                textarea {
+                    width: 100%;
+                }
+                .TT3Indent {
+                    .TT3replyInputBlock {
+                        padding: 0;
+                    }
+                    .TT4answerInstructions {
+                        color: #888;
+                        font: normal 12px/16px $font_helvetica;
+                    }
+                }
+            }
+            .TT3Indent {
+                .TTanswerInputArea {
+                    padding: 0;
+                    textarea {
+                        width: 100%;
+                    }
+                }
+            }
+            .TT2left {
+                display: block;
+                float: right;
+            }
+            .TT2right {
+                float: left;
+                .TT3vcntUp {
+                    padding: 5px 0 0 0;
+                }
+                .TT3yesVote {
+                    &.TT3tmbOn {
+                        @include background-img( 'turn_to/ico-vote.png', 0px -1px no-repeat );
+
+                    }
+                }
+            }
+        }
+        .TT3answersBlock {
+            margin: -20px -20px 0px -20px;
+            padding: 20px;
+            background: #fff;
+            border-right: 1px solid #f7f7f7;
+            border-bottom: 1px solid #f7f7f7;
+            .TTanswerInputArea {
+                margin: 0;
+                textarea {
+                    width: 100%;
+                    resize: none;
+                    border: 1px solid #ccc;
+                }
+            }
+        }
+    }
+    .TT3itemBox2 {
+        .TT4cText {
+            color: #000;
+            font: normal 14px/20px $font_helvetica;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+        .TT3cText {
+            display: block;
+            color: #000;
+            font: normal 14px/20px $font_helvetica;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+        br {
+            display: none;
+
+            @include respond-to(phones) {
+                display: block;
+            }
+        }
+        .TT3askedBy {
+            color: #888;
+            font: italic normal 12px/18px $font_helvetica;
+            a {
+                @include links( #888, none );
+
+                font-weight: bold;
+                font-style: normal;
+            }
+        }
+        .TT3timeStamp {
+            color: #888;
+            font: italic normal 12px/28px $font_helvetica;
+        }
+    }
+    .TT3ansArea {
+        padding: 20px;
+        margin: 0 0 20px 0;
+        border-left: 3px solid #ccc;
+        .TT3itemBox2 {
+            color: #000;
+            font: normal 14px/24px $font_helvetica;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+            .TTbestAnswer {
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #000;
+            }
+            a {
+                @include links(#000, underline);
+
+            }
+        }
+    }
+    .TT4answerBtns {
+        .TT4ansBtns {
+            width: 100%;
+            .TT4answerInstructions {
+                color: #888;
+                font: normal 12px/16px $font_helvetica;
+            }
+            .TTanswerMiqaHelp {
+                .TTanswerMiqaHelpText {
+
+                    @include respond-to(phones) {
+                        width: 100%;
+                        margin: 5px 0 0 0;
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+    .TTmiqaBubble {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #000;
+
+        @include respond-to(phones) {
+            width: 240px !important;
+            left: -15px !important;
+        }
+        .TTmiqaCallout {
+            position: relative;
+            display: block;
+            background: transparent;
+            height: 36px;
+            border-left: 34px solid transparent;
+            border-right: 34px solid transparent;
+            border-bottom: 36px solid #000;
+            width: 36px;
+            top: 0;
+            margin: -56px 0 20px 0;
+            &:after {
+                position: absolute;
+                content: "";
+                display: block;
+                height: 36px;
+                border-left: 34px solid transparent;
+                border-right: 34px solid transparent;
+                border-bottom: 36px solid #fff;
+                width: 36px;
+                margin: 0;
+                top: 2px;
+                left: -34px;
+            }
+        }
+        .TT3searchDiv-srchTrm {
+            position: relative;
+            border: none !important;
+
+            @include respond-to(phones) {
+                width: 105px !important;
+                margin: 10px 0 0 0;
+                input {
+                    width: 100% !important;
+                }
+            }
+            .TT3SearchTermMiqa {
+                padding: 0 25px 0 5px;
+            }
+            .TT3clearSearchMiqa {
+                position: absolute;
+                top: 6px;
+                right: 5px;
+            }
+        }
+        .TT3searchBtn  {
+
+            @include respond-to(phones) {
+                margin: 10px 0 0 15px;
+                width: 68px;
+                background-position: center center;
+            }
+        }
+        .TT3miqaSearchLabel {
+            display: inline-block;
+            margin: 5px 10px 0 0;
+            font: normal 14px/18px $font_helvetica;
+            color: #000;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+        .TT3MiqAdvSearch {
+            padding: 0 0 0 10px;
+            margin: 5px 0 0 0;
+            display: inline-block;
+            font: normal 14px/18px $font_helvetica;
+            color: #000;
+
+            @include respond-to(phones) {
+                padding: 0 !important;
+                margin: 10px 0 0 0;
+                font-size: 12px;
+                line-height: 16px;
+            }
+            a {
+                @include links( #000, none );
+
+            }
+        }
+        .TT3miqaDoneArea {
+            margin-right: 0;
+        }
+        .TT3MiqAdvancedDiv, .TT3miqaRsltsCnt {
+            margin: 0;
+            padding: 10px 0 0 0;
+            font: normal 14px/18px $font_helvetica;
+            color: #000;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+    }
+    .TT3ShowMore {
+        margin: 40px 0 10px;
+        text-align: center;
+        a {
+            @include links( #000, none );
+
+            font: bold 11px/18px $font_helvetica;
+            text-transform: uppercase;
+            img {
+                display: none !important;
+            }
+        }
+    }
+    #TTexUgcR {
+        font: bold 11px/30px $font_helvetica;
+        text-transform: uppercase;
+        overflow: hidden;
+        width: 240px;
+        color: #000;
+        margin: 0;
+
+        @include respond-to(phones) {
+            width: 100%;
+            margin: 15px 0 5px 0;
+        }
+        #TT3sortBox {
+            width: 150px;
+            float: right;
+            border: 1px solid #000;
+            font: bold 14px/22px $font_helvetica;
+        }
+        a {
+            @include links( #000, underline );
+
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+    }
+    .TT3searchBtn {
+        @include background-img( 'turn_to/search.png', 0 0 no-repeat );
+
+    }
+    .TT3miqaDone {
+        @include background-img( 'turn_to/donebttn.png', 0 0 no-repeat );
+
+        width: 89px;
+    }
+    .TTbigSubmitBtn {
+        @include background-img( 'turn_to/submitbttn.png', 0 0 no-repeat );
+
+        width: 66px;
+    }
+}
+
+#TT3RightLinks {
+    color: #fff !important;
+
+    @include respond-to(phones) {
+        width: 100%;
+    }
+    a {
+        @include links( #c33, underline );
+
+        font: bold 11px/19px $font_helvetica;
+        text-transform: uppercase;
+
+        @include respond-to(phones) {
+            font-size: 9px;
+            line-height: 13px;
+        }
+        &#TT3AmqLink {
+
+            @include respond-to(phones) {
+                float: left;
+            }
+        }
+    }
+}
+
+#TTexUgcL {
+    font: bold 22px/26px $font_helvetica;
+    color: #000;
+    margin: 0;
+
+    @include respond-to( tablets ) {
+        max-width: 320px;
+    }
+    @include respond-to(phones) {
+        font-size: 19px;
+        line-height: 23px;
+    }
+}
+
+
+.pt_product_details {
+
+    #TTtraWindow {
+        padding: 20px;
+
+        @include respond-to(phones) {
+            width: 100% !important;
+            overflow-y: auto !important;
+            left: 0 !important;
+        }
+        .TT4SysMsgBody {
+            background: #f7f7f7;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            margin-top: 0 !important;
+            padding: 8px 10px 8px 8px;
+            color: #000;
+            a {
+                @include links(#000, underline);
+
+                font-weight: normal;
+                &.TT3tabClose {
+                    margin: -4px -5px 0 0;
+                }
+            }
+        }
+        .TTanswerMiqaHelpArrow {
+
+            @include respond-to(phones) {
+                line-height: 26px;
+            }
+        }
+        .TTanswerMiqaHelpText {
+
+            @include respond-to(phones) {
+                width: 100%;
+                margin: 5px 0 0 0;
+                float: left;
+            }
+        }
+        .TTmiqaForm {
+            @include clearfix;
+
+        }
+        #TTtraDialogTitleBar, #TTtrasubtop {
+            position: relative;
+            padding: 0;
+            background: transparent;
+        }
+        #TTtraWindowClose, #TTSubWindowClose {
+            position: absolute;
+            right: -12px;
+            top: -6px;
+            z-index: 2;
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            &:before {
+                @include font-icons( $icon_close );
+
+                content: '\e60d';
+                color: #d7482a;
+                font-size: 24px;
+
+                .ie8 .ui-widget-overlay + & {
+                    content: '\e60d '; // IE8 force element repaint
+                }
+            }
+            &:hover {
+                &:before {
+                    color: #fd2c00;
+                }
+            }
+
+            @include respond-to( phones ) {
+                &:before {
+                    right: 12px;
+                    font-size: 18px;
+                }
+            }
+
+            .ui-button-text {
+                display: none;
+            }
+        }
+        #TT2footer, #TTtrasubbot {
+            display: none;
+        }
+        #TTmainContent, #TTtrasubmid {
+            padding: 0 !important;
+            background: transparent;
+
+            @include respond-to(phones) {
+                min-width: inherit !important;
+                width: 100% !important;
+                #TTtraLayout {
+                    width: 100% !important;
+                }
+            }
+        }
+        #TT3overlayHeader {
+            #TT4poweredByTT {
+                display: none;
+            }
+            #TT3toplinks {
+                font: normal 12px/23px $font_helvetica;
+            }
+        }
+        #TTscrollArea {
+            padding-bottom: 30px;
+        }
+        .TT3ShowMore {
+            margin: 20px 0px 10px;
+            padding: 12px 15px 15px 0px;
+            text-align: center !important;
+            a {
+                color: #000;
+                text-transform: uppercase;
+                font: bold 11px/15px $font_helvetica;
+            }
+        }
+
+    /*Find Your profile*/
+        #TTtraSubWindow {
+            border: 1px solid #000;
+            background: #fff;
+            color: #888;
+            font: normal 11px/15px $font_helvetica;
+
+            @include respond-to(phones) {
+                width: 100% !important;
+                left: 0 !important;
+            }
+            #TTtrasubtop {
+                height: auto;
+                #TTSubWindowClose {
+                    right: 1px;
+                    top: 4px;
+                }
+            }
+            #TTregRight {
+                margin-left: 15px;
+                width: 43%;
+                input {
+                    height: auto;
+                    width: 190px;
+                    padding: 1px 7px;
+                    line-height: 26px;
+                    margin: 0 0 5px 0;
+                    height: 30px;
+
+                    @include respond-to(phones) {
+                        width: 100%;
+                    }
+                }
+            }
+            #TTnicknameInfo {
+                color: #888;
+                font: normal 11px/15px $font_helvetica;
+            }
+            #TTregCancel {
+                padding-top: 6px;
+            }
+        }
+    /*END Find Your profile*/
+
+        .TTbigSubmitBtn {
+            @include background-img( 'turn_to/submitbttn.png', 0 0 no-repeat );
+
+            width: 66px;
+        }
+        .TTmiqaBubble {
+            padding: 20px;
+            border: 1px solid #000;
+
+            @include respond-to(phones) {
+                width: 240px !important;
+                left: -15px !important;
+            }
+            .TTmiqaCallout {
+                position: relative;
+                display: block;
+                background: transparent;
+                height: 36px;
+                border-left: 34px solid transparent;
+                border-right: 34px solid transparent;
+                border-bottom: 36px solid #000;
+                width: 36px;
+                top: 0;
+                margin: -56px 0 20px 0;
+                &:after {
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    height: 36px;
+                    border-left: 34px solid transparent;
+                    border-right: 34px solid transparent;
+                    border-bottom: 36px solid #fff;
+                    width: 36px;
+                    margin: 0;
+                    top: 2px;
+                    left: -34px;
+                }
+            }
+            .TT3searchDiv-srchTrm {
+                position: relative;
+                border: none !important;
+
+                @include respond-to(phones) {
+                    width: 102px !important;
+                    margin: 10px 0 0 0;
+
+                    input {
+                        width: 100% !important;
+                    }
+                }
+                .TT3SearchTermMiqa {
+                    padding: 0 25px 0 5px;
+                    width: 160px;
+                    border: 1px solid #ccc;
+                }
+                .TT3clearSearchMiqa {
+                    position: absolute;
+                    top: 6px;
+                    right: 5px;
+                }
+            }
+            .TT3searchBtn  {
+                @include background-img( 'turn_to/search.png', 0 0 no-repeat );
+
+                @include respond-to(phones) {
+                    margin: 10px 0 0 15px;
+                    width: 68px;
+                    background-position: center center;
+                }
+            }
+            .TTdoneBtn {
+                @include background-img( 'turn_to/donebttn.png', 0 0 no-repeat );
+
+                width: 89px;
+            }
+            .TT3miqaSearchLabel {
+                display: inline-block;
+                margin: 5px 10px 0 0;
+                font: normal 14px/18px $font_helvetica;
+                color: #000;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+            .TT3MiqAdvSearch {
+                padding: 0 0 0 10px;
+                margin: 5px 0 0 0;
+                display: inline-block;
+                font: normal 14px/18px $font_helvetica;
+                color: #000;
+
+                @include respond-to(phones) {
+                    padding: 0 !important;
+                    margin: 10px 0 0 0;
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+                a {
+                    @include links( #000, none );
+
+                }
+            }
+            .TT3miqaDoneArea {
+                margin-right: 0;
+            }
+            .TT3MiqAdvancedDiv, .TT3miqaRsltsCnt {
+                margin: 0;
+                padding: 10px 0 0 0;
+                font: normal 14px/18px $font_helvetica;
+                color: #000;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+        #TTchatterTabContent, #TTanswersTabContent, #TTquestionsTabContent {
+            padding: 0;
+            border: none;
+        }
+    }
+
+    #TTSubDialogSection {
+        padding: 0;
+        margin: 0;
+        #TTSubScreen {
+            padding: 15px 20px;
+            .TT8 {
+                margin: -17px -20px 0 -20px;
+                padding: 8px 20px 8px 20px;
+            }
+            #TTregLeft {
+
+                @include respond-to(phones) {
+                    width: 100%;
+                }
+                #TTregCenter {
+
+                    @include respond-to(phones) {
+                        margin: 0 0 5px 0;
+                        text-align: center;
+                        #TTgmailDelAuth {
+                            display: inline-block;
+                            float: none;
+                            margin-right: 20px;
+                        }
+                        #TTfacebookDelAuth {
+                            display: inline-block;
+                            float: none;
+                        }
+                    }
+                }
+            }
+            #TTauthOr {
+
+                @include respond-to(phones) {
+                    text-align: center;
+                    float: none;
+                    font-weight: bold;
+                }
+            }
+            #TTregRight {
+
+                @include respond-to(phones) {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+        }
+        #TTSubWindowClose {
+            right: 3px;
+            top: 4px;
+        }
+    }
+
+}
+
+
+#TT3UPContent {
+    width: 630px;
+
+    @include respond-to(phones) {
+        width: 100%;
+    }
+
+    #TT4UPSummary {
+        margin: 20px 0;
+
+        @include respond-to(phones) {
+            height: auto;
+        }
+        #TT4UPPostsHeader {
+
+            @include respond-to(phones) {
+                width: 100%;
+                padding: 0 0 10px 0;
+                line-height: 30px;
+            }
+        }
+        #TT4UPBreakdown {
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#TTscrollArea {
+    margin-right: 0 !important;
+    #TT4UPtabs {
+         border-bottom: 1px solid #c1c1c1;
+         #TTprofileTabs {
+             margin: 0;
+         }
+         li {
+               @include font_main(normal, normal, 14px, 16px);
+
+               padding: 10px 20px;
+               display: inline-block;
+               white-space: nowrap;
+               border-right: 1px solid #ccc;
+               border-top: 5px solid #ccc;
+               background: #fff;
+               text-transform: uppercase;
+               text-decoration: none;
+               text-align: center;
+               color: #000;
+
+                @include respond-to( phones ) {
+                    position: relative;
+                    padding: 20px 35px 20px 15px;
+                    max-width: none;
+                    width: 100%;
+                    text-align: left;
+                    font-size: 15px;
+                    border: 1px solid #ccc;
+                    &:after {
+                        @include font_icons( $icon_plus );
+
+                        position: absolute;
+                        top: 50%;
+                        right: 15px;
+                        margin: -10px 0 0 0;
+                        color: $color-dark_red;
+                        font-size: 18px;
+                    }
+                }
+                &.TTactiveTab {
+                    border-top: 5px solid #000;
+                    color: #000;
+
+                    @include respond-to( phones ) {
+                        border-top: 1px solid #ccc;
+                    }
+
+                    &:after {
+                        @include respond-to( phones ) {
+                            @include font_icons( $icon_minus );
+                        }
+                    }
+                }
+                &:first-child {
+                    border-left: 1px solid #ccc;
+                }
+          }
+    }
+}
+
+#TTanswersTabContent, #TTquestionsTabContent,
+#TTchatterTabContent, #TTtraUserStateMain {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #000;
+    font: normal 12px/18px $font_helvetica;
+    color: #000;
+    #TTtraLayout {
+        width: 630px;
+    }
+    #TTscrollArea {
+        margin-right: 0px;
+    }
+    #TT2myNetworkSection {
+        margin: 0;
+        padding: 0;
+    }
+    #TT3AmqContent {
+        padding-bottom: 30px;
+        padding-right: 30px;
+    }
+    .TT3questCntr {
+        margin: 0px;
+        padding: 15px;
+        border: none;
+        border-left: 3px solid #ccc;
+        background-color: $bg_turnto;
+        .TT3itemBox {
+            margin: 0px 0px 10px;
+            padding: 0px 130px 15px 0px;
+            min-height: 130px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+
+            @include respond-to(phones) {
+                padding: 0 85px 20px 0;
+            }
+            .TT3aboutLine {
+                font: normal 16px/18px $font_helvetica;
+                color: #000;
+                a {
+                    @include links( #000, none );
+
+                    font-style: normal;
+                }
+            }
+            .TT3qText {
+                font: normal 14px/18px $font_helvetica;
+                color: #000;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+            .TT4askedByBlock {
+                font: italic normal 12px/18px $font_helvetica;
+                color: #888;
+                .TT3askedBy {
+                    font-weight: bold;
+                    font-style: normal;
+                    color: #888;
+                    a {
+                        color: #888;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .TT4QProductImg {
+            position: absolute;
+            top: 10px;
+            right: 15px !important;
+
+            @include respond-to(phones) {
+                right: 0 !important;
+                img {
+                    width: 80px !important;
+                    height: auto !important;
+                }
+            }
+        }
+
+        .TT3aText {
+            font: normal 14px/18px $font_helvetica;
+            color: #000;
+        }
+    }
+    .TT3answersBlock {
+        .TT2cancelBtn {
+            @include links( #888, none );
+
+            padding-top: 2px !important;
+            font: normal 12px/18px $font_helvetica;
+        }
+        .TTanswerMiqaHelp, .TT4answerInstructions {
+            color: #888;
+            font: normal 11px/17px $font_helvetica;
+        }
+        .TT3answerMiqa {
+            line-height: 13px;
+        }
+    }
+    .TT3itemBox2 {
+        font: normal 12px/18px $font_helvetica;
+        color: #000;
+
+        @include respond-to(phones) {
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .TTbestAnswer {
+            text-transform: uppercase;
+            color: #000;
+        }
+        .TT4cText {
+            font: normal 14px/20px $font_helvetica;
+            color: #000;
+
+            @include respond-to(phones) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+        .TT3askedBy {
+            font: bold 12px/18px $font_helvetica;
+            color: #888;
+            a {
+                @include links( #888, none );
+
+                font-weight: bold;
+                font-style: normal;
+            }
+            .TT3timeStamp {
+                font-weight: normal;
+                font-style: italic;
+            }
+        }
+    }
+    #TT3AmqQuestSecHeader {
+        display: none;
+    }
+}
+
+#TTchatterTabContent {
+    .TT4commentArea {
+        margin: 0 0 20px 0;
+        padding: 15px 130px 40px 15px;
+        border: none;
+        border-left: 3px solid #ccc;
+        background-color: $bg_turnto;
+
+        @include respond-to(phones) {
+            padding: 15px 100px 40px 15px;
+        }
+        .TT3aboutLine {
+            font: normal 14px/18px $font_helvetica;
+            color: #000;
+            a {
+                @include links( #000, none );
+
+                font: normal 16px/18px $font_helvetica;
+            }
+        }
+    }
+    .TT4QProductImg {
+        position: absolute;
+        top: 10px;
+        right: 15px !important;
+
+        @include respond-to(phones) {
+            right: -5px !important;
+            img {
+                width: 80px !important;
+                height: auto !important;
+            }
+        }
+    }
+}
+
+#TT4UPBreakdown {
+    .TT4UPBreakdownCol  {
+        width: 120px !important;
+        padding: 0 10px;
+        font: normal 12px/18px $font_helvetica;
+        color: #000;
+
+        @include respond-to(phones) {
+            margin: 0 0 20px 0;
+            height: auto !important;
+            width: 100% !important;
+            border: none;
+            div {
+                text-align: left !important;
+                &.TT4UPCnt {
+                    padding: 0;
+                }
+            }
+        }
+        .TT4UPCnt {
+            font-size: 18px;
+            font-weight: bold;
+
+            @include respond-to(phones) {
+                display: inline-block;
+                width: 20%;
+                float: left;
+            }
+        }
+        .TT4UPType {
+
+            @include respond-to(phones) {
+                display: inline-block;
+                width: 78%;
+                float: left;
+            }
+        }
+    }
+}
+
+#TT2userSetting {
+    .dialog {
+         .prop {
+            .nameRF {
+                width: 134px;
+            }
+         }
+         #pwd_change, #showPhotoEditorLink2 {
+            color: #000;
+            text-decoration: underline;
+         }
+         #pwd_nochange {
+            text-decoration: underline;
+         }
+         #contactInfo {
+            .prop {
+                .nameRF {
+                    width: 134px !important;
+                }
+             }
+        }
+        #editPhoto {
+            #TT2userImgFile {
+                padding: 5px 0 0;
+            }
+        }
+        #editPhotoButtons {
+            .TTsaveBtn {
+                width: 73px;
+                margin: 0 10px 0 0;
+                &:hover {
+                    background-position: 0 -1534px;
+                }
+            }
+            .TTcancelBtn {
+                width: 97px;
+                height: 26px;
+                &:hover {
+                    background-position: 0 -607px;
+                }
+            }
+        }
+    }
+}

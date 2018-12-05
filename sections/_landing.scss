@@ -1,0 +1,183 @@
+/*
+ * Master Landing Page
+ */
+
+.l-landing-page {
+    .primary {
+        padding: 20px 0;
+        width: 100% !important;
+        float: none !important;
+    }
+}
+
+.b-page_banner, .page_banner {
+    @include background-img('hp_banner_bg.png');
+
+    padding: 10px 0;
+    //margin: 0 0 20px 0;
+    background-repeat: repeat;
+    background-position: top left;
+    background-color: transparent;
+    font: normal 14px/16px $font_times;
+}
+
+.b-landing_banner {
+    font: normal 14px/16px $font_times;
+    img, h3, p, a {
+        margin: 0 5px;
+        line-height: 24px;
+    }
+}
+
+.master-landing-egift-asset {
+    @extend .hp-egift-asset;
+
+    a {
+        margin: 0 5px;
+    }
+}
+
+.master-landing-offer-asset {
+    @extend .hp_offer_asset;
+
+    padding: 5px 14px 6px;
+
+    .error_message {
+        position: absolute;
+    }
+    form {
+        margin-left: 5px;
+    }
+}
+
+.master-landing-egift-asset {
+    @extend .hp-egift-asset;
+}
+
+.b-insider_carousel {
+    @extend .b-hp_recommendations;
+}
+
+.b-routine_banner {
+    margin: 20px 0 0;
+
+    &.b-landing_banner {
+        .b-page_banner {
+            padding: 33px 155px 33px 165px;
+
+            @include respond-to(tablets) {
+                  padding: 25px 155px 25px 165px;
+            }
+            @include respond-to(phones) {
+                  padding: 40px 10px 40px 40%;
+            }
+        }
+    }
+}
+
+.b-products_carousel, .products-carousel {
+    @extend %product-carousel-homepage;
+}
+
+/*Video slot*/
+.b-landing_video {
+    margin: 0 0 20px 0;
+}
+
+.l-landing-page .js-video_player {
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+
+    @include respond-to( phones ) {
+        width: 100%;
+    }
+    &:before {
+        @include sprite-image($play-video);
+        @include sprite-position($play-video);
+        position: absolute;
+        width: 47px;
+        height: 47px;
+        left: 50%;
+        top: 50%;
+        margin: -17px 0 0 -17px;
+        content: "";
+        z-index: 1;
+    }
+    img {
+        max-width: 100%;
+    }
+}
+/*END Video slot*/
+
+.b-landing_product {
+    margin: 0 0 20px 0;
+    .g-float_left, .g-float_right {
+        font: normal 12px/15px $font_helvetica;
+        margin: 0 0 15px;
+        color: #4f4f4f;
+
+        @include respond-to( phones ) {
+            float: none;
+        }
+
+        .js-video_player {
+
+            &:before {
+                @include sprite-image($play-video-small);
+                @include sprite-position($play-video-small);
+                width: 31px;
+                height: 31px;
+                margin: 0;
+                left: 50%;
+                top: 50%;
+
+                @include respond-to( phones ) {
+                    @include sprite-image($play-video);
+                    @include sprite-position($play-video);
+                    width: 47px;
+                    height: 47px;
+                    top: 0;
+                    left: 0;
+                    margin: 0;
+                }
+            }
+        }
+
+        .product_name {
+            font: normal 20px/24px $font_times;
+            margin: 0 0 4px;
+            color: #000;
+        }
+        .product_subtitle {
+            font: italic normal 18px/20px $font_times;
+            margin: 0 0 10px;
+            color: #d8492c;
+        }
+        .t-read-more {
+            @include links(#d8492c, underline);
+
+            font: normal 14px/16px $font_times;
+        }
+        li {
+            margin: 0 0 5px;
+        }
+    }
+    .g-width_40, .g-width_60 {
+
+        @include respond-to( phones ) {
+            width: 100%;
+        }
+    }
+    .g-float_container {
+        .g-float_left {
+            padding: 0 15px 0 0;
+
+            @include respond-to( phones ) {
+                padding: 0;
+            }
+        }
+    }
+}

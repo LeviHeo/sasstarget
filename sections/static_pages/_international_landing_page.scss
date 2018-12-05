@@ -1,0 +1,441 @@
+/*
+ * International landing page
+ */
+
+.l-international_landing_page {
+    @include background-img( 'landing-page/bg_International_landing_page.jpg', top center, no-repeat );
+
+    padding: 20px 0;
+    max-width: 1664px; // Stick main panel with background to the left on wide screens
+
+    .b-logo {
+        @include background-img( 'landing-page/logo_white.png', 0 0, no-repeat );
+
+        display: inline-block;
+        margin: 0 auto;
+        width: 233px;
+        height: 118px;
+    }
+    .b-main_international {
+        margin: 0 277px 0 0;
+        padding: 0 140px;
+        text-align: center;
+        h1 {
+            font-family: $font_times;
+            font-size: 30px;
+            line-height: 36px;
+            font-weight: bold;
+            color: #bababa;
+        }
+        iframe {
+            @include vendor-prefix(box-shadow, 0px 0px 30px 0px #000);
+
+            display: block;
+            margin: 0 auto;
+            width: 695px;
+            height: 415px;
+        }
+        .b-storelocator {
+            padding: 15px 25px;
+            background: #fff;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+
+            iframe {
+                @include vendor-prefix(box-shadow, none);
+
+                width: 100%;
+                height: 660px;
+            }
+        }
+        .b-scroll_down {
+            @include background-img( 'landing-page/scroll_down.png', 0 0, no-repeat );
+
+            text-indent: -10000px;
+            display: inline-block;
+            height: 146px;
+            width: 523px;
+        }
+    }
+    .b-sidebar_right {
+        @include background-img( 'landing-page/bg_sidebar.jpg', 0 0, repeat-y );
+
+        position: absolute;
+        top: 0;
+        right: -278px;
+        padding: 5px 0 0 0;
+        width: 277px;
+        height: 100%;
+        h3 {
+            @include transform(rotate(-4deg));
+
+            margin: 0 0 5px -16px;
+            height: 57px;
+            width: 247px;
+            display: block;
+            text-indent: -10000px;
+
+            &.b-title_europe {
+                @include background-img( 'landing-page/europeandmiddleeast.png', 0 0, no-repeat );
+
+                width: 289px;
+                &.rotatein {
+                    @include transform(rotate(0deg));
+                }
+            }
+            &.b-title_asia_pacific {
+                @include background-img( 'landing-page/asia-pacific.png', 0 0, no-repeat );
+            }
+            &.b-title_americas {
+                @include background-img( 'landing-page/americas.png', 0 0, no-repeat );
+            }
+            &.rotatein {
+                @include transition(all, 1s, ease-in-out);
+                @include transform(rotate(0deg));
+            }
+        }
+        h4 {
+            padding: 0 0 0 16px;
+            font-family: $font_trade_gothic;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        ul {
+            li {
+                font-family: $font_times;
+                color: #000;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: normal;
+
+                .ua-android & {
+                    font-size: 14px;
+                }
+                a, .toggle {
+                    @include transition(margin-left, 0.2s, ease-in-out);
+                    -moz-transition-property: margin-left, color;
+                    -o-transition-property: margin-left, color;
+                    -webkit-transition-property: margin-left, color;
+                    transition-property: margin-left, color;
+                    padding: 0 0 0 16px;
+                    text-decoration: none;
+                    color: #000;
+                    text-shadow: 0 1px #fff;
+                    display: inline-block;
+                    white-space: nowrap;
+
+                    &:hover, &.expanded {
+                        @include background-img( 'landing-page/arrow.gif', -1px 6px, no-repeat );
+                        margin: 0 0 0 4px;
+                        color: #eb212e;
+                    }
+                }
+                a span {
+                    font-size: 12px;
+                }
+                ul {
+                    position: relative;
+                    padding: 0;
+                    margin: 0 0 0 16px;
+
+                    &:before {
+                        @include background-img( 'landing-page/sublist.png', left bottom, no-repeat );
+
+                        content: "";
+                        position: absolute;
+                        top: 4px;
+                        left: 3px;
+                        width: 15px;
+                        height: 31px;
+                    }
+                    li {
+                        line-height: 18px;
+                        a {
+                            font-family: $font_times;
+                            font-size: 14px;
+                            line-height: 18px;
+                            font-weight: bold;
+                            font-style: italic;
+                            &:hover {
+                                background: transparent;
+                                margin: 0;
+                                color: #eb212e;
+                            }
+                        }
+                    }
+                    &.toggle_content {
+                        display: none;
+                    }
+                    &.large:before {
+                        height: 53px;
+                        top: 1px;
+                    }
+                }
+            }
+        }
+        a {
+            @include links( #000, none );
+
+            font-family: $font_times;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: normal;
+
+            .ua-android & {
+                font-size: 14px;
+            }
+        }
+        .b-store_landing {
+            @include clearfix;
+
+            padding: 0;
+            margin: 0 0 60px 0;
+            .ecommerce_sites {
+                width: 49%;
+                float: left;
+            }
+            .aditorial_sites {
+                width: 51%;
+                float: right;
+            }
+        }
+    }
+    @include respond-to(tablets) {
+        padding: 35px 40px 0;
+        text-align: center;
+        background-position: -25px top;
+        background-size: 1050px auto;
+
+        .b-logo {
+            margin: 0 auto 45px auto;
+        }
+        .b-main_international {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            h1 {
+                width: 100%;
+                margin: 35px 0 10px 0;
+                display: inline-block;
+            }
+            .b-storelocator {
+                padding: 70px 40px;
+                margin: 0 -40px;
+                background: #fff;
+            }
+        }
+        .b-sidebar_right {
+            @include clearfix;
+
+            position: relative;
+            right: 0 !important;
+            background: #ece5d3;
+            width: 100%;
+            padding: 70px 80px;
+            text-align: left;
+            .b-store_landing_container {
+                width: 49%;
+                float: left;
+                .b-store_landing {
+                    width: 100%;
+                }
+            }
+            .b-store_landing {
+                width: 49%;
+                display: inline-block;
+                .aditorial_sites {
+                    width: 49%;
+                }
+            }
+            ul {
+                li {
+                    font-size: 14px;
+                    line-height: 30px;
+                    a, .toggle {
+                        display: block;
+                        text-decoration: none;
+                        color: #000;
+                        line-height: 30px;
+                        text-shadow: 0 1px #fff;
+                        &:hover, &.expanded {
+                            background-position: -3px 9px;
+                            margin: 0;
+                            color: #eb212e;
+                        }
+                    }
+                    ul {
+                        padding: 0;
+                        margin: 0 0 0 16px;
+                        background-position: 4px 0px;
+                    }
+                }
+            }
+            a {
+                font-size: 15px;
+            }
+            h3 {
+                &.b-title_americas, &.b-title_asia_pacific, &.b-title_europe {
+                    @include transform(rotate(0deg));
+
+                    margin: 0 0 20px 0;
+                    height: 36px;
+                    display: block;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font: 22px/34px $font_trade_gothic;
+                    text-align: center;
+                    text-indent: 0;
+                    background-size: contain;
+                    padding: 0 10px;
+                    &.rotatein {
+                        @include transition(all, 0, ease-in-out);
+                        @include transform(rotate(0deg));
+                    }
+                }
+                &.b-title_americas, &.b-title_asia_pacific {
+                    @include background-img( 'landing-page/bg_stitle.png', 0 0, no-repeat );
+                    width: 184px;
+                }
+                &.b-title_europe {
+                    @include background-img( 'landing-page/bg_title.png', 0 0, no-repeat );
+                    width: 244px;
+                }
+            }
+            .b-store_landing {
+                .ecommerce_sites {
+                    width: 51%;
+                }
+            }
+        }
+    }
+    @include respond-to(phones) {
+        @include background-img( 'landing-page/bg_International_landing_page-mobile.jpg', center -30px, no-repeat );
+
+        background-size: 100% auto;
+        padding: 35px 20px 0;
+        text-align: center;
+
+        .b-logo {
+            margin: 0 auto 45px auto;
+            background-size: 100%;
+            width: 116px;
+            height: 59px;
+        }
+        .b-main_international {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            h1 {
+                width: 100%;
+                margin: 15px 0 0;
+                display: inline-block;
+                font-size: 16px;
+            }
+            iframe {
+                height: auto;
+            }
+            .b-storelocator {
+                padding: 70px 40px;
+                margin: 0 -40px;
+                background: #fff;
+            }
+            .b-scroll_down {
+                height: 60px;
+                width: 100%;
+                background-size: 100% auto;
+                background-position: center -15px;
+            }
+        }
+        .b-sidebar_right {
+            @include clearfix;
+
+            position: relative;
+            right: 0 !important;
+            background: #ece5d3;
+            width: 100%;
+            padding: 40px 25px 0;
+            text-align: left;
+            .b-store_landing_container {
+                width: 100%;
+                .b-store_landing {
+                    width: 100%;
+                }
+            }
+            .b-store_landing {
+                width: 100%;
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+            h4 {
+                font-size: 15px;
+                line-height: 35px;
+            }
+            ul {
+                li {
+                    font-size: 14px;
+                    line-height: 35px;
+                    a, .toggle {
+                        @include transition(all, 0, ease-in-out);
+                        padding: 0;
+                        text-decoration: none;
+                        color: #000;
+                        text-shadow: 0 1px #fff;
+                        &:hover, &.expanded {
+                            background: transparent;
+                            margin: 0;
+                            color: #eb212e;
+                        }
+                    }
+                    ul {
+                        padding: 0 0 0 16px;
+                        margin: 0;
+                        background-position: 4px 0px;
+                    }
+                }
+            }
+            a {
+                font-size: 14px;
+            }
+            h3 {
+                &.b-title_americas, &.b-title_asia_pacific, &.b-title_europe {
+                    @include background-img( 'landing-page/bg_title.png', 0 0, no-repeat );
+                    @include transform(rotate(0deg));
+
+                    background-size: 100% 33px;
+                    margin: 0 auto 10px;
+                    height: 33px;
+                    width: 233px;
+                    display: block;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font: 20px/33px $font_trade_gothic;
+                    text-align: center;
+                    text-indent: 0;
+                    padding: 0 10px;
+                    &.rotatein {
+                        @include transition(all, 0, ease-in-out);
+                        @include transform(rotate(0deg));
+                    }
+                }
+            }
+            h4 {
+                padding: 0;
+            }
+            .b-store_landing {
+                .ecommerce_sites {
+                    width: 51%;
+                    padding: 0 0 0 8px;
+                }
+                .aditorial_sites {
+                    width: 45%;
+                }
+            }
+        }
+    }
+}
+#international-landing-page-page {
+    position: relative;
+}
+

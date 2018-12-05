@@ -1,0 +1,407 @@
+/*
+ * Checkout - Choose Samples
+ */
+
+.samples_header {
+	padding: 0;
+	margin: 0 0 15px 0;
+	font: normal 12px/17px $font_helvetica;
+
+	@include respond-to(phones) {
+		font: normal 11px/11px $font_helvetica;
+	}
+	.samples_header-title {
+        font: bold 18px/20px $font_times;
+        text-transform: uppercase;
+        margin-bottom: 27px;
+        
+        @include respond-to(phones) {
+            margin: 15px 0 28px;
+        }
+    }
+	.error_form {
+		color: #f00;
+		font: normal 11px/17px $font_helvetica;
+
+		@include respond-to(phones) {
+			position: relative;
+			padding: 0 0 0 5px;
+			font: normal 11px/11px $font_helvetica;
+		}
+	}
+}
+
+.checkout-samples {
+
+	@include respond-to(phones) {
+		.next_step_button {
+			margin: 15px 0 0 0;
+		}
+	}
+}
+
+.pt_optcheckout .b-samples_list-wrapper {
+    margin-right: -1%;
+    
+    @include respond-to(phablets) {
+        margin-right: 0;
+    }
+}
+
+.b-tabs {
+	&.samples {
+		.tabs_menu {
+			li {
+				width: 124px;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				background: #fff;
+
+				@include respond-to(tablets) {
+					width: auto;
+				}
+				a {
+					padding: 14px 10px 10px 10px;
+					color: #555;
+					font: bold 16px/18px $font_times;
+					text-transform: none;
+
+					@include respond-to(tablets) {
+						padding: 14px 23px 10px 23px;
+						font-size: 14px;
+						line-height: 16px;
+					}
+				}
+				&.ui-state-active {
+					border-top: 5px solid #000;
+					border-bottom: none;
+					a {
+						padding: 10px;
+						color: #000;
+
+						@include respond-to(tablets) {
+							padding: 10px 25px;
+						}
+					}
+				}
+			}
+		}
+		.js-accordion_wrapper {
+
+			@include respond-to(tablets) {
+				margin: -1px 0 0 0;
+				border: 1px solid #ccc;
+			}
+		}
+		.tab_content {
+			padding: 20px 0px;
+			border: none;
+
+			@include respond-to(tablets) {
+				padding: 20px 0px 20px 3%;
+			}
+			@include respond-to(phones) {
+			    display: none;
+			}
+		}
+
+	}
+}
+
+.b-product_sample {
+	position: relative;
+	width: 32.3%;
+	float: left;
+	margin: 0 1% 18px 0;
+	padding: 2px;
+	border: 2px solid #ccc;
+
+	@include respond-to(tablets) {
+		width: 47%;
+		margin: 0 3% 18px 0;
+	}
+	@include respond-to(phones) {
+		width: 100%;
+		float: none;
+		margin: 0;
+		padding: 20px 0;
+		border: none;
+		border-top: 1px dotted $color-grey
+	}
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+
+		@include respond-to(phones) {
+			cursor: default;
+		}
+	}
+	&:first-child {
+		@include respond-to(phones) {
+			border: none;
+		}
+	}
+	.b-sample_item {
+		@include clearfix;
+
+		height: 356px;
+		position: relative;
+		padding: 0 10px 15px;
+		border: 1px solid #ccc;
+		font: normal 18px/18px $font_times;
+		text-align: center;
+		color: #4f4f4f;
+
+		@include respond-to(phones) {
+			position: relative;
+			height: auto;
+			padding: 0;
+			border: none;
+			font: normal 12px/14px $font_helvetica;
+			text-align: center;
+			color: #000;
+		}
+		.product_image_container {
+			position: relative;
+			padding: 20px 0;
+			margin: 0 0 10px 0;
+			height: 190px;
+			text-align: center;
+			border-bottom: 1px solid #ccc;
+
+			@include respond-to(phones) {
+				position: relative;
+				margin: 0 20px 0 0;
+				padding: 0;
+				height: auto;
+				width: 95px;
+				text-align: center;
+				border-bottom: none;
+				float: left;
+			}
+
+			img {
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 100%;
+				max-height: 146px;
+				text-indent: -999em;
+			}
+		}
+		.b-product_name {
+			display: block;
+			height: 56px;
+			margin: 8px 0 10px 0;
+			color: #000;
+			font: normal 18px/18px $font_times;
+			text-decoration: none;
+			text-align: center;
+			overflow: hidden;
+
+			@include respond-to(phones) {
+				display: block;
+				height: 36px;
+				margin: 0px 0 10px 0;
+				color: #000;
+				font: bold 15px/18px $font_times;
+				text-decoration: none;
+				text-align: left;
+				overflow: hidden;
+			}
+		}
+		.sample_subtitle {
+			display: none;
+		}
+		.ui-rating-title {
+			display: block;
+			height: 12px;
+			color: #4f4f4f;
+			font: normal 11px/12px $font_arial;
+			text-decoration: none;
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+		.inline_rating_link {
+			display: block;
+			height: 28px;
+			clear: both;
+			text-decoration: none;
+			border-bottom: 1px dotted #767676;
+			position: relative;
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+		.ui-rating-title {
+			margin: 20px 0 -4px 0;
+			display: block;
+			color: #4f4f4f;
+			font: normal 11px/12px $font_arial;
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+		.inline_rating_label_link {
+			display: none;
+		}
+		.formfield_sample_checked {
+			position: absolute;
+			bottom: 19px;
+			left: 50%;
+			margin: 0 0 0 -7px;
+			input[type='checkbox'] {
+				position: inherit;
+			}
+			.f_label {
+				display: block;
+				margin: 0;
+				padding: 0;
+				height: 14px;
+				width: 14px;
+			}
+		}
+		.action_buttons {
+
+			@include respond-to(phones) {
+				margin: 0 0 0 116px;
+				text-align: left;
+
+				.sample_addtobag {
+					@include button-black(0 10px, 11px, 33px);
+
+					width: 100%;
+					&.hidden {
+						display: none;
+					}
+				}
+				.sample_remove {
+					@include links(#000, underline);
+
+					&.hidden {
+						display: none;
+					}
+				}
+				.sample_added {
+					@include links(#000, none);
+
+					position: relative;
+					display: inline-block;
+					padding: 0 7px 0 0;
+					margin: 0 1px 0 0;
+					&:after {
+						position: absolute;
+						content: "|";
+						right: 0;
+						top: 1px;
+					}
+					&.hidden {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&.selected {
+		border-color: #000;
+
+		@include respond-to(phones) {
+			border-color: $color-grey;
+		}
+
+		.b-sample_item {
+			border-color: #000;
+
+			@include respond-to(phones) {
+				border-color: $color-grey;
+			}
+		}
+	}
+}
+
+.samples_adding_dialog {
+	text-align: center;
+
+	@include respond-to(phones) {
+		.actions {
+			.button {
+				@include button-black(0 12px, 15px, 42px);
+			}
+		}
+	}
+	.sample_dialog_content {
+		@include clearfix;
+
+		max-height: inherit !important;
+	}
+	.description {
+		margin: 0 0 37px 0;
+		display: block;
+		font: normal 24px/30px $font_times;
+	}
+	.message {
+		margin: 0 0 37px 0;
+		display: block;
+		font: bold 16px/18px $font_times;
+	}
+	.actions {
+		.button {
+			@include button-black(0 5px, 14px, 36px);
+
+			width: 47%;
+			margin: 0 6% 0 0;
+			float: left;
+			&.cart_checkout_button {
+                @include button-color(#cf2a2a, #cf2a2a, #fff, #fff);
+                @include button-size(0 12px, 14px, 36px);
+
+				margin: 0;
+				width: 100%;
+			}
+		}
+		.formfield {
+		    width: 47%;
+		    float: left;
+		    margin: 0;
+		}
+	}
+}
+
+.dialog_bonus_show {
+    .bonus_discount_container {
+        padding-top: 0;
+    }
+    h2 {
+        padding: 0 0 10px 0;
+        font: normal 30px/33px $font_times;
+    }
+    p {
+        font: normal 16px/18px $font_arial;
+        margin: 0;
+        padding: 0 0 15px 0;
+    }
+    .bonus_product_message {
+        display: none;
+    }
+    .bonus_product_actions {
+        padding: 15px 0 0 0;
+        border-top: 1px dotted #ccc;
+        .select_bonus_button {
+            @include button();
+            @include button-size(0 15px, 18px, 42px);
+            @include button-color(#cf2a2a, #cf2a2a, #fff, #fff);
+
+            margin: 0 0 15px 0;
+        }
+        .no_bonus_button {
+            @include button-black(0 15px, 18px, 42px);
+        }
+        button {
+            width: 100%;
+        }
+    }
+}

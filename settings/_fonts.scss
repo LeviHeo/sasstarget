@@ -1,0 +1,65 @@
+// Fonts
+
+// Icon font
+
+$icon_arrow-checkered: "\e600";         // Special arrow for readmore link on PDP 
+$icon_minus-checkered: "\e601";         // Collapse icon for search refinements 
+$icon_plus-checkered: "\e602";          // Expand icon for search refinements 
+$icon_zoom-in: "\e603";                 // Magnifying glass icon, used in PDP zoom to zoom in image 
+$icon_zoom-out: "\e604";                // Magnifying glass icon, used in PDP zoom to zoom out image 
+$icon_enlarge: "\e605";                 // Enlarge icon, used to open PDP zoom popup 
+$icon_arrow-thin-left: "\e606";         // Arrow icon, used in PDP thumbnails carousel 
+$icon_arrow-thin-right: "\e607";        // Arrow icon, used in PDP thumbnails carousel 
+$icon_cart: "\e608";                    // Cart icon, used in Mobile header 
+$icon_arrow-circle-down: "\e609";       // Arrow icon, used to collapse article content 
+$icon_arrow-circle-right: "\e60a";      // Arrow icon, used to expand article content 
+$icon_checkmark: "\e60b";               // Used to highlight selected states in various places 
+$icon_menu-close: "\e60c";              // Cross icon, used to close Mobile main navigation 
+$icon_close: "\e60d";                   // Regular cross icon, used to close modal windows 
+$icon_circle: "\e60e";                  // Circle with white fill, used in carousels for non-selected slides 
+$icon_disc: "\e60f";                    // Disc, used in carousel for selected states and in lists 
+$icon_minus: "\e610";                   // Minus icon, used to collapse hamburger menu element 
+$icon_plus: "\e611";                    // Plus icon, used to expand hamburger menu element 
+$icon_search-mobile: "\e612";           // Search icon, used in Mobile header 
+$icon_search: "\e613";                  // Search icon, used in Desktop and Tablet 
+$icon_menu: "\e614";                    // Menu icon, used in Mobile header 
+$icon_location: "\e615";                // Store Locator icon, used in Mobile header 
+$icon_no_avatar: "\e616";               // Avatar icon for not signed in user, used in Mobile menu 
+$icon_rating-details: "\e617";          // Rating Details icon in PDP Reviews. Use with CSS3 drop shadow 
+$icon_dislike: "\e618";                 // Dislike icon in PDP Reviews 
+$icon_like: "\e619";                    // Like icon in PDP Reviews 
+$icon_featured: "\e61a";                // Featured Review icon in PDP Reviews 
+$icon_star: "\e61b";                    // Star icon in PDP Reviews 
+$icon_arrow-thick-left: "\e61c";        // Arrow icon, used in carousels 
+$icon_arrow-thick-right: "\e61d";       // Arrow icon, used in carousels 
+$icon_live-chat: "\e61e";               // Live Chat icon, used in header & footer 
+$icon_envelope: "\e61f";                // Envelope icon, used in mobile header for newsletter signup (non-commerce website)
+$icon_live-chat-1: "\e620";             // New version of Live Chat icon, used in header & footer 
+
+@font-face {
+    font-family: 'icons';
+    src:url('../fonts/icons.eot?-q7bl4e');
+    src:url('../fonts/icons.eot?#iefix-q7bl4e') format('embedded-opentype'),
+        url('../fonts/icons.woff?-q7bl4e') format('woff'),
+        url('../fonts/icons.ttf?-q7bl4e') format('truetype'),
+        url('../fonts/icons.svg?-q7bl4e#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//# Use in element :before or :after
+@mixin font_icons($icon) {
+    content: $icon;
+    speak: none;
+    font-family: 'icons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    // Better Font Rendering 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

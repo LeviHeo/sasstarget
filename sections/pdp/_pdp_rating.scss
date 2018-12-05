@@ -1,0 +1,454 @@
+// -----------------------------------------------------------------------------
+//  PDP Rating and reviews
+//------------------------------------------------------------------------------
+
+%link-style {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: #C00;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+// Review Header
+//------------------------------------------------------------------------------
+
+.rrmain {
+    font: 11px/1.2 $font_helvetica;
+
+    .secondary {
+        float: none; //reset general styles
+        width: auto;
+    }
+}
+
+.rrheader {
+    overflow: hidden;
+    padding-bottom: 16px;
+
+    .product_image {
+        float: left;
+        max-height: 146px;
+    }
+
+    .review_header_right {
+        width: 31%;
+        margin-left: 69%;
+
+        @include respond-to(phones) {
+            width: 35%;
+            margin-left: 65%;
+        }
+    }
+    .b-dw-rr-sorting {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        
+        @include respond-to(phones) {
+            margin-bottom: 17px;
+            margin-top: 0;
+        }
+    }
+}
+
+.rraveragerating {
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 10px;
+
+    .lable,
+    .value {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .lable {
+        font-weight: bold;
+        margin-right: 7px;
+
+        @include respond-to(phones) {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        &:after {
+            content: ':';
+        }
+    }
+
+    .bv-rating {
+        vertical-align: top;
+    }
+}
+
+.review_count {
+    margin-bottom: 7px;
+}
+
+.rrwriteproductreviewaction {
+    button {
+        @extend %link-style;
+    }
+}
+
+// @end
+
+// Write a review section
+//------------------------------------------------------------------------------
+
+.writeproductreviewdialog > h3 {
+    margin-bottom: 21px;
+    padding-bottom: 5px;
+    font: normal 16px/1.2 $font_times;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+}
+
+.rr_operation {
+    margin-top: 40px;
+
+    .first,
+    .secondary,
+    .third {
+        width: 546px;
+
+        @include respond-to(phones) {
+            width: auto;
+        }
+    }
+
+    select,
+    textarea {
+        width: 400px;
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+    
+    .char-count {
+        color: #707070;
+    }
+
+    .tags, // basic layout for label and input position
+    .personalinfo,
+    .product_rating,
+    .product_content .f_field {
+        position: relative;
+        padding-left: 145px;
+        margin-bottom: 15px;
+
+        @include respond-to(phones) {
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.write_product_review_tags_title, // label styles
+.write_product_review_personal_info,
+.write_product_review_rating .label,
+.rr_operation .product_content .f_field .f_label {
+    display: block;
+    width: 135px;
+    margin: 0 7px 0 0;
+    padding: 0;
+    font: bold 12px/1.2 $font_arial;
+    text-align: right;
+    position: absolute;
+    top: 6px;
+    left: 0;
+
+    @include respond-to(phones) {
+        position: static;
+        width: auto;
+        margin-bottom: 5px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    &:after {
+        content: ':';
+    }
+}
+
+// Particular styles
+
+.rr_operation {
+
+    .product_content {
+        @include respond-to(phones) {
+            padding-bottom: 0;
+        } 
+    }
+
+    // tags
+
+    .write_product_review_tags_title {
+        //text-transform: capitalize;
+    }
+
+    .write_product_review_add_tag {
+        margin-top: 5px;
+        overflow: hidden;
+    }
+
+    .review_tag {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 3px;
+    }
+
+    .add_tag_link {
+        @extend %link-style;
+        float: left;
+        clear: both;
+    }
+    
+    .add_tag_input {
+        height: 24px;
+        float: left;
+        clear: left;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        
+        &:focus {
+            border-color: #000;
+        }
+    }
+
+    .add_tag_button {
+        @include button();
+        @include button-small();
+        @include button-color-black();
+        float: left;
+        margin: 10px 0 0 5px;
+
+        &.hidden { // overwrite specific
+            display: none;
+        }
+    }
+
+    // Purchase from...
+
+    .personalinfo .f_label {
+        display: none;
+    }
+
+    .product_rating .start {
+        padding-top: 2px;
+    }
+
+    .action {
+        text-align: right;
+        button {
+            @include button();
+            @include button-regular();
+            @include button-color-black();
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Success popup
+
+.rr_waitingForAuditDialog {
+    font-size: 23px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+// No reviews
+
+.empty_review_desktop {
+    padding: 10px 0;
+}
+
+// @end
+
+// Comments
+//------------------------------------------------------------------------------
+
+.rrlist {
+    clear: both;
+    border-top: 1px solid #ccc;
+}
+
+.rr_page_item {
+    margin-top: -1px;
+}
+
+.rrlist_line {
+    display: block;
+    border-top: 1px dashed #ccc;
+}
+
+.rr_item {
+    padding: 15px 40% 15px 40px;
+    position: relative;
+    
+    @include respond-to(phones) {
+        padding-left: 0;
+    }
+
+    .rr_middle {
+        margin-bottom: 10px;
+    }
+}
+
+.rr_collapse {
+    display: none;
+}
+
+.rr_info {
+    position: absolute;
+    top: 12px;
+    left: 69%;
+    font-style: oblique;
+    line-height: 18px;
+    
+    @include respond-to(phones) {
+        left: 65%;
+    }
+
+    .personal_name {
+        font-weight: bold;
+    }
+}
+
+.rr_content {
+    font-size: 12px;
+    line-height: 18px;
+    color: #656565;
+    word-wrap: break-word;
+}
+
+.rr_paging {
+    .rr_next_page {
+        padding: 0 0 20px 0;
+        button {
+            @include button();
+            @include button-regular();
+            @include button-color-black();
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.rr_vote_section {
+    color: #656565;
+
+    > div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .rr_vote_title {
+        margin-right: 5px;
+    }
+
+    .rr_vote_statics {
+        display: block;
+        margin-top: 12px;
+    }
+
+    .button {
+        @include background-img('pdp/bg-rating-helpfulness.gif');
+        margin-right: 3px;
+        border: none;
+        text-indent: -9999px;
+        overflow: hidden;
+        width: 20px;
+        height: 24px;
+
+        &[name="helpful"] {
+            background-position: 0 -49px;
+
+            &:hover {
+                background-position: 0 -25px;
+            }
+
+            &:disabled {
+                background-position: 0 0 !important;
+            }
+        }
+
+        &[name="helpless"] {
+            background-position: -20px -57px;
+
+            &:hover {
+                background-position: -20px -33px;
+            }
+
+            &:disabled {
+                background-position: -20px -9px !important;
+            }
+        }
+    }
+}
+
+// Reply section
+
+.reply_review {
+    @extend %link-style;
+}
+
+.reply_section {
+    overflow: hidden;
+
+    .reply_textarea {
+        height: 24px;
+        float: left;
+        clear: left;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+
+        &:focus {
+            border-color: #000;
+        }
+
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+
+    .save_reply {
+        @include button();
+        @include button-small();
+        @include button-color-black();
+        float: left;
+        margin: 10px 0 0 5px;
+
+        &.hidden { // overwrite specific
+            display: none;
+        }
+
+        @include respond-to(phones) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 5px;
+        }
+    }
+}
+
+// @end
+
+.rr_operation {
+    margin-top: 0; // ?? Where is this style used?
+}
+
+.pdp_main {
+    .rraveragerating {
+        .bv-rating {
+            cursor: pointer;
+        }
+    }
+}

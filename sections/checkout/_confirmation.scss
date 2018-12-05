@@ -1,0 +1,958 @@
+/*
+ * Checkout - Confirmation page
+ */
+
+.pt_order_confirmation {
+	.primary {
+		width: 675px;
+		padding: 20px 0;
+		float: left;
+
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+	.secondary {
+		display: none;
+	}
+	.confirmation_title {
+		margin: 0;
+		padding: 0 0 5px 0;
+		font: normal 26px/30px $font_times;
+
+		@include respond-to(phones) {
+			font: normal 18px/18px $font_times;
+			text-transform: uppercase;
+		}
+		.print_page {
+			display: none;
+		}
+	}
+	.confirmation_message {
+		font: normal 12px/17px $font_helvetica;
+	}
+	.og-offer {
+		.conf-text {
+			font: normal 12px/17px $font_helvetica !important;
+		}
+	}
+	.b-order_shipping_item-title, .b-order_payment_item-title {
+		font: normal 18px/18px $font_times;
+		text-transform: uppercase;
+		margin: 0 0 10px 0;
+		padding: 12px 0;
+		display: block;
+		width: 100%;
+		border-bottom: 1px dotted #ccc;
+		border-top: 1px dotted #ccc;
+
+		@include respond-to(phones) {
+			border-bottom: none;
+		}
+	}
+	.order_shipment_table {
+		thead tr {
+			border-top: 1px dotted #e6e7e8;
+			th {
+				font: bold 18px/18px $font_times;
+			}
+		}
+		tbody {
+			tr {
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+		@include respond-to(phones) {
+			thead {
+				display: block;
+				tr {
+					border: none;
+					th {
+						&.order_product_quantity, &.order_product_price {
+							display: none;
+						}
+					}
+				}
+			}
+			tbody {
+				tr {
+					td {
+						&.order_product_quantity, &.order_product_price {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+		thead tr {
+			border-top: 1px dotted #e6e7e8;
+			@include respond-to(phones) {
+				border: none;
+			}
+			th {
+				font: normal 18px/18px $font_times;
+				&.order_product_quantity {
+					width: 150px;
+				}
+			}
+		}
+	}
+	.b-order_payment_item-body {
+	    .orderdetails_paymenttotal {
+	        .label {
+
+	            @include respond-to(phones) {
+	                max-width: 174px;
+                    display: inline-block;
+	            }
+	        }
+	    }
+	    .billing_address_edit {
+	        .button {
+
+	            @include respond-to(phones) {
+	                display: none;
+	            }
+	        }
+	    }
+	}
+	.replenishment-details {
+        padding: 5px 0 0 0;
+        font: normal 12px/15px $font_helvetica;
+    }
+}
+
+.order_date_info {
+	margin: 25px 0;
+	padding: 17px 23px;
+	background: #fafaf8;
+	border: 1px solid #e6e7e8;
+	.order_date {
+		margin: 0 0 5px 0;
+	}
+	.label {
+		margin: 0 10px 0 0;
+		font: normal 16px/18px $font_times;
+	}
+	.value {
+		font: bold 14px/18px $font_helvetica;
+	}
+}
+
+.order_confirmation_addresses,
+.order_confirmation_addresses_wrapper,
+.order_payment_details {
+	@include clearfix;
+
+}
+
+.order_shipment_details, .order_billing,
+.order_payment_summary, .order_payment_instruments {
+	width: 50%;
+	float: left;
+	display: block;
+	margin: 0 0 30px 0;
+	font: normal 14px/20px $font_helvetica;
+	color: #000;
+
+	@include respond-to(tablets) {
+		width: 100%;
+		float: none;
+	}
+
+	@include respond-to(phones) {
+		width: 100%;
+		float: none;
+	}
+}
+
+.order_giftcert_info_row {
+	width: 469px;
+	img {
+		float: left;
+		width: 80px;
+		height: auto;
+		margin: 0 20px 0 0;
+	}
+	.order_giftcert_info_name {
+		margin: 0 0 2px 0;
+		display: block;
+		color: #000;
+		font: bold 12px/14px $font_times;
+	}
+	.order_giftcert_info_to {
+		font: normal 11px/13px $font_arial;
+		.order_giftcert_info_label {
+			font-weight: bold;
+			.order_giftcert_info_email {
+				display: block;
+			}
+		}
+	}
+	.order_giftcert_quantity, .order_giftcert_price {
+		font-weight: bold;
+
+		@include respond-to(phones) {
+			display: none;
+		}
+	}
+}
+
+.selected_shipping_method, .shipping_status {
+	.value {
+		font-weight: bold;
+	}
+}
+
+.orderdetails_paymenttotal {
+	.value {
+		width: 100px;
+		float: right;
+		text-align: right;
+		padding: 0 40px 0 0;
+
+		@include respond-to(tablets) {
+			padding: 0;
+		}
+
+		@include respond-to(phones) {
+			padding: 0;
+		}
+	}
+	.orderdetails_shippihng_discount {
+		color: #f00;
+	}
+	.orderdetails_paymentsubtotal {
+		width: 90%;
+		border-top: 1px solid #ccc;
+		font-weight: bold;
+		padding: 5px 0 0 0;
+		margin: 5px 0 0 0;
+
+		@include respond-to(tablets) {
+			width: 100%;
+		}
+		@include respond-to(phones) {
+			width: 100%;
+		}
+		.value {
+			padding: 0 5px 0 0;
+
+            @include respond-to(phones) {
+                padding: 0;
+            }
+		}
+	}
+	.orderdetails_paymentsub_total {
+		margin: 0 0 10px 0;
+	}
+	.orderdetails_salestax {
+		margin: 10px 0 0 0;
+	}
+}
+
+.order_shipment_details {
+	.b-order_shipping_item-body {
+		padding: 0 20px 0 0;
+	}
+}
+
+[class$='_address_summary'] [class*='_address_address'] {
+	text-transform: uppercase;
+}
+
+.b-order_shipping_item-body .shipping_address_summary, .b-order_payment_item-body .billing_address_summary,
+.b-order_payment_item-body .orderdetails_paymenttotal, .order_payment_wrapper,
+.selected_shipping_method, .b-order_payment_item-body .orderdetails_paymentmethods,
+.shipping_status {
+	font: normal 14px/20px $font_helvetica;
+	color: #000;
+}
+
+.order_payment_details {
+
+	@include respond-to(phones) {
+		border-bottom: 1px dotted #ccc;
+	}
+	.section_header {
+		display: none;
+	}
+}
+
+.order_shipment_table {
+	thead {
+		tr {
+			th {
+				&.order_product_info {
+					padding: 0 0 0 100px;
+
+					@include respond-to(phones) {
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px dotted #e6e7e8;
+			td {
+				padding: 15px 0 50px 0;
+				font: normal 11px/13px $font_arial;
+				vertical-align: top;
+				a {
+					@include links(#000, underline);
+
+					font-weight: bold;
+				}
+				.product_name {
+					margin: 0 0 2px 0;
+					display: block;
+					color: #000;
+					font: bold 12px/14px $font_times;
+
+					@include respond-to(phones) {
+						font: bold 15px/17px $font_times;
+					}
+				}
+				.product_image {
+					width: 100px;
+					padding: 0 20px 0 0;
+					display: block;
+					float: left;
+				}
+				.product_subtitle {
+					display: none;
+				}
+				&.order_product_quantity, &.order_product_price {
+					font-size: 12px;
+					font-weight: bold;
+				}
+				&.order_product_info {
+
+					@include respond-to(phones) {
+						padding: 15px 0 50px 100px;
+						.product_image {
+							margin: 0 0 0 -100px;
+						}
+					}
+				}
+				.qty {
+					display: none;
+
+					@include respond-to(phones) {
+						padding-top: 15px;
+					}
+				}
+				.order_product_quantity {
+					@include respond-to(phones) {
+						padding-top: 15px;
+						display: block !important;
+					}
+				}
+			}
+		}
+	}
+	.qty {
+		position: relative;
+		padding: 0 0 0 10px;
+		&:before {
+			content: "x";
+		}
+	}
+}
+
+.pt_order_confirmation {
+    #TTtraWindow {
+        width: 700px !important;
+        overflow: initial !important;
+
+        @include respond-to(tablets) {
+            width: 700px !important;
+        }
+
+        @include respond-to(phones) {
+            overflow: auto !important;
+            width: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            position: fixed !important;
+            height: 100% !important;
+        }
+        #TTtraSubWindow {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #000;
+            font: normal 12px/18px $font_helvetica;
+            color: #000;
+        }
+        #TTtrasubmid {
+            width: 100%;
+            background: #fff;
+        }
+        #TTSubDialogSection {
+            padding: 20px 5px !important;
+            margin: 0;
+
+            @include respond-to(phones) {
+                padding: 10px 0 !important;
+                margin: 0;
+            }
+        }
+        #TTSubScreen {
+            position: relative;
+            padding: 0;
+            .TTlineThick {
+                display: none;
+            }
+        }
+        #TTtrasubtop {
+            background: transparent;
+            height: auto;
+            min-height: 10px;
+        }
+
+        #TTSubDialogSection {
+            #TTSubScreen {
+                .TT3ppDate2 {
+                    line-height: 18px !important;
+                }
+            }
+        }
+        .TTSubDialog {
+            width: 100% !important;
+            left: 0 !important;
+
+            @include respond-to(phones) {
+                left: 0 !important;
+                margin: 0;
+            }
+            #TT2pastPurchases {
+                position: relative;
+                padding-top: 0px !important;
+                overflow: hidden;
+                max-height: none !important;
+                
+                @include respond-to(phones) {
+                    max-height: inherit !important;
+                }
+                #TT2pastPurchasesDisplay {
+                    height: 550px;
+                    overflow: auto;
+
+                    @include respond-to(phones) {
+                        height: 100% !important;
+                        overflow: hidden;
+                    }
+                    > div {
+                        padding: 10px !important;
+                        margin: 0 0 20px 0;
+                        width: 100%;
+                        border-bottom: 1px dotted #ccc !important;
+                        display: block;
+                        font: normal 16px/20px $font_helvetica !important;
+
+                        @include respond-to(phones) {
+                            margin: 0 0 10px 0;
+                            font: normal 12px/14px $font_helvetica !important;
+                        }
+                    }
+                    #TT2remindGroup {
+                        margin: 10px 0;
+                    }
+                    table {
+                        width: 480px;
+                        margin: 0;
+
+                        @include respond-to(phones) {
+                            width: 100%;
+                        }
+                        tr {
+                            border-top: 1px dotted #ccc;
+
+                            @include respond-to(phones) {
+                                border-top: none;
+                            }
+                            &:first-child {
+                                border: none;
+                                .TT2ppImage {
+                                    margin-top: 0;
+                                }
+                                .TT2ppDescription {
+                                    padding-top: 10px;
+                                }
+                            }
+                        }
+                        td {
+                            padding: 15px 8px;
+                            font: bold 12px/24px $font_helvetica;
+                            vertical-align: top;
+                            color: #888;
+                        }
+                        .TT2ppDescription {
+                            .TT2ppName {
+                                @include clearfix;
+                                @include links(#000, none);
+
+                                font: normal 18px/18px $font_times !important;
+
+                                @include respond-to(phones) {
+                                    font: normal 12px/13px $font_times !important;
+                                }
+                                a {
+                                    @include links(#000, none);
+
+                                    margin: 0 0 5px 0;
+                                    display: block;
+                                    float: left;
+                                    font: normal 18px/18px $font_times !important;
+
+                                    @include respond-to(phones) {
+                                        font: normal 12px/13px $font_times !important;
+                                    }
+                                }
+                                .TT2ppDate, .TT3ppDate2 {
+                                    font-weight: normal;
+                                    font-style: italic;
+
+                                    @include respond-to(phones) {
+                                        display: block;
+                                        font: italic normal 12px/13px $font_arial !important;
+                                    }
+                                }
+                            }
+                            .TT3ppDate2 {
+                                padding-left: 0 !important;
+                                display: block;
+
+                                @include respond-to(phones) {
+                                    padding-left: 0 !important;
+                                    display: block;
+                                }
+                            }
+                            .TT3metaText {
+                                color: #888;
+                                font-size: 12px;
+                                @include respond-to(phones) {
+                                    font-size: 9px;
+                                    line-height: 12px;
+                                }
+                            }
+                            .TT2commentArea {
+                                padding: 0;
+                                width: 274px;
+                                background: transparent;
+
+                                @include respond-to(phones) {
+                                    width: 100%;
+                                }
+                                .TT2bold {
+                                    margin: 20px 0 0 0 !important;
+                                    display: block;
+                                    font: bold 12px/14px $font_helvetica;
+                                    color: #000;
+
+                                    @include respond-to(phones) {
+                                        font-size: 9px;
+                                        line-height: 13px;
+                                    }
+                                }
+                                .TT2limitReminder {
+                                    margin: 0;
+                                    font: normal 12px/14px $font_arial !important;
+
+                                    @include respond-to(phones) {
+                                        font-size: 9px;
+                                        line-height: 13px;
+                                    }
+                                    .TT2charLimitCount {
+                                        color: #f00;
+                                    }
+                                }
+                                .TT2ppComment {
+                                    margin: 5px 0 0 0 !important;
+                                    font-weight: normal;
+                                }
+                                .TT2postCheckboxGroup {
+                                    font: normal 12px/14px $font_times;
+
+                                    @include respond-to(phones) {
+                                        font-size: 9px;
+                                        line-height: 13px;
+                                    }
+                                    table {
+                                        width: auto;
+                                        margin: 4px 0 -3px 0;
+                                        tr {
+                                            td {
+                                                padding: 0 3px;
+                                                img {
+                                                    margin: -5px 0 5px 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    div {
+                                        font: normal 12px/28px $font_times !important;
+                                    }
+                                }
+                                .TT2ppSaveCommentButton {
+                                    @include background-img( 'turn_to/btn_submit.png', center center no-repeat );
+
+                                    width: 77px;
+                                    height: 22px;
+                                    margin: 5px 0 0 0;
+                                    background-color: #000;
+
+                                    @include respond-to(phones) {
+                                        margin: 5px 0px;
+                                        width: 100%;
+                                    }
+                                }
+                                .TT2ppDelCommentLink {
+                                    @include button-black(0 14px, 11px, 22px);
+
+                                    margin: 5px 0 0 10px;
+
+                                    @include respond-to(phones) {
+                                        margin-right: 0;
+                                        width: 100%;
+                                    }
+                                }
+                                .TT2ppEditCommentLink {
+                                    @include button-white(0 14px, 11px, 22px);
+
+                                    margin: 5px 0 0 0;
+
+                                    @include respond-to(phones) {
+                                        margin-top: 10px;
+                                        width: 100%;
+                                    }
+                                }
+                                textarea {
+                                    margin: 0 0 5px 0 !important;
+                                    width: 100% !important;
+                                    line-height: 18px;
+                                    border-color: #828282;
+                                    resize: none;
+
+                                    @include respond-to(phones) {
+                                        float: right;
+                                    }
+                                }
+                                .TT2ppSavedComment {
+                                    max-width: 615px;
+                                    margin: 10px 0;
+                                    font: normal 12px/16px $font_arial;
+                                    word-wrap: break-word;
+                                    white-space: normal;
+
+                                    @include respond-to(tablets) {
+                                        max-width: 420px;
+                                    }
+
+                                    @include respond-to(phones) {
+                                        max-width: 145px;
+                                    }
+                                }
+                            }
+                        }
+                        .TT2ppImage {
+                            margin: 30px 0;
+                            padding: 2px;
+                            width: 165px;
+                            display: block;
+                            border: 2px solid #ccc;
+
+                            @include respond-to(phones) {
+                                margin: 20px 0;
+                                width: 80px;
+                            }
+                            a {
+                                display: block;
+                                border: 1px solid #ccc;
+                                height: 100%;
+                                width: 100%;
+                                vertical-align: middle;
+
+                                @include respond-to(phones) {
+                                    height: 120px;
+                                }
+                            }
+                            img {
+                                height: auto;
+                                width: 100%;
+                                border: none;
+
+                                @include respond-to(phones) {
+                                    margin: 20px 0 0 0;
+                                    height: 70px;
+                                    width: auto;
+                                }
+                            }
+                        }
+                        .TT2ppDescription {
+                            padding: 40px 8px 15px 40px;
+
+                            @include respond-to(phones) {
+                                padding: 30px 8px 15px 20px;
+                                font: bold 12px/22px $font_helvetica !important;
+                            }
+                            br {
+                                display: none;
+                            }
+                            .TT2ppName {
+                                padding: 0 !important;
+                                font-weight: bold;
+                            }
+                            .TT2ppDate, .TT3ppDate2 {
+                                font-family: $font_arial;
+                                font-weight: normal;
+                                font-style: italic;
+
+                                @include respond-to(phones) {
+                                    display: block;
+                                }
+                            }
+                            .TT3ppDate2 {
+                                padding: 0 0 0 83px !important;
+
+                                @include respond-to(phones) {
+                                    padding: 0 !important;
+                                }
+
+                                &:first-child {
+                                    margin: -4px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                #TT2remindGroup {
+                    margin: 10px 0 0 0;
+                    padding: 15px 20px;
+                    background: #fafaf8;
+                    border: 1px solid #ccc;
+                    font: normal 16px/20px $font_helvetica;
+                    display: none !important;
+
+                    @include respond-to(phones) {
+                        font-size: 14px;
+                        line-height: 16px;
+                    }
+                    .TT2ppBtnGroup {
+                        margin: 10px 0 0 0;
+                        text-align: right;
+                        #TT2goBackCommentBtn {
+                            @include button-black(0px 14px 3px 14px, 11px, 22px);
+
+                        }
+                        #TT2ignoreCommentBtn {
+                            @include button-black(0px 14px 3px 14px, 11px, 22px);
+
+                            margin: 0 0 0 15px;
+                        }
+                    }
+                }
+            }
+        }
+        #TT2pastPurchasesHeader {
+            padding: 0 0 25px 0 !important;
+            font: normal 18px/24px $font_helvetica !important;
+
+            @include respond-to(phones) {
+                font: normal 14px/17px $font_helvetica !important;
+            }
+            .TT2ppReminderText {
+                padding: 0;
+                font: normal 18px/24px $font_helvetica !important;
+                color: #000;
+
+                @include respond-to(phones) {
+                    font: normal 14px/16px $font_helvetica !important;
+                }
+            }
+            .TT2pastPurchasesTipsDesc {
+                margin: 0;
+                width: 100%;
+                padding: 5px 0 10px 0;
+                font: normal 14px/18px $font_helvetica;
+                background: transparent;
+                border: none;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                }
+                .TTclosexyello {
+                    display: none;
+                }
+                p {
+                    line-height: 18px !important;
+                }
+            }
+        }
+        #TT2pastPurchasesHeader {
+            #TT2pastPurchasesTips {
+                @include links(#000, none);
+
+                margin: 0;
+                display: block;
+                font: bold 12px/14px $font_times;
+            }
+            .TT2ppBtnGroup {
+                #TT2managePastPurchaseBtn {
+                    @include button-black(0 14px, 14px, 22px);
+
+                    height: 22px !important; // add this just in case
+                    margin: 1px 0 4px 0;
+                }
+                #TT2NotManagePastPurchaseLink {
+                    @include button-white(0 12px, 14px, 22px);
+
+                }
+            }
+        }
+        #TT2doneGroup {
+            margin: 10px 0 0 0 !important;
+            #TT2ppDoneBtn {
+                @include background-img( 'turn_to/donebttn.png', center center no-repeat );
+
+            }
+        }
+        #TTtraWindowClose, #TTSubWindowClose {
+            position: absolute;
+            right: 8px;
+            top: 12px;
+            z-index: 2;
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            &:before {
+                @include font-icons( $icon_close );
+
+                content: '\e60d';
+                color: #d7482a;
+                font-size: 24px;
+
+                .ie8 .ui-widget-overlay + & {
+                    content: '\e60d '; // IE8 force element repaint
+                }
+            }
+            &:hover {
+                &:before {
+                    color: #fd2c00;
+                }
+            }
+
+            @include respond-to( phones ) {
+                &:before {
+                    right: 12px;
+                    font-size: 18px;
+                }
+            }
+
+            .ui-button-text {
+                display: none;
+            }
+        }
+        #TT2footer, #TTtrasubbot {
+            display: none;
+        }
+    }
+}
+
+
+/*Create an Account on Confirmation page*/
+.login_create_account {
+	@include clearfix;
+
+	padding: 10px;
+	margin: 10px 0 0 0;
+	background: #fafaf8;
+	border: 1px solid #e6e7e8;
+	font: normal 12px/17px $font_helvetica;
+	h2 {
+		margin: 0 0 10px 0;
+		font: bold 20px/22px $font_times;
+	}
+	.create_account_section {
+		width: 340px;
+		padding: 0 40px 0 0;
+		float: left;
+
+		@include respond-to(phones) {
+			width: 100%;
+			padding: 0 0 25px 0;
+			float: none;
+		}
+	}
+	.account_create_login_benefits {
+		width: 300px;
+		float: left;
+		font: normal 13px/18px $font_helvetica;
+
+        @include respond-to(phones) {
+            width: 100%;
+            padding: 0 0 10px 0;
+            float: none;
+        }
+		a {
+		    @include links ( #000, underline);
+
+		    color: #000;
+		}
+		p {
+			font-weight: bold;
+		}
+		ul {
+			line-height: 20px;
+		}
+	}
+}
+
+.login_box_content {
+	font: normal 12px/17px $font_arial;
+
+	.resource_message {
+		margin: 0 0 5px 0;
+	}
+	.f_field {
+		&.required {
+			.f_label {
+				@include required;
+
+				position: relative;
+				padding: 0 0 0 10px;
+				&:before {
+					color: #c03;
+				}
+			}
+		}
+		&.f_field_checkbox {
+			.f_label_value {
+				line-height: 12px;
+				color: #000;
+				text-decoration: underline;
+				font-weight: bold;
+			}
+			&.required {
+				.f_label {
+					padding: 0;
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.button {
+		@include button-black(0 30px);
+	}
+}
+/*END Create an Account on Confirmation page*/

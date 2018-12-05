@@ -1,0 +1,101 @@
+/*
+ * Helper classes
+ */
+
+/*
+ * Visibility helpers
+ */
+.h-hidden,
+.js_hide,
+.js-hide{
+	display: none !important;
+}
+.hidden{
+	display: none; //This is needed for Quickview
+}
+.h-show,
+.js-show {
+	display: block !important;
+}
+.h-minimized,
+.h-minified {
+  max-height: 0 !important;
+  overflow: hidden;
+}
+.h-noscroll {
+	overflow: hidden;
+	position: fixed;
+}
+.h-alignement_right {
+	text-align: right;
+}
+/* Visibility helpers */
+
+/*
+ .h-visible_mobile, .visible-mobile - Show for mobile, hide for desktop & tablet
+ .h-visible_tablet, .visible_tablet - Show for tablet, hide for desktop & mobile
+ .h-visible_desktop, .visible_desktop - Show for desktop, hide for tablet & mobile
+ .h-hidden_mobile, .hidden_mobile - Hide for mobile, show for desktop & tablet
+ .h-hidden_tablet, .hidden_tablet - Hide for tablet, show for desktop & mobile
+ .h-hidden_desktop, .hidden_desktop - Hide for desktop, show for tablet & mobile
+
+ .h-hide_on_mobile, .hide_on_mobile - Hide for mobile, don't alter visibility for desktop & tablet
+ .h-hide_on_tablet, .hide_on_tablet - Hide for tablet, don't alter visibility for desktop & mobile
+ .h-hide_on_desktop, .hide_on_desktop - Hide for desktop, don't alter visibility for tablet & mobile
+*/
+
+.visible-mobile,
+.h-visible_mobile,
+.h-visible-mobile { display: none !important; }
+.visible-tablet,
+.h-visible_tablet,
+.h-visible-tablet { display: none !important; }
+.hidden-desktop,
+.h-hidden_desktop,
+.h-hidden-desktop { display: none !important; }
+.visible-desktop,
+.h-visible_desktop,
+.h-visible-desktop { display: inherit !important; }
+
+@include respond-to(tablets) {
+	.hidden-desktop,
+	.h-hidden_desktop,
+	.h-hidden-desktop { display: inherit !important; }
+	.visible-desktop,
+	.h-visible_desktop,
+	.h-visible-desktop { display: none !important ; }
+	.visible-tablet,
+	.h-visible_tablet,
+	.h-visible-tablet { display: inherit !important; }
+	.hidden-tablet,
+	.h-hidden_tablet,
+	.h-hidden-tablet { display: none !important; }
+	.h-hide_on_tablet,
+	.hide_on_tablet { display: none !important; }
+}
+
+@include respond-to(phones) {
+	.hidden-desktop,
+	.h-hidden_desktop,
+	.h-hidden-desktop { display: inherit !important; }
+	.visible-desktop,
+	.h-visible_desktop,
+	.h-visible-desktop { display: none !important; }
+	.visible-mobile,
+	.h-visible_mobile,
+	.h-visible-mobile { display: inherit !important; }
+	.hidden-mobile,
+	.h-hidden_mobile,
+	.h-hidden-mobile { display: none !important; }
+
+	.h-hide_on_mobile,
+	.hide_on_mobile { display: none !important; }
+}
+
+@include respond-to(desktop) {
+	.h-hide_on_desktop,
+	.hide_on_desktop { display: none !important; }
+}
+
+.ie .h-hide_on_desktop,
+.ie .hide_on_desktop { display: none !important; }

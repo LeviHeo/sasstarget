@@ -1,0 +1,93 @@
+/*
+ * My Account - My Samples
+ */
+
+.b-samples {
+    @extend .b-favorites;
+
+    &-content {
+
+        @include respond-to(phones) {
+            padding: 0;
+            border: none;
+        }
+        > p {
+            display: none;
+        }
+    }
+    .b-custom-product_tile-wrapper {
+        .product_tile {
+            .fullsize_productimage_for_sample {
+                display: block;
+                width: 100%;
+                height: 65px;
+                text-align: right;
+                padding: 5px 0;
+                border-top: 1px dotted #767676;
+                .b-product_img-link {
+                    padding: 0;
+                    height: 100%;
+                    border: none;
+                    width: auto;
+                    display: inline-block;
+                    img {
+                        max-height: 100%;
+                        height: auto;
+                        max-width: 100%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+    .search_result_options {
+        display: none;
+    }
+    &.js-opened {
+        .fullsize_productimage_for_sample {
+            display: none !important;
+        }
+        .b-samples-content {
+            @include clearfix;
+
+            padding: 20px 0 0 0;
+        }
+    }
+    .quickviewbutton {
+
+        @include respond-to(phones) {
+            display: none !important;
+        }
+    }
+    .sample_no_master {
+        > .b-product_img {
+            padding: 10px 0;
+            margin: 0 auto;
+            height: 215px;
+            width: auto;
+            display: block;
+            text-align: center;
+            border-bottom: none;
+        }
+        > .product_name {
+            border-top: 1px solid #ccc;
+            margin-top: -1px !important;
+            padding-top: 10px;
+            height: 49px !important;
+        }
+        .fullsize_productimage_for_sample {
+            .b-product_img {
+                padding: 0;
+                height: 100%;
+                border: none;
+                width: auto;
+                display: inline-block;
+            }
+        }
+    }
+}
+.js-email-form {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 25px;
+}

@@ -1,0 +1,338 @@
+/*
+ * Pro signup
+ */
+
+.primary.pro {
+	@include background-img('pro-signup/bg-pro-form.jpg', bottom right);
+
+	padding-bottom: 190px;
+	float: left;
+	width: 100%;
+
+	@include respond-to(tablets) {
+		-webkit-background-size: 100%;
+		background-size: 100%;
+	}
+
+	@include respond-to(phones) {
+		padding-bottom: 112px;
+		-webkit-background-size: 100%;
+		background-size: 100%;
+	}
+
+	// Generic typography
+
+	h2,
+	h3 {
+		font: normal bold 15px/20px $font_main;
+		margin: 0 0 11px;
+
+		@include respond-to(phones) {
+			font-size: 17px;
+		}
+	}
+
+	.b-signup_header-section h2 {
+		font: normal bold 18px/24px $font_helvetica;
+		margin: 19px 0 10px;
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+
+		@include respond-to(phones) {
+			margin-top: 0;
+			font-size: 15px;
+		}
+	}
+
+	p {
+		font: normal normal 12px/17px $font_helvetica;
+		margin-bottom: 10px;
+
+		@include respond-to(phones) {
+			line-height: 18px;
+		}
+	}
+
+	a {
+		color: #000;
+	}
+}
+
+.b-signup {
+
+	&_header-section {
+		p.f_rqd-sign {
+			margin-top: 28px;
+			margin-bottom: 13px;
+
+			@include respond-to(phones) {
+				font-size: 15px;
+				margin-bottom: 22px;
+			}
+		}
+	}
+
+	&_header-title {
+		font: normal normal 30px/38px $font_main;
+		margin: 0 0 23px 0;
+
+		@include respond-to(phones) {
+			font-size: 20px;
+			line-height: 24px;
+			text-align: center;
+			padding-bottom: 20px;
+			border-bottom: 2px solid #ccc;
+		}
+	}
+}
+
+// Block heading mobile specific changes
+
+@include respond-to(phones) {
+	.b-signup_header-section {
+		@include flex-parent();
+	}
+
+	.b-signup_header-description {
+		@include flex-child(2);
+	}
+
+	.b-signup_header-section_cont {
+		@include flex-child(1);
+
+		margin-bottom: 35px;
+	}
+
+	.b-signup_header-section_addinfo {
+		@include flex-child(3);
+	}
+}
+
+// end Block heading
+
+.signup_container {
+
+	.f_textinput, // inputs width
+	.f_email {
+		width: 278px;
+
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+
+	.field_container {
+		margin-bottom: 8px;
+	}
+	
+	.field_occupation {
+		margin-top: 20px;
+	}
+
+	.iframe-containers {
+		border: 1px solid #cdcdcd;
+		padding: 15px 20px;
+		margin: 15px 0 31px;
+
+		ul, ol {
+			margin-bottom: 17px;
+
+			li {
+				margin-bottom: 2px;
+			}
+		}
+		
+		#iframe-file1 {
+			height: 178px;
+			width: 100%; // viewport binding
+			position: relative;
+
+			@include respond-to(phones) {
+				height: 190px;
+			}
+		}
+	}
+	
+	.membership-upload-file-text {
+		margin-bottom: 61px;
+	}
+}
+
+.membership-agreement {
+	margin: 25px 0 29px;
+}
+
+// Small-print specific case
+
+.signup_container {
+
+	.field_birthday {
+		margin-bottom: 0;
+
+		.f_label {
+			margin-bottom: 0;
+
+			@include respond-to(phones) {
+				margin-bottom: 0;
+			}
+		}
+		
+		.f_field {
+			margin-bottom: 7px;
+		}
+
+		input[type="text"] {
+			display: none;
+		}
+	}
+
+	.field_signature {
+		.f_field {
+			float: left;
+			margin-bottom: 23px;
+
+			@include respond-to(tablets) {
+				float: none;
+				margin-bottom: 8px;
+			}
+
+			@include respond-to(phones) {
+				float: none;
+				margin-bottom: 8px;
+			}
+		}
+	}
+
+	.field_file1 {
+
+		.f_smallprint {
+			display: block;
+			float: left;
+			width: 250px;
+			margin: 20px 0 0 30px;
+		}
+
+		@include respond-to(tablets) {
+			.f_smallprint {
+				float: none;
+				width: auto;
+				margin: 0 0 23px;
+				clear: both;
+			}
+		}
+
+		@include respond-to(phones) {
+			.f_smallprint {
+				float: none;
+				width: auto;
+				margin: 0 0 23px;
+				clear: both;
+			}
+		}
+	}
+
+	.signup_section_upload,
+	.membership-agreement {
+		clear: both;
+	}
+}
+
+// Selectboxes
+
+.signup_container {
+
+	select {
+		font-weight: normal;
+	}
+
+	// .selectboxit-option-icon.selectboxit-container
+	
+	.field_state {
+		select {
+			width: 152px;
+		}
+	}
+
+	// 3 in row
+
+	.field_month,
+	.field_year,
+	.field_day {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 7px 0 0;
+	}
+
+	.field_month,
+	.field_year {
+		select {
+			width: 92px;
+		}
+	}
+
+	.field_day {
+		select {
+			width: 74px;
+		}
+	}
+
+	@include respond-to(phones) {
+		.field_month,
+		.field_year,
+		.field_day {
+			margin-right: 0;
+			width: 32.5%;
+
+			select {
+				width: 100%;
+			}
+		}
+	}
+	
+}
+
+// Sbm button
+
+.primary.pro {
+	button[type="submit"] {
+		@include button-forward();
+
+		@include respond-to(phones) {
+            @include button-hero(0 13px);
+			width: 100%;
+
+            &:after {
+                display: none;
+            }
+		}
+
+	}
+}
+
+// Success page
+.primary.pro {
+
+	.b-signup_header-preview { // default header
+		display: none;
+	}
+
+	.b-ud_pro-thankyou_page {
+
+		h2 {
+			font: normal normal 30px/38px $font_main;
+			margin: 0 0 23px 0;
+
+			@include respond-to(phones) {
+				font-size: 20px;
+				line-height: 24px;
+				text-align: center;
+				padding-bottom: 20px;
+				border-bottom: 2px solid #ccc;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,319 @@
+/*
+ * Order Details
+ */
+
+.b-order_details {
+
+  h1 {
+    display: block;
+    margin: 0 0 15px 0;
+    padding: 0 0px 5px 0;
+    font: bold 16px/20px $font_times;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    @include respond-to(phones) {
+      font-size: 15px;
+    }
+  }
+
+  &-description {
+    display: none;
+    margin: 0 0 25px 0;
+    font: normal 16px/17px $font_arial;
+
+    .b-order_details-wrapper {
+      @include respond-to(phones) {
+        padding: 10px;
+        background: #efefef;
+      }
+    }
+  }
+
+  &-container {
+    @include clearfix;
+    background: #fafaf8;
+    border: 1px solid #d7d7d7;
+    font: normal 14px/16px $font_arial;
+
+    @include respond-to(phones) {
+      width: auto;
+      float: none;
+      border: none;
+      margin: 0 -20px;
+    }
+
+    .value {
+      font-weight: bold;
+    }
+
+    .order_status {
+      .value {
+        text-transform: uppercase;
+      }
+    }
+
+    .b-order_details-left {
+      float: left;
+      width: 68%;
+    }
+
+    .b-order_details-right {
+      float: right;
+      width: 32%;
+    }
+  }
+
+  &-orderstatus,
+  &-ordertotal,
+  &-method {
+    padding: 10px 15px 10px 30px;
+    border-bottom: 1px solid #ccc;
+
+    .label {
+      margin: 0 0 5px 0;
+      display: block;
+    }
+  }
+
+  &-method {
+    border-left: 1px solid #ccc;
+    border-bottom: none;
+    margin: 0 0 0 -1px;
+
+    @include respond-to(phones) {
+      margin: 0;
+
+      .label {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-dateplaced,
+  &-ordernumber,
+  &-shipto {
+    height: 38px;
+    line-height: 38px;
+    padding: 0 0 0 15px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &-orderstatus,
+  &-ordertotal,
+  &-method,
+  &-dateplaced,
+  &-ordernumber,
+  &-shipto {
+    @include respond-to(phones) {
+      padding: 20px 17px 12px;
+      margin-top: -1px;
+      width: auto;
+      height: auto;
+      float: none;
+      border: 1px solid #ccc;
+      font-size: 10px;
+      line-height: 14px;
+    }
+  }
+
+  &-shipto {
+    @include clearfix;
+
+    height: auto;
+    padding: 10px 15px;
+    line-height: 18px;
+    border-bottom: none;
+
+    @include respond-to(phones) {
+      float: none;
+      height: auto;
+      line-height: 13px;
+      border-bottom: none;
+    }
+
+    .label {
+      @include respond-to(phones) {
+        width: 45px;
+        float: left;
+      }
+    }
+
+    .summarybox {
+      width: 85%;
+      float: right;
+      margin: 0;
+
+      @include respond-to(phones) {
+        width: auto;
+        padding: 0;
+        float: none;
+        overflow: hidden;
+      }
+
+      .firstname,
+      .lastname {
+        font-weight: bold;
+      }
+
+      .zip {
+        display: block;
+      }
+    }
+  }
+
+  &-ordernumber {
+    .label {
+      &:after {
+        content: ":";
+      }
+    }
+  }
+
+  &-table {
+    margin-top: -1px;
+    width: 100%;
+
+    td {
+      border: 1px solid #ccc;
+      vertical-align: top;
+    }
+  }
+
+  .order_table {
+      > button {
+          @include button();
+          @include button-color-black();
+          @include button-regular(0 12px);
+      }
+  }
+}
+
+.b-order_details-print {
+    @include button();
+    @include button-color-black();
+    @include button-regular(0 25px);
+
+    float: right;
+
+    @include respond-to(phones) {
+        display: none;
+    }
+}
+
+.ui-dialog {
+  .b-order_details {
+
+    .order_shipment_table {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      table-layout: fixed;
+
+      @include respond-to(phones) {
+        border: none;
+      }
+
+      tr {
+        border-top: 1px dotted #ccc;
+        border-bottom: none;
+
+        &:first-child {
+          border: none;
+        }
+        &.customgiftrow {
+            .order_product_info {
+                .product_list_item, .attribute {
+                    margin: 0 0 0 100px;
+                }
+            }
+        }
+      }
+
+      td {
+        padding: 15px 0;
+
+        @include respond-to(phones) {
+          font: bold 10px/13px $font_times;
+        }
+
+        &.order_product_quantity {
+          @include respond-to(phones) {
+            display: none;
+          }
+        }
+
+        &.order_product_info {
+          padding: 15px 5px 15px 0;
+          width: 65%;
+
+          .product_list_item {
+            @include respond-to(phones) {
+              padding: 0 0 0 100px;
+            }
+          }
+
+          .product_image {
+            @include respond-to(phones) {
+              width: 74px;
+              margin: 0 10px 0 0;
+              padding: 0;
+            }
+          }
+        }
+
+        &.order_product_price {
+          @include respond-to(phones) {
+            font-weight: bold;
+            padding: 18px 10px;
+            text-align: right;
+          }
+        }
+
+        .attribute {
+          .label {
+            @include respond-to(phones) {
+              display: inline-block !important;
+            }
+          }
+        }
+
+        @include respond-to(phones) {
+          .attribute_size {
+            font-weight: bold;
+          }
+
+          .product_name {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      tfoot {
+        display: none;
+      }
+
+      tbody tr td {
+        .attribute,
+        .product_name {
+          @include respond-to(phones) {
+            font: bold 10px/13px $font_times;
+          }
+        }
+      }
+
+    }
+
+    > button {
+        @include button();
+        @include button-color-black();
+        @include button-regular(0 25px);
+
+      float: right;
+
+      @include respond-to(phones) {
+        display: none;
+      }
+    }
+  }
+}

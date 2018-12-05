@@ -1,0 +1,757 @@
+/*
+ * Checkout - Step 3, Billing
+ */
+
+.b-billing_subtitle {
+    margin: 0 0 15px;
+    font: normal 12px/17px $font_helvetica;
+
+    @include respond-to (phones) {
+        padding-top: 15px;
+        margin: 15px 0 15px;
+        border-top: 1px dotted #ccc;
+    }
+}
+
+.billing_address_info {
+	padding: 0;
+	margin: 0 0 15px 0;
+	font-size: 0;
+
+	.f_field {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 5%;
+
+        @include respond-to(phones) {
+            float: none;
+            width: 100%;
+            padding-right: 0;
+            margin: 0 0 15px 0;
+        }
+
+        .f_label {
+            font: bold 12px/17px $font_helvetica;
+        }
+        &.required {
+            .f_label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                &:before {
+                    color: #CF2A2A;
+                }
+            }
+        }
+        &.f_field-block {
+            width: 100%;
+            padding: 0 65% 0 0;
+
+            @include respond-to(phones) {
+                padding: 0;
+            }
+        }
+
+        &.formfield_zip {
+            input {
+                width: 110px;
+                max-width: 100%;
+            }
+
+            @include respond-to(phones) {
+                width: 35%;
+                margin: 0 0 15px 0;
+                display: inline-block;
+            }
+        }
+        &.formfield_phone {
+            position: relative;
+            float: left;
+            margin-right: 10px;
+            padding-right: 0;
+            width: 45%;
+
+            @include respond-to(phones) {
+                float: none;
+                width: 100%;
+            }
+            .formfield_description {
+                color: #999;
+                font: normal 11px/13px $font_helvetica;
+                display: block;
+                margin: 4px 0 0;
+            }
+        }
+        &.formfield_state {
+
+            @include respond-to(phones) {
+                width: 60%;
+                margin: 0 5% 15px 0;
+                display: inline-block;
+            }
+        }
+        &.formfield_use_as_billing_address {
+            padding: 0;
+            width: 100%;
+        }
+        &:after {
+            display: none;
+        }
+    }
+	.select_billing_address {
+		width: 100%;
+		margin: 0 0 15px 0;
+		border-bottom: 1px dotted #ccc;
+		.f_field {
+		    padding: 0;
+			width: 45%;
+			float: none;
+			@include respond-to(phones) {
+				width: 100%;
+				margin: 0 0 15px 0;
+			}
+		}
+		.simple_submit_action {
+			display: none;
+		}
+	}
+
+	.editaddress {
+		.required_indicator {
+			font: bold 12px/17px $font_arial;
+			text-transform: capitalize;
+			margin: 0 0 25px;
+            display: block;
+            width: 100%;
+
+			span {
+				@include required;
+
+				position: relative;
+				padding: 0 0 0 10px;
+				color: #000;
+				font-weight: normal;
+				font-family: $font_helvetica;
+				
+				&:before {
+				    font-weight: bold;
+				    font-family: $font_arial;
+				}
+			}
+			@include respond-to(phones) {
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+	legend {
+		display: block;
+		width: 100%;
+		.legend_message {
+			font: bold 18px/18px $font_times;
+			display: block;
+			padding: 0 0 23px 0;
+		}
+	}
+	.with_helper_text {
+		position: relative;
+		float: left;
+		.tooltip {
+			margin: 28px 0px 0px 0;
+			font: bold 12px/17px $font_arial;
+			text-decoration: underline;
+			white-space: nowrap;
+
+            @include respond-to(tablets) {
+                margin: 36px 0 0 0px;
+            }
+			@include respond-to(phones) {
+                margin: 0;
+			}
+		}
+		.tooltip_content {
+			@include respond-to(phones) {
+				width: 280px;
+				left: 0;
+			}
+		}
+	}
+	.selectboxit-container {
+		.selectboxit {
+			text-transform: uppercase;
+			.selectboxit-text {
+				color: #272626;
+			}
+		}
+		.selectboxit-options {
+			padding: 0 10px 0 0;
+		}
+	}
+}
+
+.billing-required-og-message {
+	clear: both;
+	color: $info-color;
+}
+
+.gift_cards_block {
+
+	.gift_card_title {
+		font: bold 18px/18px $font_times;
+		display: block;
+		padding: 25px 0 20px;
+		margin: 20px 0 10px 0;
+		border-top: 1px dotted #ccc;
+		
+		@include respond-to(phones) {
+			border-bottom: none;
+			margin: 20px 0 0 0;
+		}
+	}
+	.gift_cards_link {
+		display: none;
+	}
+	.js_giftCardsForm {
+		display: block;
+		.js_gcError {
+			padding: 3px 0 0 0px;
+			&:before {
+				display: none;
+			}
+		}
+	}
+	.f_legend {
+		margin: 0 0 12px 0;
+		font: normal 12px/17px $font_arial;
+	}
+	.f_field {
+		width: 200px;
+		margin: 0 10px 0 0;
+		display: inline-block;
+		vertical-align: top;
+		@include respond-to(tablets) {
+			width: 103px;
+			margin: 0 5px 0 0;
+		}
+		@include respond-to(phones) {
+			width: 100%;
+			margin: 0 0 15px 0;
+			height: auto;
+		}
+		&:after {
+			display: none;
+		}
+		.f_label {
+			display: none;
+			@include respond-to(phones) {
+				font: bold 12px/17px $font_arial;
+				display: block;
+				margin: 0;
+			}
+		}
+		.textinput {
+			font-size: 12px;
+			line-height: 38px;
+			height: 38px;
+
+			@include respond-to(tablets) {
+				line-height: 30px;
+				height: 30px;
+			}
+
+			@include respond-to(phones) {
+				line-height: 30px;
+				height: 30px;
+			}
+		}
+		&.formfield_gift_certificate_pin {
+			width: 80px;
+			@include respond-to(phones) {
+				width: 100%;
+			}
+		}
+		&.f_check_balance_button {
+			margin: 0;
+		}
+		&.formfield_button {
+			width: auto;
+
+			@include respond-to(phones) {
+				margin: 0 5px 5px 0;
+			}
+			.button {
+				@include button-black(0 18px);
+				top: 0;
+
+				@include respond-to(phones-tablets) {
+                    @include button-size(0 10px, 14px, 30px);
+				}
+			}
+		}
+		.error_message {
+			position: absolute;
+			margin: 0;
+			@include respond-to(phones) {
+				position: relative;
+			}
+		}
+		.textinput {
+			@include respond-to(phones) {
+				width: 135px;
+			}
+		}
+	}
+	.js_gsBalance {
+		font: normal 12px/17px $font_arial;
+	}
+	.redemption {
+		font: normal 12px/17px $font_arial;
+		margin: 10px 0 20px;
+		
+		.js_removeGiftCert {
+			@include links(#f00, underline);
+
+			margin: 0 0 0 10px;
+		}
+		td {
+			padding: 5px 5px 5px 0;
+			@include respond-to(phones) {
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+.payment_method_options {
+    padding-bottom: 30px;
+    
+	legend {
+		display: block;
+		width: 100%;
+		.legend_message {
+			font: bold 18px/18px $font_times;
+            display: block;
+            width: 100%;
+            padding: 25px 0 20px;
+            margin: 20px 0 15px 0;
+            border-top: 1px dotted #ccc;
+            
+			@include respond-to(phones) {
+				border-bottom: none;
+				margin: 20px 0 0 0;
+			}
+		}
+		.required_indicator {
+			@include required;
+
+			position: relative;
+			padding: 0 0 0 10px;
+			color: #CF2A2A;
+		}
+	}
+	.simple_submit_action {
+		display: none;
+	}
+	.f_field {
+		width: 45%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 10% 0 0;
+
+        @include respond-to(tablets) {
+            width: 49%;
+            padding: 0 5% 0 0;
+        }
+		@include respond-to(phones) {
+			width: 100%;
+			padding: 0;
+		}
+		&.formfield_credit_card_cvn {
+		    padding: 0;
+            width: 35%;
+
+            @include respond-to(tablets) {
+                padding: 0 5% 0 0;
+                width: 49%;
+            }
+		}
+		&.f_field_radio {
+            display: inline-block;
+            vertical-align: top;
+            min-width: 14px;
+            min-height: 14px;
+            font-weight: normal;
+            color: #4f4f4f;
+            cursor: pointer;
+
+            .ie8 & {
+                @include background-img('ie-global-radio.png');
+            }
+
+            .f_label {
+                @extend %radio_bg;
+                padding: 0 0 0 22px;
+
+                &:hover {
+                    @extend %radio_bg-focus;
+
+                    .ie8 & {
+                        background-position: left -600px;
+                    }
+                }
+            }
+            &.f_checked {
+                .f_label {
+                    @extend %radio_bg-checked;
+
+                    .ie8 & {
+                        background-position: left -300px;
+                    }
+                }
+
+                &:hover {
+                    .f_label {
+                        @extend %radio_bg-checked-focus;
+
+                        .ie8 & {
+                            background-position: left -300px;
+                        }
+                    }
+                }
+            }
+        }
+		&.formfield_credit_card_type,
+		&.formfield_credit_card_number,
+		&.formfield_credit_card_save {
+			clear: left;
+		}
+		.f_label {
+			color: #000;
+			font: bold 12px/17px $font_arial;
+			cursor: pointer;
+		}
+		.formfield_description {
+			color: #999;
+            font: normal 11px/13px $font_helvetica;
+            display: block;
+            margin: 4px 0 0;
+		}
+		&.f_field_checkbox {
+			.f_label {
+				.f_label_value {
+					color: #000;
+					font: normal 12px/17px $font_arial;
+				}
+			}
+			&.formfield_credit_card_save {
+				width: 150px;
+				margin: 0;
+				padding: 0;
+				
+				@include respond-to(phones) {
+                    width: 45%;
+                    margin-right: 5%;
+                } 
+			}
+		}
+		&.f_state_required {
+			width: 255px;
+			padding: 0;
+
+			@include respond-to(tablets) {
+				width: 100%;
+				margin: 0 0 15px 0;
+				select {
+					width: 230px;
+				}
+			}
+			@include respond-to(phones) {
+				width: 100%;
+				margin: 0 0 15px 0;
+				.selectboxit-container {
+					width: 100%;
+				}
+			}
+			.selectboxit-container {
+				width: 230px;
+			}
+		}
+		&.formfield_credit_card_owner, &.formfield_credit_card_type,
+		&.formfield_credit_card_number, &.formfield_credit_card_cvn {
+			&.required {
+				.f_label {
+					@include required;
+
+					position: relative;
+					padding: 0 0 0 10px;
+					&:before {
+						color: #CF2A2A;
+					}
+				}
+			}
+		}
+		&.formfield_credit_card_owner {
+			width: 100%;
+			padding: 0;
+
+			@include respond-to(tablets) {
+				width: 100%;
+				margin: 0 0 15px 0;
+				select {
+					width: 230px;
+				}
+			}
+			.textinput {
+				width: 35%;
+
+				@include respond-to(tablets) {
+                    width: 44%;
+				}
+				@include respond-to(phones) {
+					width: 100%;
+				}
+			}
+		}
+		&.formfield_credit_card_cvn {
+
+			@include respond-to(tablets) {
+				margin: 0;
+			}
+
+			@include respond-to(phones) {
+				width: 130px;
+				margin: 0 0 15px 0;
+				float: left;
+			}
+		}
+		&.paypal {
+
+			@include respond-to(tablets) {
+				.f_label {
+					float: left;
+				}
+			}
+		}
+	}
+	.expiration_date {
+		width: 45%;
+		padding: 0 10% 0 0;
+        display: inline-block;
+
+        @include respond-to(tablets) {
+            width: 49%;
+            padding: 0 5% 0 0;
+        }
+		@include respond-to(phones) {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		&.required {
+			.f_label {
+				@include required;
+
+				position: relative;
+				padding: 0 0 0 10px;
+				&:before {
+					color: #CF2A2A;
+				}
+			}
+		}
+		.f_label {
+			font: bold 12px/17px $font_arial;
+		}
+		.f_field {
+			width: 40%;
+			margin: 0;
+			padding: 0;
+
+			@include respond-to(tablets) {
+                width: 49%;
+            }
+			@include respond-to(phones) {
+				width: 35%;
+				margin: 0 0 15px 0;
+				float: left;
+			}
+			&.formfield_credit_card_month {
+				width: 48.5%;
+                margin: 0 10% 0 0;
+
+				@include respond-to(phones) {
+					width: 60%;
+					margin: 0 5% 15px 0;
+					float: left;
+				}
+			}
+			&.formfield_credit_card_year {
+
+			    @include respond-to(tablets) {
+                    width: 39%;
+                }
+			}
+			.f_label {
+				display: none;
+			}
+		}
+	}
+	.select_payment_method {
+		.f_field {
+			display: inline-block;
+			&.credit_card {
+				margin: 0 0 15px 0;
+				padding: 0;
+				width: 400px;
+				@include respond-to(tablets) {
+					width: 305px;
+					img {
+                        width: 265px;
+                        height: auto;
+					}
+				}
+				@include respond-to(phones) {
+					width: 100%;
+					img {
+                        width: 250px;
+                        height: auto;
+					}
+				}
+			}
+			&.paypal {
+				margin: 0 0 15px 0;
+				padding: 0;
+				width: 210px;
+				@include respond-to(tablets) {
+					margin: 0px 0px 15px 0;
+					width: 130px;
+					img {
+                        width: 45px;
+                        height: auto;
+					}
+				}
+				@include respond-to(phones) {
+					width: 100%;
+					img {
+                        width: 45px;
+                        height: auto;
+					}
+				}
+				.about_paypal {
+				    color: #000;
+				    font: bold 12px/17px $font_arial;
+				    margin-left: 10px;
+				    @include respond-to(tablets) {
+				    	float: left;
+				    	width: 45px;
+				    }
+				}
+			}
+		}
+		.dialogify {
+			@include links(#000, underline);
+
+			font: bold 12px/17px $font_arial;
+			@include respond-to(tablets) {
+				display: inline-block;
+				width: 50px;
+				float: right;
+			}
+		}
+	}
+	.selected_payment_method {
+		legend {
+			display: none;
+		}
+		.cvn_tip {
+			margin: 36px 0px 0px 10px;
+			@include respond-to(tablets) {
+				margin: 0px 0 10px;
+                width: 100%;
+                padding: 0px 0 0 50%;
+				.tooltip_content {
+					display: none;
+				}
+			}
+			@include respond-to(phones) {
+				@include background-img('checkout/security_code.jpg', center center, no-repeat);
+
+                background-size: 100% auto;
+				width: 136px;
+				float: left;
+				height: 50px;
+				margin: 2px 0 15px 5%;
+				
+				&.type_amex {
+				    @include background-img('checkout/security_code_amex.jpg', center bottom, no-repeat);
+				    
+				    background-size: 100% auto;
+				}
+				a, .tooltip_content {
+					display: none;
+				}
+			}
+			a {
+				@include links(#000, underline);
+
+				font: bold 12px/17px $font_arial;
+			}
+			.tooltip_content {
+				bottom: 16px;
+				display: none;
+				a {
+					@include links(#000, none);
+
+					font: normal 12px/17px $font_arial;
+				}
+				.title {
+					font: bold 14px/19px $font_times;
+				}
+			}
+		}
+		.formfield_credit_card_set_as_default {
+			margin-bottom: 0;
+			
+			@include respond-to(phones) {
+                width: 49%;
+            } 
+		}
+	}
+
+	.selectboxit-container {
+		.selectboxit {
+			.selectboxit-text {
+				color: #272626;
+			}
+		}
+		.selectboxit-options {
+			padding: 0 10px 0 0;
+		}
+	}
+	.credit_card_description {
+	    float: left;
+		margin: 0 0 15px 0;
+		font: normal 12px/17px $font_arial;
+	}
+}
+
+.dialog_security_code {
+	font: normal 12px/17px $font_arial;
+	a {
+		@include links(#000, underline);
+	}
+}
+
+/* order groove messages */
+.og_card_message {
+	display: block;
+	margin: 0 0 3px 0;
+	color: $info-color;
+	clear: both;
+}
+
+.og_save_card {
+	margin-bottom: 15px;
+}
+/* END order groove messages */

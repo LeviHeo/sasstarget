@@ -1,0 +1,57 @@
+/*
+ * Textinput
+ */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'] {
+	@include placeholder { color: #b8b8b8; }
+
+	width: 100%;
+	height: 30px;
+	padding: 0 5px;
+	border: 1px solid #ccc;
+	font-family: $font-helvetica;
+	font-size: 12px;
+	line-height: 30px;
+	color: #4f4f4f;
+	-webkit-appearance: none;
+	border-radius: 0;
+
+	&:focus {
+		@include placeholder { font-size: 0; }
+	}
+}
+
+textarea {
+    -webkit-appearance: none; // iOS inner shadow fix
+    border-radius: 0; // iOS bdr fix
+}
+
+.signup_container {
+	input[type='text'],
+	input[type='email'],
+	input[type='password'] {
+		padding: 0 7px;
+		font: normal normal 12px/30px $font-helvetica;
+	}
+}
+
+.ie8 input[type='password'] {
+	font-family: $font_arial; // IE8 invisible asterisks fix
+}
+
+// Focus global styles
+
+input,
+select,
+textarea {
+	&:focus {
+		border-color: #000;
+
+		.f_state_error & {
+			border-color: #000;
+		}
+	}
+}

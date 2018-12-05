@@ -1,0 +1,560 @@
+/*
+ * Preference Center
+ */
+
+.account-preferences {
+	h1 {
+		margin: 0 0 5px 0;
+		font: normal 30px/40px $font_times;
+		color: #000;
+
+		@include respond-to(phones) {
+			font-size: 18px;
+			line-height: 24px;
+			text-transform: uppercase;
+		}
+	}
+	h3 {
+		display: inline-block;
+		font: bold 16px/20px $font_times;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+
+		@include respond-to(phones) {
+			font-size: 15px;
+			letter-spacing: normal;
+			margin-bottom: 0;
+			text-transform: none;
+		}
+	}
+}
+
+.b-account_preference {
+	margin: 9px 0 8px;
+	padding: 12px 0 20px;
+	font: normal 14px/20px $font_arial;
+	border-top: 1px dotted #bdbdbd;
+	border-bottom: 1px dotted #bdbdbd;
+
+	@include respond-to(phones) {
+		padding: 0 0 20px;
+		margin: 9px 0 30px;
+		border-top: none;
+	}
+	a {
+		@include links(#000, underline, $color-dark_red);
+
+	}
+	.button {
+        @include button();
+        @include button-black();
+        @include button-regular(0 15px);
+
+		margin: 15px 0 0 22px;
+	}
+	&-description {
+		margin: 0 0 25px 0;
+		font: normal 16px/17px $font_arial;
+
+		@include respond-to(phones) {
+			display: none;
+		}
+	}
+	&-communication {
+
+		@include respond-to(phones) {
+			margin: 10px 0 0 0;
+		}
+	}
+	&-email, &-phone {
+		.b-title {
+			color: #000;
+			font: bold 14px/24px $font_arial;
+
+			@include respond-to(phones) {
+				font: normal 15px/20px $font_times;
+			}
+		}
+		.b-description {
+			color: #999;
+			font: bold 12px/16px $font_arial;
+		}
+		.f_label_value {
+			color: #000;
+			font: normal 12px/16px $font_arial;
+
+			@include respond-to(phones) {
+				font-size: 10px;
+				line-height: 14px;
+			}
+		}
+	}
+	&-email {
+		padding: 0 0 20px 0;
+		margin: 0 0 20px 0;
+		border-bottom: 1px solid #bdbdbd;
+
+		@include respond-to(phones) {
+			border-bottom: 1px dotted #bdbdbd;
+		}
+		.f_field {
+			width: 440px;
+
+			@include respond-to(phones) {
+				width: auto;
+			}
+		}
+	}
+	&-phone {
+		.textinput {
+			width: 200px;
+
+			@include respond-to(phones) {
+				width: 100%;
+				margin: 10px 0 0 0;
+			}
+		}
+		.f_field_checkbox {
+			width: 280px;
+
+			@include respond-to(phones) {
+				margin: 0;
+			}
+		}
+		.f_field_textinput {
+			.f_label {
+				margin: 7px 0 6px 0;
+
+				@include respond-to(phones) {
+					display: none;
+				}
+				.f_label_value {
+					font: bold 12px/16px $font_arial;
+				}
+			}
+		}
+		.b-description {
+			padding: 0 0 0 22px;
+			width: 280px;
+
+			@include respond-to(phones) {
+				display: none;
+			}
+		}
+	}
+}
+
+.b-edit_email {
+	position: relative;
+	margin: 5px 0 15px 0;
+	padding: 4px 5px;
+	color: #000;
+	font: normal 12px/16px $font_arial;
+	background: #fafaf8;
+
+	@include respond-to(phones) {
+		padding: 0;
+		background: transparent;
+	}
+	p {
+		font-weight: bold;
+
+		@include respond-to(phones) {
+			font-weight: normal;
+		}
+	}
+	.dialogify {
+		position: absolute;
+		top: 3px;
+		right: 10px;
+
+		@include respond-to(phones) {
+			position: relative;
+			right: auto;
+			top: auto;
+			margin: 20px 0 0 0;
+			display: block;
+			text-transform: uppercase;
+			font: normal 15px/20px $font_arial;
+		}
+	}
+}
+
+.account-change-email {
+	h1 {
+		padding: 0px 0 8px;
+		margin: 0 0 15px 0;
+		text-transform: uppercase;
+		font: bold 16px/20px $font_times;
+		border-bottom: 1px dotted #bdbdbd;
+	}
+	.f_field {
+		width: 49%;
+		display: inline-block;
+		padding-right: 15%;
+		vertical-align: top;
+
+		@include respond-to(phones) {
+			float: none;
+			width: 100%;
+			padding-right: 0;
+		}
+		.f_label {
+			font: bold 12px/15px $font_helvetica;
+
+			@include respond-to(phones) {
+				font-size: 15px;
+				line-height: 20px;
+			}
+			.ie8 & {
+				font-weight: normal;
+				font-family: $font_helvetica_b;
+			}
+		}
+		&.required {
+			.f_label {
+				@include required;
+
+				position: relative;
+				padding: 0 0 0 10px;
+
+				&:before {
+					font-weight: normal;
+
+					.ie8 & {
+						font-family: $font_helvetica;
+					}
+				}
+			}
+		}
+	}
+	legend {
+		color: #c03;
+	}
+	.required_indicator {
+		@include required;
+
+		position: relative;
+		padding: 0 0 15px 10px;
+		width: 100%;
+		display: block;
+	}
+	.button {
+		@include button-black();
+
+		display: block;
+
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+}
+
+.b-aboutme {
+	margin: 9px 0 8px;
+	padding: 0 0 20px;
+	border-top: 1px dotted #bdbdbd;
+
+	@include respond-to(phones) {
+		border: none;
+	}
+	h1 {
+		display: none;
+	}
+	.aboutme_actions {
+		margin: 25px 0 0 0;
+
+		@include respond-to(phones) {
+			margin: 15px 0 0 0;
+		}
+		.button {
+            @include button();
+            @include button-color-black();
+            @include button-regular(0 15px);
+
+			@include respond-to(phones) {
+				width: 100%;
+			}
+		}
+
+		p {
+            margin: 10px 0 0 0;
+            font: normal 15px/16px $font_arial;
+		    color: #4c9c73;
+
+		    @include respond-to(phones) {
+		        font-size: 13px;
+		    }
+		}
+	}
+	.aboutme_question {
+		margin: 9px 0 8px;
+		padding: 12px 0;
+		border-bottom: 1px dotted #bdbdbd;
+
+		@include respond-to(phones) {
+			margin: 0;
+			padding: 7px 0;
+			border: none;
+		}
+		&:last-child {
+			margin: 9px 0 20px;
+			border: none;
+		}
+		&_title {
+			color: #000;
+			font: bold 14px/24px $font_arial;
+			letter-spacing: normal;
+			text-transform: none;
+
+			@include respond-to(phones) {
+				font: normal 12px/14px $font_arial;
+			}
+		}
+		&_answers {
+			margin: 15px 0 0 0;
+		}
+		&_answer {
+			position: relative;
+			display: block;
+			vertical-align: top;
+			min-width: 14px;
+			min-height: 14px;
+			color: #000;
+			font: normal 16px/14px $font_arial;
+
+			@include respond-to(phones) {
+				font-size: 12px;
+			}
+			.f_label {
+                @extend %checkbox_bg;
+				padding: 0 0 0 22px;
+				margin: 0 0 10px;
+				cursor: pointer;
+				display: inline-block;
+
+                .ie8 & {
+                    @include background-img('ie-global-checkbox.png');
+                }
+
+                &:hover {
+                    @extend %checkbox_bg-focus;
+
+                    .ie8 & {
+                        background-position: left -636px;
+                    }
+                }
+			}
+			&.f_checked {
+				.f_label {
+                    @extend %checkbox_bg-checked;
+
+                    .ie8 & {
+                        background-position: left -300px;
+                    }
+				}
+
+                &:hover {
+                    .f_label {
+                        @extend %checkbox_bg-checked-focus;
+
+                        .ie8 & {
+                            background-position: left -936px;
+                        }
+                    }
+                }
+			}
+			i {
+				font-style: normal;
+				line-height: 16px;
+			}
+		}
+	}
+}
+
+.b-preference-rewards {
+	position: absolute;
+	width: 202px;
+	top: 110px;
+	right: 0;
+
+	@include respond-to(tablets) {
+		position: relative;
+		width: 100%;
+		top: auto;
+		right: auto;
+		margin: 80px 0 0 0;
+	}
+
+	@include respond-to(phones) {
+		position: relative;
+		width: 100%;
+		top: auto;
+		right: 0;
+		margin: 80px 0 20px 0;
+	}
+	.b-preference-rewards_container {
+		@include background-img('rewards_bg.png');
+
+		position: relative;
+		margin: 0 0 10px 0;
+		padding: 40px 20px 20px 20px;
+		border: 1px solid #000;
+		text-align: center;
+		background-repeat: repeat;
+
+		@include respond-to(tablets) {
+			br {
+				display: none;
+			}
+		}
+
+		@include respond-to(phones) {
+			br {
+				display: none;
+			}
+		}
+	}
+	.b-rewards_descriptions {
+		padding: 0 5px;
+		color: #999;
+		font: normal 11px/14px $font_arial;
+
+		@include respond-to(phones) {
+			display: none;
+		}
+	}
+	.b-rewards {
+		@include background-img('registration/rewards_logo_s.png');
+
+		position: absolute;
+		margin: 0 0 0 -66px;
+		top: -73px;
+		left: 50%;
+		width: 132px;
+		height: 95px;
+		background-repeat: repeat;
+		&_subscriptions {
+			margin: 0 0 7px 0;
+			font: normal 14px/17px $font_times;
+			color: #000;
+
+			@include respond-to(tablets) {
+				margin: 0 auto 7px auto;
+				width: 365px;
+			}
+
+			@include respond-to(phones) {
+				font: bold 12px/15px $font_times;
+			}
+		}
+		&_point {
+			margin: 0 0 10px 0;
+			font: bold 16px/22px $font_times;
+			color: #c00;
+
+			@include respond-to(phones) {
+				font: bold 15px/18px $font_times;
+			}
+		}
+		&_actions {
+			text-align: center;
+			a {
+				@include links(#000, underline, $color-dark_red);
+
+				font: normal 14px/17px $font_times;
+				display: block;
+				margin: 2px 0 0 0;
+				&.button {
+                    @include button();
+                    @include button-color-black();
+                    @include button-regular();
+
+                    margin: 0 0 2px 0;
+                    padding: 0 20px;
+
+                    @include respond-to(phones) {
+                        width: 100%;
+                    }
+                }
+			}
+		}
+	}
+}
+
+/*Rewards Joining*/
+.b-rewards_joining_wrapper {
+	@include background-img('account_bg_wrapper.jpg');
+
+	padding: 44px;
+
+	@include respond-to(phones) {
+		padding: 60px 0 0 0;
+		background: transparent;
+	}
+	.b-rewards {
+		&_joining {
+			@include background-img('rewards_bg.png');
+
+			position: relative;
+			margin: 0;
+			padding: 45px 20px 40px 20px;
+			border: 2px solid #645c53;
+			background-repeat: repeat;
+
+			@include respond-to(phones) {
+				border-color: #000;
+			}
+		}
+		&_logo {
+			position: relative;
+			padding: 0 40px 0 0;
+			img {
+				position: absolute;
+				top: -60px;
+				width: 100%;
+				height: auto;
+
+				@include respond-to(tablets) {
+					position: relative;
+					top: 0;
+					width: 100%;
+					height: auto;
+				}
+
+				@include respond-to(phones) {
+					top: -103px;
+					left: 50%;
+					width: 120px;
+				}
+			}
+		}
+		&_content {
+			padding: 0 40px 0 0;
+
+			@include respond-to(phones) {
+				width: 100%;
+				padding: 0px;
+				text-align: center;
+			}
+			h1 {
+				font: bold 24px/27px $font_times;
+				text-transform: uppercase;
+			}
+			.b-rewards_description {
+				color: #000;
+				font: normal 14px/18px $font_arial;
+			}
+		}
+		&_actions {
+			margin: 20px 0 0 0;
+			.button {
+                @include button();
+                @include button-color-black();
+                @include button-regular(0 15px);
+			}
+		}
+	}
+}
+
+/*END Rewards Joining*/

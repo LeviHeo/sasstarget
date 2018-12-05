@@ -1,0 +1,118 @@
+/*
+ * 404 (Not Found) page
+ */
+
+.pt_error {
+	.secondary {
+		display: none;
+	}
+	.primary {
+		padding: 45px 0;
+		width: 100%;
+		text-align: center;
+		font: normal 12px/14px font_arial;
+		a {
+			@include links(#d8492c, underline);
+		}
+		h1 {
+			margin: 0 0 10px 0;
+			font: normal 26px/28px font_times;
+			color: #000;
+		}
+		h2 {
+			font: normal 26px/28px font_times;
+			color: #000;
+		}
+		h3 {
+			margin: 0;
+			font: normal 18px/20px font_times;
+			font-style: italic;
+			color: #d8492c;
+		}
+		h4 {
+			a {
+				@include links(#000, none);
+				font: normal 18px/20px font_times;
+			}
+		}
+		ul {
+			li {
+				display: inline-block;
+				width: 33%;
+			}
+			@include respond-to(phones) {
+				li {
+					@include clearfix;
+					
+					margin: 0 0 10px 0;
+					display: block;
+					width: 100%;
+					img {
+						width: 50%;
+						height: auto;
+						float: left;
+					}
+					h4 {
+						width: 50%;
+						float: right;
+						text-align: left;
+						padding: 50px 0 0 10px;
+					}
+				}
+			}
+		}
+		.b-video {
+			position: relative;
+			margin: 50px auto;
+			max-width: 100%;
+			display: block;
+			z-index: 0;
+			&:before {
+                @include sprite-image($play-video);
+                @include sprite-position($play-video);
+                position: absolute;
+                width: 47px;
+                height: 47px;
+                left: 50%;
+                top: 50%;
+                margin: -17px 0 0 -17px;
+                content: "";
+                z-index: 1;
+			}
+		}
+	}
+	.error_page_message, .error_page_search, 
+	.error_page_footer, .page_not_found_title {
+		display: none;
+	}
+	.error_asset_2 {
+		margin: 50px 0 0 0;
+		h2 {
+			position: relative;
+			color: #000;
+			font: 20px/22px $font_trade_gothic;
+			margin: 0 0 25px 0;
+			padding: 0;
+			text-align: center;
+			text-transform: uppercase;
+			z-index: 1;
+			span {
+				background: #fff;
+				padding: 0 15px;
+				z-index: 2;
+			}
+			&:after {
+				position: absolute;
+				left: 0;
+				top: 9px;
+				height: 2px;
+				width: 100%;
+				background: #000;
+				content: "";
+				z-index: -1;
+			}
+		}
+	}
+}
+
+

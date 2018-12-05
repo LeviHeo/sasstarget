@@ -1,0 +1,336 @@
+// @group Offers page
+//------------------------------------------------------------------------------
+
+.offersPage {
+    .breadcrumb {
+        @include respond-to(phones) {
+            display: none;
+        }
+    }
+}
+
+.offers {
+    // slot wrapper
+
+    .b-offers_slot {
+        margin: 20px 0;
+        position: relative;
+    }
+
+    // top sign up banner
+
+    &-top-banner {
+        background:#000;
+        height:40px;
+        text-align:center;
+
+        @include respond-to(phones) {
+            display:none;
+        }
+    }
+
+    &-top-banner img {
+        margin:0 20px 0 0;
+        padding:13px 0 0 0;
+    }
+
+    // title boxes
+
+    .bg_title_box {
+        position: relative;
+        color: #000;
+        font-family: $font_trade_gothic;
+        font-size: 20px;
+        line-height: 22px;
+        margin: 0 0 20px 0;
+        padding: 0;
+        text-align: center;
+        text-transform: uppercase;
+        z-index: 1;
+
+        span {
+            background: #fff;
+            padding: 0 15px;
+            z-index: 2;
+        }
+
+        &:after {
+            position: absolute;
+            left: 0;
+            top: 9px;
+            height: 2px;
+            width: 100%;
+            background: #000;
+            content: "";
+            z-index: -1;
+        }
+    }
+
+    &-top-headline {
+        @include respond-to(phones) {
+            display: none;
+        }
+    }
+
+    &-aux {
+        overflow: hidden;
+    }
+
+    &-page_title {
+        padding: 19px 30px 17px;
+        margin: 0 -20px 17px;
+        font: bold 20px/1 'Times New Roman', serif;
+        text-transform: uppercase;
+        border-bottom: 2px solid #000;
+    }
+
+    // Banner
+
+    &-baner {
+        margin: 10px;
+
+        @include respond-to(phones) {
+            margin: 10px 0;
+        }
+
+        img {
+            width: 100%;
+            min-width: 100%;
+            height: auto;
+        }
+    }
+
+    // generic message
+
+    &-message-box {
+        border: 1px solid #ccc;
+        line-height: 55px;
+        padding: 10px;
+
+        @include respond-to(tablets) {
+            line-height: 32px;
+        }
+
+        @include respond-to(phones) {
+            line-height: 20px;
+        }
+    }
+
+    &-message-headline {
+        display: inline-block;
+        font-family: $font_trade_gothic;
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        width:25%;
+
+        @include respond-to(tablets) {
+            font-size: 14px;
+            padding: 0;
+        }
+
+        @include respond-to(phones) {
+            font-size: 14px;
+            padding: 0;
+        }
+    }
+
+    &-message-copy {
+        display: inline-block;
+        font-family: $font_times;
+        font-size: 24px;
+        padding: 0 0 0 30px;
+        border-left: 1px solid #e1e1e1;
+
+        @include respond-to(tablets){
+            font-size: 16px;
+            padding: 0 0 0 20px;
+            width: 60%;
+        }
+
+        @include respond-to(phones){
+            font-size: 14px;
+            padding: 0 0 0 10px;
+            width: 50%;
+        }
+    }
+
+    &-message-link {
+        display: inline-block;
+        float:right;
+    }
+
+    &-message-link a{
+        color:#000;
+        font-family: $font_trade_gothic;
+        font-size: 20px;
+        text-transform:uppercase;
+
+        @include respond-to(tablets){
+            font-size: 14px;
+        }
+
+        @include respond-to(phones){
+            font-size: 11px;
+        }
+    }
+
+    // Title
+
+    &-title {
+        font: normal 24px/1.2 $font_times;
+        text-align: center;
+        margin: 27px 0 23px;
+
+        @include respond-to(tablets) {
+            font-size: 26px;
+        }
+
+        @include respond-to(phones) {
+            font-size: 15px;
+            line-height: 17.5px;
+        }
+    }
+
+    // Tabs
+
+    .tabsnav-select-binding {
+        display: none;
+
+        @include respond-to(phones) {
+            display: block;
+        }
+    }
+
+    .ui-tabs-nav {
+        display: table;
+        border-collapse: collapse;
+        margin-bottom: -1px;
+        position: relative;
+        z-index: 2;
+        table-layout: fixed;
+
+        @include respond-to(tablets) {
+            width: 100%;
+        }
+
+        @include respond-to(phones) {
+            display: none;
+        }
+
+        li {
+            display: table-cell;
+            width: auto;
+            max-width: 1%;
+            white-space: normal;
+            vertical-align: middle;
+            border-bottom: 1px solid #ccc;
+
+            &.ui-state-active {
+                border-bottom-color: #fff;
+            }
+
+            @include respond-to(tablets) {
+                &.ui-state-active {
+                    border-bottom-color: #ccc;
+                }
+            }
+        }
+
+        .ui-tabs-anchor {
+            padding: 10px 20px;
+        }
+    }
+
+    .ui-tabs-panel {
+        border: 1px solid #ccc;
+        padding: 40px 0 40px 80px;
+        margin: 0 0 60px;
+        position: relative;
+        z-index: 1;
+
+        @include respond-to(tablets) {
+            padding: 41px 0 17px 17px;
+            margin-bottom: 37px;
+            border: none;
+        }
+
+        @include respond-to(phones) {
+            width: 102%;
+            padding: 0;
+            margin: 15px 0 0;
+            border: none;
+        }
+    }
+
+    // Products
+
+    .b-custom-product_tile-wrapper {
+        width: 233px;
+        margin-right: 45px;
+
+        @include respond-to(tablets) {
+            width: 32%;
+            margin-right: 1%;
+        }
+
+        @include respond-to(phones) {
+            width: 48%;
+            margin-right: 2%;
+        }
+    }
+
+    // override jcarousel controls from hp-styled carousel
+
+    @include respond-to(phones) {
+        .b-hp_bestsellers .jcarousel-control.jcarousel-next {
+            right:0;
+        }
+
+        .b-hp_bestsellers .jcarousel-control.jcarousel-prev {
+            left:0;
+        }
+    }
+
+    // spotlights
+
+    .offers_slot_6, .offers_slot_7, .offers_slot_8 {
+        display: inline-block;
+        float: left;
+        margin: 0 5% 20px 0;
+        text-align: center;
+        width: 30%;
+
+        @include respond-to(phones) {
+            display: block;
+            float: none;
+            margin: 0 0 20px 0;
+            width: 100%;
+        }
+    }
+
+    .offers_slot_8 {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+
+    &-spotlight-image {
+        margin: 0 0 10px 0;
+    }
+
+    &-spotlight-subhead {
+        font: normal 12px/24px $font_times;
+        text-transform: uppercase;
+    }
+
+    &-spotlight-link {
+        text-transform: uppercase;
+    }
+
+    &-spotlight-link a {
+        color: #000;
+        font: normal 18px/24px $font_trade_gothic;
+    }
+}
+
+// @end

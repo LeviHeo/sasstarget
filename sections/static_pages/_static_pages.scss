@@ -1,0 +1,46 @@
+/*
+ * Static Pages. General styles
+ */
+
+.b-staticpage {
+	padding: 40px 0;
+	font: normal 12px/20px $font_helvetica;
+	h1 {
+		padding: 0;
+		margin: 0 0 20px;
+		font: normal 24px/28px $font_times;
+		border: none;
+	}
+	a {
+		@include links (#000, underline );
+		font-weight: bold;
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+
+		&.b-button_black {
+			@include button-black(0 32px);
+			color: #fff;
+		}
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.b-gift_more {
+	@include clearfix;
+	
+	@include respond-to(phones) {
+		.g-width_50 {
+			width: 100%;
+		}
+		.g-float_left,
+		.g-float_right {
+			float: none;
+		}
+	}
+}

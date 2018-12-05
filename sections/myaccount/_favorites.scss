@@ -1,0 +1,457 @@
+/*
+ * My Account - My Favorites
+ */
+
+.b-favorites {
+    h1 {
+        font: normal 30px/40px $font_times;
+        margin: 0 0 20px;
+        padding: 0 0 13px 0;
+        border-bottom: 1px solid #ccc;
+
+        @include respond-to(phones) {
+            margin-bottom: 5px;
+            font: 18px/18px $font_times;
+            text-transform: uppercase;
+            border-bottom: none;
+        }
+    }
+    .b-email,
+    .b-email_cancel {
+        @include button();
+        @include button-general(0 10px);
+
+        @include respond-to(phones) {
+            float: none;
+            width: 100%;
+            margin: 15px 0 0 0;
+            font-size: 16px;
+        }
+        &.hidden {
+            display: none;
+        }
+    }
+    .b-email {
+        @include button-color-black();
+        
+        float: right;
+    }
+    .b-email_cancel {
+        @include button-color-white();
+        
+        margin-left: 10px;
+        
+        @include respond-to(phones) {
+            margin-left: 0;
+        }
+    }
+    .favorite_noitems {
+        font: 16px/20px $font_arial;
+        margin-bottom: 8px;
+    }
+    &-description {
+        font: 16px/20px $font_arial;
+        p {
+            margin: 0 0 20px 0;
+        }
+    }
+    &-subheader {
+        margin-top: 30px;
+        padding-bottom: 5px;
+        font: bold 16px/20px $font_times;
+        text-transform: uppercase;
+        border-bottom: 1px dotted #ccc;
+
+        @include respond-to(phones) {
+            display: none;
+        }
+    }
+    &-content {
+        overflow: hidden;
+        
+        @include respond-to(phones) {
+            width: 100%;
+            padding-top: 20px;
+        }
+        
+        h2 {
+            padding: 0 0 13px 0;
+            font: bold 24px/30px $font_times;
+        }
+        .b-email-clear {
+            @include links(#000, underline);
+
+            font: bold 13px/15px $font_helvetica;
+
+            @include respond-to(phones) {
+                @include button();
+                @include button-general(0 10px);
+                @include button-color-white();
+
+                width: 100%;
+                text-decoration: none !important;
+                font-size: 12px;
+            }
+            .ie8 & {
+                font-weight: normal;
+                font-family: $font_helvetica_b;
+            }
+            &.hidden {
+                display: none;
+            }
+        }
+        .b-search_result-list {
+            padding: 20px 0 0 0;
+        }
+    }
+    &_send-email {
+        .f_field {
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+            padding-right: 10%;
+
+            @include respond-to(tablets) {
+                padding: 0 5% 0 0;
+            }
+            @include respond-to(phones) {
+                float: none;
+                width: 100%;
+                padding-right: 0;
+                margin: 0 0 15px 0;
+            }
+
+            .f_label {
+                font: bold 12px/15px $font_helvetica;
+            }
+            &.required {
+                .f_label {
+                    @include required;
+
+                    position: relative;
+                    padding: 0 0 0 10px;
+                    &:before {
+                        color: #c03;
+                    }
+                }
+            }
+            .textarea {
+                width: 100%;
+                resize: none;
+                height: 120px;
+            }
+            .char-count {
+                color: #787878;
+                .char-remain-count {
+                    color: #f00;
+                }
+            }
+        }
+        .b-checkbox_wrapper {
+            position: relative;
+            padding: 0px 0 0 22px;
+            
+            &.last {
+                margin: 0 0 20px 0;
+            }
+            
+            a {
+                @include links(#787878, underline);
+
+            }
+            .f_field {
+                &.required {
+                    .f_label {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+                &.formfield_add_to_email_list {
+                    position: relative;
+                    .f_label {
+                        position: absolute;
+                        top: -22px;
+                        left: -22px;
+                        display: block;
+                        width: 278px;
+                        cursor: pointer;
+                        padding: 0;
+                    }
+                }
+            }
+            .form_caption {
+                width: 315px;
+                color: #787878;
+                font-size: 12px;
+
+                @include respond-to(phones) {
+                    width: 100%;
+                }
+                p {
+                    margin: 0 0 10px 0;
+                    font-size: 14px;
+                    color: #000;
+                }
+            }
+        }
+        .formfield_button {
+            .send_button {
+                padding: 0 20px;
+
+                @include respond-to(phones) {
+                    width: 100%;
+                    font-size: 16px;
+                }
+            }
+            .js-no-products {
+                padding: 2px 0 0 0;
+                color: #f00;
+            }
+        }
+    }
+    .b-custom-product_tile-wrapper {
+        position: relative;
+        width: 30.9%;
+        float: left;
+        margin: 0 2% 18px 0;
+        padding: 2px;
+        border: 2px solid #ccc;
+
+        @include respond-to(tablets) {
+            width: 47%;
+            margin: 0 3% 18px 0;
+        }
+        @include respond-to(phones) {
+            margin: 0 0 15px 0 !important;
+            width: 100%;
+            float: none;
+            margin: 0;
+        }
+        .b-product_img-topwrapper {
+            padding: 0;
+            text-align: center;
+            border-bottom: none;
+        }
+        
+        &:hover .quickviewbutton,
+        &.hover .quickviewbutton {
+        	display: none;
+		}
+		
+        .product_tile {
+            @include clearfix;
+
+            height: 356px;
+            position: relative;
+            padding: 0 10px 15px;
+            border: 1px solid #ccc;
+            font: normal 18px/18px $font_times;
+            text-align: left;
+            color: #4f4f4f;
+            .b-product_img-link {
+                position: relative;
+                padding: 10px 0;
+                margin: 0 0 10px 0;
+                height: 215px;
+                width: 100%;
+                display: block;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+                img {
+                    display: inline-block;
+                    vertical-align: middle;
+                    max-width: 100%;
+                    max-height: 100%;
+                    text-indent: -999em;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            .product_name {
+                display: block;
+                height: 56px;
+                margin: 8px 0 10px 0;
+                color: #000;
+                font: normal 18px/18px $font_times;
+                text-decoration: none;
+                text-align: left;
+                overflow: hidden;
+            }
+            .product_favorite_remove {
+                a {
+                    @include links(#787878, underline, #787878, none);
+
+                }
+            }
+            .js-email-attach {
+                @include button();
+                @include button-general(0 10px);
+                @include button-color-black();
+
+                margin: 15px 0 0 0;
+                width: 100%;
+                font-size: 16px;
+                
+                &.hidden {
+                    display: none;
+                }
+            }
+            .js-email-detach {
+                @include button();
+                @include button-general(0 10px);
+                @include button-color-white();
+
+                margin: 15px 0 0 0;
+                width: 100%;
+                font-size: 16px;
+                &.hidden {
+                    display: none;
+                }
+            }
+            .quickviewbutton {
+                top: 150px;
+                bottom: auto;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                
+                &:hover,
+    			&.hover {
+					display: none;
+				}
+            }
+            .ui-rating-title {
+                position: absolute;
+                bottom: 37px;
+            }
+            .inline_rating_link {
+                position: absolute;
+                bottom: 10px;
+                
+                @include respond-to(phones) {
+                    height: 31px;
+                }
+                
+            }
+            .start {
+                position: absolute;
+                bottom: 20px;
+            }
+        }
+    }
+    .b-search_result-list {
+
+        @include respond-to(phones) {
+            margin: 0;
+            padding: 0;
+        }
+        .b-custom-product_tile-wrapper {
+            height: auto;
+        }
+    }
+    .product_favorite_remove a,
+    .js-button_shop_now {
+        @include links(#000, underline, $color-dark_red);
+
+        font: normal 12px/15px $font_arial;
+
+        @include respond-to(phones) {
+            font-size: 10px;
+        }
+    }
+    .product_favorite_remove {
+        position: absolute;
+        bottom: 70px;
+        left: 10px;
+        display: inline-block;
+
+        @include respond-to(tablets) {
+            margin-top: 5px;
+            width: 100%;
+        }
+        a {
+
+            @include respond-to(phones) {
+                font-size: 12px;
+            }
+        }
+    }
+    .js-button_shop_now {
+        display: inline-block;
+
+        @include respond-to(tablets) {
+            width: 100%;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            height: 15px;
+            width: 1px;
+            margin: 0 14px;
+            background: #000;
+            vertical-align: bottom;
+
+            @include respond-to(tablets) {
+                display: none;
+            }
+            @include respond-to(phones) {
+                background: none;
+                margin: 0 8px;
+            }
+        }
+    }
+    &.js-opened {
+        .b-search_result-list {
+
+            @include respond-to(phones) {
+                padding: 20px 0 0 0;
+            }
+        }
+    }
+}
+
+.ui-dialog {
+    .ui-dialog-content {
+        &.js-success-send,
+        &.js-error-send {
+            font: normal 20px/22px $font_times;
+            text-align: center;
+            padding-top: 10px;
+        }
+        &.js-error-send {
+            position: relative;
+            padding-left: 25px;
+            width: 276px !important;
+            margin: 0 auto;
+            &:before {
+                @include background-img( 'global-sprite.png', 0px -67px, no-repeat );
+
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 50%;
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin-top: -30px;
+            }
+        }
+    }
+}
+
+// Hide ratings on Email Favorites/Samples panel
+.js-email-wrapper.js-opened {
+    .ui-rating-title,
+    .inline_rating_link,
+    .bv-rating {
+        display: none;
+    }
+}
+
+.b-favorites-content {
+    .product_name {
+        height: 38px !important;
+        margin-bottom: 28px !important;
+    }
+}

@@ -1,0 +1,146 @@
+/*
+ * General styles for all website
+ */
+*,
+*:before,
+*:after {
+    @include box-sizing(border-box);
+}
+
+/* GENERAL */
+body {
+    @include font_main($style: normal, $weight: normal, $size: $font-size-base, $line_height: $line-height-base);
+    @include clearfix;
+
+    background: url("../images/bg_paper.jpg") repeat top left #ede8e2;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+
+    @include respond-to(desktop) {
+        position: relative;
+    }
+    .ie8 & {
+        overflow-x: auto;
+    }
+}
+
+/* Global wrapper */
+.g-wrapper-main_content {
+    max-width: $desktop-width;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+
+    @include respond-to(tablets) {
+        padding: 0 40px;
+    }
+
+    @include respond-to(phones) {
+        max-width: 430px;
+        min-width: 320px;
+    }
+}
+
+.g-wrapper_inner-main_content {
+    @include clearfix;
+
+    max-width: 950px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include respond-to(phones) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+body {
+    .main {
+        @extend .g-wrapper-main_content;
+
+        position: relative;
+        z-index: 2; // Global layout positioning
+        padding-top: 1px; // fix scaled rendering issue in Chrome
+        margin-top: -1px;
+        background: #fff;
+        min-height: 240px;
+
+        .content {
+            @extend .g-wrapper_inner-main_content;
+        }
+    }
+}
+
+// Layouts
+// moved from temporary.scss
+
+.content {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.main .content {
+    margin-bottom: 40px;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        font-size: 0;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
+.primary {
+    float: right; // among others float used here as height return method
+    position: relative;
+    width: 760px;
+
+    &.pro {
+        width: auto;
+        padding-left: 27px;
+        padding-top: 21px;
+
+        @include respond-to(tablets) { // Need to debug 2 columns 1 columns view (.secondary) and make global changes
+            width: auto;
+        }
+
+        @include respond-to(phones) {
+            width: auto;
+            padding-left: 0;
+        }
+    }
+}
+
+.secondary {
+    float: left;
+    width: 170px;
+}
+
+.account_navigation {
+    position: relative;
+    z-index: 10;
+}
+
+.tertiary {
+    clear: both;
+}
+
+// Disable carousel highlight on double click
+.jcarousel-control,
+.carousel_navigation_list_link {
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+// Global background
+.g-global_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}

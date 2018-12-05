@@ -1,0 +1,1879 @@
+/*
+ * Cart
+ */
+
+.b-cart {
+	@include clearfix;
+
+	@include respond-to(phones) {
+		padding: 20px 0;
+	}
+	h1 {
+		margin: 0;
+		padding: 20px 0 5px 0;
+		font: normal 26px/30px $font_times;
+
+		@include respond-to(phones) {
+			margin: 5px 0 5px 0;
+		}
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	.cart_promo, .cart_shipping_promo {
+		margin: 0;
+		font: normal 12px/17px $font_helvetica;
+	}
+	.cart_empty {
+		margin: 0 0 50px 0;
+		font: normal 12px/17px $font_helvetica;
+	}
+	.b-hp_bestsellers {
+		&.b-recently_viewed_empty_cart {
+			margin: 10px 0 30px 0;
+		}
+		.productcarousel_list_item {
+			.inline_rating_link {
+				display: inline-block;
+			}
+			.product_name {
+				width: 100%;
+			}
+		}
+	}
+	.breadcrumb {
+
+		@include respond-to(phones) {
+			display: none;
+		}
+		a, span {
+			text-transform: uppercase;
+		}
+	}
+	.b-cart_actions_top, .b-cart_actions_bottom {
+
+		@include respond-to(phones) {
+			.cart_actions {
+				height: 102px;
+				&.b-paypal_off {
+					height: auto;
+					padding: 0;
+					.cart_action_checkout .cart_checkout_button {
+						position: relative;
+						bottom: 0;
+					}
+				}
+			}
+		}
+		.cart_checkout_button, .button {
+			@include clearfix;
+            @include button;
+            @include button-color(#cf2a2a, #cf2a2a, #fff, #fff);
+            @include button-size(0 45px, 16px, 40px);
+
+			margin: 0;
+			width: 100%;
+		}
+
+		.cart_checkout_pay_pal_button {
+			@include background-img('cart/bg_paypal.png');
+
+            position: relative;
+			margin: 10px 0;
+			width: 200px;
+			height: 29px;
+			color: #fff;
+			border: none;
+			box-shadow: none;
+			text-indent: -10000px;
+			background-color: transparent;
+
+			&:before {
+				display: none;
+			}
+
+			&[disabled='disabled'] {
+				@include background-img('cart/bg_paypal.png');
+				@include vendor-prefix(opacity, 0.5);
+
+				border: none;
+
+				@include respond-to(phones) {
+					@include vendor-prefix(opacity, 1);
+				}
+			}
+
+			@include respond-to(phones) {
+                @include button-color-black();
+                @include button-regular(0 20px);
+
+				width: 100%;
+                height: 40px;
+                font-size: 16px;
+				text-indent: 0;
+
+				&:after {
+					@include background-img('cart/bg_mpaypal.png');
+
+                    content: '';
+					display: inline-block;
+					background-color: transparent;
+					width: 79px;
+					height: 20px;
+					margin: -8px 0 -5px 7px;
+				}
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    bottom: 3px;
+                    right: 3px;
+                    border: 1px solid #fff !important; // overwrite all b-cart buttons specifity
+                }
+
+                &:hover {
+                    &:before {
+                        display: block;
+                    }
+                }
+			}
+		}
+	}
+	.b-cart_actions_top {
+
+		@include respond-to(phones) {
+			padding: 0 0 15px 0;
+			border-bottom: 1px dotted #e6e7e8;
+			position: relative;
+			.cart_action_checkout .cart_checkout_button {
+				position: absolute;
+				bottom: 25px;
+				width: 100%;
+			}
+		}
+	}
+	.b-cart_actions_bottom {
+		padding: 0 16px 0 14px;
+
+		@include respond-to(phones) {
+			padding: 30px 0 0;
+			.cart_checkout_button {
+				bottom: 10px !important;
+			}
+		}
+	}
+	.b-cart_banner {
+		margin: 10px 0 0 0;
+
+		@include respond-to(phones) {
+			display: none;
+		}
+		h1 {
+			margin: 0;
+			padding: 0;
+			color: #262c84;
+			font: bold 16px/20px $font_times;
+			text-align: center;
+
+			@include respond-to(tablets) {
+				font: bold 12px/16px $font_times;
+			}
+			span {
+				color: #000;
+				font-weight: normal;
+			}
+			img {
+				margin: -15px 0 -13px 25px;
+			}
+		}
+	}
+	.cart_action_checkout {
+		.cart_checkout_button {
+
+			@include respond-to(phones) {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+			}
+		}
+	}
+	.b-cart_order_totals {
+
+		@include respond-to(phones) {
+			display: block;
+			h2 {
+				display: none;
+			}
+			table {
+				tr {
+					display: none;
+					&.order_shippingmethods {
+						position: relative;
+						display: block;
+						td {
+							display: block;
+							width: 100% !important;
+							select {
+								width: 100%;
+							}
+						}
+					}
+					&.js_gift_box, &.order_shipping_discount {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+	.b-continue_shopping {
+
+		@include respond-to(phones) {
+			text-align: right;
+			a {
+				@include links(#000, underline);
+
+				font: normal 12px/14px $font_arial;
+			}
+		}
+	}
+	.b-cart_order_summary {
+
+		@include respond-to(phones) {
+			.b-cart_order {
+				&.b-cart_promotion {
+					background: #fff;
+					border: 4px solid #ccc;
+					text-align: center;
+				}
+				&.b-cart_summary {
+					padding: 0;
+					border: none;
+					background: transparent;
+					h3 {
+						display: none;
+					}
+				}
+			}
+			.b-cart_order_totals_mobile {
+				.order_totals_table {
+					tr {
+						td {
+							text-align: right;
+							&:first-child {
+								text-transform: uppercase;
+								font-weight: bold;
+							}
+							&:last-child {
+								width: 80px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.b-cart_order.b-cart_checkout {
+
+		@include respond-to(phones) {
+			position: relative;
+			height: auto;
+		}
+	}
+
+	.primary {
+		padding: 0;
+		margin: 0 -260px 0 0;
+		width: 100%;
+		float: left;
+
+		@include respond-to(phones) {
+			padding: 0;
+			width: 100%;
+			float: none;
+		}
+	}
+	.cart-wrapper {
+		margin-right: 288px;
+
+        @include respond-to(tablets) {
+            margin-right: 250px;
+        }
+
+		@include respond-to(phones) {
+			margin-right: 0;
+		}
+	}
+	&.b-cart_empty .cart-wrapper {
+		margin: 0;
+	}
+	.secondary {
+		padding: 70px 0 0 0;
+		width: 230px;
+		float: right;
+
+		@include respond-to(phones) {
+			padding: 10px 0 0 0;
+			width: 100%;
+			float: none;
+		}
+		.b-cart_help {
+			display: none;
+		}
+	}
+
+	.error_form {
+		position: relative;
+		white-space: normal;
+		display: block;
+		padding: 0;
+		margin: 10px 0;
+		ul {
+			padding: 0 0 0 25px;
+			list-style: none;
+			li {
+				padding: 0 0 2px 0;
+				font: normal 12px/14px $font_arial;
+				&:before {
+                    @include sprite-image($global-error-icon);
+                    @include sprite-position($global-error-icon);
+
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 19px;
+					height: 20px;
+					margin: -11px 0 0;
+				}
+			}
+		}
+	}
+
+	.og-offer {
+	    .og-picker {
+	        border-radius: 0px!important;
+	    }
+	}
+
+	&.has_replenish {
+
+		@include respond-to(phones) {
+			.b-cart_actions_top, .b-cart_actions_bottom {
+				.cart_actions {
+					height: 50px;
+				}
+			}
+		}
+	}
+
+/*EMPTY*/
+	&.b-cart_empty {
+		.primary {
+			width: 100%;
+		}
+	}
+/*END EMPTY*/
+
+}
+
+.cart_table,
+.order_shipment_table {
+	margin: 20px 0;
+	width: 100%;
+
+	@include respond-to(phones) {
+		margin: 15px 0;
+	}
+	thead {
+
+		@include respond-to(phones) {
+			display: none;
+		}
+		tr {
+			border-bottom: 1px dotted #e6e7e8;
+			th {
+				padding: 10px 0;
+				font: bold 16px/16px $font_times;
+				text-transform: uppercase;
+				text-align: left;
+				&.product {
+					padding: 10px 0 10px 15px;
+				}
+				&.details {
+					width: 140px;
+					@include respond-to(tablets) {
+						width: 65px;
+					}
+				}
+				&.price {
+					padding: 10px 15px 10px 0;
+					text-align: right;
+					width: 110px;
+
+					@include respond-to(tablets) {
+						width: 75px;
+					}
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px dotted #e6e7e8;
+			&.rowbundle {
+				display: none;
+			}
+			td {
+				padding: 15px 0 50px 0;
+				font: normal 11px/13px $font_arial;
+				vertical-align: top;
+
+				@include respond-to(phones) {
+					padding: 15px 0 30px 0;
+				}
+				a {
+					@include links(#000, underline, #000, none);
+
+					font-weight: bold;
+					&.notifyme {
+						font-weight: normal;
+						text-decoration: none;
+						b {
+							text-decoration: underline;
+							cursor: pointer;
+						}
+					}
+				}
+				.product_name {
+          margin: 0 0 2px 0;
+          font: bold 12px/14px $font_times;
+
+          @include respond-to(phones) {
+            font: bold 15px/17px $font_times;
+          }
+
+					a {
+						@include links(#000, none, #000, underline);
+					}
+				}
+				.attribute {
+					color: #999;
+					font: bold 12px/14px $font_times;
+
+					@include respond-to(phones) {
+						color: #000;
+						font: normal 12px/18px $font_times;
+						.label {
+							display: inline-block;
+							&:after {
+								content: ":";
+							}
+						}
+					}
+					&.attribute_size {
+
+						@include respond-to(phones) {
+							display: none;
+						}
+					}
+					.label {
+						display: none;
+					}
+					.value {
+						.swatch {
+							display: none;
+						}
+					}
+				}
+                .promotional_message {
+                    color: #CF2A2A;
+                }
+				&.item_image {
+					padding: 10px;
+					width: 125px;
+
+					@include respond-to(tablets){
+						width: 100px;
+					}
+
+					@include respond-to(phones){
+						width: 40%;
+					}
+					img {
+						max-width: 125px;
+						height: auto;
+						@include respond-to(tablets){
+							max-width: 100px;
+						}
+
+						@include respond-to(phones){
+							max-width: 100%;
+						}
+					}
+				}
+				.details {
+					position: relative;
+					padding-right: 10px;
+					.button_text {
+						position: absolute;
+						bottom: 30px;
+						right: 0;
+						padding: 0;
+						margin: 0 -236px 0 0;
+						background: transparent;
+						border: none;
+						font: normal 11px/12px $font_arial;
+						text-decoration: underline;
+						z-index: 2;
+
+						@include respond-to(tablets) {
+							right: 49px;
+							span {
+								text-decoration: underline;
+							}
+						}
+
+						@include respond-to(phones) {
+							margin: 0 -182px 0 0;
+						}
+					}
+					.product_id {
+						display: none;
+					}
+					.name {
+						font-weight: bold;
+					}
+					.item_edit_details {
+						margin: 0;
+						.edit_gift_cert {
+							color: #000;
+							cursor: pointer;
+							text-decoration: underline;
+							font: normal 11px/13px $font_arial;
+						}
+					}
+				}
+				&.item_quantity,
+				&.item_info {
+					position: relative;
+					font-weight: bold;
+
+					@include respond-to(phones) {
+						width: 60%;
+					}
+
+					.cart_qty_label {
+						width: 70px;
+						display: inline-block;
+						vertical-align: top;
+						font: normal 11px/30px $font_arial;
+
+						@include respond-to(tablets) {
+							display: none;
+						}
+
+						@include respond-to(phones) {
+							line-height: 20px;
+							width: 50px;
+							&:after {
+								content: ":";
+							}
+						}
+					}
+					select {
+						width: 50px;
+
+						@include respond-to(tablets) {
+						    margin-bottom: 5px;
+							width: 40px;
+							float: left;
+						}
+
+						@include respond-to(phones) {
+							padding: 0px 2px;
+							margin: 1px 0;
+							height: 18px;
+							line-height: 12px;
+							width: 35px;
+							font-size: 9px;
+							background-size: auto 4px;
+						}
+					}
+					.shippingmessage {
+						width: 80px;
+						font-weight: normal;
+
+						@include respond-to(phones) {
+							display: none;
+						}
+					}
+					.shippingrestriction {
+						margin: 5px 0;
+					}
+					.not_available {
+						font-weight: normal;
+						line-height: 14px;
+                        margin: 0 0 5px 0;
+					}
+					.favorites_action {
+						font-weight: normal;
+
+						@include respond-to(tablets) {
+							display: none;
+						}
+					}
+					.item_user_actions {
+						position: absolute;
+						bottom: 0px;
+						right: 16px;
+						font-weight: normal;
+						.button_text {
+							padding: 0;
+							background: transparent;
+							border: none;
+							font: normal 11px/12px $font_arial;
+							text-decoration: underline;
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+					.actions {
+						.button_text {
+							padding: 0;
+							background: transparent;
+							border: none;
+							font: normal 11px/12px $font_arial;
+							text-decoration: underline;
+						}
+					}
+				}
+				.actions {
+					position: relative;
+					padding: 15px 15px 15px 0;
+					font: bold 12px/16px $font_arial;
+					text-align: right;
+					width: 100%;
+					.price_total {
+						display: block;
+					}
+					.qty {
+						position: relative;
+						padding: 0 0 0 20px;
+						color: #f00;
+						float: left;
+						&:before {
+							content: "x";
+						}
+					}
+					.item_user_actions,
+					.add_to_favorite {
+						position: absolute;
+						bottom: 0px;
+						right: 16px;
+						font-weight: normal;
+
+						@include respond-to(phones) {
+							bottom: 15px;
+							right: 0px;
+						}
+						button {
+							padding: 0;
+						}
+						a {
+							font: normal 11px/12px $font_arial;
+						}
+					}
+					.add_to_favorite {
+						right: 170px;
+						width: 80px;
+						height: 12px;
+					}
+					.favorites_action {
+						position: absolute;
+						left: 0;
+						top: -2px;
+						white-space: nowrap;
+					}
+					.button_text {
+						background: transparent;
+						border: none;
+						font: normal 11px/12px $font_arial;
+						text-decoration: underline;
+					}
+				}
+			}
+			&.bonus_header {
+				display: none;
+				th {
+					padding: 15px;
+					font: bold 16px/16px $font_times;
+					text-transform: uppercase;
+				}
+				tr {
+					.product_name {
+						font: bold 12px/14px $font_times;
+						margin: 0 0 2px 0;
+						display: block;
+					}
+				}
+			}
+			&.bonus_row {
+				.product_name {
+					font: bold 12px/14px $font_times;
+					margin: 0 0 2px 0;
+					display: block;
+
+					@include respond-to(phones) {
+						font: bold 15px/17px $font_times;
+						max-width: 155px;
+					}
+				}
+				.product_subtitle, .promotional_message, .product_id {
+					display: none;
+				}
+				.item_price {
+					padding: 10px 16px 10px 0;
+					text-align: right;
+					font-weight: bold;
+
+					@include respond-to(tablets) {
+						width: 75px;
+					}
+				}
+				.item_quantity {
+					font-weight: bold;
+
+					@include respond-to(tablets) {
+						width: 65px;
+					}
+				}
+				.item_info_wrapper {
+					position: relative;
+				}
+				.rigth_colums {
+
+					@include respond-to(phones) {
+						.price {
+							&:before {
+								display: none;
+							}
+							.bonus_item {
+								font-weight: bold;
+							}
+						}
+						.qty {
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 100%;
+							text-align: right;
+						}
+					}
+				}
+				.bonus_item {
+					text-transform: uppercase;
+					color: #f00;
+				}
+			}
+			&.sample_row {
+				position: relative;
+				.item_details {
+					.button_text {
+						display: none;
+					}
+				}
+				.item_info {
+
+					@include respond-to(phones) {
+						.item_info_wrapper {
+							position: relative;
+						}
+						.qty {
+							position: absolute;
+							width: 10px;
+							top: 3px;
+							right: 0px;
+							text-align: right;
+						}
+					}
+				}
+				.name {
+					font: bold 12px/14px $font_times;
+					margin: 0 0 2px 0;
+					display: block;
+
+					@include respond-to(phones) {
+						font-size: 15px;
+						line-height: 17px;
+					}
+				}
+				.item_price {
+					font-weight: bold;
+					padding: 15px 16px 10px 0;
+					text-align: right;
+				}
+				.subtitle, .promotional_message, .product_id {
+					display: none;
+				}
+				.item_price {
+					padding: 10px 16px 10px 0;
+					text-align: right;
+				}
+				.actions {
+					bottom: 0px;
+					right: 0;
+					text-align: right;
+
+					@include respond-to(phones) {
+						padding-right: 0;
+					}
+				}
+			}
+			&.rowgiftcert {
+				td {
+					&.item_image {
+						text-align: center;
+						vertical-align: middle;
+					}
+				}
+				.actions {
+					padding: 0 15px;
+
+					@include respond-to(phones) {
+						.item_user_actions {
+							bottom: 0;
+						}
+					}
+				}
+				.details {
+					position: initial;
+					word-break: break-word;
+					.giftcertamount,
+					.item_user_actions {
+						display: none;
+					}
+					.name {
+						margin: 0 0 10px 0;
+
+						@include respond-to(phones) {
+							font: bold 15px/17px $font_times;
+						}
+					}
+					.attribute {
+						font: normal 11px/13px $font_arial;
+						color: #000;
+						.label {
+							display: inline-block;
+							font-weight: bold;
+							&:after {
+								content: ":";
+							}
+						}
+					}
+				}
+				.item_info_wrapper {
+					position: relative;
+
+					@include respond-to(phones) {
+						position: relative;
+						.rigth_colums {
+							.price {
+								display: none;
+							}
+						}
+					}
+				}
+				.rigth_colums {
+					.qty {
+						.item_user_actions {
+							position: static;
+							margin-top: 10px;
+						}
+
+						@include respond-to(tablets) {
+							display: none;
+						}
+
+						@include respond-to(phones) {
+							width: 100%;
+							.quantityvalue {
+								position: absolute;
+								top: 0;
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+			&.coupon_line_item {
+
+				@include respond-to(phones) {
+					.rigth_colums {
+						.price {
+							display: none;
+						}
+					}
+				}
+				.item_info {
+
+					@include respond-to(phones) {
+						padding: 15px 0 30px 0;
+					}
+					.coupon_name {
+						margin: 0 0 10px 0;
+						font: bold 12px/14px $font_times;
+						text-decoration: underline;
+
+						@include respond-to(phones) {
+							margin: 0;
+							font: bold 15px/17px $font_times;
+						}
+					}
+					.cartcoupon {
+						color: #000;
+						font: bold 12px/14px $font_times;
+						.value {
+							text-transform: uppercase;
+							color: #f00;
+						}
+					}
+					.discount {
+						display: block;
+						text-transform: uppercase;
+						.value {
+							color: #f00;
+						}
+					}
+				}
+				.remove_coupon {
+					position: absolute;
+					right: 16px;
+					bottom: 30px;
+					padding: 0;
+					background: transparent;
+					border: none;
+					z-index: 2;
+					font: normal 11px/12px $font_arial;
+					text-decoration: underline;
+
+					@include respond-to(phones) {
+						right: 0;
+						bottom: 15px;
+					}
+					&:hover {
+					    text-decoration: none;
+					}
+				}
+				.price {
+					padding: 0 15px 30px 0;
+				}
+			}
+		}
+	}
+}
+
+.b-availability {
+	margin: 0;
+
+    .cart_row & {
+        clear: both;
+    }
+
+	&.b-no_available {
+		margin: 10px 0 0 0;
+		.shippingmessage {
+			display: none;
+		}
+	}
+}
+
+.product_availability_list {
+	color: #000;
+	font: normal 11px/14px $font_arial;
+	padding: 4px 0;
+
+	.all_in_stock {
+		font-weight: bold;
+	}
+	.out_in_stock, .not_available {
+		color: #f00;
+	}
+	.not_available {
+	    padding-top: 4px;
+	}
+}
+
+.cart_footer {
+	.cart_gift_wrapper {
+		padding: 0 0 12px 12px;
+		font: normal 21px/19px $font_times;
+
+		@include respond-to(phones) {
+			border-bottom: none;
+			padding-left: 0;
+		}
+		h3 {
+			width: 160px;
+			float: left;
+			padding: 10px 0;
+			font: normal 21px/19px $font_times;
+			display: inline-block;
+
+			@include respond-to(tablets) {
+				width: 135px;
+			}
+
+			@include respond-to(phones) {
+				padding: 0 0 10px 0;
+				width: 100%;
+				float: none;
+			}
+		}
+		.f_field {
+			padding: 0 0 5px;
+			.f_label {
+				margin: 1px 0 0 0;
+				display: block;
+				float: left;
+				.f_label_value {
+					margin: 0;
+					line-height: 15px;
+					color: #000;
+					float: left;
+					font: normal 13px/16px $font_arial;
+					.cartgiftwrap_price {
+						position: absolute;
+						right: -50px;
+						top: 1px;
+						font-weight: bold;
+
+						@include respond-to(phones) {
+						    left: 20px;
+						    top: 20px;
+						    right: auto;
+						}
+					}
+				}
+				&:after {
+				    @include background-img('cart/img_giftbox.png');
+
+				    margin: -27px 0 0 20px;
+				    width: 53px;
+				    height: 62px;
+				    content: "";
+				    display: inline-block;
+
+				    @include respond-to(phones) {
+				       position: absolute;
+				       right: 0;
+				       width: 50px;
+				       background-size: 100% auto;
+				    }
+				}
+			}
+		}
+		.js_GiftWrapForm {
+			padding: 13px 50px 0 0;
+			text-align: right;
+
+			@include respond-to(phones) {
+				padding: 0;
+				text-align: left;
+			}
+		}
+		.js_giftWrapConfirmBlock {
+			padding: 0 0 25px 160px;
+			font: normal 11px/13px $font_arial;
+
+			@include respond-to(phones) {
+				padding: 0 0 10px 0;
+			}
+			.button {
+				padding: 0;
+				margin: 10px 0 0 0;
+				background: transparent;
+				border: none;
+				font: normal 11px/12px $font_arial;
+				text-decoration: underline;
+			}
+		}
+	}
+	.cart_order_subtotal {
+		padding: 12px;
+		text-align: right;
+		background: #fafaf8;
+		border: 1px solid #e6e7e8;
+
+		@include respond-to(phones) {
+			display: none;
+		}
+		.subtotal_label {
+			padding: 0 40px 0 0;
+			font: normal 21px/19px $font_times;
+		}
+		.subtotal_value {
+			font: bold 21px/19px $font_arial;
+		}
+	}
+}
+
+.pt_cart {
+	.main .content {
+		padding-bottom: 30px;
+	}
+	.ui-dialog {
+
+		@include respond-to(phones) {
+			width: 100% !important;
+			.ui-dialog-content {
+				padding: 20px 15px;
+			}
+		}
+	}
+	.b-hp_bestsellers {
+		margin: 13px 0 0;
+
+		@include respond-to(phones) {
+			padding: 15px 0;
+		}
+
+		.product_tile {
+			.carousel {
+				display: none;
+			}
+		}
+	}
+	.you_may_also_like_cart {
+
+		@include respond-to(phones) {
+			margin: 20px 0 0 0;
+			padding: 0 0 30px 0;
+			display: none;
+		}
+	}
+	.customgift_editoverlay {
+	    display: none;
+	    p {
+	        margin-bottom: 5px;
+	    }
+	    #customgiftedit {
+	        margin-top: 25px;
+	    }
+	}
+}
+
+/*BONUS*/
+.dialog_bonus_option {
+	.bonus_product_list {
+		position: relative;
+		padding-bottom: 75px;
+        overflow: hidden; // return height for dialog calculation
+	}
+	.promotion {
+		padding: 0 0 22px 0;
+		margin: 0 0 30px 0;
+		border-bottom: 1px dotted #ccc;
+		h2 {
+			padding: 0 0 17px 0;
+			font: normal 30px/33px $font_times;
+		}
+		p {
+			font: normal 16px/18px $font_arial;
+		}
+		&.bonus_product_list_footer {
+			@include clearfix;
+
+			position: absolute;
+			bottom: -30px;
+			border: none;
+			text-align: right;
+			right: 0;
+			margin-right: 3px;
+
+			@include respond-to(phones) {
+				bottom: -20px;
+				margin: 0;
+				width: 100%;
+
+			}
+			.message {
+				font: normal 12px/18px $font_arial;
+				display: none;
+			}
+			.button {
+				@include button-black(0 45px);
+
+				margin: 0 0 10px 10px;
+
+				@include respond-to(phones) {
+					margin: 10px 0 0;
+					width: 100%;
+				}
+			}
+			.add_to_cart_bonus {
+				float: right;
+			}
+		}
+	}
+	.bonus_product_list:last-child {
+		@include clearfix;
+
+	}
+}
+
+.bonus_product_item {
+	width: 32.5%;
+	float: left;
+	padding: 2px;
+	margin: 0 3px 18px 3px;
+	border: 2px solid #ccc;
+	position: relative;
+
+	@include respond-to(phones) {
+		width: 47.5%;
+	}
+	.bonus_product_tile {
+		height: 356px;
+		position: relative;
+		padding: 0 10px 15px;
+		border: 1px solid #ccc;
+		text-align: left;
+		cursor: pointer;
+		.product_image_container {
+			position: relative;
+			padding: 20px 0;
+			margin: 0 0 10px 0;
+			height: 190px;
+			text-align: center;
+			border-bottom: 1px solid #ccc;
+			img {
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 100%;
+				max-height: 146px;
+				text-indent: -999em;
+			}
+		}
+		.product_name {
+			color: #000;
+			font: normal 18px/18px $font_times;
+			text-decoration: none;
+			text-align: center;
+		}
+		h2.product_name {
+			display: block;
+			height: 56px;
+			margin: 8px 0 44px 0;
+			overflow: hidden;
+		}
+		.product_detail {
+			position: relative;
+			margin-top: 17px;
+			padding-top: 10px;
+			border-top: 1px dotted #767676;
+			.inline_rating_label_link {
+				display: none;
+			}
+			.ui-rating-title {
+			    display: block;
+                color: #4f4f4f;
+                font: normal 11px/12px $font_arial;
+                text-decoration: none;
+			}
+			.inline_rating_link {
+                display: block;
+                height: 20px;
+                clear: both;
+                text-decoration: none;
+                margin: -5px 0 0 0;
+			}
+			.product_add_to_cart {
+				position: absolute;
+				top: -25px;
+				left: 50%;
+				margin: 0 0 0 -7px;
+				input[type='checkbox'] {
+					position: inherit;
+				}
+				.bonus_product_form {
+				    span {
+				        display: none;
+				    }
+				}
+			}
+		}
+	}
+}
+/*END BONUS*/
+
+/*LOGIN*/
+.dialog_checkout_login {
+	position: relative;
+	.dialog_content {
+		padding: 0;
+		.l-checkout_login-center {
+			padding: 50px 85px 150px;
+		}
+	}
+	.b-checkout_login_form {
+		margin: 15px 0;
+		.b-checkout_login {
+			margin: 0 0 20px 0;
+		}
+		.f_field {
+			&.f_field_password {
+				margin: 5px 0 15px;
+			}
+			&.f_field_checkbox {
+				.f_label_value {
+					font: normal 12px/16px $font_helvetica;
+				}
+			}
+		}
+		.radio_buttons_checkout {
+			display: none;
+		}
+		.forgot_password_message {
+			float: right;
+			width: 50%;
+			margin: 0;
+			text-align: right;
+			a {
+				@include links(#4f4f4f, underline);
+
+				font-family: $font_helvetica;
+				font-size: 12px;
+			}
+		}
+		.b-gigya_title {
+		    display: none;
+		}
+	}
+	.b-login_gigya {
+	    .b-gigya_title {
+	        font:normal 17px/18px $font_times;
+	        &:b-gigya_title {
+	            display: none;
+	        }
+	    }
+	}
+	.b-checkout_unregistered_section {
+		.b-guest_checkout_title {
+            font:normal 20px/20px $font_times;
+            &:before {
+                display: none;
+            }
+			&.b-or {
+			    margin: 0 0 15px 0;
+			    font:normal 17px/18px $font_times;
+			    &:before {
+                    display: block;
+                }
+			}
+		}
+		.formfield_button {
+			.button { // button-black
+				padding: 0 10px;
+				width: 100%;
+			}
+		}
+		h2 {
+			border: none;
+			text-align: center;
+			font:normal 20px/20px $font_times;
+		}
+		.b-unregistered_title {
+		    display: none;
+		    &.b-or {
+		        display: block;
+		    }
+		}
+	}
+	.b-checkout_login_title,
+	.b-unregistered_title,
+	.b-guest_checkout_title {
+		position: relative;
+		line-height: 46px;
+		margin: 0;
+		font-size: 30px;
+		font-weight: normal;
+		text-align: center;
+		border: none;
+		span {
+			position: relative;
+			padding: 0 10px;
+			background: #fff;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 52%;
+			left: 0;
+			z-index: -1;
+			width: 100%;
+			height: 1px;
+			background: #ccc;
+		}
+	}
+	.b-unregistered_title {
+		margin: 0 0 15px 0;
+		&:before {
+			top: 58%;
+		}
+		span {
+			font-size: 17px;
+		}
+	}
+	.l-login_popup-center {
+		padding: 50px 0;
+		width: 285px;
+		margin: 0 auto;
+		.b-checkout_login_form {
+			.b-checkout_unregistered_section {
+				.b-unregistered_title {
+					display: none;
+				}
+				.b-unregistered_title_norewards {
+					margin: 35px 0 15px 0;
+					padding: 20px 0 0 0;
+					font: normal 20px/28px $font_times;
+					text-align: center;
+					border-top: 1px solid #ccc;
+				}
+				.b-guest_checkout_title {
+					margin: 0;
+					font: normal 20px/28px $font_times;
+					&:before {
+						display: none;
+					}
+				}
+			}
+			.b-checkout_unregistered_section {
+				padding: 0 20px;
+				.b-guest_checkout_title {
+					span {
+						font-size: 20px;
+					}
+				}
+				.formfield_button {
+					padding: 0;
+				}
+			}
+		}
+		.formfield_button {
+			padding: 20px 20px 10px 20px;
+		}
+	}
+	.l-login_popup-left {
+		.b-guest_checkout_title,
+		.b-unregistered_title_autoreplenishment {
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+/*END LOGIN*/
+
+/*DIALOG GIFRCERTIFICAT*/
+.dialog_giftcertificate_edit {
+	padding: 0;
+	.gift-certificate-purchase {
+		.f_field {
+			vertical-align: top;
+			.f_label {
+				font: normal 12px/17px $font_helvetica;
+
+				@include respond-to(phones) {
+					font-weight: bold;
+				}
+			}
+			&.required {
+				.f_label {
+					@include required;
+
+					position: relative;
+					padding: 0 0 0 10px;
+					&:before {
+						color: #c03;
+					}
+				}
+			}
+		}
+	}
+	.button {
+		@include button-black(0 17px);
+	}
+}
+/*END DIALOG GIFRCERTIFICAT*/
+
+.order_shippingmethods {
+	td {
+		position: relative;
+		height: 40px;
+
+		select {
+			position: absolute;
+			left: 0;
+			width: 198px;
+		}
+	}
+}
+
+.cart_row .item_info,
+.sample_row .item_info,
+.bonus_row .item_info,
+.rowgiftcert .item_info {
+	@include clearfix;
+
+	position: relative;
+	padding: 15px 0px 30px 0;
+
+	@include respond-to(phones) {
+		padding: 15px 0;
+
+		.item_info_wrapper {
+			@include flex-parent();
+		}
+
+		.details,
+		.og-offer,
+		.actions {
+			float: none;
+			width: 100%;
+			display: block;
+		}
+		.qty, .price {
+			float: none !important;
+			width: auto;
+		}
+		.details {
+			@include flex-child(1);
+		}
+		.rigth_colums {
+			@include flex-child(2);
+		}
+		.og-offer,
+		.replenishment-details {
+			@include flex-child(3);
+		}
+		.actions {
+			@include flex-child(4);
+		}
+	}
+
+	.item_info_wrapper {
+		@include clearfix;
+	}
+	.rigth_colums {
+		@include clearfix;
+
+		float: right;
+		width: 250px;
+
+		@include respond-to(tablets) {
+			width: 150px;
+		}
+
+		@include respond-to(phones) {
+			float: none;
+			width: 100%;
+		}
+		.qty {
+			float:left;
+			width: 140px;
+
+			@include respond-to(tablets) {
+				width: 100%;
+			}
+			@include respond-to(phones) {
+				padding-top: 15px;
+			}
+		}
+		.price {
+			float: right;
+			width: 110px;
+			padding: 0px 15px 10px 15px;
+			text-align: right;
+
+			@include respond-to(tablets) {
+				width: 85px;
+				padding: 0 15px 10px 15px;
+			}
+
+			@include respond-to(phones) {
+				font: normal 11px/18px $font_arial;
+				text-align: left;
+				width: 100%;
+				padding: 0;
+				.b-total_price {
+				    margin: 0 5px 0 0;
+				    float: left;
+				}
+			}
+			.total {
+				position: relative;
+
+				@include respond-to(phones) {
+					display: none;
+				}
+				.qty {
+					position: absolute;
+					padding: 0;
+					right: -17px;
+					&:before {
+						content: "x";
+					}
+
+					@include respond-to(tablets) {
+						padding: 0;
+					}
+				}
+			}
+		}
+		.price_unadjusted {
+		    font-weight: normal;
+		    text-decoration: line-through;
+		    color: #787878;
+		    white-space: nowrap;
+		    display: inline-block;
+		    margin-left: 5px;
+		    
+		    span {
+		        display: inline-block;
+		        text-decoration: line-through;
+		    }
+		}
+	}
+	.details, .og-offer {
+		width: 265px;
+		float: left;
+		word-break: break-word;
+		font: normal 12px/14px $font_times;
+
+		@include respond-to(tablets) {
+			width: 49%;
+		}
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+	.og-offer {
+		padding: 0;
+		margin: 5px 0 0 0;
+
+		.og-option-row {
+			margin-bottom: 5px !important;
+		}
+		.og-link {
+			cursor: pointer;
+		}
+	}
+	.replenishment-details {
+	    width: 280px;
+	    float: left;
+	    padding: 5px 0 0 0;
+	    font: normal 12px/15px $font_helvetica;
+	    vertical-align: bottom;
+
+	    @include respond-to(tablets) {
+            width: 135px;
+        }
+        @include respond-to(phones) {
+            width: 100%;
+            padding: 0 0 5px 0;
+        }
+        button {
+            font: normal 11px/12px $font_arial;
+            background: transparent;
+            text-decoration: underline;
+            border: none;
+            &:hover {
+                text-decoration: none;
+            }
+            &.arModify {
+                padding-left: 0;
+            }
+            &.arRemove {
+                border-left: 1px solid #000;
+            }
+        }
+	}
+}
+
+.bonus_row .item_info,
+.rowgiftcert .item_info {
+	.rigth_colums {
+		.qty {
+
+			@include respond-to(tablets) {
+				width: 65px;
+			}
+		}
+	}
+}
+
+.order_shipment_table tbody tr.sample_row .actions {
+	padding: 0;
+}
+
+.cart_table .customgiftrow {
+
+  .item_edit_details_gift {
+    width: 80px;
+    height: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 170px;
+    font-weight: normal;
+    text-align: left;
+
+    @include respond-to(phones-tablets) {
+      position: static;
+      width: auto;
+      text-align: right;
+    }
+
+    a {
+      display: block;
+      margin-top: -2px;
+      font: normal 11px/12px $font_arial;
+    }
+  }
+
+  .name,
+  .quantity,
+  .customGiftInclude {
+    font-weight: bold;
+  }
+
+  .productattributes {
+    padding-bottom: 0;
+  }
+
+  .name,
+  .customGiftInclude {
+    margin-top: 10px;
+  }
+
+  .order_product_info {
+        .product_list_item, .attribute {
+            margin: 0 0 0 100px;
+        }
+    }
+  .item_info {
+    .productattributes {
+        padding: 0 0 10px 0px;
+    }
+  }
+
+  .attribute, .value {
+      color: #999 !important;
+  }
+
+  .actions {
+      .item_user_actions {
+
+          @include respond-to(phones) {
+            position: static;
+          }
+      }
+  }
+}
+
+.cart_table tbody tr.customgiftrow td .attribute {
+  font-weight: normal;
+  color: #000;
+}
+
+.cart_table tbody tr.customgiftrow td .actions .item_user_actions { // facepalm
+  @include respond-to(phones) {
+    position: static;
+  }
+}
+
+#gigyaLoginContainerCheckoutLogin {
+    width: 100% !important;
+    table {
+        width: auto !important;
+        margin: 0 auto !important;
+    }
+}
+
+.b-checkout_login {
+    &.rewards_enabled {
+        .b-checkout_unregistered_section {
+            .b-unregistered_title {
+                margin: 0 0 10px 0;
+                line-height: 46px;
+                &:before {
+                    top: 55%;
+                }
+                span {
+                    font: normal 17px/18px $font_helvetica;
+                }
+            }
+            .b-guest_checkout_title,
+            .b-unregistered_title_autoreplenishment {
+                margin: 0 0 20px 0;
+                text-align: center;
+                font: normal 17px/18px $font_helvetica;
+                &.b-or {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.b-bestsellers_wrapper {
+    padding: 0;
+    .jcarousel-clip {
+        width: 900px;
+
+        @include respond-to(tablets) {
+            width: 550px;
+        }
+        @include respond-to(phones) {
+            width: 95% !important;
+        }
+    }
+    &.small {
+        padding: 0 288px 0 0;
+
+        @include respond-to(tablets) {
+            padding: 0 252px 0 0;
+        }
+
+        @include respond-to(phones) {
+            padding: 0;
+        }
+        .jcarousel-clip {
+            width: 660px;
+
+            @include respond-to(tablets) {
+                width: 430px;
+            }
+            @include respond-to(phones) {
+                width: 95%;
+            }
+            li {
+                width: 190px;
+                margin: 0 15px;
+
+                @include respond-to(tablets) {
+                    width: 185px;
+                }
+                @include respond-to(phones) {
+                    margin: 0 5%;
+                    width: 40%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,654 @@
+/*
+ * Store Locator
+ */
+
+// Global elements and layout
+
+.pt_store_locator .primary {
+    width: auto;
+    float: none;
+}
+
+.store_locator_container {
+    position: relative;
+}
+
+.pt_store_locator .main {
+    @include respond-to(phones) {
+        padding: 0;
+    }
+}
+
+.store_search_from,
+#store_locator_content,
+#store_details_block {
+    @include respond-to(phones) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.store_locator_newsearch {
+    display: none;
+
+    .store_locator_mobile & {
+        @include button-black(0 15px, 10px, 33px);
+
+        display: block;
+        margin: 20px 0 15px;
+    }
+}
+
+// Header
+
+.store_locator_header {
+    font: normal normal 30px/40px $font_times;
+    margin: 3px 0 10px;
+    text-transform: none;
+
+    @include respond-to(phones) {
+        font: normal normal 17px/20px $font_arial;
+        margin: 10px 0 3px;
+    }
+}
+
+.store_search_from {
+    margin-bottom: 15px;
+
+    h5 {
+        float: left;
+        font: normal normal 12px/30px $font_arial;
+        margin-right: 30px;
+    }
+
+    @include respond-to(phones) {
+        position: static;
+        left: 0;
+        right: 0;
+        top: 80px;
+        z-index: 2;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        height: 23px;
+    width: 202px;
+    padding: 2px 5px;
+    line-height: 23px;
+    border-color: #959595;
+        margin-top: 16px;
+
+        @include respond-to(phones) {
+            height: 31px;
+      line-height: 31px;
+            width: 100%;
+        }
+    }
+
+    button,
+    a {
+        @include button-black(0 13px, 14px, 23px);
+
+        display: inline-block;
+        text-transform: uppercase;
+        vertical-align: top;
+        margin-top: 16px;
+
+        @include respond-to(phones) {
+            @include button-black(0 15px, 10px, 33px);
+        }
+    }
+
+    @include respond-to(phones) {
+        #store_search_submit {
+            height: 36px;
+            margin-top: 27px;
+            padding: 0 8px;
+            font-size: 18px;
+            width: 100%;
+        }
+    }
+
+}
+
+#store_search_submit {
+    margin-right: 20px;
+    display: none;
+}
+
+#store_search_district {
+    width: 200px;
+}
+// Content
+
+#store_locator_content {
+    @include clearfix;
+
+    margin-bottom: 15px;
+    border: 1px solid #000;
+    background: #fafaf8;
+
+    @include respond-to(phones) {
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden; // return height
+        border: none;
+        background: transparent;
+    }
+}
+
+// Content left side
+
+.store_locator_container {
+    min-height: 290px;
+
+    // Map
+
+    .google_map {
+        float: left;
+        width: 66%;
+        height: 500px;
+        border: 1px #000;
+        border-style: solid solid none;
+
+    img {
+      max-width:none !important;
+    }
+
+        @include  respond-to(tables) {
+            width: 68%;
+        }
+
+        @include respond-to(phones) {
+            height: 170px;
+            width: auto;
+            border: none;
+            float: none;
+        }
+    }
+
+}
+
+// Results list
+
+.store_list { // maybe it should be namespaced
+    float: right;
+    width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0 20px;
+
+    @include respond-to(tablets) {
+        width: 32%;
+        padding: 0 16px;
+    }
+
+    @include respond-to(phones) {
+        width: 100%;
+        padding: 0;
+        max-height: none;
+        float: none;
+    }
+
+    &_item {
+        @include background-img('bg-dashed-line-244.png', center top, no-repeat);
+
+        position: relative;
+        padding: 29px 0 24px;
+        font: normal normal 12px/16px $font_arial;
+        color: #666;
+
+        &:first-child {
+            background: none;
+        }
+
+        @include respond-to(phones-tablets) {
+            font-size: 11px;
+            line-height: 12px;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+        }
+
+        @include respond-to(tablets) {
+            padding: 20px 0 17px;
+        }
+
+        @include respond-to(phones) {
+            padding: 12px 30px 14px 0;
+        }
+
+        &_name {
+            font: normal bold 14px/19px $font_arial;
+            text-transform: uppercase;
+            color: #000;
+
+            @include respond-to(phones-tablets) {
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
+
+        &_distance {
+            text-transform: uppercase;
+            font-weight: bold;
+
+            @include respond-to(phones) {
+                color: #000;
+            }
+        }
+
+        &_address {
+            margin-top: 6px; // if distance are unavailable
+
+            @include respond-to(phones-tablets) {
+                margin-top: 2px;
+            }
+        }
+
+        &_hours {
+            display: none;
+        }
+
+        &_show_details {
+            @include button-black(0 13px, 14px, 23px);
+
+            margin-top: 15px;
+
+            @include respond-to(tablets) {
+                @include button-black(0 7px, 10px, 18px);
+
+                margin-top: 11px;
+            }
+
+            @include respond-to(phones) {
+                @include background-img('store-locator/ico-arrow-big-black.png', right center, no-repeat);
+
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
+                text-indent: -999px;
+                overflow: hidden;
+                direction: ltr;
+                -webkit-background-size: 12.5px 17px;
+                background-size: 12.5px 17px;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// Stores count message
+
+.stores_count {
+    padding: 26px 0 18px;
+    font: normal bold 18px/24px $font_times;
+
+    @include respond-to(tablets) {
+        padding: 18px 0 11px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    @include respond-to(phones) {
+        padding: 14px 0 12px;
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    em {
+        font-style: normal;
+        font-weight: bold;
+        color: #cc0000;
+    }
+}
+
+// Direction tabs
+
+.direction_modes {
+    display: none;
+    height: 36px;
+    margin: -36px -1px 0 0;
+    float: right;
+    border-bottom: 1px solid #000;
+
+    @include respond-to(phones) {
+        display: none !important; // hide top tabs
+    }
+
+    .derection_block_bottom & {
+        display: block !important; // show bottom tabs on mobiles
+        float: right;
+        border: none;
+        padding: 0;
+        margin: 0;
+        height: 21px;
+
+        span {
+            height: 21px;
+            margin: 0 0 0 10px;
+            border: none;
+            opacity: .5;
+            -webkit-background-size: 12px;
+            background-size: 12px;
+
+            &.direction_mode_active {
+                opacity: 1;
+                border: 1px solid #000;
+            }
+        }
+    }
+}
+
+.direction_mode_tab {
+    width: 45px;
+    height: 35px;
+    position: relative;
+    bottom: -1px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid transparent;
+    text-indent: -9999px;
+    cursor: pointer;
+    direction: ltr;
+}
+
+.direction_mode_driving {
+    background: url("../images/interface/driving.png") no-repeat center; // from lora
+}
+
+.direction_mode_walking {
+    background: url("../images/interface/walking.png") no-repeat center;
+}
+
+.direction_mode_active {
+    border-color: #000;
+}
+
+// Direction steps
+
+.store_direction {
+    margin-top: 14px;
+    font: normal normal 12px/16px $font_arial;
+    color: #666;
+
+    &_distance,
+    &_time {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+    }
+
+    &_change_direction {
+        @include button-black(0 13px, 14px, 23px);
+
+        margin-bottom: 20px;
+
+        @include respond-to(phones) {
+            @include button-black(0 15px, 10px, 33px);
+        }
+    }
+
+    &_address {
+        margin: 0 0 10px;
+
+        span:first-child {
+            font-weight: bold;
+        }
+    }
+
+    &_instructions {
+
+        li {
+            margin: 0 0 6px;
+            list-style: decimal inside;
+        }
+    }
+}
+
+// Google map popup. Used on store details page on mobiles
+
+.map_info_window {
+    font: normal normal 12px/16px $font_arial;
+    color: #666;
+
+    .clearfix {
+        @include clearfix;
+    }
+
+    a {
+        @include links(#666, underline);
+    }
+
+    &_left {
+        margin-bottom: 10px;
+    }
+
+    &_shop_name {
+        font: normal bold 12px/16px $font_arial;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    &_address {
+        text-transform: none;
+    }
+
+    %gmap-phone-mail {
+        @include links(#000, none, #000, underline);
+
+        padding: 0 0 0 20px;
+        line-height: 20px;
+    }
+
+    &_phone {
+        @extend %gmap-phone-mail;
+
+        @include background-img('store-locator/ico-phone-small-darkblue.png', 0 center, no-repeat);
+        -webkit-background-size: 13px;
+        background-size: 13px;
+
+        .ie8 & {
+            @include background-img('store-locator/ico-phone-small-darkblue-w13.png', 0 center, no-repeat);
+        }
+    }
+
+    &_email {
+        @extend %gmap-phone-mail;
+
+        background: url("../images/interface/phone_mail.png") no-repeat; // from lora
+    }
+
+    &_direction {
+        padding: 8px 0 0;
+
+        input[type="text"] {
+      height: 23px;
+      width: 160px;
+      padding: 2px 4px;
+      line-height: 23px;
+        }
+
+        button {
+            @include button-black(0 6px, 10px, 23px);
+
+            vertical-align: top;
+        }
+    }
+}
+
+#store_details_block {
+    margin-bottom: 20px;
+}
+
+// Find error
+
+.store_locator_error_popup {
+    display: none;
+    width: 33%;
+    padding: 13px 10px;
+    font-size: 15px;
+    float: right;
+
+    @include respond-to(phones) {
+        float: none;
+        width: auto;
+        padding: 30px 0 8px;
+        font-size: 17px;
+        line-height: 19px;
+        text-align: center;
+    }
+}
+
+.store_locator_error_popup_title {
+    margin-bottom: 8px;
+    font: bold 19px/1.2 $font-arial;
+
+    @include respond-to(phones) {
+        margin-bottom: 20px;
+    }
+}
+
+.store_locator_error_popup_close {
+    display: none;
+}
+
+//#store_details_cotainer,
+#store_search_around_me,
+#store_details_block,
+.derection_block_top,
+#stores_count {
+    display: none;
+}
+
+#store_details_block_close,
+#store_direction_close_button { // Back button
+    font: bold 12px/18px $font_arial;
+    text-decoration: underline;
+    padding: 10px 0 15px;
+}
+
+// get directions
+
+.derection_block {
+    padding-top: 20px;
+    position: relative;
+    font-family: $font_arial;
+
+    #store_direction_close_button {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.store_direction_header {
+    margin: 30px 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.store_direction_start,
+.store_direction_arrival {
+    @include clearfix;
+
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.store_direction_label {
+    float: left;
+    font-weight: bold;
+    color: #000;
+    margin-right: 5px;
+}
+
+.store_direction_edit {
+    float: right;
+    text-align: right;
+    color: #000;
+    text-decoration: underline;
+}
+
+.view_direction_instructions_button {
+    @include button-black(0 15px, 10px, 25px);
+}
+
+// direction bottom
+
+.derection_block_bottom {
+    display: none;
+    padding-top: 10px;
+}
+
+.store_direction_instructions {
+    margin-top: 20px;
+    font: normal normal 12px/16px $font_arial;
+    color: #666;
+}
+
+// Map or List tab
+
+#map_list_tabs {
+    display: none;
+    overflow: hidden;
+    font: bold 12px/18px $font_arial;
+    text-decoration: underline;
+    margin: 15px 0 10px;
+    text-align: center;
+
+    div {
+        float: left;
+        width: 49.5%;
+
+        &.active_tab {
+            border: 1px solid #000;
+        }
+    }
+}
+
+// US Where 2 get it iframe
+
+.primary.storelocator {
+    float: none;
+    width: auto;
+    overflow: hidden;
+
+    iframe {
+        width: 100% !important;
+        height: 670px !important;
+        
+        @include respond-to(phones) {
+            height: auto !important;
+            min-height: 570px;
+        }
+    }
+
+    .store_locator_title,
+    .store_locator_subtitle {
+        display: none;
+    }
+
+    + .secondary {
+        display: none;
+    }
+}
+#w2getit_locator_iframe {
+
+    @include respond-to(phones) {
+        height: 100% !important;
+    }
+}
+
+.pt_storelocator .content .primary {
+    @include respond-to(phones) {
+        margin: 0 -20px !important;
+    }
+}

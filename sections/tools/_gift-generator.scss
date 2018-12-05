@@ -1,0 +1,413 @@
+// Gift generator
+
+// @group Layout
+//------------------------------------------------------------------------------
+
+.giftgenerator {
+
+    .primary {
+        width: 100%;
+        float: none;
+        padding: 30px 0 0;
+
+        @include respond-to(phones-tablets) {
+            padding-top: 20px;
+        }
+    }
+}
+
+// @end
+
+// @group Header
+//------------------------------------------------------------------------------
+
+.giftgenerator .rf_title {
+    width: 635px;
+    margin: 0 auto -10px;
+    text-align: center;
+
+    @include respond-to(tablets) {
+        width: 460px;
+        margin-bottom: -11px;
+    }
+
+    @include respond-to(phones) {
+        width: auto;
+        margin: 0 -10px 14px;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+    }
+}
+
+// @end
+
+// @group Questionary
+//------------------------------------------------------------------------------
+
+.giftgenerator {
+
+    .rf_questions {
+        padding: 23px 27px 25px;
+        margin: 0 0 20px;
+        font: normal 32px/38px $font_times;
+        @include background-img('gift-generator/bg-pattern.png', 0 0, #fff);
+        text-align: center;
+
+        @include respond-to(tablets) {
+            padding: 17px;
+            font-size: 22px;
+            -webkit-background-size: auto 17%;
+            background-size: auto 17%;
+        }
+
+        @include respond-to(phones) {
+            height: auto;
+            padding: 12px;
+            text-align: left;
+            -webkit-background-size: auto 6%;
+            background-size: auto 6%;
+        }
+    }
+
+    .rf_questions_inner {
+        position: relative;
+        min-height: 314px;
+        padding: 8px 10px 10px;
+        background-color: #ffd204;
+        border: 6px solid #f9f6f6;
+
+        @include respond-to(tablets) {
+            min-height: 229px;
+            border-width: 4px;
+            padding-top: 5px;
+        }
+
+        @include respond-to(phones) {
+            padding: 37px 35px 26px;
+            border-width: 2.5px;
+        }
+
+        // background
+
+        &:before,
+        &:after {
+            @include background-img('gift-generator/bg-gg-deco.png', 0 0);
+            content: '';
+            width: 81px;
+            height: 108px;
+            position: absolute;
+            top: -14px;
+            z-index: 1;
+            -webkit-background-size: 100% auto;
+            background-size: 100% auto;
+
+            @include respond-to(tablets) {
+                width: 59px;
+                top: -9px;
+            }
+
+            @include respond-to(phones) {
+                width: 38px;
+                top: -6px;
+            }
+        }
+
+        &:before {
+            left: -34px;
+
+            @include respond-to(tablets) {
+                left: -21px;
+            }
+
+            @include respond-to(phones) {
+                left: -15px;
+            }
+        }
+
+        &:after {
+            right: -28px;
+
+            @include respond-to(tablets) {
+                right: -17px;
+            }
+
+            @include respond-to(phones) {
+                right: -11px;
+            }
+        }
+    }
+
+    .questions_list {
+        position: relative;
+        z-index: 2;
+    }
+
+    .question_item {
+        margin-bottom: 22px;
+        display: inline-block;
+        vertical-align: top;
+        font: bold 30px/1 $font_times;
+
+        @include respond-to(tablets) {
+            margin-bottom: 11px;
+            font-size: 24px;
+        }
+
+        @include respond-to(phones) {
+            display: block;
+            margin-bottom: 17px;
+            font-size: 18px;
+        }
+
+        // dot after question
+        > div:after {
+            content: ".";
+            position: relative;
+            bottom: -3px;
+
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+
+        select {
+            display: inline-block;
+            vertical-align: middle;
+            width: 127px;
+            height: auto;
+            margin: -3px 0 0 3px;
+            padding-top: 0;
+            padding-bottom: 0;
+            font: normal 17px/29px $font_helvetica;
+            background-color: transparent;
+            border-style: none none solid;
+            border-color: #000;
+
+            .ie9 &,
+            .ie8 & {
+                padding-left: 0;
+                padding-right: 0;
+                margin-top: 0;
+            }
+
+            @include respond-to(tablets) {
+                height: 19px;
+                font-size: 12px;
+                line-height: 17px;
+            }
+
+            @include respond-to(phones) {
+                height: 30px;
+                font-size: 15px;
+                border-style: solid;
+                width: 100%;
+            }
+        }
+    }
+
+    .question_looking_for {
+        display: block;
+    }
+
+    .question_looking_for,
+    .question_who {
+        select {
+            width: 179px; // If we have a class on "pricerange" select this should be reverted with inherited width.
+
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+    }
+
+    .question_title {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+
+        @include respond-to(phones) {
+            display: block;
+            margin: 0 0 17px;
+            white-space: nowrap;
+        }
+    }
+
+    .questions_actions {
+        text-align: center;
+    }
+
+    button {
+        @include button();
+        @include button-size(0 13px, 17px, 40px);
+        @include button-color(#e51b24, #fff, #fff, transparent);
+        line-height: 38px; // correct line height for 3px border with
+        border-width: 3px;
+        box-shadow: -3px 3px 0 #00753d;
+
+        @include respond-to(phones-tablets) {
+            @include button-size(0 8px, 13px, 28px);
+            line-height: 26px;
+            border-width: 2px;
+        }
+    }
+}
+
+// Search bottom decoration
+
+.rf_deco {
+    margin: -233px 0 0;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(tablets) {
+        margin-top: -120px;
+    }
+
+    @include respond-to(phones) {
+        margin-top: -73px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+// @end
+
+// @group Results title
+//------------------------------------------------------------------------------
+
+.giftgenerator .quiz_recommended_title {
+    font: normal 28px/32px $font_times;
+    margin: 33px 0 10px;
+    text-align: left;
+
+    @include respond-to(phones) {
+        font-size: 21px;
+        line-height: 25px;
+        margin-bottom: 4px;
+    }
+}
+
+// @end
+
+// @group Custom gift product grid
+//------------------------------------------------------------------------------
+
+.giftgenerator {
+
+    .search_result_items {
+        margin-bottom: 40px;
+
+        @include respond-to(phones) {
+            text-align: center;
+        }
+    }
+
+    .product_tile_wrapper {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .product_tile {
+        display: inline-block;
+        vertical-align: top;
+        width: 177px;
+        padding: 35px 10px 0;
+        margin: 0 5px 4px;
+        text-align: center;
+
+        @include respond-to(tablets) {
+            width: 206px;
+        }
+
+        @include respond-to(phones) {
+            display: block;
+            width: auto;
+            margin-bottom: 13px;
+        }
+
+        .b-product_img-link {
+            display: block;
+        }
+
+        .b-product_img {
+            width: 137px;
+            height: auto;
+        }
+
+        .product_name {
+            @include links(#000, none, #000, underline);
+            display: block;
+            height: 45px;
+            margin: 25px 0 3px;
+            overflow: hidden;
+            font: normal 14px/21px $font_helvetica;
+
+            @include respond-to(phones) {
+                height: auto;
+            }
+        }
+
+        .inline_rating_link {
+            display: block;
+            margin-bottom: 27px;
+
+            @include respond-to(phones) {
+                height: auto;
+                margin-bottom: 17px;
+            }
+        }
+
+        .product_subtitle,
+        .b-product_price-title,
+        .inline_rating_label_link,
+        .promotional_message,
+        .variant_swatch,
+        .ui-rating-title {
+            display: none;
+        }
+
+        .product_price {
+            font: 16px/18px $font_trade_gothic;
+        }
+    }
+
+}
+
+// QV
+
+.giftgenerator .product_tile {
+    position: relative;
+
+    &:hover {
+        .quickviewbutton {
+            display: block;
+        }
+    }
+
+    .quickviewbutton {
+        @include button();
+        @include button-size(0 10px, 15px, 26px);
+        @include button-color(#ffd204, #000, #000, transparent);
+        line-height: 23px; // correct line height for border width 2px
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 50%;
+        z-index: 3;
+        margin-left: -50px;
+        border-width: 2px;
+        text-transform: none;
+
+        &:hover {
+            @include button-color(red, #fff, #fff, transparent);
+        }
+    }
+}
+
+// @end

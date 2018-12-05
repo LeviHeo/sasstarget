@@ -1,0 +1,325 @@
+//
+// Buttons
+//
+
+@mixin button() {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  font-family: $font_times;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include vendor-prefix(user-select, none);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+    right: 3px;
+    border: 1px solid transparent;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+@mixin button-color (
+    $button-color-bg: #000,
+    $button-color-bd: #000,
+    $button-color-text: #fff,
+    $button-color-line: #666) {
+    border-color: $button-color-bd;
+    background: $button-color-bg;
+    color: $button-color-text;
+
+    &:hover,
+    &:focus {
+        color: $button-color-text;
+
+        &:before {
+            border-color: $button-color-line;
+        }
+    }
+
+    &.disabled,
+    &[disabled] {
+        @if $button-color-bd == #a2a2a2 {
+            border-color: #dfdfdf;
+            color: #a6a6a6;
+        } @else if $button-color-bd == #000 {
+            background: #ccc;
+            border-color: #ccc;
+        } @else {
+            color: #a6a6a6;
+            background: #ccc;
+            border-color: #ccc;
+        }
+
+        &:hover,
+        &:focus {
+            &:before {
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+@mixin button-size (
+    $button-padding: 0 47px,
+    $button-font-size: 18px,
+    $button-height: 36px,
+    $button-width: 60px) {
+    height: $button-height;
+    min-width: $button-width;
+    padding: $button-padding;
+    line-height: $button-height - 1; // Compensating border width for box-sizing: border-box;. Needed for correct vertical text centering.
+    font-size: $button-font-size;
+
+    .ff & {
+        line-height: $button-height - 2; // Normalize font rendering issue in FF
+    }
+}
+
+@mixin _add-arrow($direction, $position, $triangelColor) {
+  &:after {
+    @include triangle($direction, 6px, -6px 0 0 0, $triangelColor);
+    position: absolute;
+    top: 50%;
+    #{$position}: 11px;
+    -moz-transform: scale(.9999);
+  }
+
+  &.disabled,
+  &[disabled] {
+    &:after { // arrow color
+      border-right-color: #a6a6a6;
+    }
+  }
+}
+
+// Buttons presets
+
+// Buttons size
+
+@mixin button-hero(
+    $button-padding: 0 47px,
+    $button-font-size: 20px,
+    $button-height: 45px,
+    $button-width: 60px) {
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+};
+
+@mixin button-general(
+    $button-padding: 0 47px,
+    $button-font-size: 18px,
+    $button-height: 36px,
+    $button-width: 60px) {
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+};
+
+@mixin button-regular(
+    $button-padding: 0 47px,
+    $button-font-size: 14px,
+    $button-height: 36px,
+    $button-width: 60px) {
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+};
+
+@mixin button-small(
+    $button-padding: 0 15px,
+    $button-font-size: 13px,
+    $button-height: 24px,
+    $button-width: 60px) {
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+};
+
+// Buttons color
+
+@mixin button-color-black(
+    $button-color-bg: #000,
+    $button-color-bd: #000,
+    $button-color-text: #fff,
+    $button-color-line: #666) {
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+}
+
+@mixin button-color-white(
+    $button-color-bg: #fff,
+    $button-color-bd: #a2a2a2,
+    $button-color-text: #000,
+    $button-color-line: #d5d5d5) {
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+}
+
+// Buttons with ico
+
+@mixin button-ico-forward($button-color-text: #fff) {
+    padding-right: 32px;
+    padding-left: 18px;
+    @include _add-arrow(right, right, $button-color-text);
+}
+
+@mixin button-ico-back($button-color-text: #000) {
+    padding-right: 9px;
+    padding-left: 22px;
+    @include _add-arrow(left, left, $button-color-text);
+}
+
+// Buttons unstyled
+
+@mixin button-unstyled(
+    $button-padding: 0 47px,
+    $button-font-size: 18px,
+    $button-height: 36px) {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: $button-height;
+    padding: $button-padding;
+    background: transparent;
+    border: none;
+    color: #000;
+    font: normal #{$button-font-size}/#{$button-height} $font_times;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        color: #000;
+        text-decoration: none;
+    }
+
+    &.disabled,
+    &[disabled="disabled"] {
+        cursor: default;
+        background: transparent;
+        border-color: transparent;
+    }
+}
+
+// Buttons fallbacks presets
+
+@mixin button-black (
+    $button-padding: 0 47px,
+    $button-font-size: 18px,
+    $button-height: 36px,
+    $button-width: 60px,
+    $button-color-bg: #000,
+    $button-color-bd: #000,
+    $button-color-text: #fff,
+    $button-color-line: #666) {
+    @include button();
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+}
+
+@mixin button-white (
+    $button-padding: 0 47px,
+    $button-font-size: 18px,
+    $button-height: 36px,
+    $button-width: 60px,
+    $button-color-bg: #fff,
+    $button-color-bd: #a2a2a2,
+    $button-color-text: #000,
+    $button-color-line: #d5d5d5) {
+    @include button();
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+}
+
+@mixin button-forward (
+    $button-padding: 0 47px,
+    $button-font-size: 14px,
+    $button-height: 36px,
+    $button-width: 60px,
+    $button-color-bg: #000,
+    $button-color-bd: #000,
+    $button-color-text: #fff,
+    $button-color-line: #666) {
+    @include button();
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+    @include button-ico-forward($button-color-text);
+}
+
+@mixin button-back (
+    $button-padding: 0 47px,
+    $button-font-size: 14px,
+    $button-height: 36px,
+    $button-width: 60px,
+    $button-color-bg: #fff,
+    $button-color-bd: #a2a2a2,
+    $button-color-text: #000,
+    $button-color-line: #d5d5d5) {
+    @include button();
+    @include button-size($button-padding, $button-font-size, $button-height, $button-width);
+    @include button-color($button-color-bg, $button-color-bd, $button-color-text, $button-color-line);
+    @include button-ico-back($button-color-text);
+}
+
+// Global classes
+
+.g-button-black {
+    @include button();
+    @include button-regular();
+    @include button-color-black();
+    // You can also use fallback mixin button-back() it has include all this mixins
+}
+
+.g-button-white {
+    @include button();
+    @include button-regular();
+    @include button-color-white();
+}
+
+.g-button-forward {
+    @include button();
+    @include button-regular();
+    @include button-color-black();
+	@include button-ico-forward();
+}
+
+.g-button-back {
+    @include button();
+    @include button-regular();
+    @include button-color-white();
+	@include button-ico-back();
+}
+
+// Buttons styles
+
+.formfield_button {
+    button,
+    .button,
+    .g-button {
+        @include button();
+        @include button-regular();
+        @include button-black();
+
+        &::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+    }
+}

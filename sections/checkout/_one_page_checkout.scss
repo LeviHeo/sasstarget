@@ -1,0 +1,720 @@
+/*
+ * One Step Checkout - Samples Extension
+ */
+
+.enhanced_samples {
+    .b-tabs.samples {
+        .tabs_menu {
+            li {
+                width: auto;
+                border: none !important;
+                margin: 0 5px 5px 0;
+                height: 36px;
+                background: #787878;
+                
+                @include respond-to(tablets) {
+                    height: 36px;
+                }
+                a {
+                    padding: 0 20px;
+                    color: #fff;
+                    font: bold 14px/36px $font_times;
+                    text-transform: uppercase;
+                    
+                    @include respond-to(tablets) {
+                        padding: 0 9px;
+                        font-size: 13px;
+                        line-height: 36px;
+                    }
+                }
+                &.ui-state-active {
+                    background: #000;
+                }
+            }
+        }
+        .tab_content {
+            padding: 15px 0;
+            
+            @include respond-to(phones) {
+                border: 1px solid #CCC;
+                border-top: none;
+                padding: 0;
+            }
+        }
+        .js-accordion_wrapper {
+            @include respond-to(tablets) {
+                margin: 0;
+                border: none;
+            }
+        }
+    }
+    .clear_samples_selection {
+        @include links(#000, underline, #000, none);
+        
+        font: bold 11px/14px $font_helvetica;
+        
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+        
+        @include respond-to(phones) {
+            @include button();
+            @include button-general(0 10px, 14px);
+            @include button-color-white();
+            
+            color: #787878 !important;
+            text-decoration: none !important;
+            margin: 20px 15px;
+        }
+    }
+    .b-samples_list-wrapper {
+        padding: 25px 0 0;
+        
+        @include respond-to(phones) {
+            padding: 0 15px;
+        }
+    }
+    .b-product_sample {
+        @include respond-to(phones) {
+            padding: 0;
+            border-top: none;
+            border-bottom: 1px dotted #ccc;
+        }
+        .b-sample_item {
+            padding-bottom: 56px;
+            height: 386px;
+            
+            @include respond-to(phones) {
+                padding: 20px 0;
+                height: auto;
+                
+                .product_image_container {
+                    width: 90px;
+                    margin-right: 15px;
+                }
+                .action_buttons {
+                    margin-left: 105px;
+                }
+            }
+        }
+        .b-product_name {
+            font: 16px/20px $font_times;
+            text-align: left;
+            height: 60px;
+            
+            @include respond-to(phones) {
+                font-size: 14px;
+                line-height: 18px;
+                height: auto;
+                min-height: 54px;
+            }
+        }
+        .b-short_description {
+            display: block;
+            font: 12px/16px $font_helvetica;
+            height: 50px;
+            overflow: hidden;
+            margin-top: 5px;
+            text-align: left;
+            
+            @include respond-to(phones) {
+                display: none;
+            }
+        }
+    }
+    .nextstepbutton-top {
+        display: none !important;
+    }
+    .samples_header-title {
+        font: bold 18px/20px $font_times;
+        text-transform: uppercase;
+        margin-bottom: 27px;
+        
+        @include respond-to(phones) {
+            margin: 15px 0 28px;
+        }
+    }
+    .checkout_order_totals {
+        .formfield {
+            margin: 15px 0 0;
+        }
+    }
+    .checkout-samples,
+    .checkout.mainform {
+        .b-cart_order {
+            padding-left: 20px;
+            padding-right: 20px;
+            
+            @include respond-to(tablets) {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+    }
+}
+.show_addremove_buttons .b-sample_item {
+    .f_field_checkbox {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        margin: 0;
+        padding: 0 10px;
+        width: 100%;
+        
+        .f_label {
+            display: none;
+        }
+    }
+    .js-add_sample,
+    .js-remove_sample {
+        @include button();
+        @include button-general(0 10px);
+        
+        margin: 15px 0 0 0;
+        width: 100%;
+        font-size: 16px;
+        
+        &.hidden {
+            display: none;
+        }
+        
+        @include respond-to(phones) {
+            font-size: 12px;
+            
+            &:hover {
+                text-decoration: none !important;
+            }
+            @include button-size($button-padding: 0 10px, $button-font-size: 12px, $button-height: 30px);
+        }
+    }
+    .js-add_sample {
+        @include button-color-black();
+    }
+    .js-remove_sample {
+        @include button-color-white();
+        
+        color: #787878 !important;
+    }
+}
+.samples_refinement_list {
+    .refinement_list_item {
+        display: inline-block;
+        margin: 5px 25px 18px 0;
+    }
+}
+
+.samples_error_overtile {
+    @include vendor-prefix(transition, all 1s ease-in-out);
+    
+    display: none;
+    
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 100%;
+    height: 169px;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font: bold 12px/16px $font_helvetica;
+
+    .ie8 & {
+        font-weight: normal;
+        font-family: $font_helvetica_b;
+    }
+    .sample_error & {
+        display: table;
+    }
+    p {
+        margin-bottom: 15px;
+    }
+    div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    @include respond-to(phones) {
+        line-height: 14px;
+        height: 102px;
+        top: 0;
+        
+        span {
+            display: none;
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.b-cart_order_summary .checkout_minicart_scrollable {
+    max-height: none;
+    overflow: visible;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    
+    .scroll_products_wrapper {
+        max-height: none;
+        border: none;
+        padding-right: 14px;
+        margin-right: -14px;
+        
+        @include respond-to(tablets) {
+            margin-right: -12px;
+            padding-right: 12px;
+        }
+    }
+    
+    // nicescroll
+    .nicescroll-rails {
+        .nicescroll-cursors {
+            @include vendor-prefix( border-radius, 7px !important );
+
+            width: 7px !important;
+            background: #b2b2b2 !important;
+        }
+    }
+}
+
+.combined_shipping_billing {
+    .checkout_progress_indicator {
+        .checkout_step_indicator {
+            font-size: 22px;
+            padding: 0 45px;
+            border-left: none;
+            border-right: none;
+            
+            @include respond-to(tablets) {
+                font-size: 18px;
+                padding: 0 10px;
+            }
+            @include respond-to(phones) {
+                width: 100%;
+                padding: 6px 20px 10px;
+                font-size: 18px;
+                height: auto;
+            }
+            .button {
+                padding: 0;
+            }
+            .label {
+                font-size: 22px;
+                text-transform: none;
+                
+                @include respond-to(phablets) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    
+    .b-shipping_address_info {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .b-subscriptions_area {
+        padding: 0px 0px 20px;
+        margin: 0px 0px 25px;
+        border-bottom: 1px dotted #CCC;
+    }
+    .select_billing_address {
+        border: none;
+        margin: 0;
+    }
+    .billing_address_info {
+        margin: 0;
+    }
+    .checkout_gifting {
+        @include respond-to(phones) {
+            margin: 0;
+        }
+    }
+}
+
+.gift_cards_block.giftcard_collapsible {
+    @include clearfix;
+    
+    width: 45%;
+    margin-bottom: 10px;
+    
+    @include respond-to(phones) {
+        width: 100%;
+    }
+    
+    .f_field .f_label {
+        display: block;
+        
+        @include respond-to(phones) {
+            margin: 0 0 5px;
+        }
+    }
+    .f_legend {
+        color: #787878;
+        font: 11px/16px $font_helvetica;
+        margin: 20px 0;
+    }
+    .f_field_textinput .f_label {
+        font: bold 12px/23px $font_helvetica;
+        
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+    }
+    .f_field {
+        width: 100%;
+        margin: 0;
+        
+        .textinput {
+            height: 30px;
+            line-height: 30px;
+            
+            @include respond-to(phones) {
+                width: 100%;
+            }
+        }
+        &.formfield_gift_certificate_code {
+            width: 100%;
+            margin: 0 0 20px;
+        }
+        &.formfield_gift_certificate_pin {
+            width: 62%;
+            margin-right: 6.5%;
+            float: left;
+            
+            @include respond-to(tablets) {
+                width: 56%;
+            }
+        }
+        &.formfield_button {
+            margin: 28px 0 0;
+            float: left;
+            width: 31.5%;
+            
+            @include respond-to(tablets) {
+                width: 37.5%;
+            }
+            
+            .button {
+                @include button-size($button-padding: 0 10px, $button-font-size: 14px, $button-height: 30px);
+                
+                width: 100%;
+            }
+        }
+        &.f_check_balance_button {
+            display: none;
+        }
+        .error_message {
+            margin-top: 4px;
+            position: static;
+            white-space: nowrap;
+        }
+    }
+    .js_giftCardsForm {
+        @include clearfix;
+        
+        padding-bottom: 20px;
+    }
+    .redemption {
+        white-space: nowrap;
+        
+        @include respond-to(phones) {
+            white-space: normal;
+            width: 100%;
+        }
+        
+        td {
+            padding-top: 20px;
+            padding-right: 0;
+            
+            &:first-child {
+                padding-right: 35px;
+            }
+        }
+    }
+}
+
+.payment_methods_tabs .payment_method_options {
+    font-size: 0;
+    
+    .select_payment_method { 
+        .f_field.credit_card,
+        .f_field.paypal {
+            border: 1px solid #CCC;
+            width: 22.5%;
+            text-align: center;
+            display: inline-block;
+            min-width: 125px;
+            
+            @include respond-to(phones) {
+                width: 50%;
+            } 
+            
+            .f_label_value {
+                padding: 14px 10px 10px;
+            }
+            .f_label,
+            .f_label_value {
+                background: #fff !important;
+                font: bold 16px/18px $font_times;
+                color: #787878;
+                display: block;
+                float: none;
+            }
+            .f_label {
+                padding: 0;
+            }
+        }
+        .f_field.paypal {
+            border-left: none;
+        }
+        .f_field.f_checked {
+            border-top: 5px solid #000;
+            border-bottom: none;
+            
+            .f_label_value {
+                padding: 10px;
+            }
+            
+            .f_label,
+            .f_label_value {
+                color: #000;
+            }
+        }
+    }
+    .selected_payment_method {
+        legend {
+            display: block;
+            padding-bottom: 15px;
+            
+            .required_indicator {
+                padding: 0 0 0 10px;
+                color: #000;
+                font: 12px/15px $font_helvetica;
+                text-transform: capitalize;
+                
+                &:before {
+                    font-weight: bold;
+                    font-family: $font_arial;
+                }
+            }
+        }
+    }
+    .f_field {
+        width: 45%;
+        display: block;
+        
+        @include respond-to(phones) {
+            width: 100%;
+        } 
+        &.formfield_credit_card_owner {
+            .textinput {
+                width: 100%;
+            }
+        }
+        &.formfield_credit_card_number,
+        &.formfield_credit_card_type {
+            margin-right: 30px;
+            display: inline-block;
+            padding: 0;
+        }
+        &.formfield_credit_card_month {
+            width: 120px;
+            margin-right: 20px;
+            display: inline-block;
+            
+            @include respond-to(tablets) {
+                width: 110px;
+            }
+            
+            @include respond-to(phones) {
+                width: 45%;
+                margin-right: 5%;
+            }
+        }
+        &.formfield_credit_card_year {
+            width: 90px;
+            display: inline-block;
+            
+            @include respond-to(tablets) {
+                width: 67px;
+            }
+            
+            @include respond-to(phones) {
+                width: 30%;
+            }
+        }
+        &.formfield_credit_card_cvn {
+            width: 120px;
+            margin: 0 20px 15px 0;
+            display: inline-block;
+            
+            @include respond-to(tablets) {
+                width: 110px;
+                padding: 0;
+            }
+            
+            @include respond-to(phones) {
+                width: 45%;
+                margin-right: 5%;
+            } 
+        }
+        &.formfield_credit_card_save {
+            width: 120px;
+            margin-right: 20px;
+            display: inline-block;
+            
+            @include respond-to(phones) {
+                width: 45%;
+                margin-right: 5%;
+            } 
+        }
+        &.formfield_credit_card_set_as_default {
+            width: 200px;
+            display: inline-block;
+            padding: 0;
+            
+            @include respond-to(phones) {
+                width: 50%;
+            } 
+        }
+        .error_message {
+            white-space: nowrap;
+        }
+        select {
+            max-width: 100%;
+        }
+    }
+    .credit_card_field_wrapper {
+        position: relative;
+    }
+    .credit_card_number_image {
+        display: inline-block;
+        width: 200px;
+        padding-top: 23px;
+        
+        @include respond-to(phones) {
+            position: absolute;
+            padding: 0;
+            top: -5px;
+            right: 0;
+            width: 165px;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+    }
+    .expiration_date {
+        width: 45%;
+        padding: 0;
+        display: inline-block;
+            
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+    .credit_card_description {
+        color: #787878;
+        font: 11px/16px $font_helvetica;
+        margin: 20px 0;
+        width: 300px;
+        float: none;
+        
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+    .cvn_tip {
+        width: 400px;
+        margin: 28px 0 0;
+        float: none;
+        
+        @include respond-to(tablets) {
+            width: 70%;
+            padding: 0;
+        }
+        
+        @include respond-to(phones) {
+            width: 50%;
+            margin: 11px 0px 0px;
+        }
+    }
+    .with_cardtype {
+        .cvn_tip {
+            width: auto;
+            
+            @include respond-to(phones) {
+                width: 50%;
+            }
+        }
+    }    
+}
+.payment_method_options .without_cardtype {
+    .expiration_date {
+        display: block !important;
+    }
+}
+
+.payment_method_options .paypal_description {
+    width: 500px;
+    max-width: 100%;
+    font: 12px/15px $font_helvetica;
+    padding: 10px 0 20px 35px;
+    
+    @include respond-to(phablets) {
+        padding-left: 0;
+    }
+    
+    .f_field_radio {
+        margin-left: -35px;
+        float: left;
+        
+        @include respond-to(phablets) {
+            margin-left: 0;
+        }
+    }
+    .f_label_value {
+        padding-left: 35px;
+        background-position: left center !important;
+    }
+    .paypal_image {
+        margin-bottom: 20px;
+    }
+    .t-list {
+        font: 12px/15px $font_helvetica;
+        margin: 0;
+        padding: 0px 0px 0px 13px;
+    }
+    .paypal_subtitle {
+        display: block;
+        font: bold 14px/15px $font_helvetica;
+        clear: both;
+        
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+    }
+    a {
+        @include links(#000, underline, #000, none);
+        
+        font-weight: bold;
+        
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+    }
+    &_continue {
+        float: right;
+        margin: 5px 0 0 20px;
+        font: bold 14px/15px $font_helvetica;
+        
+        @include respond-to(phones) {
+            width: 135px;
+            margin: -10px 0px 0px 10px;
+        }
+    }
+}

@@ -1,0 +1,280 @@
+/*
+ * Kiehls Gives
+ */
+
+.l-kiehls_gives {
+	@include background-img('about_us/bg-top10.jpg', center top, repeat);
+	
+	@include respond-to (phablets) {
+		background-size: 100% auto;
+	}
+}
+.b-kiehls_gives {
+	@include background-img('about_us/kiehls-gives-top.png', center top, no-repeat);
+	@include clearfix;
+	
+	position: relative;
+	margin-top: -1px; // Cover the dotted line
+	
+	@include respond-to (phablets) {
+		background-size: 100% auto;
+	}
+	
+	.odd,
+	.even {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+	}
+	
+	.kiehls-gives-logo img {
+		padding: 50px 0 8px;
+		
+		@include respond-to (phones) {
+			width: 88px;
+			padding: 42px 0 8px;
+		}
+	}
+	.row {
+		@include background-img('about_us/kiehls-gives-bottom.png', right bottom, no-repeat);
+		
+		padding-bottom: 340px;
+		
+		@include respond-to (tablets) {
+			background-size: 97% auto;
+			padding-bottom: 270px;
+		}
+		@include respond-to (phones) {
+			padding: 0 15px 115px;
+			background-size: 97% auto;
+		}
+	}
+	
+	h1, h2, h3 {
+		@include background-img('about_us/kiehls-gives-title-left.png', left top, no-repeat);
+		
+		position: relative;
+		display: inline-block;
+		height: 46px;
+		padding: 0 37px 0 55px;
+		margin: 40px 0 10px -18px;
+		font: 25px/46px $font_trade_gothic;
+		color: #fff;
+		text-align: center;
+		text-transform: uppercase;
+		
+		@include respond-to (tablets) {
+			margin-top: 25px;
+		}
+		@include respond-to (phones) {
+			width: 85%;
+			height: 36px;
+			padding: 0 0 0 12px;
+			margin: 23px 0 2px -14px;
+			font-size: 19px;
+			line-height: 36px;
+			background-size: auto 36px;
+		}
+		
+		&:after {
+			@include background-img('about_us/kiehls-gives-title-right.png', left top, no-repeat);
+			
+			content: '';
+			position: absolute;
+			right: -18px;
+			top: 0;
+			width: 18px;
+			height: 46px;
+			
+			@include respond-to (phones) {
+				height: 36px;
+				background-size: auto 36px;
+			}
+		}
+	}
+	p {
+		max-width: 680px;
+		margin: 15px auto 20px;
+		font: 15px/20px $font_helvetica;
+		
+		@include respond-to (tablets) {
+			max-width: 72%;
+		}
+		@include respond-to (phones) {
+			margin: 15px auto 17px;
+			font-size: 13px;
+			line-height: 18px;
+		}
+	}
+	.quote {
+		font: 17px/20px $font_times;
+		max-width: 445px;
+		
+		@include respond-to (phones) {
+			font-size: 13px;
+			line-height: 16px;
+		}
+		&:before,
+		&:after {
+			display: block;
+			font: bold 30px/40px $font_times;
+			
+			@include respond-to (phones) {
+				font-size: 27px;
+			}
+		}
+		&:before {
+			content: "\0201C"; // opening quote symbol
+			line-height: 17px;
+			margin-top: 29px;
+			
+			@include respond-to (phones) {
+				margin-top: 21px;
+			}
+		}
+		&:after {
+			content: "\0201D"; // closing quote symbol
+			line-height: 51px;
+			margin-bottom: -26px;
+			
+			@include respond-to (phones) {
+				line-height: 40px;
+				margin-bottom: -21px;
+			}
+		}
+	}
+	.quote-signature {
+		font: 13px/20px $font_helvetica;
+		
+		@include respond-to (phones) {
+			font-size: 11px;
+		}
+	}
+	
+	/* 
+	 * Carousel styles
+	 */
+	.carousel {
+		@include vendor-prefix(box-shadow, 2px 4px 5px 0px #999);
+		
+		position: relative;
+		width: 654px;
+		margin: 25px auto 0;
+		padding: 12px 14px;
+		background: #fff;
+		border: 1px solid #ccc;
+		
+		@include respond-to (tablets) {
+			width: 72%;
+			margin-top: 35px;
+		}
+		@include respond-to (phones) {
+			@include vendor-prefix(box-shadow, 1px 2px 3px 0 #999);
+			width: 82%;
+			padding: 3px;
+			margin-top: 20px;
+		}
+		
+		li {
+			padding: 0 1px;
+			
+			p {
+				font-size: 12px;
+				line-height: 15px;
+				margin: 0 0 2px;
+				
+				@include respond-to (tablets) {
+					max-width: none;
+				}
+				@include respond-to (phones) {
+					font-size: 11px;
+					line-height: 13px;
+				}
+			}
+		}
+		
+	}
+	.jcarousel-control {
+		position: absolute;
+		width: 37px;
+		height: 37px;
+		background: #000;
+		top: 50%;
+		margin-top: -19px;
+		cursor: pointer;
+		
+		@include respond-to (tablets) {
+			width: 28px;
+			height: 28px;
+			margin-top: -14px;
+		}
+		@include respond-to (phones) {
+			width: 20px;
+			height: 20px;
+			margin-top: -10px;
+		}
+	}
+	.jcarousel-prev {
+		left: -60px; 
+		
+		&:after {
+			@include triangle( left, 10px, -10px 0 0 0px, #fff );
+	
+			position: absolute;
+			top: 50%;
+			left: 12px;
+		}
+		
+		@include respond-to (tablets) {
+			left: -45px;
+			
+			&:after {
+				@include triangle( left, 8px, -8px 0 0 0px, #fff );
+				
+				left: 9px;
+			}
+		}
+		@include respond-to (phones) {
+			left: -29px;
+			
+			&:after {
+				@include triangle( left, 6px, -6px 0 0 0px, #fff );
+				
+				left: 6px;
+			}
+		}
+	}
+	.jcarousel-next {
+		right: -60px;
+		
+		&:after {
+			@include triangle( right, 10px, -10px 0 0 0px, #fff );
+	
+			position: absolute;
+			top: 50%;
+			right: 12px;
+		}
+		
+		@include respond-to (tablets) {
+			right: -45px;
+			
+			&:after {
+				@include triangle( right, 8px, -8px 0 0 0px, #fff );
+				
+				right: 9px;
+			}
+		}
+		@include respond-to (phones) {
+			right: -29px;
+			
+			&:after {
+				@include triangle( right, 6px, -6px 0 0 0px, #fff );
+				
+				right: 6px;
+			}
+		}
+	}
+	img {
+		max-width: 100%;
+	}
+}

@@ -1,0 +1,167 @@
+/*
+ * JS Classes
+ */
+
+// Js Accordion styles
+.js-accordion-wrapper {
+	.js-accordion-title {
+		@include respond-to( phones ) {
+			position: relative;
+			padding: 15px 50px 15px 20px;
+
+			&:after {
+				@include font_icons( $icon_plus );
+
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				margin: -10px 0 0;
+				color: $color-dark_red;
+			}
+		}
+	}
+	.js-accordion-content {
+		@include respond-to( phones ) {
+			display: none;
+		}
+	}
+	// expanded state
+	&.js-expanded {
+		.js-accordion-title {
+			@include respond-to( phones ) {
+				&:after {
+					@include font_icons( $icon_minus );
+				}
+			}
+		}
+		.js-accordion-content {
+			@include respond-to( phones ) {
+				display: block;
+			}
+		}
+	}
+}
+
+// Js Navigation points
+.js-navigation-points {
+	position: relative;
+
+	.sticky-wrapper {
+		position: fixed;
+		z-index: 10;
+	}
+	.js-navigation-dots {
+		position: fixed;
+		top: 250px;
+		margin: 0 0 0 915px;
+
+		@include respond-to( tablets ) {
+			margin: 0;
+			top: 260px;
+			right: 50px;
+		}
+
+		@include respond-to( phones ) {
+			display: none;
+			margin: 0;
+			top: 260px;
+			right: 25px;
+		}
+
+		li {
+			margin: 13px 0;
+		}
+		a {
+			color: $color-dark_red;
+			text-decoration: none;
+			position: relative;
+			display: block;
+			width: 24px;
+			padding: 0 0 0 12px;
+
+			&:before {
+				@include vendor-prefix( border-radius, 12px );
+				@include vendor-prefix( opacity, 0.5 );
+
+				content: '';
+				display: block;
+				width: 12px;
+				height: 12px;
+				background: #fff;
+				border: 1px solid #000;
+			}
+			&.active, &:hover {
+			    &:before {
+                    @include vendor-prefix( opacity, 1 );
+                }
+			}
+			&:hover span{
+				display: block;
+			}
+
+			span {
+				display: none;
+				position: absolute;
+				right: 100%;
+				top: 50%;
+				margin: -11px 0 0;
+				padding: 0 5px;
+				height: 22px;
+				font: bold 12px/19px $font_helvetica;
+				background: #fff;
+				text-transform: uppercase;
+				white-space: nowrap;
+				border: 1px solid #000;
+				
+				i {
+					@include background-img('innovations-arrow.png');
+					display: block;
+					position: absolute;
+					top: -1px;
+					right: -7px;
+					width: 7px;
+					height: 22px;
+				}
+			}
+		}
+	}
+}
+
+.ie8 {
+	.js-navigation-points {
+		.js-navigation-dots {
+			a {
+				&:before {
+					@include background-img( 'ie-carousel-points.png', 0 -13px, no-repeat );
+					@include vendor-prefix( opacity, 1 );
+				}
+				&:hover {
+					&:before {
+						@include background-img( 'ie-carousel-points.png', 0 0, no-repeat );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Js Tooltips
+.js-tooltip {
+	.js-tooltip-content {
+		display: none;
+	}
+}
+
+// Hide carousel controls
+.js-carousel-control-hidden {
+	display: none !important;
+}
+
+// JS Sticky Content Spots
+.js-search-refinebar-slots {
+	padding-bottom: 20px;
+}
+
+.js-disable-click a {
+    cursor: default !important;
+}

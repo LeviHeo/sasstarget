@@ -1,0 +1,2170 @@
+/*
+ * Account Registration
+ */
+
+.l-myaccount {
+    .g-wrapper-main_content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        @include respond-to(phones) {
+            padding: 0;
+        }
+    }
+    &.account_signin {
+        .content {
+            padding: 0;
+        }
+        .g-page_myaccount {
+            @include clearfix;
+
+            padding: 45px 0 50px;
+
+            @include respond-to(tablets) {
+                padding: 20px 0 40px;
+            }
+
+            @include respond-to(phones) {
+                padding: 20px 0 30px;
+            }
+        }
+    }
+}
+
+.s-registration {
+    .account_registration .content {
+        @include respond-to(phones) {
+            padding: 0;
+        }
+    }
+
+    .b-login_popup .block_create {
+        display: none;
+    }
+
+    .g-wrapper_inner-main_content {
+        padding: 0 !important;
+    }
+}
+
+.g-page_myaccount {
+    position: relative;
+}
+
+.register_page_inner {
+    padding: 35px 0;
+
+    h1 {
+        padding: 0;
+        margin: 0 0 30px;
+        font: bold 30px/54px $font_times;
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: 1px dotted #000;
+
+        @include respond-to(phones) {
+            margin: 0 auto 15px auto;
+            font-size: 22px;
+            line-height: 30px;
+            font-weight: normal;
+            padding-bottom: 15px;
+        }
+    }
+
+    .registration-title {
+        border-bottom: 1px dotted #000;
+        margin: 0 0 25px;
+        padding: 0 0 25px;
+        text-align: center;
+
+        h1 {
+            border: none;
+            margin: 0 0 10px 0;
+        }
+
+        span {
+            font-size: 14px;
+            color: #191919;
+        }
+    }
+
+    .user-registration-description {
+        margin: 0 0 40px;
+        padding: 0 20px;
+        font-size: 18px;
+        line-height: 20px;
+        text-align: center;
+        font-family: $font_arial;
+
+        @include respond-to(phones) {
+            font-size: 15px;
+        }
+
+        a {
+            @include links (#000, uppercase);
+        }
+    }
+
+    @include respond-to(tablets) {
+        padding: 50px 20px 30px;
+    }
+
+    @include respond-to(phones) {
+        margin: 0;
+        padding: 50px 20px;
+        border: none;
+    }
+
+    .b-registration-top-section {
+        text-align: center;
+
+        .registration_step & {
+            display: none;
+        }
+
+        h2 {
+            font-family: $font_helvetica;
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-family: $font_helvetica;
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 25px;
+
+            span {
+                font-size: 11px;
+            }
+        }
+
+        .formfield_button {
+            margin-top: 25px;
+
+            .submit_button {
+                font-size: 16px;
+                height: 40px;
+                margin: 0 10px;
+                padding: 0;
+                width: 115px;
+            }
+        }
+    }
+
+    .b-registration-bottom-section {
+        display: none;
+        width: 100%;
+
+        .b-registration_steps_wrapper {
+            width: 685px;
+            margin: 0 auto;
+            max-width: 100%;
+
+            .b-registration-step_wrapper {
+                width: 400px;
+                float: right;
+                max-width: 100%;
+
+                @include respond-to(phones) {
+                    .b-edit_account {
+                        padding: 0;
+                    }
+                }
+
+                .step_label {
+                    text-transform: uppercase;
+                    font-size: 11px;
+                }
+
+                .account-dialog-title {
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-family: $font_helvetica;
+                    line-height: 22px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+
+                    span {
+                        display: block;
+                        font-size: 12px;
+                        font-weight: normal;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    line-height: 20px;
+
+                    span {
+                        display: block;
+                        font-size: 12px;
+                    }
+                }
+
+                fieldset {
+                    margin: 20px 0;
+
+                    select,
+                    input {
+                        height: 40px;
+                        padding: 0 10px;
+                        margin-bottom: 2px;
+                    }
+
+                    .error_message {
+                        margin-top: 0;
+                    }
+
+                    .f_field {
+                        width: 100%;
+                        padding: 0;
+                    }
+
+                    .login-btn {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+
+                .mobile-section {
+                    .countrycode {
+                        width: 110px;
+                        padding: 0;
+                        margin-right: 15px;
+                        float: left;
+                    }
+
+                    .formfield_tel {
+                        width: 275px;
+                        padding: 0;
+                        max-width: calc(100% - 125px);
+                        float: left;
+                    }
+                    .error_message {
+                        @include respond-to(phones) {
+                            margin-left: -95px;
+                        }
+                    }
+
+                    .verification_wrapper {
+                        clear: both;
+
+                        input {
+                            text-align: center;
+                        }
+
+                        .resend-code {
+                            display: block;
+                            text-align: center;
+                            clear: both;
+                            position: relative;
+                            top: -10px;
+                        }
+                    }
+                }
+
+                form {
+                    max-width: 315px;
+                }
+
+                .formfield_button .button {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    height: 40px;
+                    padding: 0;
+                    font-size: 14px;
+
+                    &.back_step,
+                    &.registration-redirect-button {
+                        background: #fff;
+                        color: #000;
+                    }
+
+                    @include respond-to(phones) {
+                        font-size: 14px;
+                        padding: 0;
+                        margin-bottom: 0;
+                        height: 50px;
+                    }
+                }
+
+                .field-row {
+                    padding: 0;
+                    border-bottom: none;
+                    clear: both;
+                    position: relative;
+
+                    &.small {
+                        clear: none;
+                    }
+
+                    .f_field {
+                        width: 100%;
+                        padding: 0;
+                        margin-bottom: 20px;
+                        clear: both;
+
+                        &.small_input {
+                            width: 48%;
+                            float: left;
+                            clear: none;
+                        }
+
+                        &.last {
+                            float: right;
+                        }
+
+                        .f_label {
+                            min-height: 18px;
+                            display: block;
+                            font-weight: normal;
+
+                            @include respond-to(phones) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    &.birthday_field {
+                        .f_field {
+                            width: 48%;
+                            float: left;
+                            clear: none;
+
+                            &.formfield_birthday_day {
+                                float: right;
+                            }
+
+                            .f_label {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+
+                @include respond-to(phones) {
+                    .formfield_button {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .b-registration_navigation {
+            width: 210px;
+            float: left;
+
+            &.bottom_step {
+                display: none;
+            }
+
+            li {
+                padding: 10px 0;
+                display: block;
+                border-bottom: 1px solid #dedede;
+                text-transform: uppercase;
+                font-family: $font_helvetica;
+                font-size: 11px;
+                opacity: 0.3;
+
+                &.done {
+                    font-weight: bold;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .confirm-record-section {
+        margin: 20px 0;
+
+        .info-section {
+            span {
+                display: none;
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+
+            strong {
+                font-size: 24px;
+            }
+        }
+    }
+
+    .confirm-registration-section {
+        margin: 20px 0;
+
+        .button {
+            max-width: 320px;
+            float: left;
+        }
+
+        .field-row {
+            width: 100%;
+            margin-bottom: 25px;
+            display: inline-block;
+
+            .info-section {
+                width: 50%;
+                float: left;
+
+                &.full-row {
+                    width: 100%;
+                }
+
+                span {
+                    display: block;
+                    font-size: 11px;
+                    margin-bottom: 3px;
+                }
+
+                strong {
+                    font-size: 14px;
+                    margin-right: 10px;
+
+                    @include respond-to(phones) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .b-registration_progress-bar {
+        clear: both;
+        width: 685px;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 40px 0;
+
+        > span {
+            font-size: 11px;
+            color: #969696;
+            font-family: $font_helvetica;
+        }
+
+        .progress-bar-main {
+            position: relative;
+            background: #e5e5e5;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            height: 40px;
+            display: block;
+            width: 0;
+            background: #d8492c;
+            transition: 0.2s all;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+
+            .progress-status {
+                color: #fff;
+            }
+        }
+
+        .progress-status {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 0;
+        }
+    }
+
+    .error_message {
+        a, .link {
+            color: #f00;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
+
+.b-social-registration_wrapper {
+    width: 400px;
+    float: right;
+    max-width: 100%;
+
+    @include respond-to(phones) {
+        .b-edit_account {
+            padding: 0;
+        }
+    }
+
+    .step_label {
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+
+    .account-dialog-title {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: $font_helvetica;
+        line-height: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+        span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 20px;
+    }
+
+    fieldset {
+        select,
+        input {
+            height: 40px;
+            padding: 0 10px;
+            margin-bottom: 2px;
+        }
+
+        .error_message {
+            margin-top: 0;
+        }
+
+        .f_field {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    .mobile-section {
+        .countrycode {
+            width: 110px;
+            padding: 0;
+            margin-right: 15px;
+            float: left;
+        }
+
+        .formfield_tel {
+            width: 275px;
+            padding: 0;
+            max-width: calc(100% - 125px);
+            float: left;
+        }
+        .error_message {
+            @include respond-to(phones) {
+                margin-left: -95px;
+            }
+        }
+
+        .verification_wrapper {
+            clear: both;
+
+            input {
+                text-align: center;
+            }
+
+            .resend-code {
+                display: block;
+                text-align: center;
+                clear: both;
+                position: relative;
+                top: -10px;
+            }
+        }
+    }
+
+    form {
+        max-width: 315px;
+    }
+
+    .formfield_button {
+        &.b-link-account {
+            @include flex-parent();
+        }
+
+        .login-link-account-yes {
+            @include flex-child(1);
+        }
+        
+        .login-link-account-no {
+            @include flex-child(2);
+        }
+
+        .button {
+            width: 100%;
+            height: 40px;
+            min-height: 40px;
+            padding: 0;
+            font-size: 14px;
+            margin-bottom: 15px;
+
+            &.back_step,
+            &.registration-redirect-button {
+                background: #fff;
+                color: #000;
+            }
+
+            @include respond-to(phones) {
+                font-size: 14px;
+                padding: 0;
+            }
+        }
+    }
+
+    .field-row {
+        padding: 0;
+        border-bottom: none;
+        clear: both;
+        position: relative;
+
+        &.small {
+            clear: none;
+        }
+
+        .f_field {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 20px;
+            clear: both;
+
+            &.small_input {
+                width: 48%;
+                float: left;
+                clear: none;
+            }
+
+            &.last {
+                float: right;
+            }
+
+            .f_label {
+                min-height: 18px;
+                display: block;
+                font-weight: normal;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &.birthday_field {
+            .f_field {
+                width: 32%;
+                float: left;
+                clear: none;
+
+                &.formfield_birthday_month,
+                &.formfield_birthday_day {
+                    margin-left: 2%;
+                }
+
+                .f_label {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    @include respond-to(phones) {
+        .formfield_button {
+            margin: 0;
+        }
+    }
+}
+
+
+.checkbox_switch_view {
+    position: relative;
+
+    .checkbox_switch {
+        display: inline-block;
+        width: 100px;
+        border-radius: 20px;
+        height: 40px;
+        background: #dedede;
+        line-height: 50px;
+        color: #fff;
+        @include vendor-prefix(transition, all 0.2s ease-in-out);
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 34px;
+            height: 34px;
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            @include vendor-prefix(transition, all 0.2s ease-in-out);
+        }
+
+        span {
+            display: block;
+            line-height: 40px;
+            width: 70px;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+
+            &.agree {
+                display: none;
+            }
+
+            &.disagree {
+                float: right;
+            }
+        }
+    }
+
+    .f_checked + .checkbox_switch {
+        background: #79c861;
+
+        span.agree {
+            display: block;
+        }
+
+        span.disagree {
+            display: none;
+        }
+
+        &:after {
+            left: 63px;
+        }
+    }
+
+    .f_field_checkbox {
+        position: relative;
+        z-index: 11;
+
+        .f_label_value,
+        &.f_checked .f_label_value,
+        &.f_checked:hover .f_label_value {
+            padding: 0;
+            background: none;
+
+            a {
+                color: #4f4f4f;
+            }
+        }
+
+        .f_label {
+            padding: 0 110px 0 0;
+        }
+
+        span.f_error_message {
+            position: absolute;
+            top: 100%;
+            margin-top: 10px;
+            color: #f00;
+        }
+    }
+}
+
+.b-registration_wrapper .small {
+    width: 48%;
+    float: left;
+
+    &.last {
+        float: right;
+    }
+}
+
+.b-registration_submit {
+    // it should be global because gigya can remove standard wrappers
+    padding: 30px 0 0 0;
+    text-align: center;
+    border-top: 1px dotted black;
+
+    .b-registration-step_wrapper & {
+        padding: 0;
+        border-top: none;
+
+        .formfield_button {
+            margin: 0;
+
+            .button {
+                width: 100%;
+            }
+        }
+    }
+
+    button {
+        @include button-black();
+    }
+
+    @include respond-to(phones) {
+        padding: 0 40px 50px;
+        border-top: none;
+        background: #fff;
+
+        button {
+            display: block;
+            width: 100%;
+            @include button-size(0, 18px, 46px);
+        }
+    }
+}
+
+.b-registration {
+    .b-registration_wrapper {
+        @include clearfix;
+    }
+
+    .formfield_checkbox {
+        .formfield_description {
+            color: #999;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: left;
+            font-family: $font_helvetica;
+            font-weight: normal;
+            padding: 2px 0 0 21px;
+            display: block;
+            @include respond-to(phones) {
+                text-align: center;
+            }
+        }
+        .error_message {
+            padding: 0px 0 0 21px;
+        }
+    }
+
+    .b-registration_profileinfo {
+        width: 50%;
+        float: right;
+        padding: 0 0 0 55px;
+
+        @include respond-to(tablets) {
+            padding: 0 0 0 20px;
+        }
+
+        @include respond-to(phones) {
+            width: 100%;
+            float: none;
+            padding: 0 20px;
+            fieldset {
+                margin: 0 0 20px;
+            }
+        }
+
+        fieldset {
+            margin: 0 0 34px 0;
+        }
+    }
+
+    .b-registration_newsletter {
+        @include respond-to(phones) {
+            position: relative;
+            width: 100%;
+            margin: 0 0 40px 0;
+            float: none;
+            padding: 0 20px 30px 20px;
+            &:after {
+                position: absolute;
+                content: "";
+                width: 90%;
+                bottom: 0;
+                border-bottom: 1px dotted #000;
+                height: 1px;
+            }
+        }
+    }
+
+    .b-registration_subscriptions {
+        padding: 0;
+        float: none;
+        width: 50%;
+
+        @include respond-to(phones) {
+            width: 100%;
+            margin: 0px;
+
+            .b-registration_subscriptions_inner {
+                padding: 260px 20px 30px 20px;
+                width: 100%;
+                max-width: 100%;
+                border: none;
+                border-top: 2px solid #000;
+                .column {
+                    img {
+                        display: block;
+                    }
+                }
+                fieldset {
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        @include respond-to(tablets) {
+            .b-registration_subscriptions_inner {
+                padding: 220px 20px 60px 20px;
+            }
+        }
+    }
+
+    @include respond-to(phones) {
+        margin: 0 -20px;
+    }
+
+    &.b-hidden_rewards {
+        padding: 0 0 30px 0;
+        .b-registration_profileinfo {
+            width: 100%;
+            float: none;
+            padding: 0 180px;
+
+            @include respond-to(tablets) {
+                padding: 0 60px;
+            }
+
+            @include respond-to(phones) {
+                padding: 0 20px;
+            }
+        }
+
+        .b-registration_newsletter {
+            padding: 0px 232px 32px 232px;
+            width: 100%;
+
+            .add_to_emaillist {
+                margin-bottom: 0;
+            }
+
+            @include respond-to(tablets) {
+                padding: 0 0px 30px 0px;
+                width: 270px;
+                margin: 0 auto;
+                display: block;
+                float: none;
+            }
+
+            @include respond-to(phones) {
+                padding: 0 20px 30px 20px;
+                margin: 0 0 30px 0;
+            }
+        }
+
+        .b-registration_submit {
+            width: 55%;
+            padding: 30px 0;
+            margin: 0 auto;
+
+            @include respond-to(tablets) {
+                width: 80%;
+                padding: 30px 0;
+                margin: 0 auto;
+            }
+
+            @include respond-to(phones) {
+                width: 85%;
+                padding: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.b-registration-step_wrapper {
+    .social_login {
+        position: relative;
+        margin: 0 0 50px 0;
+
+        h2 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0;
+            top: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    .connect_social_profile .social_login {
+        margin: 0 0 30px 0;
+
+        h2 {
+            display: none;
+        }
+    }
+}
+
+.b-registration_profileinfo {
+    legend {
+        padding: 0;
+        margin: 0 0 4px;
+        font-size: 15px;
+        font-weight: normal;
+        line-height: 18px;
+        text-transform: uppercase;
+        font-family: $font_times;
+
+        .legend_message {
+            margin: 0 0 5px 0;
+            display: block;
+        }
+    }
+
+    .required_indicator {
+        @include required;
+
+        position: relative;
+        padding: 0 0 0 10px;
+        margin-bottom: 16px;
+        display: block;
+        color: #c03;
+        text-transform: none;
+        font: normal 12px/14px $font_helvetica;
+    }
+
+    .formfield {
+        margin: 0 0 13px;
+        color: #000;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 14px;
+        text-transform: none;
+        font-family: $font_helvetica;
+        vertical-align: top;
+
+        @include respond-to(phones) {
+            margin-bottom: 17px;
+        }
+
+        &.required {
+            label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                margin-bottom: 7px;
+            }
+        }
+
+        label {
+            margin: 0 0 5px 0;
+            display: block;
+        }
+
+        &.formfield_month, &.formfield_state {
+            width: 55%;
+            margin: 0 5% 15px 0;
+            float: left;
+            @include respond-to(phones) {
+                width: 50%;
+            }
+        }
+
+        &.formfield_day, &.formfield_zip {
+            width: 40%;
+            float: left;
+            @include respond-to(phones) {
+                float: right;
+            }
+        }
+
+        &.formfield_day {
+            label {
+                height: 14px;
+                padding: 0;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        &.formfield_country {
+            clear: both;
+        }
+
+        &.formfield_phone .formfield_description {
+            color: #999;
+            font: normal 11px/13px $font_helvetica;
+            display: block;
+            margin: 4px 0 0;
+        }
+    }
+}
+
+.b-registration_newsletter {
+    width: 385px;
+    padding: 24px 60px 30px 45px;
+    color: #000;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: normal;
+    text-transform: none;
+    font-family: $font_helvetica;
+    float: left;
+
+    .f_field {
+        padding: 0 0 5px;
+        margin: 0;
+    }
+
+    .f_field_checkbox {
+        font-weight: bold;
+        line-height: 14px;
+
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+
+        .f_label_value {
+            color: #000;
+            font-size: 12px;
+            font-family: $font_helvetica;
+        }
+    }
+
+    .error_message {
+        padding: 0 0 0 24px;
+    }
+
+    .form_caption {
+        padding: 0 0 0 24px;
+        color: #000;
+        font-size: 12px;
+        font-family: $font_helvetica;
+        a {
+            @include links (#000, uppercase );
+        }
+        @include respond-to(phones) {
+            text-align: left;
+        }
+    }
+
+    legend {
+        margin: 0 0 16px;
+        padding: 0;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 22px;
+        text-transform: none;
+        font-family: $font_arial;
+    }
+
+    @include respond-to(tablets) {
+        padding: 30px 20px 60px;
+        width: 100%;
+    }
+}
+
+.b-registration_subscriptions {
+    position: relative;
+
+    .b-registration_subscriptions_inner {
+        position: relative;
+        padding: 240px 60px 60px 60px;
+        max-width: 385px;
+        background: #fff;
+        border: 2px solid #000;
+        color: #000;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        font-family: $font_helvetica;
+
+        h1 {
+            padding: 20px 0;
+            margin: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: $font_times;
+            border-top: 1px dotted #d8492c;
+            border-bottom: 1px dotted #d8492c;
+        }
+
+        .rewards_description {
+            margin: 0 -7px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: disc outside;
+            padding: 0 0 0 14px;
+            li {
+                padding: 3px 0;
+            }
+        }
+
+        .form_caption {
+            padding: 0 0 0 20px;
+            color: #999;
+            font-size: 12px;
+            line-height: 24px;
+            a {
+                @include links (#999, none);
+            }
+        }
+
+        .user-registration-rewards {
+            .column {
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            img {
+                display: block;
+                margin: 40px auto 20px auto;
+                max-width: 100%;
+            }
+
+            h1 {
+                width: 100%;
+            }
+        }
+
+        .f_field_checkbox {
+            padding: 0 0 0 5px;
+            font-weight: bold;
+            line-height: 14px;
+
+            .f_label_value {
+                color: #000;
+                font-size: 12px;
+                font-family: $font_helvetica;
+
+                .ie8 & {
+                    font-weight: normal;
+                    font-family: $font_helvetica_b;
+                }
+            }
+        }
+    }
+
+    .b-registration_rewards {
+        @include background-img('registration/rewards_logo.png', top center, no-repeat);
+        position: absolute;
+        top: 0;
+        content: "";
+        display: block;
+        width: 330px;
+        height: 245px;
+        left: 50%;
+        margin: 0 0 0 -165px;
+        background-size: 100% auto;
+        z-index: 1;
+
+        @media (max-width: 920px) {
+            background-size: 90% auto;
+            width: 100%;
+            margin: 0 0 0 -50%;
+            background-position: top center;
+        }
+
+        @include respond-to(phones) {
+            margin: 0px 0 0 -165px;
+            width: 330px;
+            background-position: top center;
+        }
+
+        @media (max-width: 340px) {
+            margin: -15px 0 0 -50%;
+            width: 100%;
+            background-position: bottom center;
+        }
+    }
+}
+
+.myaccount {
+    &.account_signin {
+        padding: 40px;
+
+        .g-page_myaccount {
+            padding: 30px 0 70px 0;
+        }
+
+        .breadcrumb, .secondary {
+            display: none;
+        }
+
+        .primary {
+            width: 100%;
+        }
+    }
+}
+
+.login_page {
+    h1 {
+        padding: 0;
+        margin: 0 0 40px;
+        font: normal 30px/1 $font_times;
+        text-align: left;
+    }
+
+    @include respond-to(tablets) {
+        margin: 0 0 20px;
+        font-size: 24px;
+    }
+
+    @include respond-to(phones) {
+        padding: 0 0 5px;
+        overflow: hidden;
+
+        h1 {
+            margin: 0 0 30px;
+            padding: 0 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+    &.account_login_page {
+        h1 {
+            .account_header {
+                display: none;
+            }
+        }
+    }
+
+    &.review_login_page {
+        h1 {
+            padding-top: 30px;
+        }
+    }
+
+    // Blocks
+
+    .block {
+        display: inline-block;
+        vertical-align: top;
+        width: 35%;
+        padding: 40px;
+        background: #fafaf8;
+        border: 1px solid #d4d4d4;
+
+        @include respond-to(tablets) {
+            width: 47%;
+        }
+
+        @include respond-to(phones) {
+            padding: 20px 17px;
+            margin: 0;
+            width: 100%;
+            border: none;
+        }
+
+        h2,
+        .section_header {
+            padding: 0 0 15px;
+            margin: 0 0 15px;
+            text-align: left;
+            font: bold 20px/22px $font_times;
+            border-bottom: 1px dotted #ccc;
+
+            @include respond-to(phones) {
+                padding-bottom: 10px;
+                font-size: 23.5px;
+                line-height: 33px;
+            }
+        }
+
+        .f_required_indicator {
+            display: none;
+        }
+
+        // login block
+
+        &_login {
+            @include vendor-prefix(box-shadow, #666 2px 2px 6px -1px);
+
+            // fixes for account page accountloginreturnedcustomer template
+            .block {
+                display: block;
+                width: auto;
+                padding: 0;
+                border: none;
+            }
+
+            .block_login {
+                @include vendor-prefix(box-shadow, none);
+            }
+            // end fixes
+
+            form {
+                position: relative;
+                padding: 0 0 42px;
+
+                #missmatch {
+                    margin: 0 0 10px;
+                }
+
+                .formfield_email,
+                .formfield_password {
+                    .f_label {
+                        display: none;
+                    }
+                }
+
+                .formfield_checkbox {
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                }
+
+                .formfield_link {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    font-weight: bold;
+
+                    a {
+                        @include links(#000, underline);
+                        font: bold 11px/14px $font_arial;
+                    }
+                }
+            }
+
+            @include respond-to(phones) {
+                @include vendor-prefix(box-shadow, #ccc 2px 2px 6px -1px);
+                border-top: 1px solid #ccc;
+
+                form {
+                    .formfield_checkbox,
+                    .formfield_link {
+                        font-size: 12px;
+                    }
+
+                    .formfield_checkbox {
+                        left: 0;
+                    }
+
+                    .formfield_link {
+                        right: 0;
+                    }
+                }
+            }
+
+            .social_login {
+                h2 {
+                    position: relative;
+                    margin: 0 0 10px 0;
+                    padding: 0;
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: normal;
+                    border: none;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 55%;
+                        left: 0;
+                        z-index: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: #ccc;
+                    }
+                    span {
+                        position: relative;
+                        padding: 0 10px;
+                        background: #fafaf8;
+                    }
+                }
+            }
+
+        }
+
+        // search block
+
+        &_search {
+            @include vendor-prefix(box-shadow, #666 2px 2px 6px -1px);
+
+            position: relative;
+            margin: 0 20px 0;
+
+            @include respond-to(tablets) {
+                margin: 0 0 0 20px;
+            }
+
+            @include respond-to(phones) {
+                background: transparent;
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .checkorderaccountform {
+                position: relative;
+            }
+
+            .checkorder_description {
+                margin: 10px 0 0;
+                font: 11px/14px $font_arial;
+            }
+
+            .checkorder_description_top {
+                margin: 0 0 26px;
+                padding-right: 40px;
+            }
+
+            form {
+                .formfield_order_number,
+                .formfield_postal_code {
+                    .f_label {
+                        display: none;
+                    }
+                }
+
+                .error_form {
+                    display: block;
+                    margin: 0 0 15px;
+                }
+            }
+
+        }
+
+        &_account_help {
+            display: block;
+            width: 25%;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 110px;
+            background: transparent;
+            border: none;
+            font: normal 15px/20px $font_arial;
+            text-align: left;
+
+            h2 {
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+
+            h3 {
+                margin: 20px 0 0;
+                font-weight: bold;
+            }
+
+            img {
+                margin: 15px 0 0;
+            }
+
+            @include respond-to(tablets) {
+                position: relative;
+                width: 50%;
+                float: right;
+                margin: 52px 0 0;
+                top: 0;
+
+                img {
+                    float: right;
+                }
+
+                .hidden-tablet {
+                    display: block !important;
+                }
+            }
+
+            @include respond-to(phones) {
+                position: relative;
+                width: 100%;
+                margin: 26px 0 0;
+                padding: 0 17px;
+                float: none;
+                top: 0;
+                font-size: 12px;
+                line-height: 18px;
+                background-color: #fff;
+
+                img {
+                    position: absolute;
+                    top: 61px;
+                    right: -20px;
+                    margin: 0;
+                    width: 155px;
+                    height: auto;
+                }
+            }
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .confirm-record-section {
+            span {
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            strong {
+                font-size: 16px;
+                margin-bottom: 25px;
+                display: block;
+            }
+        }
+        
+        .b-registration_submit {
+            border: none;
+            padding: 0;
+
+            .button {
+                width: 45%;
+                padding: 0;
+                float: left;
+                &.login-link-account-yes {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    // gigya login
+
+    .b-login_gigya {
+        margin: 0 -15px;
+
+        .b-gigya_title {
+            position: relative;
+            line-height: 46px;
+            margin: 0;
+            font-size: 30px;
+            font-weight: normal;
+            text-align: center;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index: 0;
+                width: 100%;
+                height: 1px;
+                background: #000;
+            }
+
+            span {
+                position: relative;
+                padding: 0 20px;
+                background: #fafaf8;
+                font: bold 20px/22px $font_times;
+                color: #000;
+            }
+
+            @include respond-to(phones) {
+                margin: 0 20px;
+            }
+        }
+    }
+
+    .gigyaLoginParent {
+        position: relative;
+        height: 60px;
+
+        div {
+            table {
+                position: absolute;
+                width: 260px !important;
+                left: 50% !important;
+                margin: -19px 0 0 -130px !important;
+                top: 50%;
+            }
+        }
+    }
+
+    // checkout disabled
+
+    &.checkorder_disabled {
+        .block_account_help {
+            @include respond-to(tablets) {
+                position: absolute;
+                top: 39px;
+                right: -10px;
+            }
+            .account-signin-help {
+                margin: 20px 0 0;
+            }
+        }
+
+        @include respond-to(phones) {
+            .b-create_wrapper {
+                width: 100%;
+                padding: 20px;
+                margin: 0;
+
+                .block_create {
+                    padding: 0 0 30px;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+
+            .block.block_account_help {
+                margin: 0;
+                padding-top: 0;
+            }
+        }
+    }
+
+    // global buttons
+
+    .formfield_button {
+        button {
+            @include button-black();
+
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .formfield_button button,
+    .create_account_button {
+        white-space: nowrap;
+    }
+
+}
+
+// Login page specific
+
+.account_login_page {
+    .block_create {
+        display: block;
+        width: 72%;
+        padding: 54px 41px 28px;
+        font: 14px/18px $font_arial;
+        background: transparent;
+        border: none;
+
+        ul {
+            list-style: disc inside;
+        }
+
+        p {
+            margin-bottom: 15px;
+
+            @include respond-to(tablets) {
+                margin-bottom: 27px;
+            }
+
+            @include respond-to(phones) {
+                margin-bottom: 19px;
+            }
+        }
+
+        a {
+            @include links( #000, underline, #000, none );
+        }
+
+        .create_account_button {
+            @include button-black();
+            @include links( #fff, none );
+
+            margin-top: 10px;
+
+            @include respond-to(tablets) {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            @include respond-to(phones) {
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        @include respond-to(tablets) {
+            width: 47%;
+            padding: 50px 20px 20px;
+            line-height: 22px;
+
+            .hidden-tablet {
+                display: block !important;
+            }
+
+            .create_account_button {
+                width: 100%;
+            }
+        }
+
+        @include respond-to(phones) {
+            @include vendor-prefix(box-shadow, #ccc 2px 2px 6px -1px);
+
+            width: 100%;
+            padding: 20px 17px 30px;
+            background: #fafaf8;
+            border-top: 1px solid #ccc;
+            font-size: 12px;
+            line-height: 18px;
+
+            .create_account_button {
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+// Review login page specific
+
+.review_login_page {
+    padding-bottom: 50px;
+
+    // Registration block on comment login page. We have similar block on sign in page
+
+    .block_create {
+        display: inline-block;
+        vertical-align: top;
+        width: 35%;
+        padding: 20px 0;
+        margin: 0 20px;
+        border: none;
+        background: transparent;
+
+        > p { // show it as title
+            padding: 0 0 15px;
+            margin: 0 0 15px;
+            text-align: left;
+            font: bold 20px/22px $font_times;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .create_account_button {
+            margin-top: 0;
+        }
+
+        @include respond-to(tablets) {
+            width: 47%;
+            margin-right: 0;
+        }
+
+        @include respond-to(phones) {
+            @include vendor-prefix(box-shadow, none);
+
+            display: block;
+            width: auto;
+            margin: 0;
+            padding: 20px 30px 10px;
+            background: transparent;
+
+            .create_account_button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Sign in page Gigya
+
+.register_page_inner {
+    #gigyaLoginContainerRegistration {
+        margin: 1px auto 0;
+        width: auto !important;
+        text-align: center;
+        padding: 0;
+
+        table {
+            margin: 0 auto !important;
+            width: auto !important; // overwrite plugin inline styles
+        }
+    }
+
+    .loginInstruction {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font: bold 14px/20px $font_arial;
+        overflow: hidden;
+    }
+
+    #gigyaLoginContainerRegistration {
+        table {
+            position: relative;
+            tr:last-child {
+                td {
+                     display: table-cell;
+
+                     &:first-child {
+                         padding-left: 0 !important;
+                     }
+                }
+            }
+        }
+    }
+}
+
+.dialog-gigya-linkaccount, .pt_accountloginpopup {
+    width: 248px;
+    background: #fff;
+    font: normal 12px/17px $font_arial;
+
+    h1,
+    .gigya-linkaccount-header {
+        padding: 0 0 15px;
+        margin: 0 0 15px;
+        text-align: left;
+        border-bottom: 1px dotted #ccc;
+        font: bold 20px/22px $font_times;
+    }
+
+    fieldset {
+        legend {
+            display: none;
+        }
+    }
+
+    #divGigyaLinkAccount .registrationInstruction {
+        margin: 0px 0 20px 0;
+    }
+
+    .gigya-emailrequest-description {
+        padding: 0 0 5px 0;
+        font: normal 12px/17px $font_arial;
+    }
+
+    .f_label {
+        font: bold 12px/17px $font_arial;
+    }
+
+    .f_field {
+        .formfield_description {
+            font-size: 11px;
+            color: #999;
+        }
+
+        &.required {
+            .f_label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                &:before {
+                    color: #c03;
+                }
+            }
+        }
+    }
+
+    .formfield_link_password_reset {
+        text-align: right;
+    }
+
+    button {
+        padding: 12px;
+        width: 100%;
+    }
+}
+
+.gigya-modal-container {
+    .gig-edit-connections {
+        width: 300px;
+        padding: 0 5px;
+    }
+}
+
+#divLinkCurrentAccount,
+#divGigyaLinkAccount {
+    .submit_button {
+        @include respond-to(phones) {
+            width: 100%;
+        }
+    }
+}
+
+#divGigyaLinkAccount {
+    .formfield_description {
+        font-size: 11px;
+    }
+
+    .formfield_link,
+    .formfield_button {
+        text-align: center;
+    }
+}
+
+@include respond-to(phones) {
+
+    body .main.registration_step {
+        z-index: 3;
+    }
+
+    .register_page_inner {
+        .b-registration_progress-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            padding: 0;
+            height: 30px;
+            z-index: 11;
+
+            .progress-bar-main {
+                margin: 0;
+                background: #333333;
+            }
+
+            .progress-status {
+                line-height: 30px;
+                color: #fff;
+            }
+
+            .progress-bar {
+                height: 30px;
+            }
+        }
+
+        .b-registration-bottom-section {
+            .b-registration_navigation {
+                width: 100%;
+                text-align: center;
+
+                &.bottom_step {
+                    display: block;
+                }
+
+                li {
+                    font-size: 14px;
+                    line-height: 30px;
+                    border-top: 1px solid #dedede;
+                    border-bottom: 1px solid #dedede;
+                    margin: -1px 0;
+                    padding: 10px 20px;
+                    position: relative;
+
+                    span {
+                        width: 30px;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                    }
+                }
+            }
+        }
+
+        .b-registration-bottom-section {
+            .b-registration_steps_wrapper {
+                .b-registration-step_wrapper {
+                    padding: 25px;
+
+                    .step_label, .account-dialog-title {
+                        display: none;
+                    }
+
+                    p {
+                        text-align: center;
+                        margin: 15px 0 30px;
+                    }
+
+                    .mobile-section {
+                        .countrycode {
+                            width: 80px;
+                        }
+
+                        .formfield_tel, .verification_wrapper {
+                            width: calc(100% - 95px);
+                            max-width: 100%;
+                            clear: none;
+                            float: right;
+                        }
+                    }
+
+                    .formfield_button {
+                        .button {
+                            border: none;
+
+                            &:before {
+                                display: none;
+                            }
+                        }
+
+                        &.send-code-button {
+                            position: fixed;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            z-index: 1111;
+
+                            &.code_sent {
+                                position: relative;
+                                clear: left;
+                                width: 80px;
+                                float: left;
+
+                                .button {
+                                    height: 40px;
+                                }
+                            }
+                        }
+
+                        &.confirm_record_button .button {
+                            width: 33.333%;
+                            float: right;
+                            border: none;
+                            font-size: 12px;
+
+                            &.back_step {
+                                border-left: 1px solid;
+                            }
+                        }
+                    }
+
+                    .field-row {
+                        &.first_name, &.last_name {
+                            &.small {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .b-registration_navigation {
+                li {
+                    display: none;
+
+                    &.done {
+                        display: block;
+                    }
+                }
+
+                &.bottom_step {
+                    margin-bottom: 50px;
+
+                    li {
+                        display: block;
+
+                        &.done {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .form_button {
+                clear: both;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 11;
+            }
+
+            .small {
+                width: 50%;
+            }
+        }
+
+        .confirm-record-section {
+            text-align: center;
+        }
+    }
+}

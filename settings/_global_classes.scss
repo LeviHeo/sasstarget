@@ -1,0 +1,130 @@
+/*
+ * Global classes
+ */
+
+.g-float_container {
+	@include clearfix;
+
+}
+.g-float_left {
+	float: left;
+}
+.g-float_right {
+	float: right;
+}
+
+.g-width_10 {
+	width: 10%;
+}
+.g-width_20 {
+	width: 20%;
+}
+.g-width_30 {
+	width: 30%;
+}
+.g-width_40 {
+	width: 40%;
+}
+.g-width_50 {
+	width: 50%;
+}
+.g-width_60 {
+	width: 60%;
+}
+.g-width_70 {
+	width: 70%;
+}
+.g-width_80 {
+	width: 80%;
+}
+.g-width_90 {
+	width: 90%;
+}
+.g-width_100 {
+	width: 100%;
+}
+
+// @group jQuery.ellipsis plugin styles
+//------------------------------------------------------------------------------
+// Please note that this is global classes for all ellipsed lines.
+
+.ellip,
+.ellip-line {
+    position: relative;
+    overflow: hidden;
+}
+
+.ellip {
+    display: block;
+    height: 100%;
+    
+    span {
+        white-space: normal !important; //override weird behavior on mobile devices scrolling
+        &.ellip-line {
+            white-space: nowrap !important; //override override
+        }
+    }
+}
+
+.ellip-line {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+    padding-bottom: 2px;
+    vertical-align: top;
+}
+
+// @end
+
+// @group Title lined
+//------------------------------------------------------------------------------
+
+.g-title_lined {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+
+    span {
+        display: inline-block;
+        position: relative;
+
+        &:before,
+        &:after {
+            content: "";
+            width: 600px;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            border-bottom: 1px solid #000;
+        }
+
+        &:before {
+            margin-right: 10px;
+            right: 100%;
+        }
+
+        &:after {
+            margin-left: 10px;
+            left: 100%;
+        }
+    }
+}
+
+.g-title_lined-gigya {
+    width: 280px;
+    font: bold 20px/1 $font_times;
+    margin: -3px auto 7px;
+
+    @include respond-to(phones) {
+        width: 250px;
+        font-size: 14px;
+        margin-bottom: 26px;
+    }
+}
+
+// @end
+
+

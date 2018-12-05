@@ -1,0 +1,298 @@
+/*
+ * Recycled page
+ */
+
+.b-recycle-pg {
+	@include background-img('bg-recycle-paper.jpg', 0, repeat);
+	margin: 20px 0 0;
+	padding: 20px 59px 63px;
+	font: bold 13px/16px $font_helvetica;
+	background-color: #cdb589;
+	text-align: center;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b;
+	}
+
+	@include respond-to(tablets) {
+		margin-top: 11px;
+		padding: 20px 44px 63px;
+		font-size: 15px;
+		line-height: 19px;
+	}
+
+	@include respond-to(phones) {
+		margin-top: 19px;
+		padding: 20px;
+		font-size: 9.5px;
+		line-height: 16px;
+	}
+
+	a {
+		@include links(#000, underline, #000, none);
+	}
+
+	@include respond-to(phones-tablets) {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	// page header
+
+	&_header {
+		padding: 30px 0 45px;
+		font-family: $font_rockwell_extrabold;
+		font-weight: normal;
+
+		@include respond-to(tablets) {
+			padding-top: 0;
+			padding-bottom: 10px;
+		}
+
+		@include respond-to(phones) {
+			padding-top: 0;
+			padding-bottom: 14px;
+		}
+
+		// header layout
+		&_r,
+		&_l {
+			display: inline-block;
+			vertical-align: middle;
+
+			@include respond-to(phones) {
+				vertical-align: top;
+			}
+		}
+
+		&_l {
+			width: 33%;
+
+			@include respond-to(tablets) {
+				width: 30%;
+			}
+
+			@include respond-to(phones) {
+				width: 100px;
+			}
+		}
+
+		&_r {
+			width: 61%;
+
+			@include respond-to(phones) {
+				width: auto;
+			}
+		}
+	}
+
+	&_title {
+		margin: 0;
+		font-size: 35px;
+		line-height: 36px;
+		text-transform: uppercase;
+
+		@include respond-to(tablets) {
+			margin-top: 4px;
+			font-size: 25px;
+			line-height: 26px;
+		}
+
+		@include respond-to(phones) {
+			font-size: 15px;
+			line-height: 16px;
+			margin-bottom: 6px;
+			margin-top: 8px;
+		}
+	}
+
+	&_subtitle {
+		font-size: 18px;
+		line-height: 22px;
+		color: #f7e906;
+		text-shadow: 0 1px 3px rgba(0, 0, 0, .75);
+		text-transform: uppercase;
+
+		@include respond-to(tablets) {
+			font-size: 13px;
+			line-height: 16px;
+		}
+
+		@include respond-to(phones) {
+			font-size: 12px;
+			line-height: 1;
+		}
+	}
+
+	// page content
+
+	&_content {
+		background: #fff;
+		padding: 33px 20px 23px;
+
+		@include respond-to(tablets) {
+			padding: 25px 20px 23px;
+		}
+
+		@include respond-to(phones) {
+			padding: 12px 20px 20px;
+		}
+
+		&_heading {
+			padding: 0 70px 30px;
+			font: normal 20px/30px $font_rockwell_extrabold;
+			color: #005a26;
+			text-align: center;
+
+			@include respond-to(tablets) {
+				padding: 0 30px 5px;
+				font-size: 14px;
+				line-height: 22px;
+			}
+
+			@include respond-to(phones) {
+				padding: 0 0 15px;
+				font-size: 11px;
+				line-height: 15px;
+			}
+		}
+
+		&_title {
+			font: normal 40px/1 $font_rockwell_extrabold;
+			color: #020704;
+			margin: 0 0 6px;
+			text-transform: uppercase;
+
+			@include respond-to(tablets) {
+				font-size: 30px;
+				line-height: 29px;
+			}
+
+			@include respond-to(phones) {
+				font-size: 19px;
+				line-height: 20px;
+			}
+		}
+	}
+
+	// block layout
+
+	&_l-lined {
+
+		@include respond-to(tablets) {
+			padding-bottom: 33px;
+		}
+
+		&_l {
+			display: inline-block;
+			vertical-align: middle;
+
+			@include respond-to(tablets) {
+				width: 74%;
+			}
+		}
+
+		&_r {
+			display: inline-block;
+			vertical-align: middle;
+			width: 195px; // it should be changed when we find Rockwell bold
+
+			@include respond-to(tablets) {
+				width: 136px;
+			}
+
+			@include respond-to(phones) {
+				width: 100%;
+				padding: 5px 0 23px;
+			}
+		}
+	}
+
+	// emph block
+
+	&_b-emph {
+		font: normal 14px/1 $font_rockwell_extrabold;
+		text-transform: uppercase;
+
+		@include respond-to(tablets) {
+			font-size: 9px;
+			line-height: 11px;
+		}
+
+		@include respond-to(phones) {
+			font-size: 9px;
+			line-height: 8px;
+		}
+
+		&_head {
+			display: block;
+			margin-bottom: 11px;
+			font-size: 24px;
+			color: #005a26;
+
+			@include respond-to(tablets) {
+				margin-bottom: 9px;
+				font-size: 18px;
+				line-height: 11px;
+			}
+
+			@include respond-to(phones) {
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 7px;
+				font-size: 12px;
+				line-height: 11px;
+			}
+		}
+
+		&_content {
+			@include respond-to(phones) {
+				display: inline-block;
+				vertical-align: middle;
+				width: 113px; // it should be changed when we find Rockwell bold
+			}
+		}
+	}
+
+	a.b-recycle-pg_button {
+		@include button-black(0 14px, 18px, 39px);
+		margin-top: 16px;
+
+		@include respond-to(tablets) {
+            @include button-size(0 12px, 16px, 28px);
+		}
+
+		@include respond-to(phones) {
+            @include button-size(0 10px, 10px, 15px);
+		}
+	}
+
+	// rules modal content
+
+	&_modal-content {
+		h2 {
+			font-size: 20px;
+			line-height: 30px;
+			margin-bottom: 14px;
+		}
+
+		h3 {
+			font-size: 16px;
+			line-height: 25px;
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		.ui-dialog & {
+			margin-top: -20px;
+		}
+	}
+}
+
+

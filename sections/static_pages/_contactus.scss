@@ -1,0 +1,445 @@
+/*
+ * Contact Us
+ */
+
+.g-page_contact_us {
+	.contact-us {
+		padding: 0 0 15px 0;
+		margin: 0 0 15px 0;
+		border-bottom: 1px dotted #ccc;
+		h1 {
+			font: bold 18px/21px $font_times;
+		}
+		a {
+			@include links(#000, underline);
+
+			width: 31%;
+			margin: 0 0 0 3%;
+			padding: 10px;
+			display: inline-block;
+			text-transform: none;
+			text-decoration: underline;
+			text-align: center;
+			background: #fafaf8;
+			border: 1px solid #d4d4d4;
+			font: normal 14px/16px $font_arial;
+			&:before {
+				display: none;
+			}
+			&.b-mobile_tel {
+				margin-left: 0;
+				text-decoration: none;
+				span {
+					font-weight: bold;
+				}
+			}
+			@include respond-to(tablets) {
+				display: block;
+				margin: 0 0 15px 0;
+				width: 215px;
+				padding: 10px 30px;
+				text-align: center;
+			}
+			@include respond-to(phones) {
+				padding: 10px 5px;
+				display: block;
+				width: 190px;
+				margin: 0 auto 15px auto !important;
+				&:before, &.b-mobile_tel:before {
+					width: 97.8%;
+				}
+			}
+		}
+		@include respond-to(phones) {
+			padding: 0 0 5px 0;
+			text-align: center;
+			h1 {
+				height: auto;
+				padding: 0;
+				margin: 0 0 5px 0;
+				text-align: left;
+				border-bottom: none !important;
+				font: bold 15px/15px $font_times;
+			}
+		}
+	}
+	.b-question_area {
+		@include background-img( 'contact-us/metal-wing.png' );
+		background-position: top right;
+		margin: 0 0 15px 0;
+		font-family: $font_helvetica;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 18px;
+		form {
+			padding: 0 0 20px 0;
+			margin: 0;
+		}
+		h2 {
+			margin: 0;
+			padding: 0;
+			font-weight: bold;
+			font-family: $font_times;
+			font-size: 18px;
+			line-height: 20px;
+			text-transform: uppercase;
+		}
+		.message {
+			margin: 0 0 10px 0;
+		}
+		.textinput {
+			width: 380px;
+			display: inline-block;
+			vertical-align: top;
+			@include respond-to(tablets) {
+				width: 290px;
+				float: left;
+				margin: 0;
+			}
+			@include respond-to(phones) {
+				width: 70%;
+			}
+
+			.ie8 & {
+				width: 100%;
+			}
+		}
+		.lt-ie10 & .f_placeholder_wrapper {
+			width: 380px;
+			display: inline-block;
+		}
+		.button_submit {
+			@include button-black(0 30px, 14px, 30px);
+			margin: 0 0 0 -3px;
+			vertical-align: top;
+
+			@include respond-to(phones) {
+				width: 30%;
+                padding: 0 10px;
+				margin: 0 0 0 -4px;
+			}
+		}
+		a {
+			@include links(#666, underline);
+			font-weight: normal;
+		}
+		@include respond-to(tablets) {
+			background: transparent;
+		}
+		@include respond-to(phones) {
+			background: transparent;
+			h2 {
+				margin: 0 0 5px 0;
+				font-size: 15px;
+				line-height: 18px;
+			}
+			.message {
+				margin: 0 0 25px 0;
+				font: normal 10px/12px $font_helvetica;
+			}
+		}
+	}
+	.html_slot_container {
+		h1 {
+			margin: 0;
+			width: 65%;
+			border: none;
+			text-align: center;
+			font: bold 18px/21px $font_times;
+			text-transform: uppercase;
+		}
+		a {
+			@include links(#666, underline);
+			font-weight: normal;
+		}
+		h2 {
+			margin: 3px 0;
+			color: #000;
+			font: bold 13px/16px $font_helvetica;
+
+			.ie8 & {
+				font-weight: normal;
+				font-family: $font_helvetica_b;
+			}
+
+			&.question_act {
+				color: #d8492c;
+			}
+		}
+		.b-faq-content {
+			margin: 15px 0;
+			padding: 10px 0;
+			display: none;
+			font: normal 14px/21px $font_helvetica;
+			border-top: 1px dotted #ccc;
+			border-bottom: 1px dotted #ccc;
+			a {
+				@include links(#000, underline);
+				font-weight: normal;
+			}
+			&.active {
+				display: block;
+			}
+		}
+		@include respond-to(tablets) {
+			h1 {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+	.b-outer_block {
+		.b-real_dialog {
+			padding: 20px 0;
+			margin: 20px 0;
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			.rd_user_title {
+			    margin: 0 0 7px 0;
+				font: bold 18px/21px $font_times;
+				text-transform: uppercase;
+			}
+			.rd_inner_color_question {
+				font: normal 14px/21px $font_times;
+				font-style: italic;
+			}
+		}
+		.real_dialog_error {
+			color: #f00;
+			font: normal 14px/16px $font_times;
+			display: none;
+		}
+		.rd_more_answer {
+			margin: 10px 0;
+			color: #000;
+			font: normal 14px/16px $font_times;
+			a {
+				@include links(#000, underline);
+
+				font-weight: bold;
+			}
+		}
+		@include respond-to(phones) {
+			.b-real_dialog {
+				.rd_user_title {
+					font: bold 15px/18px $font_times;
+				}
+				.rd_inner_color_question {
+					font: normal 11px/12px $font_times;
+					font-style: italic;
+				}
+			}
+			.rd_more_answer {
+				font: normal 11px/12px $font_times;
+			}
+			.real_dialog_error, .rd_title_answer, .rd_inner_color_answer {
+				font: normal 11px/12px $font_times;
+			}
+		}
+	}
+	@include respond-to(phones) {
+		.b-cs_title {
+			display: none;
+		}
+	}
+}
+
+.contact_us_form_page {
+	margin: 10px 0;
+	font: normal 14px/18px $font_helvetica;
+	overflow: hidden;
+	.f_field {
+		&.f_field_textarea {
+			margin: 0;
+			textarea {
+				padding: 5px 10px;
+				resize: none;
+				border-radius: 0;
+				box-shadow: none;
+				-webkit-appearance: none;
+			}
+			label {
+				vertical-align: top;
+			}
+		}
+		&.required {
+			label {
+				@include required;
+
+			}
+		}
+		label {
+			position: relative;
+			padding: 0 0 0 10px;
+			width: 25%;
+			display: inline-block;
+		}
+		input, select, textarea {
+			margin: 0;
+			width: 74%;
+		}
+		.error_message {
+			margin: 0 0 0 26%;
+		}
+	}
+	.char_remains {
+		padding: 0 0 0 26%;
+		.count {
+			color: #f00;
+		}
+	}
+	#formaction {
+		margin: 20px 0 10px 0;
+		padding: 0 0 0 26%;
+		.formfield_button {
+			display: inline-block;
+			margin: 0 10px 0 0;
+		}
+	}
+	@include respond-to(phones) {
+		font: normal 10px/12px $font_helvetica;
+		#formaction {
+			.formfield_button {
+				display: block;
+				.button {
+					margin: 0 0 10px 0;
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+	// IE fixes
+	.f_placeholder_wrapper {
+		display: inline-block !important;
+		width: 515px;
+		
+		input,
+		select,
+		textarea {
+			width: 515px !important;
+		}
+	}
+}
+
+.realdialog-question {
+	@include clearfix;
+
+	font: normal 14px/16px $font_helvetica;
+
+	@include respond-to(phones) {
+        font-size: 10px;
+        line-height: 12px;
+    }
+	h2 {
+		font: bold 14px/24px $font_helvetica;
+		cursor: pointer;
+		display: block;
+		float: left;
+		clear: both;
+
+		@include respond-to(phones) {
+		    font: bold 10px/20px $font_helvetica;
+		}
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+
+		&.question_act {
+			color: #d8492c;
+		}
+		&.b-title {
+			margin: 0 0 7px 0;
+			padding: 0;
+			font: bold 18px/20px $font_times;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.related_wr {
+    @include clearfix;
+
+    padding: 20px 0 0 0;
+    font: normal 14px/16px $font_helvetica;
+    h2 {
+        margin: 0;
+        padding: 0;
+        font: bold 14px/24px $font_helvetica;
+
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+    }
+    .RdSlug {
+        font: bold 14px/21px $font_times;
+        font-style: italic;
+        cursor: pointer;
+        display: block;
+        float: left;
+        clear: both;
+
+        @include respond-to(phones) {
+            font: bold 10px/20px $font_helvetica;
+        }
+
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+    }
+}
+
+.b-answer_area {
+	padding: 20px 0;
+	margin: 20px 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	.rd_title_answer {
+		margin: 0;
+		padding: 10px 0 10px 0;
+		font: normal 14px/18px $font_helvetica;
+	}
+	.rd_inner_color_answer {
+		padding: 10px 0 0 0;
+		margin: 0;
+		font: normal 14px/18px $font_helvetica;
+		a {
+			@include links(#000, underline);
+		}
+	}
+}
+
+.ui-dialog {
+	.contact-us-details, .contact_us_form_page {
+		padding: 0 30px;
+	}
+}
+
+.b-staticpage-header {
+	h1 {
+		margin: 0;
+		font: normal 30px/46px $font_times;
+	}
+}
+
+.pt_customer_service {
+	.ui-dialog {
+		.contact-us-details, .contact_us_form_page {
+			padding: 0 30px;
+			font: normal 14px/18px $font_helvetica;
+
+			@include respond-to(phones) {
+				font: normal 11px/12px $font_times;
+
+				.selectboxit-container {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+

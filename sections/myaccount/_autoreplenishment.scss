@@ -1,0 +1,534 @@
+/*
+ * Auto Replenishment
+ */
+
+.s-account {
+    &.s-autoreplenishment .main {
+        .g-page_myaccount-inner {
+            width: 100%;
+        }
+        h1 {
+            margin: 0 0 5px 0;
+            font: normal 30px/40px $font_times;
+            color: #000;
+
+            @include respond-to(phones) {
+                margin-bottom: 15px;
+                font: 18px/18px $font_times;
+                text-transform: uppercase;
+            }
+        }
+        h2 {
+            margin: 0 0 12px 0;
+            padding: 0 0 9px 0;
+            display: block;
+            font: bold 16px/20px $font_times;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px dotted #ccc;
+        }
+    }
+}
+
+.b-replenishment {
+
+    &-descriptions, &-notification {
+        margin: 0 0 25px 0;
+        font: normal 16px/17px $font_arial;
+    }
+    &-nextorders {
+        margin: 0 0 30px 0;
+        font: normal 14px/16px $font_arial;
+        color: #000;
+
+        @include respond-to(phones) {
+            font: normal 12px/17px $font_arial;
+            color: #000;
+        }
+        a {
+            @include links(#000, underline, $color-dark_red);
+
+            font: bold 12px/16px $font_arial;
+
+            padding: 0 3px 0 0;
+        }
+        table {
+            width: 100%;
+            tr {
+                th {
+                    padding: 5px 5px 10px 5px;
+                    font: bold 14px/16px $font_arial;
+                    vertical-align: top;
+                    text-align: left;
+                    color: #000;
+                    border-bottom: 1px solid #000;
+
+                    @include respond-to(phones) {
+                        display: none;
+                    }
+                }
+                td {
+                    padding: 10px 5px;
+                    font: normal 14px/16px $font_arial;
+                    text-align: left;
+                    color: #000;
+                    vertical-align: top;
+                    &:first-child {
+                        min-width: 130px;
+
+                        @include respond-to(phones) {
+                            min-width: auto;
+                        }
+                    }
+                }
+                &:nth-child(2n+1) {
+                    td {
+                        background: #fafaf8;
+                    }
+                }
+            }
+        }
+        &_options {
+            margin: 0 0 15px 0;
+        }
+    }
+    &-creditcard {
+        margin: 0 0 30px 0;
+        font: normal 14px/16px $font_arial;
+        color: #000;
+        a {
+            @include links(#000, underline, $color-dark_red);
+
+            font: bold 12px/22px $font_arial;
+
+            padding: 0 3px 0 0;
+        }
+        &_title {
+            font-weight: bold;
+            line-height: 20px;
+        }
+    }
+    &-subscriptions {
+        margin: 0 0 30px 0;
+        table {
+            width: 100%;
+            tr {
+                th {
+                    padding: 5px 5px 10px 5px;
+                    font: bold 14px/16px $font_arial;
+                    vertical-align: top;
+                    text-align: left;
+                    color: #000;
+                    border-bottom: 1px solid #000;
+
+                    @include respond-to(phones) {
+                        display: none;
+                    }
+                    &.scheduled-orders-interval {
+                        width: 50px;
+                        text-align: left;
+                    }
+                }
+                td {
+                    padding: 10px 5px;
+                    font: normal 14px/16px $font_arial;
+                    text-align: left;
+                    color: #000;
+                    vertical-align: top;
+                    &:first-child {
+                        min-width: 130px;
+                        
+                        @include respond-to(tablets) {
+                            min-width: auto;
+                        }
+                        @include respond-to(phones) {
+                            min-width: auto;
+                        }
+                    }
+                    
+                    .replenish-product-list {
+                        width: 340px; 
+                        
+                        @include respond-to(tablets) {
+                            width: 270px;
+                        }
+                        @include respond-to(phones) {
+                            width: auto;
+                        }
+                    }
+                    .b-replenishment-product-name {
+                        width: 215px;
+                        display: inline-block;
+                        
+                        @include respond-to(tablets) {
+                            width: 150px;
+                        }
+                        
+                        @include respond-to(phones) {
+                            width: auto;
+                            display: block;
+                        }
+                    }
+                    .b-replenishment-interval {
+                        width: 103px;
+                        display: inline-block;
+                        text-align: left;
+                        vertical-align: top;
+                        padding: 0;
+                        float: right;
+                    }
+                }
+                &:nth-child(2n+1) {
+                    td {
+                        background: #fafaf8;
+                    }
+                }
+            }
+            .replenish-product-list {
+                li {
+                    margin: 0 0 10px 0;
+                    height: 32px;
+
+                    @include respond-to(phones) {
+                        font: normal 12px/17px $font_arial;
+                        color: #000;
+                        height: auto;
+                    }
+                    p {
+                        @include respond-to(phones) {
+                            font-weight: bold;
+                            font-size: 12px;
+                            line-height: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-actions {
+        font: bold 12px/16px $font_arial;
+        color: #000;
+
+        @include respond-to(phones) {
+            padding: 0;
+        }
+        a {
+            @include links(#000, underline, $color-dark_red);
+
+            padding: 0 3px 0 0;
+        }
+    }
+    &-date {
+        margin: 10px 0 0 0;
+        p {
+            margin: 0 0 3px 0;
+            font-weight: normal !important;
+        }
+        .label {
+            width: 50%;
+            display: inline-block;
+            padding: 0 10px 0 0;
+        }
+        .value {
+            width: 40%;
+            display: inline-block;
+            padding: 0;
+        }
+    }
+}
+
+/* Order Preview */
+.autoreplenish-edit-order {
+    font: normal 14px/16px $font_arial;
+    .orderheader {
+        padding: 0 0 10px 0;
+        margin: 0;
+        border-bottom: 1px solid #000;
+        .ordernumber, .logo {
+            display: none;
+        }
+        .orderdate {
+            padding: 0 0 5px 0;
+            .value {
+                font-weight: bold;
+            }
+        }
+    }
+    .orderpaymentdetails {
+        hr {
+            display: none;
+        }
+        ul {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            li {
+                margin: 0 0 15px 0;
+                font: normal 14px/18px $font_arial;
+                color: #000;
+
+                @include respond-to(phones) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+                &.exp_date {
+                    text-transform: uppercase;
+                }
+                h5 {
+                    padding: 0 0 5px 0;
+                }
+                a {
+                    @include links(#000, underline, $color-dark_red);
+
+                }
+                .shippingstatus {
+
+                    @include respond-to(phones) {
+                        margin: 5px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+    .ordershipments {
+        .detailscolumn {
+            position: relative;
+            padding: 15px 15px 15px 60px;
+            font-size: 12px;
+            max-width: 375px;
+
+            @include respond-to(phones) {
+                padding: 15px 10px 15px 50px;
+                max-width: 200px;
+            }
+            .productshortdescription {
+                display: none;
+            }
+            .orderdetailsproductname {
+                padding: 0;
+                font-weight: bold;
+
+                @include respond-to(phones) {
+                    padding: 0 0 5px 0;
+                    line-height: 16px;
+                }
+            }
+            .item_image {
+                position: absolute;
+                width: 50px;
+                top: 15px;
+                left: 0;
+            }
+            .productdescription {
+                color: #333;
+                font-size: 12px;
+                line-height: 16px;
+                padding: 0 0 3px 0;
+            }
+            select {
+                margin: 0 0 5px;
+                width: auto;
+                min-width: 80px;
+                max-width: 100%;
+
+                @include respond-to(phones) {
+                    padding: 0 10px 0 2px;
+                    margin: 1px 0;
+                    height: 18px;
+                    line-height: 12px;
+                    min-width: 35px;
+                    font-size: 9px;
+                    background-size: auto 4px;
+                }
+            }
+            .remove-ar-product {
+                margin-right: 100%;
+                display: none;
+            }
+            .shippingInterval, .remove-ar-product {
+                line-height: 16px;
+            }
+        }
+        td {
+            font-size: 12px;
+            line-height: 16px;
+
+            @include respond-to(phones) {
+                padding: 15px 5px 30px 0;
+            }
+            .quantity {
+                @include respond-to(phones) {
+                    display: none;
+                }
+            }
+        }
+        br {
+            display: none;
+        }
+    }
+    .placeordertotals {
+        @include clearfix;
+
+        .ordertotalstable {
+            float: right;
+
+            @include respond-to(phones) {
+                margin: 0 0 15px 0;
+            }
+            br {
+                display: none;
+            }
+            .ordertotal {
+                font-weight: bold;
+            }
+            td {
+                padding: 5px;
+                &:last-child {
+                    text-align: right;
+                    width: 80px;
+                }
+            }
+            .ordersalestax {
+                td {
+                    text-align: left;
+                }
+            }
+            .ordertotal {
+                td {
+                    border-top: 1px solid #000;
+                }
+            }
+        }
+    }
+    .order-actions {
+        width: auto;
+        float: left;
+        margin: 0 15px 0 0;
+        button {
+           @include button-black(0 25px);
+
+        }
+    }
+    .cancel-order-changes {
+        @include button-white(0 25px);
+
+    }
+}
+.change-address-dialog {
+    legend {
+        width: 100%;
+        display: block;
+        margin: 0 0 15px 0;
+        padding: 0 0 10px 0;
+        font: normal 18px/18px $font_times;
+        border-bottom: 1px dotted #ccc;
+        text-transform: uppercase;
+    }
+    .f_field {
+        width: 45%;
+        margin: 0 20px 15px 0;
+        display: inline-block;
+        vertical-align: top;
+
+        @include respond-to(phones) {
+            width: 100%;
+            margin: 0 0px 15px 0;
+        }
+
+        .f_label {
+            font: bold 12px/17px $font_helvetica;
+        }
+        &.f_field_hidden {
+            display: none;
+        }
+        &.required {
+            .f_label {
+                @include required;
+
+                position: relative;
+                padding: 0 0 0 10px;
+                &:before {
+                    color: #c03;
+                }
+            }
+        }
+        &.formfield_phone {
+            width: 100%;
+            margin-right: 0;
+            padding: 0 55% 0 0;
+
+            @include respond-to(phones) {
+                padding: 0;
+            }
+            .formfield_description {
+                color: #999;
+                font: normal 11px/13px $font_helvetica;
+                display: block;
+                margin: 4px 0 0;
+            }
+        }
+    }
+    .content_asset {
+        padding: 0 0 15px 0;
+        font: normal 12px/16px $font_helvetica;
+    }
+    .save-address {
+        @include button-black(0 25px);
+
+        margin: 0 15px 0 0;
+    }
+    .close-edit-address-popup {
+        @include button-white(0 25px);
+
+    }
+}
+/* END Order Preview */
+
+/* Cancel All dialog */
+.cancel-orders-dialog {
+    font: normal 14px/16px $font_arial;
+    
+    #confirmstopbuttons {
+        padding-top: 20px;
+    }
+    #confirmCancel {
+        @include button();
+        @include button-regular();
+        @include button-color-black();
+        
+        margin-right: 10px;
+    }
+    #stopCancel {
+        @include button();
+        @include button-regular();
+        @include button-color-white();
+    }
+}
+
+.change-order-address-dialog {
+    font: normal 14px/16px $font_arial;
+    
+    #confirmChangebuttons {
+        padding-top: 20px;
+    }
+    #confirmChange {
+        @include button();
+        @include button-regular();
+        @include button-color-black();
+        
+        margin-right: 10px;
+    }
+    #stopChange {
+        @include button();
+        @include button-regular();
+        @include button-color-white();
+    }
+}
+.ar-change-credit-card {
+	.submit_button {
+		@include respond-to(phones) {
+			margin-bottom: 10px;
+		}
+	}
+}
+

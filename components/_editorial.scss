@@ -1,0 +1,97 @@
+/*
+ * Editorial section
+ */
+
+.disableCommerce {
+
+	.l-header_right {
+		@include respond-to( phones ) {
+			position: inherit;
+		}
+	}
+
+	.b-header_signup-mobile {
+		@include respond-to( phones ) {
+			display: block;
+		}
+
+		.newsletter_subscribe_link {
+			@include respond-to( phones ) {
+				@include links( #000, none );
+
+				display: block;
+				position: relative;
+				float: right;
+				width: 51%;
+				height: 52px;
+				padding: 16px 0 0;
+				border-left: 1px solid #DDD;
+				font-size: 0;
+				text-align: center;
+				&:before {
+					@include font_icons( $icon_envelope );
+
+					font-size: 20px;
+					cursor: pointer;
+				}
+			}
+		}
+		.newsletter_subscribe_content {
+			@include background-img( 'login-popup/header-login-popup-rewards-bg.jpg', 0, repeat );
+
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			min-width: 320px;
+			padding: 30px 18px 80px;
+			text-align: center;
+
+			h3 {
+				line-height: 30px;
+				font-size: 29px;
+				font-weight: normal;
+			}
+			.subscribe_text {
+				margin: 0 0 35px;
+				line-height: 20px;
+				font-size: 19px;
+			}
+			.f_label {
+				display: block;
+				text-align: left;
+				font-size: 10px;
+			}
+			.f_email {
+				@include placeholder{ font-size: 0; }
+			}
+			.button {
+				@include button-black();
+
+				width: 100%;
+				margin: 17px 0 0;
+			}
+			.close {
+				@include links( #000, underline );
+
+				display: inline-block;
+				margin: 30px 0 0;
+				font-family: $font_helvetica;
+				font-size: 15px;
+				display:none;
+			}
+		}
+	}
+
+	.b-header_minicart {
+		display: none;
+	}
+	.ecommerceonly {
+		display: none !important;
+	}
+}
+
+.b-header_signup-mobile {
+	display: none;
+}

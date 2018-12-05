@@ -1,0 +1,57 @@
+/*
+ * Form validation styles
+ */
+
+.error_form,
+.error_message,
+.error,
+.newsletter_subscribe_error_message {
+	display: block;
+	color: #f00;
+	font: 11px/13px $font_helvetica;
+	margin-top: 4px;
+
+	.f_state_error & {
+		display: block;
+	}
+}
+
+.f_state_error {
+	input,
+	select {
+		border: 1px solid #f00;
+		
+		&:focus {
+			border-color: #f00;
+		}
+	}
+}
+
+.f_rqd-sign {
+	font-family: $font_helvetica;
+	color: #f00;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b; //?
+	}
+
+	@include respond-to(phones) {
+		font-weight: normal;
+	}
+}
+
+.signup_container { // Professional form. Maybe we find that this approach useful global
+
+	.f_error_message {
+		display: none;
+		position: static;
+		margin-top: 8px;
+	}
+
+	.f_state_error {
+		.f_error_message {
+			display: block; // Change me to templating configuration
+		}
+	}
+}

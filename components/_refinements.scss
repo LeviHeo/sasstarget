@@ -1,0 +1,526 @@
+/*
+ * Refinements
+ */
+
+.refinement_header{
+	margin: 0 0 22px;
+	color: #000;
+	font: 26px/28px $font_times;
+
+	@include respond-to(phones) {
+		display: none;
+
+		.plp .visible-mobile &,
+		.clp .visible-mobile &,
+		.pt_content_search_result .visible-mobile & {
+			display: block;
+			margin: 0;
+			padding: 30px 0 20px;
+			border: none;
+			text-align: center;
+			font-size: 30px;
+			line-height: 30px;
+		}
+	}
+
+	.plp &,
+	.pt_product_search_noresult &{
+		padding: 0 0 5px 0;
+		margin: 0 -30px 20px 0;
+		border-bottom: 1px solid #cbcbcb;
+	}
+}
+.b-search_refinement_header {
+	@include clearfix;
+
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #cbcbcb;
+
+	.refinement_header {
+		margin: 0;
+		width: 22.5%;
+		display: inline-block;
+		border: none;
+		float: left;
+
+		@include respond-to( tablets ) {
+			width: 34.5%;
+			padding: 0 21px 0 0;
+		}
+	}
+	.search_products_count {
+		margin: 0;
+		padding: 0 0 6px 0;
+		display: inline-block;
+		border: none;
+		width: 75%;
+		float: right;
+		font-weight: normal;
+
+		@include respond-to( tablets ) {
+			width: 65.5%;
+		}
+
+		.search_term {
+			font-weight: bold;
+		}
+	}
+}
+.pt_product_search_noresult h3.refinement_header{
+	color: #000;
+	font: 18px/20px $font_helvetica;
+	margin: 0 0 15px;
+	border: none;
+}
+.refinements_content{
+	padding-bottom: 20px;
+
+	@include respond-to(phones) {
+		display: none;
+		margin: 0 0 20px;
+		border: 1px solid #cccccc;
+		padding: 0;
+	}
+
+	.sticky-wrapper {
+		.stuck {
+			position: fixed;
+			top: 0;
+		}
+	}
+}
+.refinement_list_item {
+	&.unselectable {
+		a {
+			cursor: default;
+			color: #ddd;
+		}
+	}
+}
+.refinement{
+	padding: 0 0 15px;
+	clear: both;
+
+	@include respond-to(phones) {
+		padding: 0;
+	}
+
+	&_headline,
+	&_headlined_mobile{
+		background: none;
+		cursor: pointer;
+		font: bold 11px $font_helvetica;
+		text-transform: uppercase;
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+
+		@include respond-to(phones) {
+			height: 57px;
+			padding: 0 15px;
+			margin: -1px 0 0;
+			border-top: 1px solid #cccccc;
+			font: 14px/57px $font_times;
+		}
+
+		&:before {
+			@include font-icons( $icon_plus-checkered );
+
+			display: inline-block;
+			vertical-align: top;
+			width: 17px;
+			padding: 3px 0 0;
+			font-size: 8px;
+			line-height: 12px;
+
+			@include respond-to(phones) {
+				@include font-icons( $icon_plus );
+
+				width: auto;
+				padding: 0 3px 0 0;
+				float: right;
+				color: $color-dark_red;
+				font-size: 14px;
+				line-height: 57px;
+			}
+		}
+		&.expanded:before {
+			@include font-icons( $icon_minus-checkered );
+
+			display: inline-block;
+			vertical-align: top;
+			width: 17px;
+			font-size: 3px;
+			line-height: 12px;
+
+			@include respond-to(phones) {
+				@include font-icons( $icon_minus );
+
+				width: auto;
+				float: right;
+				color: $color-dark_red;
+				font-size: 14px;
+				line-height: 57px;
+			}
+		}
+	}
+	&_list{
+		padding: 20px 0 0 20px;
+
+		@include respond-to(phones) {
+			width: 100%;
+			padding: 0;
+		}
+
+		&.toggle_content.collapsed{
+			display: none;
+		}
+	}
+	&_list_item{
+		margin: 15px 0 0;
+		line-height: 14px;
+
+		@include respond-to(phones) {
+			margin: 0;
+			border-top: 1px solid #cccccc;
+		}
+
+		&:first-child{
+			margin: 0;
+		}
+		&.expandable{
+			text-transform: uppercase;
+
+			@include respond-to(phones) {
+				padding: 0;
+			}
+
+			&:before {
+				@include font-icons( $icon_plus-checkered );
+
+				display: inline-block;
+				vertical-align: top;
+				width: 16px;
+				margin: 0;
+				font-size: 8px;
+				line-height: 12px;
+				border: none;
+
+				@include respond-to(phones) {
+					@include font-icons( $icon_plus );
+
+					width: auto;
+					margin: 0 18px 0 0;
+					float: right;
+					color: $color-dark_red;
+					font-size: 14px;
+					line-height: 57px;
+				}
+
+				.pt_product_search_noresult &{
+					display: none;
+				}
+			}
+			&.active:before {
+				@include font-icons( $icon_minus-checkered );
+
+				margin: 0;
+				font-size: 3px;
+				line-height: 12px;
+
+				@include respond-to(phones) {
+					@include font-icons( $icon_minus );
+
+					width: auto;
+					margin: 0 18px 0 0;
+					float: right;
+					color: $color-dark_red;
+					font-size: 14px;
+					line-height: 57px;
+				}
+			}
+			& > a{
+				color: #000;
+				font: bold 11px $font_helvetica;
+
+				.ie8 & {
+					font-weight: normal;
+					font-family: $font_helvetica_b;
+				}
+
+				@include respond-to(phones) {
+					font: 14px/57px $font_times;
+				}
+			}
+		}
+	}
+	&_list_link {
+        @extend %checkbox_bg;
+		display: block;
+		min-height: 14px;
+		padding: 0 0 0 23px;
+		color: #4f4f4f;
+		font: 11px/14px $font_helvetica;
+		text-decoration: none;
+
+        .ie8 & {
+            @include background-img( 'ie-global-checkbox.png', 95% 21px, no-repeat);
+        }
+
+        &:hover {
+            @extend %checkbox_bg-focus;
+        }
+
+		@include respond-to(phones) {
+			background-position: right 20px top 21px !important;
+			height: 57px;
+			padding: 0 33px 0 40px;
+			margin: -1px 0 0;
+			border-top: 1px solid #ccc;
+			color: #000;
+			font: 13px/57px $font_times;
+			text-transform: none;
+		}
+
+		.selected & {
+            @extend %checkbox_bg-checked;
+
+            .ie8 & {
+                background-position: 95% -279px;
+            }
+
+            &:hover {
+                @extend %checkbox_bg-checked-focus;
+            }
+		}
+
+		.expandable > &,
+		.pt_product_search_noresult &{
+			background: none;
+			display: inline;
+			padding: 0;
+
+			@include respond-to(phones) {
+				display: block;
+				height: 57px;
+				margin: -1px 0 0;
+				padding: 0 15px 0 30px;
+				border-top: 1px solid #ccc;
+				font: 14px/57px $font_times;
+				text-transform: none;
+			}
+		}
+	}
+	.pt_product_search_noresult & .refinement_list_item > a{
+		color: #000;
+		font: bold 11px $font_helvetica;
+
+		.ie8 & {
+			font-weight: normal;
+			font-family: $font_helvetica_b;
+		}
+	}
+	.clear_refinement{
+		display: none;
+	}
+}
+.search_products_count{
+	display: block;
+	padding: 0 0 16px;
+	border-bottom: 1px solid #cccccc;
+	font: bold 18px $font_helvetica;
+	word-wrap: break-word;
+
+	.ie8 & {
+		font-weight: normal;
+		font-family: $font_helvetica_b;
+	}
+
+	@include respond-to(phones) {
+		padding: 0 0 20px;
+		color: #4f4f4f;
+		font: normal 18px/20px $font_helvetica;
+		text-align: center;
+		.search_term {
+			font-weight: bold;
+		}
+	}
+	span{
+		font-weight: normal;
+	}
+}
+.refinement_headlined_mobile{
+	display: block;
+	border: 1px solid #cccccc;
+	margin: 0 0 15px;
+
+	&.expanded {
+		display: none;
+	}
+}
+
+/* NEW MDC Refinements */
+.refinement_category_head {
+	@include respond-to(phones) {
+		margin: 0 -20px;
+		padding: 20px;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 100%;
+		color: #000;
+		text-transform: uppercase;
+		border-bottom: 1px solid #000;
+	}
+}
+.refinements_content .sort_by {
+	@include respond-to(phones) {
+		display: none;
+	}
+}
+.b-refinement-withcategory {
+	@include respond-to(phones) {
+		margin: 0 0 15px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	&.expanded {
+		.refinements_content {
+			display: block;
+		}
+	}
+
+	.refinement_headlined_mobile {
+		@include respond-to(phones) {
+			position: relative;
+			margin: 0;
+			border: none;
+			padding: 20px 20px 20px 0;
+			line-height: 1.4;
+			font: bold 14px/17px $font_helvetica_b;
+			text-transform: none;
+		}
+		&:before {
+			@include respond-to(phones) {
+				position: absolute;
+				top: 50%;
+				right: 7px;
+				line-height: 1;
+				margin: -6px 0 0;
+				padding: 0;
+				font-size: 12px;
+			}
+		}
+		&:after {
+			@include respond-to(phones) {
+				@include vendor-prefix(border-radius, 22px);
+
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 2px;
+				width: 22px;
+				height: 22px;
+				margin: -11px 0 0;
+				border: 2px solid $color-dark_red;
+			}
+		}
+		&.expanded {
+			@include respond-to(phones) {
+				display: block;
+			}
+		}
+	}
+
+	.refinements_content {
+		@include respond-to(phones) {
+			margin: 0 0 15px;
+			border: none;
+		}
+	}
+	.clear-button {
+		@include respond-to(phones) {
+			display: block;
+			width: 100%;
+			height: 38px;
+			line-height: 38px;
+			margin: 15px 0 0;
+			padding: 0;
+			background: #fff;
+			border: 1px solid #ccc;
+			color: #4f4f4f;
+			font: 12px/36px normal $font_helvetica;
+			text-align: center;
+			text-transform: uppercase;
+			text-decoration: none;
+			&:before {
+				@include font_icons($icon_menu-close);
+
+				display: inline-block;
+				vertical-align: top;
+				line-height: 36px;
+				margin: 0 5px 0 0;
+				font-size: 8px;
+			}
+		}
+	}
+	.refinements_box {
+		@include respond-to(phones) {
+			margin: 15px 0 0;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+	}
+	.sort_by {
+		display: block;
+	}
+	.sort_by_submit {
+		@include respond-to(phones) {
+			display: none;
+		}
+	}
+	fieldset {
+		@include respond-to(phones) {
+			@include clearfix;
+		}
+	}
+	.sort_by_label {
+		@include respond-to(phones) {
+			float: left;
+			font: normal 15px/30px $font_times;
+			text-transform: uppercase;
+		}
+	}
+	.sort_by_list {
+		@include respond-to(phones) {
+			width: 140px;
+			display: block;
+			float: right;
+		}
+	}
+}
+
+.pt_product_search_result.plp .refinements_container .refinement_header_box .refinement_header {
+	display: none;
+	/*@include respond-to(phones) {
+		display: block;
+	}*/
+}
+@include respond-to(phones) {
+	.pt_product_search_result {
+		&.clp {
+			.search_result_options {
+				margin: 0;
+				.sort_by {
+					display: none;
+				}
+			}
+			.search_products_count {
+				margin: 0 0 10px 0;
+				border: none;
+			}
+		}
+	}
+}

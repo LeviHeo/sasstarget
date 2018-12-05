@@ -1,0 +1,344 @@
+/*
+ * Payment Methods / Cards
+ */
+
+.b-payment_methods {
+	padding-bottom: 20px;
+
+	&-title {
+		font: normal 30px/40px $font_times;
+		margin: 0 0 7px;
+
+		@include respond-to(phones) {
+			margin-bottom: 15px;
+			font: 18px/18px $font_times;
+			text-transform: uppercase;
+		}
+	}
+	&-description,
+	.payment_list_empty {
+		font: 16px/20px $font_arial;
+		margin-bottom: 22px;
+	}
+	h3 {
+		display: inline-block;
+		font: bold 16px/20px $font_times;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+
+		@include respond-to(phones) {
+			font-size: 18px;
+			letter-spacing: 0;
+			margin-bottom: 20px;
+		}
+	}
+	&-link {
+		@include links(#000, underline, $color-dark_red);
+
+		float: right;
+		font: 12px/20px $font_arial;
+
+		@include respond-to(phones) {
+			@include button-black(0 12px);
+
+			width: 100%;
+			margin-bottom: 25px;
+			float: none;
+			color: #fff !important;
+			text-decoration: none !important;
+		}
+	}
+	&-content {
+		@include clearfix;
+
+		margin: 9px 0 8px;
+		padding: 0 0 20px;
+		font: 14px/20px $font_arial;
+		border-top: 1px dotted #bdbdbd;
+		border-bottom: 1px dotted #bdbdbd;
+
+		@include respond-to(phones) {
+			border: none;
+			margin: 0 0 25px;
+			padding: 0;
+		}
+	}
+	.button {
+		@include button-black();
+
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+
+	&-item {
+		@include clearfix;
+
+        position: relative;
+		border-top: 1px solid #e7e7e7;
+		padding: 67px 0 10px;
+
+		@include respond-to(phones) {
+            border-top: 1px dotted #bdbdbd;
+		}
+
+		&:first-child {
+			border-top: none;
+		}
+		h4 {
+			color: #999;
+			margin-bottom: 5px;
+		}
+		.label {
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+		.f_field_radio {
+			@include respond-to(phones) {
+				padding-bottom: 15px;
+			}
+			.f_label_value {
+				font: 14px/14px $font_arial;
+				color: #666;
+			}
+			&.f_checked {
+                display: inline-block;
+                position: absolute;
+                top: 18px;
+                left: 0;
+                right: 0;
+                height: 35px;
+                padding: 11px 12px;
+                background: #FAFAF8;
+
+				@include respond-to(phones) {
+					padding: 0 0 15px;
+					background: none;
+					height: auto;
+				}
+
+				.f_label_value {
+					font-weight: bold;
+					color: #000;
+				}
+			}
+		}
+		.creditcard_info {
+			width: 59%;
+			padding-right: 20px;
+			float: left;
+
+			@include respond-to(phones) {
+				width: 100%;
+				padding-bottom: 20px;
+			}
+		}
+		.billingaddress_info {
+			width: 41%;
+			float: left;
+
+			@include respond-to(phones) {
+				width: 100%;
+			}
+		}
+		&-actions {
+			float: right;
+			text-align: right;
+			padding-top: 20px;
+
+			@include respond-to(phones) {
+				padding-top: 0;
+			}
+		}
+		.delete,
+		.button_edit {
+			@include links (#000, underline, $color-dark_red);
+
+			display: inline-block;
+			font: 12px/15px $font_arial;
+		}
+		.b-button_delete {
+			display: inline-block;
+
+			form,
+			fieldset {
+				display: inline-block;
+			}
+			.delete {
+				background: none;
+				border: none;
+				padding: 0;
+				text-decoration: underline;
+			}
+		}
+		.button_edit {
+			&:after {
+				content: '';
+				display: inline-block;
+				height: 15px;
+				width: 1px;
+				margin: 0 4px 0 8px;
+				background: #000;
+				vertical-align: bottom;
+			}
+		}
+		&-set_default {
+			display: inline-block;
+            position: absolute;
+            top: 18px;
+            left: 0;
+            right: 0;
+            height: 35px;
+            padding: 11px 12px;
+            background: #FAFAF8;
+
+			@include respond-to(phones) {
+				padding: 0;
+                background: transparent;
+			}
+
+			form,
+			fieldset {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.b-addcard {
+	&-content {
+		@include clearfix;
+
+		margin: 9px 0 0;
+		padding: 12px 0 0;
+		font: 14px/20px $font_arial;
+		border-top: 1px dotted #bdbdbd;
+
+		@include respond-to(phones) {
+			border: none;
+			margin: 0 0 25px;
+			padding: 0;
+		}
+	}
+	&-subtitle {
+		font-weight: bold;
+		margin: 5px 0 2px;
+	}
+	&-types {
+		margin: 15px 0;
+	}
+}
+
+.b-card_form {
+	fieldset {
+		@include clearfix;
+	}
+	&-legend {
+		font: bold 14px/20px $font_arial;
+		color: #999;
+		margin-bottom: 10px;
+	}
+	.account-paymentinstrument-cardlegend {
+		padding: 5px 0 25px;
+	}
+	.formfield_number,
+	.formfield_checkbox,
+	.formfield_address1,
+	.formfield_country,
+	.formfield_state {
+		clear: both;
+	}
+	&-note {
+		width: 100%;
+		float: left;
+		margin-bottom: 15px;
+		font: 12px/17px $font_arial;
+	}
+	.f_field {
+		&.formfield_label {
+			margin: 0;
+			padding: 0;
+		}
+		&.formfield_number {
+			.f_error_message {
+				float: left;
+			}
+		}
+		&.formfield_month {
+			width: 155px;
+			padding-right: 15px;
+
+			@include respond-to(phones) {
+				width: 50%;
+				float: left;
+			}
+		}
+		&.formfield_year {
+			width: 100px;
+			padding-right: 0;
+
+			@include respond-to(phones) {
+				width: 50%;
+				float: left;
+			}
+		}
+		&.formfield_city {
+			@include respond-to(phones) {
+				width: 60%;
+				padding-right: 10%;
+				float: left;
+			}
+		}
+		&.formfield_state {
+			@include respond-to(phones) {
+				width: 40%;
+				clear: none;
+				float: left;
+			}
+		}
+		&.formfield_zip {
+			width: 32%;
+
+			@include respond-to(phones) {
+				width: 50%;
+				float: left;
+			}
+
+			.f_error_message {
+				width: 300px;
+
+				@include respond-to(phones) {
+					width: 100%;
+				}
+			}
+		}
+		&.formfield_phone {
+			position: relative;
+			clear: both;
+
+			.f_field_description {
+				color: #999;
+                font: normal 11px/13px $font_helvetica;
+                display: block;
+                margin: 4px 0 0;
+			}
+		}
+	}
+	.f_field_description {
+		color: #999;
+        font: normal 11px/13px $font_helvetica;
+        display: block;
+        margin: 4px 0 0;
+	}
+	.required_indicator {
+		float: left;
+		width: 100%;
+
+		@include respond-to(phones) {
+			float: none;
+			padding-bottom: 5px !important;
+		}
+	}
+}
+
+

@@ -1,0 +1,12 @@
+/*
+ * Textareas
+ */
+
+textarea,
+.f-textarea {
+	min-height: 83px;
+	border: 1px solid #ccc;
+	font-family: $font_helvetica;
+	color: #4F4F4F;
+	resize: vertical;
+}

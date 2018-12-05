@@ -1,0 +1,31 @@
+/*
+ * Placeholder styles
+ */
+
+// IE placeholder
+.f_placeholder_wrapper {
+	position: relative;
+	display: block !important;
+
+	.f_placeholder {
+		display: block;
+		position: absolute;
+		top: 1px !important;
+		left: 1px !important;
+		width: 100% !important;
+		height: 25px !important;
+		padding: 6px 5px;
+		font-family: $font-helvetica;
+		font-size: 12px;
+		line-height: 1;
+		color: #b8b8b8;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: left;
+	}
+
+	input:focus + .f_placeholder {
+		font-size: 0;
+	}
+}

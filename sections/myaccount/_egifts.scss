@@ -1,0 +1,482 @@
+// Generic class for content layout
+
+.l-page {
+	@include clearfix;
+	padding-top: 20px; // maybe this padding should be on breadcrumbs
+
+	@include respond-to(phones) {
+		padding-top: 0;
+	}
+}
+
+.l-page_aside-first {
+	width: 227px;
+	float: left;
+	margin-right: 20px;
+
+	@include respond-to(phones) {
+		width: auto;
+		float: none;
+		margin: 0;
+	}
+}
+
+.l-page_main {
+	position: relative;
+	padding: 0 0 30px;
+	width: auto; // overwrite .primary
+	float: none; // overwrite .primary
+	overflow: hidden; // floating prohibition. Potential bug-maker
+
+	@include respond-to(phones) {
+		overflow: visible;
+	}
+}
+
+// Purchase gift Aside
+
+.purchase-gift-sert-page {
+
+	.refinements_content {
+		@include respond-to(phones) {
+			display: block;
+			margin-bottom: 0;
+			border: none;
+		}
+
+		&.expanded {
+			.b-category-left_navigation {
+				display: block;
+			}
+		}
+	}
+
+	.refinement_header {
+		margin: 0 0 14px;
+		padding-bottom: 4px;
+		font: normal 32px/1 $font_times;
+		border-bottom: 1px dotted #ccc;
+
+		@include respond-to(tablets) {
+			font-size: 24px;
+			line-height: 32px;
+			margin-bottom: 0;
+		}
+
+		@include respond-to(phones) {
+			display: block;
+			position: relative;
+			margin: 0 -20px;
+			padding: 19px 60px 19px 20px;
+			font: bold 20px/22px $font_times;
+			border-bottom: 2px solid #000;
+			cursor: pointer;
+
+			&:after {
+				@include font_icons( $icon_plus );
+
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				margin: -10px 0 0;
+				color: $color-dark_red;
+			}
+		}
+	}
+}
+.refinements_content.expanded .refinement_header {
+	@include respond-to(phones) {
+		border: none !important;
+	}
+}
+
+// E-gifts
+
+.purchase-gift-sert-page .l-page_main {
+	border-top: 1px dotted #ccc;
+	margin-top: 36px;
+
+	@include respond-to(phones) {
+		margin-top: 0;
+	}
+
+	> h1 {
+		margin: 16px 0 6px;
+		line-height: 1;
+
+		@include respond-to(phones) {
+			margin-bottom: 33px;
+		}
+	}
+}
+
+// form_gift-cert
+
+.gift-certificate_title {
+	margin: 0 0 20px;
+	font: bold 18px/24px $font_times;
+	text-transform: uppercase;
+
+	@include respond-to(tablets) {
+		font-size: 20px;
+		margin-bottom: 13px;
+	}
+
+	@include respond-to(phones) {
+		text-transform: none;
+		font-size: 24px;
+		margin-bottom: 16px;
+	}
+}
+
+.f_fieldset-grey {
+	padding: 25px;
+	background: #ebebeb;
+
+	&.gift_cert_check_balance {
+		padding-right: 40px;
+
+		@include respond-to(phones) {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	@include respond-to(tablets) {
+		padding: 10px 30px;
+	}
+
+	@include respond-to(phones) {
+		margin: 0 -20px;
+		padding: 11px 35px;
+	}
+}
+
+.f_gift-cert {
+	width: 49.5%;
+	display: inline-block;
+	vertical-align: top;
+
+	form {
+		max-width: 272px;
+
+		&.gift_cert_check_balance {
+			max-width: 330px;
+		}
+	}
+
+	.f_label_value {
+		font-weight: bold;
+
+		@include respond-to(phones) {
+			font-size: 15px;
+			line-height: 25px;
+		}
+	}
+
+	.f_field {
+		margin-top: 9px;
+	}
+
+	textarea {
+		width: 100%;
+		min-height: 86px;
+		resize: vertical;
+
+		@include respond-to(phones) {
+			min-height: 184px;
+		}
+	}
+
+	.char-count {
+		margin-top: 6px;
+		line-height: 15px;
+	}
+
+	.char-remain-count {
+		color: #F00;
+	}
+
+	.gift-cert-balance-submit {
+		margin-bottom: 0;
+
+		& + .error_message {
+			margin-top: 10px;
+		}
+	}
+
+	button {
+		@include button-black(0 22px, 18px, 38px);
+		margin-top: 10px;
+		min-width: 235px;
+
+		@include respond-to(tablets) {
+            @include button-size(0 22px, 20px);
+		}
+
+		@include respond-to(phones) {
+			width: 100%;
+		}
+	}
+
+	.balance {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+@include respond-to(phones-tablets) {
+	.f_gift-cert {
+		display: block;
+		width: auto;
+		margin-bottom: 30px;
+
+		form {
+			max-width: none;
+
+			&.gift_cert_check_balance {
+				max-width: none;
+			}
+		}
+	}
+}
+
+@include respond-to(tablets) {
+	.f_gift-cert {
+
+		.f_field_textinput,
+		.f_field_email {
+			display: inline-block;
+			vertical-align: top;
+			width: 47.5%;
+
+			&.formfield_gift_certificate_from,
+			&.formfield_gift_certificate_recipient_email,
+			&.formfield_gift_certificate_id {
+				margin-right: 4%;
+			}
+		}
+
+	}
+}
+
+@include respond-to(phones) {
+	.f_gift-cert {
+		margin-bottom: 13px;
+	}
+}
+
+// Assets
+
+// generic
+
+.gift-check-balance,
+.purchase-giftcertificate-header,
+.gift-additional-details,
+.gift-additional-details_content {
+	font: normal 16px/24px $font_arial;
+	margin-bottom: 8px;
+
+	@include respond-to(phones) {
+		font-size: 12px;
+		line-height: 17px;
+	}
+
+	p {
+		margin-bottom: 20px;
+	}
+
+	ul {
+		margin: 10px 0;
+		padding: 0;
+		list-style: none;
+		font-size: 14px;
+		line-height: 18px;
+
+		@include respond-to(phones) {
+			font-size: 12px;
+			line-height: 15px;
+		}
+
+		li {
+			margin-bottom: 14px;
+			padding-left: 25px;
+			@include background-img('bg-list-dot-medium-black.png', 6px .4em, no-repeat);
+		}
+	}
+
+}
+
+// particular
+
+.gift-check-balance {
+	@include respond-to(tablets) {
+		margin-bottom: 28px;
+	}
+
+	@include respond-to(phones) {
+		padding-top: 13px;
+		border-top: 1px dotted #ccc;
+	}
+}
+
+.purchase-giftcertificate-header {
+	@include background-img('bg-divider-horiz-logo-gray.png', center bottom, no-repeat);
+	margin-bottom: 23px;
+	padding-bottom: 16px;
+
+	@include respond-to(tablets) {
+		margin-bottom: 25px;
+		padding-bottom: 21px;
+	}
+
+	@include respond-to(phones) {
+		margin-bottom: 20px;
+		padding-bottom: 18px;
+	}
+
+	img {
+		display: block;
+		margin: -8px auto 5px;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+
+		@include respond-to(tablets) {
+			margin: 22px 0 42px;
+		}
+	}
+
+	p {
+		padding-right: 40px;
+	}
+}
+
+.gift-additional-details {
+	margin-top: 16px;
+	font-size: 12px;
+	line-height: 18px;
+
+	@include respond-to(phones) {
+		margin-top: 0;
+	}
+
+	h2 {
+		font-size: 14px;
+		margin-bottom: 16px;
+	}
+
+	.gift-additional-details_content { // Used in modal too
+
+		h2 {
+			@include respond-to(phones) {
+				padding-bottom: 20px;
+				margin: 2px 0 20px;
+				font: normal bold 18px/24px $font_times;
+				text-align: center;
+				text-transform: uppercase;
+				border-bottom: 1px dotted #ccc;
+			}
+		}
+	}
+
+	// toggle block
+
+	.toggle-to-modal_link {
+		@include links(#000, none);
+		display: block;
+		cursor: pointer;
+
+		@include respond-to(phones-tablets) {
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		@include respond-to(tablets) {
+			margin-top: -7px;
+		}
+
+		@include respond-to(phones) {
+			text-align: center;
+		}
+	}
+
+	.toggle-to-modal_link_ln {
+		text-decoration: underline;
+	}
+
+	.toggle-to-modal_content {
+		display: none;
+		overflow: hidden;
+	}
+
+	.toggle-to-modal_link_ico {
+		width: 24px;
+		height: 24px;
+		margin-left: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 24px;
+		color: #ed1d25;
+		text-decoration: none;
+
+		&:after {
+			@include font_icons($icon_arrow-circle-right);
+			@include transition(all, .2s, linear);
+			display: block;
+
+			@include respond-to(phones) {
+				@include font_icons($icon_arrow-circle-down);
+			}
+		}
+
+		@include respond-to(tablets) {
+			width: 35px;
+			height: 35px;
+			font-size: 35px;
+		}
+
+		@include respond-to(phones) {
+			display: block;
+			width: 45px;
+			height: 45px;
+			margin: 0 auto 15px;
+			font-size: 45px;
+		}
+	}
+
+	.toggle-to-modal_link.js-expanded {
+		.toggle-to-modal_link_ico:after {
+			@include rotate(90);
+
+			.ie8 &,
+			.ie9 & {
+				@include font_icons($icon_arrow-circle-down);
+			}
+		}
+	}
+
+}
+
+.js_gcError {
+	display: block !important;
+	position: relative;
+	min-height: 20px;
+	margin: 0;
+	padding: 3px 0 0 22px;
+	white-space: normal;
+
+	&:before {
+        @include sprite-image($global-error-icon);
+        @include sprite-position($global-error-icon);
+
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 19px;
+		height: 20px;
+		margin: -10px 0 0;
+	}
+}

@@ -1,0 +1,402 @@
+/*
+ * Product Tiles
+ */
+.b-custom-product_tile-wrapper {
+    width: 32.6%;
+    float: left;
+    padding: 2px;
+    margin: 0 5px 18px 0;
+    border: 2px solid #cccccc;
+    position: relative;
+
+    @include respond-to(tablets) {
+        width: 49%;
+        margin-right: 1%;
+    }
+    @include respond-to(phones) {
+        width: 48.5%;
+        margin: 0 1.5% 20px 0;
+    }
+
+    .b-product_tile{
+        height: 356px;
+        position: relative;
+        padding: 0 10px 15px;
+        border: 1px solid #ccc;
+        text-align: left;
+
+        .rr-disabled & {
+            padding-top: 20px;
+
+            @include respond-to(phones) {
+                padding-top: 10px;
+            }
+        }
+    }
+    .b-product_img-topwrapper{
+        position: relative;
+        padding: 0 0 2px 0;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+
+        .b-product_img-link{
+            display: block;
+            height: 194px;
+            line-height: 194px;
+        }
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 100%;
+            max-height: 194px;
+            text-indent: -999em;
+        }
+    }
+    .b-product_img-topwrapper + .carousel{
+        display: none;
+    }
+    .product_name {
+        display: block;
+        height: 38px;
+        margin: 8px 0;
+        font: 18px/18px $font_times;
+        overflow: hidden;
+        color: #000;
+        text-decoration: none;
+
+        &:hover {
+            color: #000;
+            text-decoration: underline;
+
+            span {
+                text-decoration: underline;
+            }
+        }
+
+        @include respond-to(phones){
+            height: 74px;
+            font: 16px/18px $font_times;
+            text-align: center;
+        }
+    }
+    span.product_name {
+        text-decoration: none !important;
+
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+    .product_description{
+        height: 27px;
+        margin: 0 0 9px;
+        overflow: hidden;
+        color: #4f4f4f;
+        font: 11px/13px $font_helvetica;
+
+        @include respond-to(phones){
+            display: none;
+        }
+    }
+    .product_size{
+        height: 20px;
+        padding: 0 95px 0 0;
+        margin: 0 0 5px;
+        border-bottom: 1px dotted #767676;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font: 11px/14px $font_helvetica;
+
+        @include respond-to(phones){
+            display: none;
+        }
+    }
+    .product_compare,
+    .promotion{
+        display: none;
+    }
+    .b-price{
+        @include clearfix;
+
+        width: 100%;
+        float: right;
+        margin: 0 0 5px;
+        border-bottom: 1px dotted #767676;
+        color: #000;
+        font: 12px/14px $font_helvetica;
+        font-weight: bold;
+        text-align: right;
+
+        .rr-disabled & {
+            border-bottom: none;
+        }
+        .ie8 & {
+            font-weight: normal;
+            font-family: $font_helvetica_b;
+        }
+
+        @include respond-to(tablets){
+            font: 10px/12px $font_helvetica;
+        }
+
+        @include respond-to(phones){
+            position: relative;
+            border: none;
+            padding: 0;
+            margin: 0;
+            float: none;
+            color: #4f4f4f;
+            font-size: 10px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .product_price{
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 0 5px;
+
+            @include respond-to(phones){
+                padding: 0;
+                border: none;
+            }
+        }
+        .price_standard{
+            padding: 0 4px 0 0;
+            color: #4f4f4f;
+            font-weight: normal;
+            text-decoration: line-through;
+
+            & + .price_sale{
+                color: #c00;
+            }
+        }
+        .b-product_price-title{
+            display: none;
+        }
+    }
+    .product_name + .b-price{
+        margin: 35px 0 5px;
+
+        @include respond-to(phones) {
+            margin-top: 0;
+        }
+    }
+    .b-price + .product_size {
+        border-bottom: none;
+    }
+    .product_name + .b-price + .product_size{
+        margin: 43px 0 5px;
+    }
+    .inline_rating_label_link{
+        display: none;
+    }
+    .ui-rating-title{
+        clear: both;
+        display: block;
+        height: 12px;
+        color: #4f4f4f;
+        font: 11px/1 $font_helvetica;
+        text-decoration: none;
+
+        @include respond-to(phones) {
+            margin: 10px 0 3px;
+            text-align: center;
+        }
+    }
+    .inline_rating_link{
+        display: block;
+        height: 31px;
+        clear: both;
+        text-decoration: none;
+
+        @include respond-to(phones){
+            height: 21px;
+            text-align: center;
+        }
+    }
+    .quickviewbutton{
+        @include background-img( 'bg_paper.jpg', 0 0, repeat );
+
+        display: none;
+        width: 100%;
+        height: 34px;
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        color: #000;
+        font: 18px/34px $font_times;
+        text-decoration: none;
+        text-align: center;
+        background-color: #f7f2ea;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+
+            .ie8 & {
+                display: none;
+            }
+        }
+
+        &:hover {
+            &:before {
+                border: 1px solid #412500;
+            }
+        }
+    }
+
+    &:hover .quickviewbutton,
+    &.hover .quickviewbutton {
+        display: block;
+
+        @include respond-to( phones ) {
+            display: none;
+        }
+    }
+}
+.capture_product_id {
+    display: none;
+}
+
+
+/* Product badges */
+.product-badge{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 45px;
+    text-align: center;
+
+    .pt_product_details &{
+        width: 80px;
+        top: 30px;
+        left: 30px;
+
+        @include respond-to(phones) {
+            width: 45px;
+        }
+    }
+    img{
+        max-width: 100%;
+        vertical-align: top !important;
+        cursor: default !important;
+    }
+    .badge-text{
+        max-height: 30px;
+        overflow: hidden;
+    }
+}
+
+// BV rating
+.bv-rating,
+.bv-rating_item,
+.bv-rating_empty,
+.bv-rating_value {
+    display: inline-block;
+}
+.bv-rating {
+    position: relative;
+    font-size: 0;
+}
+.bv-rating_item {
+    @include sprite-image($rating-point);
+    @include sprite-position($rating-point);
+    vertical-align: middle;
+    margin: 0 0 0 2px;
+    -webkit-font-smoothing: antialiased;
+    height: 12px;
+    width: 12px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+.bv-rating_empty {
+    white-space: nowrap;
+
+    .bv-rating_item {
+        @include sprite-position($rating-point-empty);
+    }
+}
+.bv-rating_value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .bv-rating_item {
+        color: #F00;
+    }
+}
+/*---- end Bazaar Voice rating ----*/
+
+/* Samples */
+.js-issample-product {
+    .b-custom-product_tile-wrapper {
+        .product_image_topwrapper {
+            padding: 10px 0;
+        }
+        .product_name {
+            height: 56px;
+            margin: 9px 0;
+
+            @include respond-to(phones) {
+                height: 74px;
+            }
+        }
+        .fullsize_productimage_for_sample {
+            border-top: 1px dotted #767676;
+            width: 100%;
+            height: 65px;
+            text-align: right;
+            padding: 5px 0;
+
+            @include respond-to(phones) {
+                height: 50px;
+            }
+
+            .quickviewbutton {
+                display: none !important;
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+
+                @include respond-to(phones) {
+                    margin-right: -4px;
+                }
+            }
+        }
+        .inline_rating_link,
+        .ui-rating-title,
+        .start {
+            position: absolute;
+        }
+        .ui-rating-title {
+            bottom: 37px;
+            @include respond-to(phones) {
+                font-size: 9px;
+                bottom: 22px;
+            }
+        }
+        .inline_rating_link {
+            bottom: 6px;
+
+            @include respond-to(phones) {
+                bottom: 7px;
+            }
+        }
+        .start {
+            bottom: 18px;
+
+            @include respond-to(phones) {
+                bottom: 9px;
+            }
+        }
+    }
+}
